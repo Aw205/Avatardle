@@ -1,0 +1,29 @@
+<div class="flip-card">
+    <div class="flip-card-inner" [class.card-transition]="flipTile" [class.no-transition]="!data.hasTransition">
+        <div class="flip-card-front" [style.backgroundPosition]="data.backgroundPosition"></div>
+        <div class="flip-card-back" [class]="data.isCorrect ? 'correct': 'incorrect'">
+            @if(data.episodeName){
+            @if(data.arrowDir){
+            <img [src]="data.imageUrl" class="episode-arrow" [style.transform]="data.arrowDir">
+            }
+            {{data.episodeName}}
+            }
+            @else if(data.imageUrl){
+            <img [src]="data.imageUrl" style="width:50%;" class="img" [matTooltip]="data.element!" matTooltipPosition="below">
+            }
+            @else if(data.affiliations){
+
+            <div id="tag-container">
+
+                @for(tag of data.affiliations; track tag;){
+                <div style="border-radius: 0.5rem; padding:0 0.5rem; width: 120%; white-space: nowrap; background-color: rgb(30, 30, 30);"
+                    [class]="getTag(tag)">{{tag}}</div>
+                }
+            </div>
+            }
+            @else if(data.text){
+            {{data.text}}
+            }
+        </div>
+    </div>
+</div>

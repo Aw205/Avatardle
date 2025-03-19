@@ -1,0 +1,35 @@
+#episode-frame {
+
+    display:block;
+    width: 100%;
+    pointer-events: none;
+    transform: scale(2);
+}
+
+.df{
+
+    transition: transform 0.3s 0.5s;
+}
+
+
+#image-wrapper{
+
+    overflow: hidden;
+    box-shadow: 0px 0px 1rem 40px #00000082;
+    margin-bottom: 0rem;
+}
+
+.incorrect-picture-guess {
+
+    display: block;
+    margin: auto;
+    background-color: rgb(30, 30, 30);
+    width: 25rem;
+    border: 1px solid rgb(40, 40, 40);
+    padding: 0.5rem;
+    text-align: center;
+    font: 1rem avatar2;
+    color: indianred;
+    margin-bottom: 1rem;
+
+}

@@ -1,0 +1,16 @@
+.category {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font: bolder 1rem avatar2;
+    color: goldenrod;
+    background-color: black;
+    border-radius: 1vh;
+    border-bottom: 1px solid silver;
+    max-width: 9rem; 
+    min-width: 9rem;
+
+}
+

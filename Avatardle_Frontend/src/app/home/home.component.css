@@ -1,0 +1,40 @@
+.menu-container {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.menu-container:hover>div {
+    transform: rotate(45deg);
+}
+
+.menu-container>span {
+
+    margin: 0;
+    padding-left: 20px;
+    text-align: left;
+    background-color: rgb(30, 30, 30);
+    border-radius: 10px;
+    width: 14vw;
+    font: 4rem avatar2;
+    color: white;
+}
+
+.paisho-sprite {
+
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/paisho_tiles.webp');
+    background-size: 600% 200%;
+    background-position: 0px 0;
+    transition: transform 0.5s;
+
+}
+
+.paisho-sprite:hover {
+    transform: rotate(45deg);
+}

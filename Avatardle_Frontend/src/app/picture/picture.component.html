@@ -1,0 +1,31 @@
+<div
+    style="display: flex; justify-content: center; position:relative; width: 50%; margin:auto; margin-top: 6vh; margin-bottom: 1vh;">
+    <img src="images/sokka_eyeglass.webp" class="search-symbol">
+    <input type="text" placeholder="search..." class="search-bar" spellcheck="false" autocomplete="off"
+        (input)="onInput()" (focusout)="onFocusOut()" (focusin)="isVisible=true;" (keydown.enter)="onEnter()"
+        [(ngModel)]="searchVal" [disabled]="progress.picture.complete" [class.search-complete]="progress.picture.complete"/>
+
+    @if (isVisible) {
+    <ul id="myUL" style="z-index: 2;">
+        @for (episode of episodeList; track episode){
+        <li style="white-space: pre;" (click)="onEnter(episode)"><span
+                style="color:goldenrod;">{{episode.substring(0,6)}}</span>{{episode.substring(6)}}</li>
+        }
+    </ul>
+    }
+</div>
+
+<div style="position:relative; font: 1rem avatar2; color: gray; text-align: center; z-index: 1;"> <tm-ng-odometer [number]="($stat | async)?.classic_completion ?? 0" [theme]="'minimal'" style="color:darkgoldenrod;"></tm-ng-odometer> people completed today!</div>
+<div style="display: flex; flex-direction: column; width: 50%;margin: auto; margin-top: 1vh;">
+    <div id="image-wrapper">
+        <img [src]="targetFrame" id="episode-frame" alt="A frame from an episode of Avatar: The Last Airbender" [class.df]="addt"
+            [style.transform]="'scale('+ scaleRatio + ')'" [style.filter]="'grayscale('+ grayscaleRatio +')'">
+
+    </div>
+    <div style="font:1rem Georgia; color: dimgray; text-align: right;">{{scaleRatio}}&times;</div>
+</div>
+
+@for (ans of incorrectAnswers; track ans){
+<div class="incorrect-picture-guess"> <span style="color: darkgoldenrod;"> {{ans.substring(0,6)}} </span>
+    {{ans.substring(6)}} </div>
+}

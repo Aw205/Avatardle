@@ -1,0 +1,303 @@
+.correct {
+    box-shadow: 0 0 3rem 0.2rem rgba(0, 128, 0, 0.484);
+}
+
+.incorrect {
+
+    box-shadow: 0 0 3rem 0.2rem rgba(255, 0, 0, 0.574);
+}
+
+.flip-card {
+    width: 7vw;
+    height: 7vw;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform ease-in-out 1s, opacity 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card-transition {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front {
+    position: absolute;
+    background-image: url(../../assets/images/paisho_tiles.webp);
+    background-size: 600% 200%;
+    background-position: 0px 0;
+    filter: brightness(70%);
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: beige;
+    font: 0.8rem avatar2;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(30, 30, 30);
+    transform: rotateY(180deg);
+    background-size: 65%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+}
+
+.episode-arrow {
+
+    position: absolute;
+    width: 90%;
+    opacity: 0.5;
+    z-index: -1;
+    user-select: none;
+}
+
+.img {
+    transition: scale 200ms linear;
+
+}
+.img:hover {
+    scale: 1.2;
+}
+
+.no-transition{
+    transition: none;
+}
+
+.animal-companion{
+    border-bottom: 1px solid peachpuff;
+}
+.animal-companion::after{
+    content: " 🐾";
+}
+
+.ba-sing-se {
+    border-bottom: 1px solid darkgreen;
+}
+.ba-sing-se::after{
+    content: " ⾨";
+    color: darkseagreen;
+}
+
+.blood-bending {
+    border-bottom: 1px solid maroon;
+}
+.blood-bending::after {
+    content:" 🩸"
+}
+
+.bounty-hunter {
+    border-bottom: 1px solid firebrick;
+}
+.bounty-hunter::after {
+    content:" 🏹"
+}
+
+.coucil-of-five {
+    border-bottom: 1px solid darkolivegreen;
+}
+.coucil-of-five::after{
+    content: " 五";
+}
+
+.combustion-bending {
+    border-bottom: 1px solid darkorange;
+}
+.combustion-bending::after{
+    content: " 💥";
+}
+
+.dai-li{
+    border-bottom: 1px solid olivedrab;
+}
+.dai-li::after{
+    content:" ∧∧∧";
+    font-size: 1rem;
+    color: olivedrab;
+}
+
+.freedom-fighters{
+    border-bottom: 1px solid tomato;
+}
+.freedom-fighters::after{
+    content:" 🦅";
+}
+
+.healing{
+    border-bottom: 1px solid lightseagreen;
+}
+.healing::after{
+    content:" ✚";
+    color: turquoise;
+}
+
+.imprisoned{
+    border-bottom: 1px solid darkslategray;
+}
+.imprisoned::after{
+    content: " 🔒";
+}
+
+.kyoshi-warrior {
+    border-bottom: double 3px transparent;
+    background-image: linear-gradient(rgb(30,30,30), rgb(30,30,30)),
+     linear-gradient(to right,#729663 10%,#e15d40 10% 30%, #fffee6 30% 70%, #e15d40 70% 90%, #729663 90%);
+    background-origin: border-box;
+    /* background-clip: content-box, border-box; */
+    background-clip: padding-box, border-box;
+}
+.kyoshi-warrior::after {
+    content: " 🪭";
+}
+
+.lightning-bending {
+    border-bottom: 1px solid dodgerblue;
+}
+.lightning-bending::after {
+    content: " ⚡";
+}
+
+.mentor {
+    border-bottom: 1px solid gray;
+}
+.mentor::after {
+    content: " 📖"
+}
+
+.metal-bending {
+    border-bottom: 1px solid slategray;
+}
+.metal-bending::after {
+    content: " ⚙️"
+}
+
+
+.muscular{
+    border-bottom: 1px solid sienna;
+}
+.muscular::after{
+    content: " 💪"
+}
+
+.musician{
+    border-bottom: 1px solid indigo;
+}
+.musician::after{
+    content: " 🎶"
+}
+
+.nobility{
+    border-bottom: 1px solid palegoldenrod;
+
+}
+.nobility::after{
+    content: " ♔";
+    font-size: 1rem;
+    color: palegoldenrod;
+}
+
+.romance {
+    border-bottom: 1px solid hotpink;
+}
+.romance::after {
+    content: " ♥";
+    color: darkred;
+}
+
+.royal-fire-academy {
+    border-bottom: 1px solid lightcoral;
+
+}
+.royal-fire-academy::after{
+    content:" 🏫"
+}
+
+.royalty {
+    border-bottom: 1px solid goldenrod;
+
+}
+.royalty::after{
+    content:" 👑"
+}
+
+.spiritual {
+    border-bottom: 1px solid paleturquoise;
+}
+.spiritual::after{
+    content: " ☯";
+}
+
+.tea-enthusiast {
+    border-bottom: 1px solid darkseagreen;
+}
+.tea-enthusiast::after{
+    content: " 🍵";
+}
+
+.team-avatar {
+    border-bottom: double 1px transparent;
+    background-image: linear-gradient(rgb(30,30,30), rgb(30,30,30)),
+    linear-gradient(to right,deepskyblue 25%,green 25% 50%, red 50% 75%, lightblue 75%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+.team-avatar::after{
+    content: " 💧⛰️🔥💨";
+}
+
+.weapon-wielder {
+    border-bottom: 1px solid slategray;
+}
+.weapon-wielder::after {
+    content: " ⚔";
+    font-size: 1rem;
+    color: gray;
+}
+
+.white-lotus {
+    border-bottom: 1px solid white;
+}
+
+.white-lotus::after{
+    content: " 𑁍"
+}
+
+
+#tag-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+#tag-container::-webkit-scrollbar-thumb {
+    background: rgb(60, 60, 60);
+    border-radius: 0.5rem;
+}
+
+#tag-container::-webkit-scrollbar {
+    background: rgb(30, 30, 30);
+    width: 0.2rem;
+}
+
+#tag-container::-webkit-scrollbar-button {
+    height: 0.8rem;
+}

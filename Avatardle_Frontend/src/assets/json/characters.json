@@ -1,0 +1,692 @@
+[
+	{
+		"name": "Aang",
+		"gender": "Male",
+		"nationality": "Southern Air Temple",
+		"bendingElement": "All",
+		"affiliations": ["Weapon Wielder","Spiritual","Animal Companion","Flight","Team Avatar"],
+		"firstAppearance": "S01E01 The Boy in the Iceberg"
+	},
+	{
+		"name": "Actor Bumi"
+	},
+	{
+		"name": "Actor Iroh"
+	},
+	{
+		"name": "Actor Jet"
+	},
+	{
+		"name": "Actor Ozai"
+	},
+	{
+		"name": "Actor Sokka"
+	},
+	{
+		"name": "Actor Toph"
+	},
+	{
+		"name": "Actor Zuko"
+	},
+	{
+		"name": "Actress Aang"
+	},
+	{
+		"name": "Actress Azula"
+	},
+	{
+		"name": "Actress Katara"
+	},
+	{
+		"name": "Actress Yue"
+	},
+	{
+		"name": "Appa",
+		"gender": "Male",
+		"nationality": "Eastern Air Temple",
+		"bendingElement": "Air",
+		"affiliations": ["Flight","Team Avatar"],
+		"firstAppearance": "S01E01 The Boy in the Iceberg"
+	},
+	{
+		"name": "Arnook",
+		"gender": "Male",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "None",
+		"affiliations": [],
+		"firstAppearance": "S01E18 The Waterbending Master"
+	},
+	{
+		"name": "Aunt Wu",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": [],
+		"firstAppearance": "S01E14 The Fortuneteller"
+	},
+	{
+		"name": "Azula",
+		"gender": "Female",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Royalty","Lightning Bending","Royal Fire Academy"],
+		"firstAppearance": "S01E12 The Storm"
+	},
+	{
+		"name": "Azulon",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Royalty","Military"],
+		"firstAppearance": "S02E07 Zuko Alone"
+	},
+	{
+		"name": "Bato",
+		"gender": "Male",
+		"nationality": "Southern Water Tribe",
+		"bendingElement": "None",
+		"affiliations": ["Weapon Wielder"],
+		"firstAppearance": "S01E15 Bato of the Water Tribe"
+	},
+	{
+		"name": "Cabbage Merchant",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Comic Relief"],
+		"firstAppearance": "S01E05 The King of Omashu"
+	},
+	{
+		"name": "Chan",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "None",
+		"affiliations": [],
+		"firstAppearance": "S03E05 The Beach"
+	},
+	{
+		"name": "Chit Sang",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Comic"],
+		"firstAppearance": "S03E14 The Boiling Rock, Part 1"
+	},
+	{
+		"name": "Chong",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Musician"],
+		"firstAppearance": "S02E02 The Cave of Two Lovers"
+	},
+	{
+		"name": "Combustion Man",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Bounty Hunter","Combustion Bending"],
+		"firstAppearance": "S03E02 The Headband"
+	},
+	{
+		"name": "Dock",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "None",
+		"affiliations": ["Comic"],
+		"firstAppearance": "S03E03 The Painted Lady"
+	},
+	{
+		"name": "Due",
+		"gender": "Male",
+		"nationality": "Foggy Swamp Tribe",
+		"bendingElement": "Water",
+		"affiliations": [],
+		"firstAppearance": "S02E04 The Swamp"
+	},
+	{
+		"name": "General Fong",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Earth",
+		"affiliations": [],
+		"firstAppearance": "S02E01 The Avatar State"
+	},
+	{
+		"name": "General How",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Earth",
+		"affiliations": ["Council of Five"],
+		"firstAppearance": "S02E18 The Earth King"
+	},
+	{
+		"name": "General Sung",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Earth",
+		"affiliations": ["Council of Five"],
+		"firstAppearance": "S02E13 The Drill"
+	},
+	{
+		"name": "Guru Pathik",
+		"gender": "Male",
+		"nationality": "None",
+		"bendingElement": "None",
+		"affiliations": ["Spiritual","Mentor"],
+		"firstAppearance": "S02E16 Appa's Lost Days"
+	},
+	{
+		"name": "Gyatso",
+		"gender": "Male",
+		"nationality": "Southern Air Temple",
+		"bendingElement": "Air",
+		"affiliations": ["Mentor"],
+		"firstAppearance": "S01E03 The Southern Air Temple"
+	},
+	{
+		"name": "Hahn",
+		"gender": "Male",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "None",
+		"affiliations": [],
+		"firstAppearance": "S01E19 The Siege of the North, Part 1"
+	},
+	{
+		"name": "Hakoda",
+		"gender": "Male",
+		"nationality": "Southern Water Tribe",
+		"bendingElement": "None",
+		"affiliations": ["Weapon Wielder"],
+		"firstAppearance": "S01E15 Bato of the Water Tribe"
+	},
+	{
+		"name": "Hama",
+		"gender": "Female",
+		"nationality": "Southern Water Tribe",
+		"bendingElement": "Water",
+		"affiliations": ["Mentor","Blood Bending"],
+		"firstAppearance": "S03E08 The Puppetmaster"
+	},
+	{
+		"name": "Haru",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Earth",
+		"affiliations": [],
+		"firstAppearance": "S01E06 Imprisoned"
+	},
+	{
+		"name": "Huu",
+		"gender": "Male",
+		"nationality": "Foggy Swamp Tribe",
+		"bendingElement": "Water",
+		"affiliations": ["Spiritual"],
+		"firstAppearance": "S02E04 The Swamp"
+	},
+	{
+		"name": "Iroh",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["White Lotus","Mentor","Lightning Bending","Musician","Spiritual","Tea Enthusiast"],
+		"firstAppearance": "S01E01 The Boy in the Iceberg"
+	},
+	{
+		"name": "Jee",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Military"],
+		"firstAppearance": "S01E09 The Waterbending Scroll"
+	},
+	{
+		"name": "Jeong Jeong",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["White Lotus","Mentor"],
+		"firstAppearance": "S01E16 The Deserter"
+	},
+	{
+		"name": "Jet",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Weapon Wielder","Freedom Fighters"],
+		"firstAppearance": "S01E10 Jet"
+	},
+	{
+		"name": "Jin",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Ba Sing Se","Romance"],
+		"firstAppearance": "S02E15 The Tales of Ba Sing Se"
+	},
+	{
+		"name": "Joo Dee",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Ba Sing Se","Dai Li"],
+		"firstAppearance": "S02E14 City of Walls and Secrets"
+	},
+	{
+		"name": "June",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Animal Companion","Tea Enthusiast","Bounty Hunter"],
+		"firstAppearance": "S01E15 Bato of the Water Tribe"
+	},
+	{
+		"name": "Kanna",
+		"gender": "Female",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "None",
+		"affiliations": [],
+		"firstAppearance": "S01E01 The Boy in the Iceberg"
+	},
+	{
+		"name": "Katara",
+		"gender": "Female",
+		"nationality": "Southern Water Tribe",
+		"bendingElement": "Water",
+		"affiliations": ["Romance","Blood Bending","Healing","Team Avatar"],
+		"firstAppearance": "S01E01 The Boy in the Iceberg"
+	},
+	{
+		"name": "King Bumi",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Earth",
+		"affiliations": ["Royalty","Muscular","White Lotus","Comic Relief"],
+		"firstAppearance": "S01E05 The King of Omashu"
+	},
+	{
+		"name": "King Kuei",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Royalty","Animal Companion","Ba Sing Se"],
+		"firstAppearance": "S02E14 City of Walls and Secrets"
+	},
+	{
+		"name": "Koh",
+		"gender": "Male",
+		"nationality": "None",
+		"bendingElement": "None",
+		"affiliations": ["Spiritual"],
+		"firstAppearance": "S01E20 The Siege of the North, Part 2"
+	},
+	{
+		"name": "Kuruk",
+		"gender": "Male",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "All",
+		"affiliations": ["Spiritual"],
+		"firstAppearance": "S02E01 The Avatar State"
+	},
+	{
+		"name": "Kya",
+		"gender": "Female",
+		"nationality": "Southern Water Tribe",
+		"bendingElement": "None",
+		"affiliations": [],
+		"firstAppearance": "S02E04 The Swamp"
+	},
+	{
+		"name": "Kyoshi",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "All",
+		"affiliations": ["Kyoshi Warrior","Healing","Dai Li","Weapon Wielder"],
+		"firstAppearance": "S02E01 The Avatar State"
+	},
+	{
+		"name": "Lee",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": [],
+		"firstAppearance": "S02E07 Zuko Alone"
+	},
+	{
+		"name": "Lion Turtle",
+		"gender": "Male",
+		"nationality": "None",
+		"bendingElement": "Energy",
+		"affiliations": [],
+		"firstAppearance": "S03E19 Sozin's Comet, Part 2: The Old Masters"
+	},
+	{
+		"name": "Lo and Li",
+		"gender": "Female",
+		"nationality": "Fire Nation",
+		"bendingElement": "None",
+		"affiliations": [],
+		"firstAppearance": "S02E01 The Avatar State"
+	},
+	{
+		"name": "Long Feng",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Earth",
+		"affiliations": ["Ba Sing Se","Dai Li"],
+		"firstAppearance": "S02E14 City of Walls and Secrets"
+	},
+	{
+		"name": "Longshot",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Freedom Fighters","Weapon Wielder"],
+		"firstAppearance": "S01E10 Jet"
+	},
+	{
+		"name": "Macmu-Ling",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Poetry"],
+		"firstAppearance": "S02E15 The Tales of Ba Sing Se"
+	},
+	{
+		"name": "Mai",
+		"gender": "Female",
+		"nationality": "Fire Nation",
+		"bendingElement": "None",
+		"affiliations": ["Weapon Wielder","Romance","Nobility","Royal Fire Academy"],
+		"firstAppearance": "S02E03 Return to Omashu"
+	},
+	{
+		"name": "Mayor Tong",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": [],
+		"firstAppearance": "S02E05 Avatar Day"
+	},
+	{
+		"name": "Mechanist",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Inventor"],
+		"firstAppearance": "S01E17 The Northern Air Temple"
+	},
+	{
+		"name": "Meng",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Romance"],
+		"firstAppearance": "S01E14 The Fortuneteller"
+	},
+	{
+		"name": "Ming",
+		"gender": "Female",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": [],
+		"firstAppearance": "S03E10 The Day of Black Sun, Part 1: The Invasion"
+	},
+	{
+		"name": "Miyuki",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Animal"],
+		"firstAppearance": "S01E13 The Blue Spirit"
+	},
+	{
+		"name": "Momo",
+		"gender": "Male",
+		"nationality": "Southern Air Temple",
+		"bendingElement": "None",
+		"affiliations": ["Flight","Team Avatar"],
+		"firstAppearance": "S01E03 The Southern Air Temple"
+	},
+	{
+		"name": "Nyla",
+		"gender": "Male",
+		"nationality": "Southern Air Temple",
+		"bendingElement": "None",
+		"affiliations": ["Animal Companion"],
+		"firstAppearance": "S01E03 The Southern Air Temple"
+	},
+	{
+		"name": "On Ji",
+		"gender": "Female",
+		"nationality": "Fire Nation",
+		"bendingElement": "None",
+		"affiliations": ["Romance"],
+		"firstAppearance": "S03E02 The Headband"
+	},
+	{
+		"name": "Oyaji",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Leader"],
+		"firstAppearance": "S01E04 The Warriors of Kyoshi"
+	},
+	{
+		"name": "Ozai",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Royalty","Lightning Bending"],
+		"firstAppearance": "S01E08 Winter Solstice, Part 2: Avatar Roku"
+	},
+	{
+		"name": "Pakku",
+		"gender": "Male",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "Water",
+		"affiliations": ["White Lotus","Mentor"],
+		"firstAppearance": "S01E18 The Waterbending Master"
+	},
+	{
+		"name": "Piandao",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "None",
+		"affiliations": ["White Lotus","Mentor","Weapon Wielder"],
+		"firstAppearance": "S03E04 Sokka's Master"
+	},
+	{
+		"name": "Pipsqueak",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": [],
+		"firstAppearance": "S01E10 Jet"
+	},
+	{
+		"name": "Professor Zei",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Ba Sing Se"],
+		"firstAppearance": "S02E10 The Library"
+	},
+	{
+		"name": "Roku",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "All",
+		"affiliations": ["Nobility","Mentor","Animal Companion"],
+		"firstAppearance": "S01E08 Winter Solstice, Part 2: Avatar Roku"
+	},
+	{
+		"name": "Shyu",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Nobility","Mentor"],
+		"firstAppearance": "S01E08 Winter Solstice, Part 2: Avatar Roku"
+	},
+	{
+		"name": "Smellerbee",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["White Lotus","Mentor"],
+		"firstAppearance": "S01E10 Jet"
+	},
+	{
+		"name": "Sokka",
+		"gender": "Male",
+		"nationality": "Southern Water Tribe",
+		"bendingElement": "None",
+		"affiliations": ["Weapon Wielder","Comic Relief","Animal Companion","Team Avatar"],
+		"firstAppearance": "S01E01 The Boy in the Iceberg"
+	},
+	{
+		"name": "Song",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": [],
+		"firstAppearance": "S01E01 The Boy in the Iceberg"
+	},
+	
+	{
+		"name": "Sozin",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Royalty","Animal Companion"],
+		"firstAppearance": "S03E06 The Avatar and the Fire Lord"
+	},
+	{
+		"name": "Suki",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Weapon Wielder","Romance","Kyoshi Warrior","Team Avatar"],
+		"firstAppearance": "S01E04 The Warriors of Kyoshi"
+	},
+	{
+		"name": "Teo",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Flight"],
+		"firstAppearance": "S01E17 The Northern Air Temple"
+	},
+	{
+		"name": "The Boulder",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Earth",
+		"affiliations": ["Muscular","Comic Relief"],
+		"firstAppearance": "S02E06 The Blind Bandit"
+	},
+	{
+		"name": "The Duke",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Royalty","Lightning Bending"],
+		"firstAppearance": "S01E10 Jet"
+	},
+	{
+		"name": "Tho",
+		"gender": "Male",
+		"nationality": "Foggy Swamp Tribe",
+		"bendingElement": "Water",
+		"affiliations": [],
+		"firstAppearance": "S02E04 The Swamp"
+	},
+	{
+		"name": "Toph Beifong",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Earth",
+		"affiliations": ["Nobility","Metal Bending","Team Avatar"],
+		"firstAppearance": "S02E04 The Swamp"
+	},
+	{
+		"name": "Ty Lee",
+		"gender": "Female",
+		"nationality": "Fire Nation",
+		"bendingElement": "None",
+		"affiliations": ["Nobility","Kyoshi Warrior","Royal Fire Academy"],
+		"firstAppearance": "S02E03 Return to Omashu"
+	},
+	{
+		"name": "Ursa",
+		"gender": "Female",
+		"nationality": "Fire Nation",
+		"bendingElement": "None",
+		"affiliations": ["Royalty"],
+		"firstAppearance": "S02E07 Zuko Alone"
+	},
+	{
+		"name": "Wan Shi Tong",
+		"gender": "Male",
+		"nationality": "None",
+		"bendingElement": "None",
+		"affiliations": ["Spiritual","Flight"],
+		"firstAppearance": "S02E10 The Library"
+	},
+	{
+		"name": "Warden",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "None",
+		"affiliations": ["Leader"],
+		"firstAppearance": "S03E14 The Boiling Rock, Part 1"
+	},
+	{
+		"name": "Xin Fu",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Earth",
+		"affiliations": ["Muscular"],
+		"firstAppearance": "S02E06 The Blind Bandit"
+	},
+	{
+		"name": "Yangchen",
+		"gender": "Female",
+		"nationality": "Western Air Temple",
+		"bendingElement": "All",
+		"affiliations": ["Spiritual"],
+		"firstAppearance": "S02E01 The Avatar State"
+	},
+	{
+		"name": "Yon Rha",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"specializedTechnique": "None",
+		"firstAppearance": "S03E16 The Southern Raiders"
+	},
+	{
+		"name": "Yue",
+		"gender": "Female",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "Water",
+		"affiliations": ["Spiritual","Romance","Royalty"],
+		"firstAppearance": "S01E18 The Waterbending Master"
+	},
+	{
+		"name": "Zhao",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Royalty"],
+		"firstAppearance": "S01E03 The Southern Air Temple"
+	},
+	{
+		"name": "Zuko",	
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Weapon Wielder","Royalty","Romance","Musician","Team Avatar"],
+		"firstAppearance": "S01E01 The Boy in the Iceberg"
+	}
+]

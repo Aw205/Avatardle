@@ -1,0 +1,19 @@
+blockquote {
+    background-color: rgb(25, 25, 25);
+    font: 1rem Georgia;
+    border-left: 0.2rem solid gray;
+    padding: 0.5rem;
+    color: beige;
+    line-height: 2rem;
+}
+
+blockquote::before {
+
+    font-family: Arial;
+    content: "\201C";
+    color: #8c78c0;
+    font-size: 4rem;
+    position: relative;
+    top: 0.5rem;
+    left: -0.3rem;
+}

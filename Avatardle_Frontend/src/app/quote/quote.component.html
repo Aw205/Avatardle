@@ -1,0 +1,46 @@
+<div
+    style="position:relative; font: 1rem avatar2; color: gray; text-align: center;  margin-top: 5vh; z-index: 1; padding-bottom: 1vh;">
+    <tm-ng-odometer [number]="($stat | async)?.classic_completion ?? 0" [theme]="'minimal'"
+        style="color:darkgoldenrod;"></tm-ng-odometer> people completed today!</div>
+<div style="position: relative; left: 50%; top:0vh; transform: translateX(-50%); width: 60%;">
+
+    <blockquote id="bquote">{{quote}}</blockquote>
+
+    <div
+        style="display: flex; position: absolute; top:0; left:100%; flex-direction: column; border-radius: 0 0.5rem 0.5rem 0; overflow: hidden;">
+
+        <button [disabled]="!isEnabled(2)" (click)="showHint(0)" [matTooltip]="getTooltipText(3)" matTooltipPosition="right"
+            class="clue" [class.clue-ready]="isEnabled(2)"> 𑁍</button>
+        <button [disabled]="!isEnabled(3)" (click)="showHint(1)" [matTooltip]="getTooltipText(4)" matTooltipPosition="right"
+            class="clue" [class.clue-ready]="isEnabled(3)"> 𑁍</button>
+        <button [disabled]="!isEnabled(4)" (click)="showHint(2)" [matTooltip]="getTooltipText(5)" matTooltipPosition="right"
+            class="clue" [class.clue-ready]="isEnabled(4)"> 𑁍</button>
+    </div>
+
+
+    <div style=" position:absolute; display: flex; justify-content: center; top:100%; width: 30%; right:0;">
+        @if (isVisible) {
+        <ul id="myUL">
+            @for (char of charList; track char.name){
+            <li (click)="onEnter(char.name)">
+                <div style="width:3.33vw; height: 2.5vw; display:inline-block; padding-right: 1rem;">
+                    <div class="sprite" [style.background-position-x.%]="1.086957*char.index"></div>
+                </div>{{char.name}}
+            </li>
+            }
+        </ul>
+        }
+        <input type="text" placeholder="search..." class="quote-search-bar" (input)="onInput()" spellcheck="false" autocomplete="off"
+            (focusout)="onFocusOut()" (focusin)="isVisible=true;" (keydown.enter)="onEnter()" [(ngModel)]="searchVal"
+            [disabled]="progress.quote.complete" [class.search-complete]="progress.quote.complete" />
+    </div>
+</div>
+
+@for (ans of incorrectAnswers; track ans){
+<div class="incorrect-quote-guess">
+    <div style="width:3.33vw; height: 2.5vw; margin:auto; margin-bottom: 0.5rem;">
+        <div class="sprite" [style.background-position-x.%]="1.086957*ans.index" style="border-radius: 10px;"></div>
+    </div>
+    {{ans.name}}
+</div>
+}
