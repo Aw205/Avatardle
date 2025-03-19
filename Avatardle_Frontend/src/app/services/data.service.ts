@@ -64,9 +64,7 @@ export class DataService {
 
   initialize(): Observable<Character[]> {
 
-    console.log(environment.statsApiUrl);
-
-    this.$stats = interval(10000).pipe(
+    this.$stats = interval(120000).pipe(
       startWith(0),
       switchMap(() => this.http.get<DailyStats>(`${environment.statsApiUrl}/getStats`))
     );
