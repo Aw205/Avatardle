@@ -1,9 +1,10 @@
-// @ts-ignore
-import confetti, { confetti } from 'canvas-confetti';
+
+import confetti from 'canvas-confetti';
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { interval, map, Observable, shareReplay, startWith, switchMap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 interface Episode {
   [key: string]: [];
@@ -63,10 +64,12 @@ export class DataService {
 
   initialize(): Observable<Character[]> {
 
-    // this.$stats = interval(10000).pipe(
-    //   startWith(0),
-    //   switchMap(() => this.http.get<DailyStats>('http://localhost:6060/getStats'))
-    // );
+    console.log(environment.statsApiUrl);
+
+    this.$stats = interval(10000).pipe(
+      startWith(0),
+      switchMap(() => this.http.get<DailyStats>(`${environment.statsApiUrl}/getStats`))
+    );
 
     let ob = this.http.get<Character[]>('json/characters.json').pipe(
       map(chars => {
@@ -107,7 +110,8 @@ export class DataService {
   }
 
   updateStats(mode: string) {
-    this.http.patch('http://localhost:6060/updateStats', { type: "daily", mode: mode }).subscribe(data => { });
+
+    this.http.patch(`${environment.statsApiUrl}/updateStats`, { type: "daily", mode: mode }).subscribe(data => { });
   }
 
   throwConfetti(numGuesses: number) {
