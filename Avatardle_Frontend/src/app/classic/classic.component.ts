@@ -14,7 +14,7 @@ import { AvatardleProgress } from '../app.component';
     selector: 'classic',
     imports: [FormsModule, TileComponent,MatTooltipModule,TmNgOdometerModule,AsyncPipe],
     templateUrl: './classic.component.html',
-    styleUrls: ['./classic.component.css','../../assets/odometer-theme-default.css']
+    styleUrl: './classic.component.css'
 })
 export class ClassicMode {
 
