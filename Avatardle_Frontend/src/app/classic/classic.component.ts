@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand, { PRNG } from 'rand-seed';
 import { tileData } from '../tile/tile.component';
@@ -12,13 +12,13 @@ import { AvatardleProgress } from '../app.component';
 
 @Component({
     selector: 'classic',
-    imports: [FormsModule, TileComponent,MatTooltipModule,TmNgOdometerModule,AsyncPipe],
+    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe],
     templateUrl: './classic.component.html',
     styleUrl: './classic.component.css'
 })
 export class ClassicMode {
 
-    
+
     charList: Character[] = [];
     characterData: Character[] = [];
     searchVal: string = "";
@@ -34,7 +34,7 @@ export class ClassicMode {
     progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
     rand: Rand = new Rand(this.progress.date! + "classic");
 
-    constructor(private ds: DataService) {}
+    constructor(private ds: DataService) { }
 
     ngOnInit() {
 
@@ -54,12 +54,6 @@ export class ClassicMode {
         this.selected = this.charList.length == 0 ? "" : this.charList[0].name;
     }
 
-    onFocusOut() {
-        setTimeout(() => {
-            this.isVisible = false;
-        }, 100);
-    }
-
     onEnter(select: string = "") {
 
         if (select != "") {
@@ -73,11 +67,11 @@ export class ClassicMode {
             let idx = 1.086957 * char.index; // 1/(num images - 1)
             let numCorrect: number = 0;
 
-            let tmp:tileData[] = [{ imageIndex: idx, name:char.name}];
+            let tmp: tileData[] = [{ imageIndex: idx, name: char.name }];
 
             Object.entries(char).forEach(([key, val], index) => {
 
-                let tileData: tileData = { isCorrect: false, backgroundPosition: `${index * 20}% 0`, delay: 800 * (index - 1), hasTransition:true};
+                let tileData: tileData = { isCorrect: false, backgroundPosition: `${index * 20}% 0`, delay: 800 * (index - 1), hasTransition: true };
                 let targetVal = this.targetChar![key as keyof Character];
 
                 if (val == targetVal) {
@@ -104,10 +98,10 @@ export class ClassicMode {
                         }
                         break;
                     case "affiliations":
-                      
-                        tileData.affiliations = val.sort(()=> 0.5 - this.rand.next()).slice(0,3);
+
+                        tileData.affiliations = val.sort(() => 0.5 - this.rand.next()).slice(0, 3);
                         break;
-                        
+
                     case "firstAppearance":
 
                         let episodeName = val.substring(6);
@@ -128,30 +122,30 @@ export class ClassicMode {
             });
             this.tileArray.unshift(...tmp);
             setTimeout(this.checkGuess.bind(this), 800 * 6, numCorrect);
-            this.characterData.splice(this.characterData.indexOf(char),1);
+            this.characterData.splice(this.characterData.indexOf(char), 1);
 
-            this.progress.classic.guesses = this.tileArray.map((t) =>{
-                return {...t,hasTransition:false,delay:0}
+            this.progress.classic.guesses = this.tileArray.map((t) => {
+                return { ...t, hasTransition: false, delay: 0 }
             });
-            localStorage.setItem("avatardle_progress",JSON.stringify(this.progress));
+            localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
         }
 
         this.searchVal = "";
         this.charList = [];
-       
+
     }
 
     checkGuess(numCorrect: number) {
 
         if (numCorrect == 5) {
-            
+
             this.ds.updateStats("classic");
             this.ds.throwConfetti(0);
             this.searchVal = this.targetChar.name;
 
             this.progress.classic.target = this.targetChar.name;
             this.progress.classic.complete = true;
-            localStorage.setItem("avatardle_progress",JSON.stringify(this.progress));
+            localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
 
         }
     }

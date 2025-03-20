@@ -9,7 +9,7 @@ import { AvatardleProgress } from '../app.component';
 
 @Component({
   selector: 'picture',
-  imports: [FormsModule,TmNgOdometerModule,AsyncPipe],
+  imports: [FormsModule, TmNgOdometerModule, AsyncPipe],
   templateUrl: './picture.component.html',
   styleUrl: './picture.component.css'
 })
@@ -27,12 +27,12 @@ export class PictureMode {
   scaleRatio: number = 2;
   grayscaleRatio: number = 1;
 
-  addt:boolean = false;
- 
+  addt: boolean = false;
+
   $stat!: Observable<DailyStats>;
   progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
 
-  constructor(private ds: DataService) {}
+  constructor(private ds: DataService) { }
 
 
   ngOnInit() {
@@ -68,12 +68,6 @@ export class PictureMode {
     this.selected = this.episodeList.length == 0 ? "" : this.episodeList[0];
   }
 
-  onFocusOut() {
-    setTimeout(() => {
-      this.isVisible = false;
-    }, 100);
-  }
-
   onEnter(select: string = "") {
 
     if (select != "") {
@@ -91,7 +85,7 @@ export class PictureMode {
       this.progress.picture.target = this.targetEpisode;
 
       this.searchVal = this.targetEpisode;
-      localStorage.setItem("avatardle_progress",JSON.stringify(this.progress));
+      localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
       this.ds.updateStats("picture");
     }
     else if (this.selected != "") {
@@ -105,14 +99,14 @@ export class PictureMode {
 
       this.episodeData.splice(this.episodeData.indexOf(this.selected), 1);
 
-      localStorage.setItem("avatardle_progress",JSON.stringify(this.progress));
+      localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
     }
   }
 
   setRatios(numGuesses: number) {
 
-    if(this.progress.picture.complete){
-      [this.scaleRatio,this.grayscaleRatio] = [1,0];
+    if (this.progress.picture.complete) {
+      [this.scaleRatio, this.grayscaleRatio] = [1, 0];
       return;
     }
     this.scaleRatio = 2 - Math.min(1, numGuesses * 0.2);

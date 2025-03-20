@@ -69,12 +69,6 @@ export class QuoteMode {
         this.selected = this.charList.length == 0 ? "" : this.charList[0].name;
     }
 
-    onFocusOut() {
-        setTimeout(() => {
-            this.isVisible = false;
-        }, 100);
-    }
-
     onEnter(select: string = "") {
 
         if (select != "") {
@@ -88,7 +82,7 @@ export class QuoteMode {
             this.ds.throwConfetti(0);
             this.ds.updateStats("quote");
 
-            localStorage.setItem("avatardle_progress",JSON.stringify(this.progress));
+            localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
 
         }
         else if (this.selected != "") {
@@ -100,12 +94,12 @@ export class QuoteMode {
 
             this.progress.quote.numGuesses++;
 
-            localStorage.setItem("avatardle_progress",JSON.stringify(this.progress));
+            localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
 
         }
     }
 
-    isEnabled(threshold: number){
+    isEnabled(threshold: number) {
 
         return this.progress.quote.complete || (this.progress.quote.numGuesses > threshold);
     }

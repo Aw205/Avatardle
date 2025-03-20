@@ -22,7 +22,7 @@
         @if (isVisible) {
         <ul id="myUL">
             @for (char of charList; track char.name){
-            <li (click)="onEnter(char.name)">
+            <li (mousedown)="onEnter(char.name)">
                 <div style="width:3.33vw; height: 2.5vw; display:inline-block; padding-right: 1rem;">
                     <div class="sprite" [style.background-position-x.%]="1.086957*char.index"></div>
                 </div>{{char.name}}
@@ -31,7 +31,7 @@
         </ul>
         }
         <input type="text" placeholder="search..." class="quote-search-bar" (input)="onInput()" spellcheck="false" autocomplete="off"
-            (focusout)="onFocusOut()" (focusin)="isVisible=true;" (keydown.enter)="onEnter()" [(ngModel)]="searchVal"
+            (focusout)="isVisible=false" (focusin)="isVisible=true" (keydown.enter)="onEnter()" [(ngModel)]="searchVal"
             [disabled]="progress.quote.complete" [class.search-complete]="progress.quote.complete" />
     </div>
 </div>

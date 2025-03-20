@@ -2,13 +2,13 @@
     style="display: flex; justify-content: center; position:relative; width: 50%; margin:auto; margin-top: 6vh; margin-bottom: 1vh;">
     <img src="images/sokka_eyeglass.webp" class="search-symbol">
     <input type="text" placeholder="search..." class="search-bar" spellcheck="false" autocomplete="off"
-        (input)="onInput()" (focusout)="onFocusOut()" (focusin)="isVisible=true;" (keydown.enter)="onEnter()"
+        (input)="onInput()" (focusout)="isVisible=false" (focusin)="isVisible=true" (keydown.enter)="onEnter()"
         [(ngModel)]="searchVal" [disabled]="progress.picture.complete" [class.search-complete]="progress.picture.complete"/>
 
     @if (isVisible) {
     <ul id="myUL" style="z-index: 2;">
         @for (episode of episodeList; track episode){
-        <li style="white-space: pre;" (click)="onEnter(episode)"><span
+        <li style="white-space: pre;" (mousedown)="onEnter(episode)"><span
                 style="color:goldenrod;">{{episode.substring(0,6)}}</span>{{episode.substring(6)}}</li>
         }
     </ul>

@@ -84,7 +84,7 @@ a {
 .sprite {
     width: 100%;
     height: 100%;
-    background-image: url('assets/images/atla_chars.png');
+    background-image: url('assets/images/atla_chars.jpg');
     background-size: 9300% 100%;
     aspect-ratio: 3.33/2.5;
 }

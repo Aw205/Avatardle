@@ -123,6 +123,13 @@
     content: " 💥";
 }
 
+.comic-relief{
+    border-bottom: 1px solid lightgoldenrodyellow;
+}
+.comic-relief::after{
+    content: " 😂";
+}
+
 .dai-li{
     border-bottom: 1px solid olivedrab;
 }
