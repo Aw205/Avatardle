@@ -17,12 +17,13 @@ app.use(cors());
 app.get('/getStats', (req, res) => {
 
     let sql = "SELECT * FROM stats WHERE type='daily'";
-    pool.query(sql, (err, rows) => {
+
+    pool.query(sql, (err, queryRes) => {
         if (err) {
             console.error(err.message);
             return res.status(500).json({ error: 'Failed to retrieve data' });
         }
-        return res.json(rows);
+        return res.json(queryRes.rows[0]);
     });
 });
 
