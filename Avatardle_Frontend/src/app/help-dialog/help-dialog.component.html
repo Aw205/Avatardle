@@ -1,0 +1,101 @@
+<h1 mat-dialog-title style="font-size: xx-large; color: burlywood;">Help</h1>
+<mat-dialog-content style="
+background-color: rgb(25,25,25); border-radius: 10px; padding:1rem; margin: 1rem; margin-bottom: 0;">
+
+    <mat-tab-group style="color: beige;">
+        <mat-tab label="Classic">
+
+            <h2>Goal</h2>
+            <p>Guess the character based on different characteristics!</p>
+
+            <h2>Color Indicators</h2>
+
+            <div style="display: flex; flex-direction: column;">
+                <div style="color:tomato;">
+                    <div style="box-shadow: 0 0 0.5rem 0 rgba(255, 0, 0)" class="color-indicator">
+                    </div> Incorrect - <span style="color:beige;">when the character traits don't match.</span>
+                </div>
+                <div style="color:orange;">
+                    <div style="box-shadow: 0 0 0.5rem 0 rgba(255, 140, 0)" class="color-indicator">
+                    </div> Partially correct - <span style="color:beige;">only applicable to the affiliations category,
+                        where only some affiliations may match.</span>
+                </div>
+                <div style="color:forestgreen;">
+                    <div style="box-shadow: 0 0 0.5rem 0 rgba(0, 128, 0)" class="color-indicator">
+                    </div> Correct - <span style="color:beige;">when the character traits do match.</span>
+                </div>
+
+            </div>
+
+            <h2>Categories</h2>
+
+            <div style="margin-left:1rem;">
+                <h3>Gender</h3>
+                <p>Most characters fall under male or female, other entities like spirits that don't have a gender
+                    would be denoted with none.</p>
+
+                <h3>Nationality</h3>
+                <p>This refers to where a character originates. Keep in mind that sometimes the place of origin may
+                    not be a clearly defined nation (like the spirit world) so they would be denoted with none. </p>
+
+                <h3>Bending Element</h3>
+                <p>This only includes the 4 basic bending elements: Water, Earth, Fire, and Air.</p>
+
+                <h3>Affiliations</h3>
+                <p>Affiliations refer to traits or charateristics that relate to the character. Every character
+                    has at least 1 affiliation. Regardless of how many afflliations
+                    the character has, only a maximum of 3 affiliations are shown per character. If a character has
+                    more than 3 affiliations, 3 affiliations will be chosen at random from their pool.
+                </p>
+                <p>Note about the color indicators: 0 matching affiliations = Incorrect, 1-2 matching affiliations = Partially Correct, 
+                    3 matching affiliations = Correct
+                </p>
+
+                <h3>First Appearance</h3>
+                <p>This refers to the name of first episode that the character appears in. In addition, there is an
+                    arrow indicator that states whether the first appearance of the target character
+                    takes place before or after the current episode. The upwards arrow <span
+                        style="color:lightblue; font-size: large;">⬆</span> means the target episode
+                    takes place after and the downwards arrow <span style="color:lightblue; font-size: large;">⬇</span>
+                    means it takes place before.
+                </p>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Quote">
+
+            <h2>Goal</h2>
+            <p>Guess who said the quote!</p>
+
+            <h2>Hints <span style="color:lightpink">𑁍</span></h2>
+            <p>There are 3 hints in total, each unlocked with a certain number of guesses.</p>
+
+            <div style="margin-left: 1rem;">
+
+                <div style="color: #8c78c0;">Next Line</div>
+                <p>This refers to the immediate next line that is spoken. </p>
+
+                <div style="color: #8c78c0;">Previous Line</div>
+                <p>This refers to the immediate previous line that is spoken.</p>
+
+                <div style="color: #8c78c0;">Episode Name</div>
+                <p>This refers to the episode in which the quote is spoken. </p>
+
+            </div>
+
+            <h2>What if the quote is the first/last line of an episode?</h2>
+            <p>The hints will not give you the next/previous line but instead state that the quote is the first or last
+                line. </p>
+
+        </mat-tab>
+        <mat-tab label="Picture">
+            <h2>Goal</h2>
+            <p>Guess which episode the frame is from!</p>
+        </mat-tab>
+    </mat-tab-group>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-dialog-close (click)="onNoClick()"
+        style="font-size:xx-large; background-color: transparent; color: red; border:none; cursor:pointer;">&times;</button>
+</mat-dialog-actions>

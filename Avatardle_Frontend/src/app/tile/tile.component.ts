@@ -3,7 +3,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 export interface tileData {
 
-  name?:string
+  name?: string
   isCorrect?: boolean,
   episodeName?: string,
   imageIndex?: number,
@@ -30,16 +30,17 @@ export class TileComponent {
   flipTile: boolean = false;
 
   ngOnInit() {
-
     setTimeout(() => {
       this.flipTile = true;
     }, this.data.delay);
   }
 
-  getTag(tag:string){
-
+  getTag(tag: string) {
     return tag.replace(/\s/g, '-').toLowerCase();
+  }
 
+  getBoxShadow(isCorrect: boolean | undefined) {
+    return (isCorrect==undefined) ? "partial" : (isCorrect ? "correct" : "incorrect");
   }
 
 }

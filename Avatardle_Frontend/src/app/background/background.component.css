@@ -25,3 +25,18 @@
     filter: brightness(0.2) sepia(0.6);
 
 }
+
+.help-icon {
+
+    cursor: pointer;
+    color: beige;
+    font-size: 2.4ex;
+    background-color: transparent;
+    border: 2px solid beige;
+    border-radius: 50%;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 2rem;
+    height: 2rem;
+}

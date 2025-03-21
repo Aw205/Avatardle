@@ -1,0 +1,24 @@
+p {
+    background-color: rgb(20, 20, 20);
+    padding: 0.5rem;
+    border-radius: 1vh;
+}
+
+h3 {
+    font-weight: bolder;
+    color: darkgoldenrod;
+    background-color: black;
+    width: fit-content;
+    padding: 0.5rem;
+    font: medium avatar2;
+    border-radius: 1vh;
+}
+
+.color-indicator {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 1rem;
+}

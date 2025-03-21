@@ -1,10 +1,11 @@
 .correct {
     box-shadow: 0 0 3rem 0.2rem rgba(0, 128, 0, 0.484);
 }
-
 .incorrect {
-
     box-shadow: 0 0 3rem 0.2rem rgba(255, 0, 0, 0.574);
+}
+.partial{
+    box-shadow: 0 0 3rem 0.2rem rgba(255, 140, 0, 0.503)
 }
 
 .flip-card {

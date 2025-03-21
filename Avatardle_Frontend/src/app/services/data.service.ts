@@ -24,7 +24,7 @@ export interface Character {
   gender: string,
   nationality: string,
   bendingElement: string,
-  specializedTechniques: string,
+  affiliations: string[],
   firstAppearance: string,
   name: string,
   index: number
@@ -63,6 +63,8 @@ export class DataService {
 
 
   initialize(): Observable<Character[]> {
+
+    console.log(environment.statsApiUrl);
 
     this.$stats = interval(120000).pipe(
       startWith(0),

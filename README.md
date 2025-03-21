@@ -1,2 +1,2 @@
 # Avatardle
-A guessing game based on Avatar: The Last Airbender
+A guessing game based on Avatar: The Last Airbender!

@@ -1,4 +1,39 @@
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@use '@angular/material' as mat;
+
+:root {
+    @include mat.tabs-overrides((label-text-font: avatar2,
+            label-text-weight:bold,
+            divider-color: transparent,
+            inactive-ripple-color: dimgray,
+            inactive-label-text-color: burlywood,
+            ));
+            
+    @include mat.dialog-overrides((container-color: rgb(30, 30, 30),
+            subhead-color: beige,
+        ));
+    @include mat.tooltip-overrides((container-shape: 5px));
+}
+
+.mat-mdc-tab-body-content {
+
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-mdc-tab-body-wrapper {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 50vh;
+}
+
+.mat-mdc-tab-body-content::-webkit-scrollbar-thumb {
+    background: rgb(60, 60, 60);
+    border-radius: 0.5rem;
+}
+.mat-mdc-tab-body-content::-webkit-scrollbar {
+    background: rgb(30, 30, 30);
+    width: 0.5rem;
+}
 
 input {
     outline: none;

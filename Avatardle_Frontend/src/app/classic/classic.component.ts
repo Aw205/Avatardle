@@ -72,7 +72,7 @@ export class ClassicMode {
             Object.entries(char).forEach(([key, val], index) => {
 
                 let tileData: tileData = { isCorrect: false, backgroundPosition: `${index * 20}% 0`, delay: 800 * (index - 1), hasTransition: true };
-                let targetVal = this.targetChar![key as keyof Character];
+                let targetVal:any = this.targetChar![key as keyof Character];
 
                 if (val == targetVal) {
                     tileData.isCorrect = true;
@@ -100,6 +100,19 @@ export class ClassicMode {
                     case "affiliations":
 
                         tileData.affiliations = val.sort(() => 0.5 - this.rand.next()).slice(0, 3);
+
+                        let count = 0;
+                        for(let aff of tileData.affiliations!){
+                            if(targetVal.includes(aff)){
+                                count++;
+                            }
+                        }
+                        if(count == 0){
+                            tileData.isCorrect = false;
+                        }
+                        else if(count < tileData.affiliations!.length){
+                            tileData.isCorrect = undefined;
+                        }
                         break;
 
                     case "firstAppearance":
@@ -120,6 +133,10 @@ export class ClassicMode {
                     tmp.push(tileData);
                 }
             });
+
+
+            console.log("num correct: " + numCorrect);
+
             this.tileArray.unshift(...tmp);
             setTimeout(this.checkGuess.bind(this), 800 * 6, numCorrect);
             this.characterData.splice(this.characterData.indexOf(char), 1);
@@ -137,10 +154,10 @@ export class ClassicMode {
 
     checkGuess(numCorrect: number) {
 
-        if (numCorrect == 5) {
+        if (numCorrect == 7) {
 
             this.ds.updateStats("classic");
-            this.ds.throwConfetti(0);
+            this.ds.throwConfetti(this.progress.classic.guesses.length);
             this.searchVal = this.targetChar.name;
 
             this.progress.classic.target = this.targetChar.name;
