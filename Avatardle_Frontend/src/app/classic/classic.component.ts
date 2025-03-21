@@ -134,9 +134,6 @@ export class ClassicMode {
                 }
             });
 
-
-            console.log("num correct: " + numCorrect);
-
             this.tileArray.unshift(...tmp);
             setTimeout(this.checkGuess.bind(this), 800 * 6, numCorrect);
             this.characterData.splice(this.characterData.indexOf(char), 1);
