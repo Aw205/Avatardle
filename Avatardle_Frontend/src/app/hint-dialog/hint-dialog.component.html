@@ -1,6 +1,5 @@
-<h1 mat-dialog-title style="font: 2rem Georgia; background-color: rgb(30,30,30); outline: 1px solid rgb(30,30,30); color: #8c78c0;">{{data.title}} </h1>
-    <mat-dialog-content style="background-color: rgb(30,30,30); color:beige; font-family: Georgia; padding-top: 1rem;">
-
+<h1 mat-dialog-title style="font: 2rem Georgia; color: #8c78c0;">{{data.title}} </h1>
+    <mat-dialog-content style="padding-top: 1rem; overflow: hidden;">
         @if(data.title != "Episode Name"){
             <blockquote>{{data.quote}}</blockquote>
         }
@@ -10,8 +9,7 @@
                 <span style="color:beige;">{{data.quote.substring(7)}} </span>
             </div>
         }
-        
     </mat-dialog-content>
-    <mat-dialog-actions align="end" style="background-color: rgb(30,30,30);">
+    <mat-dialog-actions align="end" style="padding:0;">
         <button mat-dialog-close  (click)="onNoClick()" style="font-size:xx-large; background-color: transparent; color: red; border:none; cursor:pointer;">&times;</button>
     </mat-dialog-actions>

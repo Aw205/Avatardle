@@ -16,7 +16,7 @@
     left: 0;
     z-index: -1;
     display: block;
-    background-image: url('../../assets/images/atla_background.jpeg');
+    background-image: url('../../assets/images/atla_background.webp');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -26,17 +26,33 @@
 
 }
 
-.help-icon {
+#help-button {
 
     cursor: pointer;
-    color: beige;
+    color: bisque;
     font-size: 2.4ex;
     background-color: transparent;
-    border: 2px solid beige;
+    border: 2px solid bisque;
     border-radius: 50%;
-    position: absolute;
+    position: fixed;
     right: 1rem;
     top: 1rem;
     width: 2rem;
     height: 2rem;
+}
+
+#about-button {
+
+    cursor: pointer;
+    font-size: xx-large;
+    background-color: transparent;
+    color: bisque;
+    border: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+#about-button:hover{
+    opacity: 0.6;
 }

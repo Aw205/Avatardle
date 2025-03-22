@@ -6,10 +6,8 @@
     <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" class="title-text">Avatardle </a>
 </div>
 
-<button (click)="openDialog('help')" class="help-icon">?</button>
+<button id="help-button" (click)="openDialog('help')">?</button>
+<button id="about-button" (click)="openDialog('about')">ⓘ</button>
 
-
-<button id="about-button" (click)="openDialog('about')"
-    style="cursor: pointer; font-size: xx-large; background-color: transparent; color:beige; border: none; position:absolute; right:0; bottom:0;">ⓘ</button>
-
-<img src="images/iroh_paisho.png" style="position: fixed; height: 50%; bottom:-1%; left:0; pointer-events: none;" alt="Iroh holding a paisho tile">
+<img src="images/iroh_paisho.webp" style="position: fixed; height: 22vw; bottom:-1%; left:0; pointer-events: none;"
+    alt="Iroh holding a paisho tile">

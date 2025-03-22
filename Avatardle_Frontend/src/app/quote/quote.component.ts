@@ -112,7 +112,7 @@ export class QuoteMode {
             { title: "Episode Name", quote: this.quoteEpisode }
         ];
         this.dialog.open(HintDialogComponent, {
-            width: '50vw', data: {
+            width: '50vw', maxWidth: 'none', data: {
                 title: hints[hintId].title,
                 quote: hints[hintId].quote
             }
