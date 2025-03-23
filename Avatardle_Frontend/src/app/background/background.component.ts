@@ -18,11 +18,9 @@ export class Background {
 
     if (name == "about") {
       let dialogRef = this.dialog.open(AboutDialogComponent, { width: '50vw',maxWidth:'none'});
-      dialogRef.afterClosed().subscribe(result => { });
     }
     else if(name == "help"){
       let dialogRef = this.dialog.open(HelpDialogComponent, { width: '70vw', maxWidth: 'none', height: "80vh" });
-      dialogRef.afterClosed().subscribe(result => {});
     }
 
 

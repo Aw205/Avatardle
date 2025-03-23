@@ -109,7 +109,7 @@
 		"gender": "Male",
 		"nationality": "Fire Nation",
 		"bendingElement": "Fire",
-		"affiliations": ["Comic Relief"],
+		"affiliations": ["Muscular"],
 		"firstAppearance": "S03E14 The Boiling Rock, Part 1"
 	},
 	{
@@ -117,7 +117,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": ["Musician"],
+		"affiliations": ["Musician","Comic Relief"],
 		"firstAppearance": "S02E02 The Cave of Two Lovers"
 	},
 	{
@@ -582,7 +582,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "Earth",
-		"affiliations": ["Muscular","Comic Relief"],
+		"affiliations": ["Muscular","Comic Relief","Earth Rumble"],
 		"firstAppearance": "S02E06 The Blind Bandit"
 	},
 	{
@@ -606,7 +606,7 @@
 		"gender": "Female",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "Earth",
-		"affiliations": ["Nobility","Metal Bending","Team Avatar"],
+		"affiliations": ["Nobility","Metal Bending","Team Avatar","Earth Rumble"],
 		"firstAppearance": "S02E04 The Swamp"
 	},
 	{
@@ -646,7 +646,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "Earth",
-		"affiliations": ["Muscular"],
+		"affiliations": ["Muscular","Earth Rumble","Bounty Hunter"],
 		"firstAppearance": "S02E06 The Blind Bandit"
 	},
 	{

@@ -140,6 +140,20 @@
     color: olivedrab;
 }
 
+.earth-rumble{
+    border-bottom: 1px solid saddlebrown;
+}
+.earth-rumble::after{
+    content:" 🤼‍♂️";
+}
+
+.flight{
+    border-bottom: 1px solid skyblue;
+}
+.flight::after{
+    content:" 🪽";
+}
+
 .freedom-fighters{
     border-bottom: 1px solid tomato;
 }
