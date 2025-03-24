@@ -17,3 +17,13 @@ blockquote::before {
     top: 0.5rem;
     left: -0.3rem;
 }
+
+
+@media only screen and (max-width: 768px) {
+
+   blockquote{
+    margin:0;
+    line-height: 1.5rem;
+   }
+
+}

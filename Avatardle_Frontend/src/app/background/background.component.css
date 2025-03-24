@@ -4,6 +4,7 @@
     font: 6rem avatar;
     cursor: pointer;
     transition: transform 0.5s;
+    text-align: center;
 }
 
 .title-text:hover {
@@ -44,15 +45,78 @@
 #about-button {
 
     cursor: pointer;
-    font-size: xx-large;
-    background-color: transparent;
     color: bisque;
-    border: none;
+    font-size: 2.4ex;
+    background-color: transparent;
+    border: 1px solid bisque;
+    border-radius: 50%;
     position: fixed;
-    right: 0;
-    bottom: 0;
+    right: 1rem;
+    bottom: 1rem;
+    width: 2rem;
+    height: 2rem;
 }
 
-#about-button:hover{
+#about-button:hover {
     opacity: 0.6;
+}
+
+#help-button:hover{
+    opacity: 0.6;
+}
+
+#iroh-figure {
+
+    position: fixed;
+    height: 22vw;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+#title-container {
+
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    margin-top:3.5vh;
+
+}
+
+#brush-stroke {
+    position: absolute;
+    top: -40%;
+    left: -15%;
+    width: 130%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    #title-container{
+        margin-top: 10vh;
+    }
+    #iroh-figure {
+        display: none;
+    }
+    #brush-stroke{
+        width: 120%;
+    }
+
+    #about-button{
+        left: 1rem;
+        top: 1rem;
+    }
+
+    .title-text {
+        font: 5rem avatar;
+    }
+    .background-image {
+        background-position: 50%;
+        mask: none;
+    }
+
 }

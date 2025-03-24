@@ -1,18 +1,18 @@
 #episode-frame {
 
-    display:block;
+    display: block;
     width: 100%;
     pointer-events: none;
     transform: scale(2);
 }
 
-.df{
+.df {
 
     transition: transform 0.3s 0.5s;
 }
 
 
-#image-wrapper{
+#image-wrapper {
 
     overflow: hidden;
     box-shadow: 0px 0px 1rem 40px #00000082;
@@ -32,4 +32,40 @@
     color: indianred;
     margin-bottom: 1rem;
 
+}
+
+#image-container {
+
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    margin-top: 1vh;
+}
+
+#search-bar-container {
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 50%;
+    margin: auto;
+    margin-top: 6vh;
+    margin-bottom: 1vh;
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    #search-bar-container{
+        margin-top: 10vh;
+        width: 90%;
+    }
+    #image-container {
+
+        width: 90%;
+    }
+    .search-bar{
+        font-size: 1rem;
+    }
 }

@@ -1,6 +1,18 @@
-
-a{
+a {
     width: 100%;
+}
+
+#menu {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    position: relative;
+    top: 10vh;
+    width: 22vw;
+    margin: auto;
+    align-items: start;
 }
 
 .menu-container {
@@ -24,11 +36,10 @@ a{
     flex-grow: 1;
     font: 3.8vw avatar2;
     color: white;
-    
+
 }
 
 .paisho-sprite {
-
     width: 7vw;
     height: 7vw;
     filter: brightness(70%);
@@ -37,9 +48,23 @@ a{
     background-size: 600% 200%;
     background-position: 0px 0;
     transition: transform 0.5s;
-
 }
 
 .paisho-sprite:hover {
     transform: rotate(45deg);
+}
+
+@media only screen and (max-width: 768px) {
+
+    .paisho-sprite {
+        width: 25vw;
+        height: 25vw;
+    }
+    #menu {
+        top: 10vh;
+        width: 72vw;
+    }
+    .menu-container>span {
+        font: 3rem avatar2;
+    }
 }

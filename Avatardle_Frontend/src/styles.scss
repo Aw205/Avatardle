@@ -6,8 +6,8 @@
             divider-color: transparent,
             inactive-ripple-color: dimgray,
             inactive-label-text-color: burlywood,
-            ));
-            
+        ));
+
     @include mat.dialog-overrides((container-color: rgb(30, 30, 30),
             subhead-color: beige,
         ));
@@ -30,6 +30,7 @@
     background: rgb(60, 60, 60);
     border-radius: 0.5rem;
 }
+
 .mat-mdc-tab-body-content::-webkit-scrollbar {
     background: rgb(30, 30, 30);
     width: 0.5rem;
@@ -43,6 +44,8 @@ body {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -125,6 +128,15 @@ a {
     border: 1px solid rgba(0, 0, 0, 1);
 }
 
+.sprite-container {
+
+    width: 3.33vw;
+    height: 2.5vw;
+    display: inline-block;
+    padding-right: 1rem;
+
+}
+
 .search-symbol {
     width: 10%;
     border-radius: 10px 0 0 10px;
@@ -134,4 +146,33 @@ a {
     color: beige !important;
     background-color: black !important;
     font-family: Georgia !important;
+}
+
+.responsive-panel{
+   
+    max-width: none;
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    .sprite-container{
+        width: 6.66vw;
+        height: 5vw;
+    }
+
+    #myUL{
+        max-height: 30vh;
+    }
+    #myUL li {
+        padding: 0.4rem;
+        font: 1rem avatar2;
+    }
+    #myUL::-webkit-scrollbar {
+        width: 0.2rem;
+    }
+
+    .responsive-panel{
+        width: 90vw !important;
+    }
 }

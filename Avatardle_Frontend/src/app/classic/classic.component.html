@@ -1,16 +1,16 @@
-<div
-    style="display: flex; justify-content: center; position:relative; width: 30%; margin:auto; margin-top: 5vh; margin-bottom: 1vh;">
+<div id="search-container">
     <img src="images/sokka_eyeglass.webp" class="search-symbol">
 
     <input type="text" placeholder="search..." class="search-bar" spellcheck="false" autocomplete="off"
         (input)="onInput()" (focusout)="isVisible=false" (focusin)="isVisible=true" (keydown.enter)="onEnter()"
-        [(ngModel)]="searchVal" [disabled]="progress.classic.complete" [class.search-complete]="progress.classic.complete" />
+        [(ngModel)]="searchVal" [disabled]="progress.classic.complete"
+        [class.search-complete]="progress.classic.complete" />
 
     @if (isVisible) {
     <ul id="myUL">
         @for (char of charList; track char.name){
         <li (mousedown)="onEnter(char.name)">
-            <div style="width:3.33vw; height: 2.5vw; display:inline-block; padding-right: 1rem;">
+            <div class="sprite-container">
                 <div class="sprite" [style.background-position-x.%]="1.086957 * char.index"></div>
             </div>{{char.name}}
         </li>
@@ -19,13 +19,13 @@
     }
 
 </div>
-    
-<div style="font: 1rem avatar2; color: gray; text-align: center;"> <tm-ng-odometer [number]="($stat | async)?.classic_completion ?? 0" [theme]="'minimal'"
+
+<div style="font: 1rem avatar2; color: gray; text-align: center;"> <tm-ng-odometer
+        [number]="($stat | async)?.classic_completion ?? 0" [theme]="'minimal'"
         style="color:darkgoldenrod;"></tm-ng-odometer> people completed today!</div>
 
-<div style="display: flex; justify-content: center; padding-top: 2vh;">
-    <div id="categories-container"
-        style="display: grid; gap: 0.5vw; grid-template-columns: repeat(6,1fr); justify-items: center;">
+<div id="grid-container">
+    <div id="categories-container">
         <div class="category">Character</div>
         <div class="category">Gender</div>
         <div class="category">Nationality</div>
@@ -45,3 +45,5 @@
 
     </div>
 </div>
+
+<p id="mobile-help-text">Scroll horizontally to see more!</p>

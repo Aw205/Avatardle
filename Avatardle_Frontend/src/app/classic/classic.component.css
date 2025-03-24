@@ -9,8 +9,66 @@
     background-color: black;
     border-radius: 1vh;
     border-bottom: 1px solid silver;
-    max-width: 9rem; 
+    max-width: 9rem;
     min-width: 9rem;
 
 }
 
+#categories-container {
+
+    display: grid;
+    gap: 0.5vw;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+
+}
+
+#search-container {
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 30%;
+    margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+}
+
+#grid-container {
+
+    display: flex;
+    justify-content: center;
+    padding-top: 2vh;
+}
+
+#mobile-help-text{
+
+    font: 1rem avatar2; 
+    color: goldenrod;
+    text-align: center;
+    display: none;
+}
+
+
+@media only screen and (max-width:768px) {
+
+    #categories-container {
+
+        overflow-x: scroll;
+        width: 80%;
+        overflow-y: hidden;
+        padding: 1rem;
+    }
+    #search-container {
+        width: 60%;
+    }
+
+    .search-bar {
+        font-size: 1rem;
+    }
+
+    #mobile-help-text{
+        display: block;
+    }
+
+}

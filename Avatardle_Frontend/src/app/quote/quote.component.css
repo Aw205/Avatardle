@@ -24,19 +24,19 @@ blockquote::before {
 .clue {
     background-color: rgb(30, 30, 30);
     font: 2rem Georgia;
-    color:rgba(241, 199, 205, 0.501);
-    border:none;
+    color: rgba(241, 199, 205, 0.501);
+    border: none;
     border-left: 1px solid rgb(40, 40, 40);
     cursor: pointer;
     transition: color 400ms linear;
 }
 
-.clue:hover{
-    background-color: rgb(35,35,35);
+.clue:hover {
+    background-color: rgb(35, 35, 35);
 }
 
-.clue-ready{
-    color:pink;
+.clue-ready {
+    color: pink;
 }
 
 
@@ -70,4 +70,43 @@ blockquote::before {
     color: goldenrod;
     border: none;
     border-right: 0.5rem solid gray;
+}
+
+#quote-container {
+
+    position: relative;
+    left: 50%;
+    top: 0vh;
+    transform: translateX(-50%);
+    width: 60%;
+}
+
+@media only screen and (max-width: 768px) {
+
+    blockquote {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        border-width: 0.1rem;
+    }
+
+    blockquote::before {
+        font-size: 3rem;
+        left: -0.4rem;
+        top: 0.5rem;
+    }
+
+    .clue {
+        font-size: 1rem;
+    }
+
+    #quote-container{
+        width: 80%;
+    }
+
+    .quote-search-bar{
+
+        font-size: 0.8rem;
+        border-width: 0.1rem;
+    }
+
 }
