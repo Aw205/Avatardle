@@ -68,7 +68,7 @@
 #iroh-figure {
 
     position: fixed;
-    height: 22vw;
+    width: 15vw;
     bottom: 0;
     left: 0;
     pointer-events: none;

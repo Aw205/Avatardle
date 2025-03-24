@@ -78,6 +78,7 @@ export class QuoteMode {
             this.searchVal = "-" + this.target;
             this.progress.quote.complete = true;
             this.progress.quote.target = this.target;
+            this.progress.quote.numGuesses++;
 
             this.ds.throwConfetti(0);
             this.ds.updateStats("quote");

@@ -90,7 +90,7 @@ export class ClassicMode {
                     case "bendingElement":
 
                         if (!["None", "All"].includes(val)) {
-                            tileData.imageUrl = `images/elements/${val.toLowerCase()}.png`;
+                            tileData.imageUrl = `images/elements/${val.toLowerCase()}.webp`;
                             tileData.element = val;
                         }
                         else {

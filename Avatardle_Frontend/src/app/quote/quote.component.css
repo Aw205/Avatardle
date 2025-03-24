@@ -23,12 +23,16 @@ blockquote::before {
 
 .clue {
     background-color: rgb(30, 30, 30);
-    font: 2rem Georgia;
-    color: rgba(241, 199, 205, 0.501);
     border: none;
     border-left: 1px solid rgb(40, 40, 40);
     cursor: pointer;
-    transition: color 400ms linear;
+}
+
+.lotus {
+
+    width: 2rem;
+    filter: saturate(0) brightness(0.5);
+    transition: filter 400ms linear;
 }
 
 .clue:hover {
@@ -36,7 +40,7 @@ blockquote::before {
 }
 
 .clue-ready {
-    color: pink;
+   filter:none;
 }
 
 
@@ -95,15 +99,15 @@ blockquote::before {
         top: 0.5rem;
     }
 
-    .clue {
-        font-size: 1rem;
+    .lotus{
+        width: 1em;
     }
 
-    #quote-container{
+    #quote-container {
         width: 80%;
     }
 
-    .quote-search-bar{
+    .quote-search-bar {
 
         font-size: 0.8rem;
         border-width: 0.1rem;

@@ -71,7 +71,6 @@
 
 .img {
     transition: scale 200ms linear;
-
 }
 .img:hover {
     scale: 1.2;
