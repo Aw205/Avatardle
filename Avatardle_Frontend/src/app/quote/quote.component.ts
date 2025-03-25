@@ -55,7 +55,7 @@ export class QuoteMode {
 
         this.ds.getEpisodeData().subscribe((epiData) => {
             let keys = Object.keys(epiData);
-            this.quoteEpisode = keys[this.ds.transcript[idx].total_number];
+            this.quoteEpisode = keys[this.ds.transcript[idx].total_number - 1];
         });
 
         if (this.progress.quote.complete) {
