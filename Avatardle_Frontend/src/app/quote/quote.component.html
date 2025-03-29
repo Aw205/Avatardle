@@ -10,14 +10,14 @@
     <div
         style="display: flex; position: absolute; top:0; left:100%; flex-direction: column; border-radius: 0 0.5rem 0.5rem 0; overflow: hidden;">
 
-        <button [disabled]="!isEnabled(2)" (click)="showHint(0)" [matTooltip]="getTooltipText(3)"
-            matTooltipPosition="right" class="clue" [class.clue-ready]="isEnabled(2)"><img src="images/lotus.svg"
+        <button name="Hint 1" [disabled]="!isEnabled(2)" (click)="showHint(0)" [matTooltip]="getTooltipText(3)"
+            matTooltipPosition="right" class="clue" [class.clue-ready]="isEnabled(2)"><img src="images/lotus.svg" alt=""
                 class="lotus" [class.clue-ready]="isEnabled(2)"></button>
-        <button [disabled]="!isEnabled(3)" (click)="showHint(1)" [matTooltip]="getTooltipText(4)"
-            matTooltipPosition="right" class="clue" [class.clue-ready]="isEnabled(3)"><img src="images/lotus.svg"
+        <button name="Hint 2" [disabled]="!isEnabled(3)" (click)="showHint(1)" [matTooltip]="getTooltipText(4)"
+            matTooltipPosition="right" class="clue" [class.clue-ready]="isEnabled(3)"><img src="images/lotus.svg" alt=""
                 class="lotus" [class.clue-ready]="isEnabled(3)"></button>
-        <button [disabled]="!isEnabled(4)" (click)="showHint(2)" [matTooltip]="getTooltipText(5)"
-            matTooltipPosition="right" class="clue"><img src="images/lotus.svg" class="lotus"
+        <button name="Hint 3" [disabled]="!isEnabled(4)" (click)="showHint(2)" [matTooltip]="getTooltipText(5)"
+            matTooltipPosition="right" class="clue"><img src="images/lotus.svg" class="lotus" alt=""
                 [class.clue-ready]="isEnabled(4)"></button>
     </div>
 

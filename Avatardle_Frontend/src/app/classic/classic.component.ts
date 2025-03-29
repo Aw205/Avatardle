@@ -113,6 +113,9 @@ export class ClassicMode {
                         else if(count < tileData.affiliations!.length){
                             tileData.isCorrect = undefined;
                         }
+                        else{
+                            tileData.isCorrect = true;
+                        }
                         break;
 
                     case "firstAppearance":

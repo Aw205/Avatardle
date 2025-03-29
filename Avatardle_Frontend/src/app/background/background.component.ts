@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { AboutDialogComponent } from '../about-dialog/about-dialog.component';
 import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
+import { CalendarDialogComponent } from '../calendar-dialog/calendar-dialog.component';
 
 @Component({
   selector: 'background',
@@ -21,6 +22,9 @@ export class Background {
     }
     else if(name == "help"){
       let dialogRef = this.dialog.open(HelpDialogComponent, { width: '70vw', maxWidth: 'none', height: "80vh" });
+    }
+    else if(name == "calendar"){
+      let dialogRef = this.dialog.open(CalendarDialogComponent, { width: '30vw', maxWidth: 'none', height: "70vh" });
     }
 
 

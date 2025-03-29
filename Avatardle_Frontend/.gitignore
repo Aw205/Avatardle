@@ -58,3 +58,5 @@ baseline.json
 .angular/
 # src/assets/randomframes
 
+src/app/calendar-dialog
+

@@ -29,7 +29,7 @@ export class AppComponent {
       classic: { complete: false, target: "", guesses: [] },
       quote: { complete: false, target: "", numGuesses: 0 },
       picture: { complete: false, target: "", numGuesses: 0 }
-    };
+      };
 
     if (localStorage.getItem("avatardle_progress") != null) {
       try {

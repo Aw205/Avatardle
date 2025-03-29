@@ -1,6 +1,5 @@
 <div id="search-container">
-    <img src="images/sokka_eyeglass.webp" class="search-symbol">
-
+    <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250" class="search-symbol">
     <input type="text" placeholder="search..." class="search-bar" spellcheck="false" autocomplete="off"
         (input)="onInput()" (focusout)="isVisible=false" (focusin)="isVisible=true" (keydown.enter)="onEnter()"
         [(ngModel)]="searchVal" [disabled]="progress.classic.complete"
@@ -17,7 +16,6 @@
         }
     </ul>
     }
-
 </div>
 
 <div style="font: 1rem avatar2; color: gray; text-align: center;"> <tm-ng-odometer
