@@ -43,9 +43,8 @@ a {
     width: 7vw;
     height: 7vw;
     filter: brightness(70%);
-    background-position: 20% 0;
-    background-image: url('../../assets/images/paisho_tiles.webp');
-    background-size: 600% 200%;
+    background-image: url('../../assets/images/paisho_final.svg');
+    background-size: 600% 100%;
     background-position: 0px 0;
     transition: transform 0.5s;
 }

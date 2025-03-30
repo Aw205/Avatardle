@@ -30,7 +30,10 @@ blockquote::before {
 
 .lotus {
 
+
     width: 2rem;
+    height: auto;
+    aspect-ratio: 1/1;
     filter: saturate(0) brightness(0.5);
     transition: filter 400ms linear;
 }

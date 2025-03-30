@@ -1,5 +1,14 @@
 @use '@angular/material' as mat;
 
+@font-face {
+    font-family: 'avatar';
+    src: url(assets/fonts/Avatar_Airbender.woff2) format('woff2'),
+}
+@font-face {
+    font-family: "avatar2";
+    src: url(assets/fonts/HerculanumLTProRoman.woff2) format('woff2');
+}
+
 :root {
     @include mat.tabs-overrides((label-text-font: avatar2,
             label-text-weight:bold,
@@ -91,11 +100,17 @@ a {
 .search-bar {
 
     background-color: rgb(20, 20, 20);
-    width: 100%;
+    width: 90%;
     font: 2vw avatar2;
     color: beige;
     border-radius: 0 10px 10px 0;
     border: none;
+}
+
+.search-symbol {
+    width: auto;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
 }
 
 .search-complete {
@@ -156,12 +171,6 @@ a {
     display: inline-block;
     padding-right: 1rem;
 
-}
-
-.search-symbol {
-    width: 10%;
-    height: auto;
-    border-radius: 10px 0 0 10px;
 }
 
 .mdc-tooltip__surface {

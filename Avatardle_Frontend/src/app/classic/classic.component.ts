@@ -90,7 +90,7 @@ export class ClassicMode {
                     case "bendingElement":
 
                         if (!["None", "All"].includes(val)) {
-                            tileData.imageUrl = `images/elements/${val.toLowerCase()}.webp`;
+                            tileData.imageUrl = `images/elements/${val.toLowerCase()}.svg`;
                             tileData.element = val;
                         }
                         else {
@@ -128,7 +128,7 @@ export class ClassicMode {
                             let t = targetVal as string;
                             let target = parseInt(t.substring(1, 3)) * 100 + parseInt(t.substring(4, 6));
                             tileData.arrowDir = (target < vals) ? "none" : "rotate(180deg)";
-                            tileData.imageUrl = `images/down-arrow.png`;
+                            tileData.imageUrl = `images/down-arrow.webp`;
                         }
                         break;
                 }

@@ -4,12 +4,12 @@
         <div class="flip-card-back" [class]="getBoxShadow(data.isCorrect)">
             @if(data.episodeName){
             @if(data.arrowDir){
-            <img [src]="data.imageUrl" class="episode-arrow" [style.transform]="data.arrowDir">
+            <img [src]="data.imageUrl" alt="" class="episode-arrow" [style.transform]="data.arrowDir">
             }
             {{data.episodeName}}
             }
             @else if(data.imageUrl){
-            <img [src]="data.imageUrl" style="width:50%;" class="img" [matTooltip]="data.element!" matTooltipPosition="below">
+            <img [src]="data.imageUrl" alt="{{data.element! + ' element symbol'}}" class="img" [matTooltip]="data.element!" matTooltipPosition="below">
             }
             @else if(data.affiliations){
 

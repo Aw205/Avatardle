@@ -28,8 +28,8 @@
 
 .flip-card-front {
     position: absolute;
-    background-image: url(../../assets/images/paisho_tiles.webp);
-    background-size: 600% 200%;
+    background-image: url(../../assets/images/paisho_final.svg);
+    background-size: 600% 100%;
     background-position: 0px 0;
     filter: brightness(70%);
     width: 100%;
@@ -71,6 +71,8 @@
 
 .img {
     transition: scale 200ms linear;
+    width: 60%;
+    aspect-ratio: 1/1;
 }
 .img:hover {
     scale: 1.2;
