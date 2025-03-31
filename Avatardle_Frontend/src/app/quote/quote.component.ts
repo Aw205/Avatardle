@@ -53,10 +53,9 @@ export class QuoteMode {
         this.quote = this.ds.transcript[idx].script;
         this.target = this.ds.transcript[idx].Character;
 
-        this.ds.getEpisodeData().subscribe((epiData) => {
-            let keys = Object.keys(epiData);
-            this.quoteEpisode = keys[this.ds.transcript[idx].total_number - 1];
-        });
+        let keys = Object.keys(this.ds.episodeData);
+        this.quoteEpisode = keys[this.ds.transcript[idx].total_number - 1];
+
 
         if (this.progress.quote.complete) {
             this.searchVal = "-" + this.progress.quote.target;
@@ -113,7 +112,7 @@ export class QuoteMode {
             { title: "Episode Name", quote: this.quoteEpisode }
         ];
         this.dialog.open(HintDialogComponent, {
-            width: '50vw', maxWidth: 'none', panelClass:'responsive-panel' ,data: {
+            width: '50vw', maxWidth: 'none', panelClass: 'responsive-panel', data: {
                 title: hints[hintId].title,
                 quote: hints[hintId].quote
             }

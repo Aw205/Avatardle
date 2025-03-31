@@ -53,6 +53,7 @@ export class DataService {
 
   characterData!: Character[];
   characterFilter!: CharacterFilter;
+  episodeData!: Episode;
   transcript!: Transcript[];
   quoteIndices!: number[];
   dailyStats!: DailyStats;
@@ -65,7 +66,6 @@ export class DataService {
   initialize(): Observable<Character[]> {
 
     console.log(environment.statsApiUrl);
-
     this.$stats = interval(120000).pipe(
       startWith(0),
       switchMap(() => this.http.get<DailyStats>(`${environment.statsApiUrl}/getStats`))
@@ -87,6 +87,9 @@ export class DataService {
     });
     this.http.get<number[]>('json/quote_indices.json').subscribe((data) => {
       this.quoteIndices = data;
+    });
+    this.http.get<Episode>('json/episodes.json').subscribe((data) => {
+      this.episodeData = data;
     });
     return ob;
   }

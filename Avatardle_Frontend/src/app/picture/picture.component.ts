@@ -6,6 +6,7 @@ import { TmNgOdometerModule } from 'odometer-ngx';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { AvatardleProgress } from '../app.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'picture',
@@ -32,10 +33,13 @@ export class PictureMode {
   $stat!: Observable<DailyStats>;
   progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
 
-  constructor(private ds: DataService) { }
-
+  constructor(private ds: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.targetFrame = this.route.snapshot.data["image"].frame;
+    this.episodeData = this.route.snapshot.data["image"].names;
+    this.targetEpisode = this.route.snapshot.data["image"].target;
 
     this.$stat = this.ds.$stats;
     if (this.progress.picture.complete) {
@@ -43,23 +47,10 @@ export class PictureMode {
     }
 
     this.setRatios(this.progress.picture.numGuesses);
-
     setTimeout(() => {
       this.addt = true;
     }, 500);
 
-    this.ds.getEpisodeData().subscribe((data) => {
-
-      let keys = Object.keys(data);
-      let rand = new Rand(this.progress.date! + "picture");
-      this.targetEpisode = keys[Math.floor(keys.length * rand.next()) << 0];
-      let frameIdx = rand.next() * this.targetEpisode.length << 0;
-      this.targetFrame = `randomframes/${data[this.targetEpisode][frameIdx]}`;
-
-      for (let name of keys) {
-        this.episodeData.push(name);
-      }
-    });
   }
 
   onInput() {

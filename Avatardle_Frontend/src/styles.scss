@@ -78,6 +78,25 @@ body {
     padding: 0;
 }
 
+body::before{
+
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-image: url('assets/images/atla_background.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    mask: radial-gradient(circle, rgba(0, 0, 0, 0.9766500350140056) 47%, rgba(0, 0, 0, 0.7959777661064426) 100%);
+    filter: brightness(0.2) sepia(0.6);
+}
+
 a {
     text-decoration: none;
 }
