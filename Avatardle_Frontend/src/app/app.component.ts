@@ -7,11 +7,14 @@ import { tileData } from './tile/tile.component';
 export interface AvatardleProgress {
 
   date: string,
-  classic: { complete: boolean, target: string, guesses: tileData[] },
+  version: string,
+  classic: { complete: boolean, target: string, guesses: tileData[], series: string[] },
   quote: { complete: boolean, target: string, numGuesses: number },
   picture: { complete: boolean, target: string, numGuesses: number }
 
 }
+
+const VERSION = "1.0.0";
 
 @Component({
   selector: 'app-root',
@@ -26,7 +29,8 @@ export class AppComponent {
     let currentDate = new Date().toLocaleDateString();
     let emptyProgress: AvatardleProgress = {
       date: currentDate,
-      classic: { complete: false, target: "", guesses: [] },
+      version: VERSION,
+      classic: { complete: false, target: "", guesses: [], series: ["Avatar: The Last Airbender"] },
       quote: { complete: false, target: "", numGuesses: 0 },
       picture: { complete: false, target: "", numGuesses: 0 }
       };
@@ -34,8 +38,7 @@ export class AppComponent {
     if (localStorage.getItem("avatardle_progress") != null) {
       try {
         let progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
-        if (currentDate != progress.date) {
-          emptyProgress.date = currentDate;
+        if (currentDate != progress.date || progress.version != emptyProgress.version) {
           localStorage.setItem("avatardle_progress",JSON.stringify(emptyProgress));
         }
       }

@@ -15,30 +15,39 @@
 
     cursor: pointer;
     color: bisque;
-    font-size: 2.4ex;
-    background-color: transparent;
-    border: 1px solid bisque;
-    border-radius: 50%;
     position: fixed;
     right: 1rem;
     top: 1rem;
+    font-size: 2rem;
     width: 2rem;
-    height: 2rem;
+    height: auto;
+    font-weight:200;
 }
 
 #about-button {
 
     cursor: pointer;
     color: bisque;
-    font-size: 2.4ex;
-    background-color: transparent;
-    border: 1px solid bisque;
-    border-radius: 50%;
     position: fixed;
     right: 1rem;
     bottom: 1rem;
+    font-size: 2rem;
     width: 2rem;
-    height: 2rem;
+    height: auto;
+    font-weight: 200;
+}
+
+#comment-button {
+
+    cursor: pointer;
+    color: bisque;
+    position: fixed;
+    right: 1rem;
+    top: 5rem;
+    font-size: 2rem;
+    width: 2rem;
+    height: auto;
+    font-weight: 200;
 }
 
 #calendar-button {
@@ -61,6 +70,10 @@
 }
 
 #help-button:hover{
+    opacity: 0.6;
+}
+
+#comment-button:hover{
     opacity: 0.6;
 }
 

@@ -83,194 +83,131 @@
 }
 
 .animal-companion{
-    border-bottom: 1px solid peachpuff;
-}
-.animal-companion::after{
-    content: " 🐾";
+    border-bottom: 1px solid steelblue;
 }
 
+
 .ba-sing-se {
-    border-bottom: 1px solid darkgreen;
-}
-.ba-sing-se::after{
-    content: " ⾨";
-    color: darkseagreen;
+    border-bottom: 1px solid seagreen;
 }
 
 .blood-bending {
     border-bottom: 1px solid maroon;
 }
-.blood-bending::after {
-    content:" 🩸"
-}
+
 
 .bounty-hunter {
-    border-bottom: 1px solid firebrick;
-}
-.bounty-hunter::after {
-    content:" 🏹"
+    border-bottom: 1px solid tan;
 }
 
 .coucil-of-five {
     border-bottom: 1px solid darkolivegreen;
 }
-.coucil-of-five::after{
-    content: " 五";
-}
+
 
 .combustion-bending {
     border-bottom: 1px solid darkorange;
 }
-.combustion-bending::after{
-    content: " 💥";
-}
 
 .comic-relief{
-    border-bottom: 1px solid lightgoldenrodyellow;
-}
-.comic-relief::after{
-    content: " 😂";
+    border-bottom: 1px solid yellow;
 }
 
+
 .dai-li{
-    border-bottom: 1px solid olivedrab;
-}
-.dai-li::after{
-    content:" ∧∧∧";
-    font-size: 1rem;
-    color: olivedrab;
+    border-bottom: 1px solid darkgreen;
 }
 
 .earth-rumble{
-    border-bottom: 1px solid saddlebrown;
+    border-bottom: 1px solid peru;
 }
-.earth-rumble::after{
-    content:" 🤼‍♂️";
+
+.equalist{
+
+    border-bottom: 1px solid crimson;
 }
 
 .flight{
-    border-bottom: 1px solid skyblue;
-}
-.flight::after{
-    content:" 🪽";
+    border-bottom: 1px solid darkorange;
 }
 
 .freedom-fighters{
     border-bottom: 1px solid tomato;
 }
-.freedom-fighters::after{
-    content:" 🦅";
-}
 
 .healing{
-    border-bottom: 1px solid lightseagreen;
-}
-.healing::after{
-    content:" ✚";
-    color: turquoise;
+    border-bottom: 1px solid skyblue;
 }
 
 .imprisoned{
     border-bottom: 1px solid darkslategray;
 }
-.imprisoned::after{
-    content: " 🔒";
-}
+
 
 .kyoshi-warrior {
-    border-bottom: double 3px transparent;
+    border-bottom: double 1px transparent;
     background-image: linear-gradient(rgb(30,30,30), rgb(30,30,30)),
      linear-gradient(to right,#729663 10%,#e15d40 10% 30%, #fffee6 30% 70%, #e15d40 70% 90%, #729663 90%);
     background-origin: border-box;
     /* background-clip: content-box, border-box; */
     background-clip: padding-box, border-box;
 }
-.kyoshi-warrior::after {
-    content: " 🪭";
+
+.lava-bending{
+
+    border-bottom: 1px solid orange;
 }
 
 .lightning-bending {
     border-bottom: 1px solid dodgerblue;
 }
-.lightning-bending::after {
-    content: " ⚡";
-}
 
 .mentor {
-    border-bottom: 1px solid gray;
-}
-.mentor::after {
-    content: " 📖"
+    border-bottom: 1px solid lightgreen;
 }
 
 .metal-bending {
     border-bottom: 1px solid slategray;
 }
-.metal-bending::after {
-    content: " ⚙️"
-}
-
 
 .muscular{
     border-bottom: 1px solid sienna;
 }
-.muscular::after{
-    content: " 💪"
-}
 
 .musician{
-    border-bottom: 1px solid indigo;
-}
-.musician::after{
-    content: " 🎶"
+    border-bottom: 1px solid darkslateblue;
 }
 
 .nobility{
-    border-bottom: 1px solid palegoldenrod;
-
+    border-bottom: 1px solid darkgoldenrod;
 }
-.nobility::after{
-    content: " ♔";
-    font-size: 1rem;
-    color: palegoldenrod;
+
+.red-lotus{
+    border-bottom: 1px solid red;
 }
 
 .romance {
     border-bottom: 1px solid hotpink;
 }
-.romance::after {
-    content: " ♥";
-    color: darkred;
-}
 
 .royal-fire-academy {
-    border-bottom: 1px solid lightcoral;
-
-}
-.royal-fire-academy::after{
-    content:" 🏫"
+    border-bottom: 1px solid indianred;
 }
 
 .royalty {
     border-bottom: 1px solid goldenrod;
-
 }
-.royalty::after{
-    content:" 👑"
+
+.spirit-world{
+    border-bottom: 1px solid lightskyblue;
 }
 
 .spiritual {
     border-bottom: 1px solid paleturquoise;
 }
-.spiritual::after{
-    content: " ☯";
-}
 
 .tea-enthusiast {
-    border-bottom: 1px solid darkseagreen;
-}
-.tea-enthusiast::after{
-    content: " 🍵";
+    border-bottom: 1px solid yellowgreen;
 }
 
 .team-avatar {
@@ -280,27 +217,14 @@
     background-origin: border-box;
     background-clip: padding-box, border-box;
 }
-.team-avatar::after{
-    content: " 💧⛰️🔥💨";
-}
 
 .weapon-wielder {
     border-bottom: 1px solid slategray;
-}
-.weapon-wielder::after {
-    content: " ⚔";
-    font-size: 1rem;
-    color: gray;
 }
 
 .white-lotus {
     border-bottom: 1px solid white;
 }
-
-.white-lotus::after{
-    content: " 𑁍"
-}
-
 
 #tag-container {
     width: 100%;

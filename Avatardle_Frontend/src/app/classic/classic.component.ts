@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand, { PRNG } from 'rand-seed';
 import { tileData } from '../tile/tile.component';
@@ -9,10 +9,14 @@ import { TmNgOdometerModule } from 'odometer-ngx';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { AvatardleProgress } from '../app.component';
+import { HyphenatePipe } from '../pipes/hyphenate.pipe';
+import {MatIconModule} from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
+import { ClassicSettingsDialogComponent } from '../classic-settings-dialog/classic-settings-dialog.component';
 
 @Component({
     selector: 'classic',
-    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe],
+    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe,HyphenatePipe,MatIconModule],
     templateUrl: './classic.component.html',
     styleUrl: './classic.component.css'
 })
@@ -33,13 +37,14 @@ export class ClassicMode {
     $stat!: Observable<DailyStats>;
     progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
     rand: Rand = new Rand(this.progress.date! + "classic");
+    readonly dialog = inject(MatDialog);
 
     constructor(private ds: DataService) { }
 
     ngOnInit() {
 
         this.$stat = this.ds.$stats;
-        this.characterData = this.ds.getClassicCharacterData();
+        this.characterData = this.ds.getClassicCharacterData(this.progress.classic.series);
         this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
 
         if (this.progress.classic.complete) {
@@ -63,11 +68,9 @@ export class ClassicMode {
 
             this.guessAttempts++;
             let char = this.characterData.find(char => char.name == this.selected)!;
-
-            let idx = 1.086957 * char.index; // 1/(num images - 1)
             let numCorrect: number = 0;
 
-            let tmp: tileData[] = [{ imageIndex: idx, name: char.name }];
+            let tmp: tileData[] = [{name: char.name}];
 
             Object.entries(char).forEach(([key, val], index) => {
 
@@ -166,4 +169,12 @@ export class ClassicMode {
 
         }
     }
+
+  openDialog(name: string) {
+
+    if (name == "settings") {
+      let dialogRef = this.dialog.open(ClassicSettingsDialogComponent, { width: '50vw',maxWidth:'none'});
+    }
+
+  }
 }

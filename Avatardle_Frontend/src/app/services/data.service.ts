@@ -31,7 +31,7 @@ export interface Character {
 }
 
 export interface CharacterFilter {
-  classic: string[],
+  classic: { [key: string]: string[] },
   quote: string[]
 
 }
@@ -95,21 +95,18 @@ export class DataService {
   }
 
 
-  getClassicCharacterData(): Character[] {
+  getClassicCharacterData(series: string[]): Character[] {
 
-    let filter = this.characterFilter.classic;
-    return this.characterData.filter(char => filter.includes(char.name));
-
-  }
-
-  getQuoteCharacterData(): Character[] {
-
-    let filter = this.characterFilter.quote;
+    let filter: string[] = [];
+    for (let s of series) {
+      filter.push(...this.characterFilter.classic[s]);
+    }
     return this.characterData.filter(char => filter.includes(char.name));
   }
 
-  getEpisodeData(): Observable<Episode> {
-    return this.http.get<Episode>('json/episodes.json');
+  getQuoteCharacterData(): string[] {
+
+    return this.characterFilter.quote;
   }
 
   updateStats(mode: string) {

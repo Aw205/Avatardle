@@ -1,0 +1,52 @@
+label {
+    display: block;
+    cursor: pointer;
+    transition: transform 200ms;
+    background-color: rgb(20, 20, 20);
+    padding: 1rem;
+    user-select: none;
+}
+
+label:hover {
+    transform: translateY(-0.2rem);
+}
+
+.icon {
+
+    width: 4rem;
+    opacity: 0.2;
+    border-radius: 1rem;
+}
+
+.selected {
+
+    opacity: 1;
+
+}
+
+#save-button {
+
+    background-color: teal;
+    font: 1rem Georgia;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    width: 4rem;
+}
+
+#save-button:hover {
+
+    filter: brightness(1.1);
+}
+
+.error {
+
+    color: indianred;
+    font: 1rem Georgia;
+}
+
+span {
+
+    color: teal;
+    font: 1rem Georgia;
+}

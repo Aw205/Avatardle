@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
 
 export interface tileData {
 
   name?: string
   isCorrect?: boolean,
   episodeName?: string,
-  imageIndex?: number,
   text?: string,
   imageUrl?: string,
   backgroundPosition?: string
@@ -20,7 +20,7 @@ export interface tileData {
 
 @Component({
   selector: 'tile',
-  imports: [MatTooltipModule],
+  imports: [MatTooltipModule,MatIconModule],
   templateUrl: './tile.component.html',
   styleUrl: './tile.component.css'
 })

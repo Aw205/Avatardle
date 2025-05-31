@@ -25,11 +25,10 @@
     <div style="position:absolute; display: flex; justify-content: center; top:100%; width: 30%; right:0;">
         @if (isVisible) {
         <ul id="myUL">
-            @for (char of charList; track char.name){
-            <li (mousedown)="onEnter(char.name)">
-                <div class="sprite-container">
-                    <div class="sprite" [style.background-position-x.%]="1.086957*char.index"></div>
-                </div>{{char.name}}
+            @for (char of charList; track char){
+            <li (mousedown)="onEnter(char)">
+                <img src="images/characters/{{char | hyphenate}}.webp" style="width: 3.33vw; padding-right: 1rem;">
+                {{char}}
             </li>
             }
         </ul>
@@ -44,8 +43,8 @@
 @for (ans of incorrectAnswers; track ans){
 <div class="incorrect-quote-guess">
     <div style="width:3.33rem; height: 2.5rem; margin:auto; margin-bottom: 0.5rem;">
-        <div class="sprite" [style.background-position-x.%]="1.086957*ans.index" style="border-radius: 10px;"></div>
+        <img src="images/characters/{{ans | hyphenate}}.webp" style="width: 3.33vw; padding-right: 1rem;border-radius: 10px;">
     </div>
-    {{ans.name}}
+    {{ans}}
 </div>
 }

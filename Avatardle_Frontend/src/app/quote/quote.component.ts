@@ -9,10 +9,11 @@ import { TmNgOdometerModule } from 'odometer-ngx';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { AvatardleProgress } from '../app.component';
+import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 
 @Component({
     selector: 'quote',
-    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe],
+    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe,HyphenatePipe],
     templateUrl: './quote.component.html',
     styleUrl: './quote.component.css'
 })
@@ -21,13 +22,13 @@ export class QuoteMode {
 
     quote: string = "";
     target: string = "";
-    incorrectAnswers: Character[] = [];
+    incorrectAnswers: string[] = [];
 
-    charList: Character[] = [];
+    charList: string[] = [];
     searchVal: string = "";
     isVisible: boolean = true;
     selected: string = "";
-    characterData: Character[] = [];
+    characterData: string[] = [];
 
     quoteIndex: number = 0;
     prevQuote: string = "";
@@ -64,8 +65,8 @@ export class QuoteMode {
 
     onInput() {
 
-        this.charList = this.characterData.filter(char => char.name.toLowerCase().includes(this.searchVal.toLowerCase()) && this.searchVal != "");
-        this.selected = this.charList.length == 0 ? "" : this.charList[0].name;
+        this.charList = this.characterData.filter(char => char.toLowerCase().includes(this.searchVal.toLowerCase()) && this.searchVal != "");
+        this.selected = this.charList.length == 0 ? "" : this.charList[0];
     }
 
     onEnter(select: string = "") {
@@ -79,14 +80,14 @@ export class QuoteMode {
             this.progress.quote.target = this.target;
             this.progress.quote.numGuesses++;
 
-            this.ds.throwConfetti(0);
+            this.ds.throwConfetti(this.progress.quote.numGuesses);
             this.ds.updateStats("quote");
 
             localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
 
         }
         else if (this.selected != "") {
-            let char = this.characterData.find(char => char.name == this.selected);
+            let char = this.characterData.find(char => char == this.selected);
             this.incorrectAnswers.unshift(char!);
             this.searchVal = "";
             this.charList = [];

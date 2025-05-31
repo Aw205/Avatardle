@@ -4,41 +4,8 @@
 		"gender": "Male",
 		"nationality": "Southern Air Temple",
 		"bendingElement": "All",
-		"affiliations": ["Weapon Wielder","Spiritual","Animal Companion","Flight","Team Avatar"],
+		"affiliations": ["Weapon Wielder","Spiritual","Animal Companion","Flight","Team Avatar","Spirit World"],
 		"firstAppearance": "S01E01 The Boy in the Iceberg"
-	},
-	{
-		"name": "Actor Bumi"
-	},
-	{
-		"name": "Actor Iroh"
-	},
-	{
-		"name": "Actor Jet"
-	},
-	{
-		"name": "Actor Ozai"
-	},
-	{
-		"name": "Actor Sokka"
-	},
-	{
-		"name": "Actor Toph"
-	},
-	{
-		"name": "Actor Zuko"
-	},
-	{
-		"name": "Actress Aang"
-	},
-	{
-		"name": "Actress Azula"
-	},
-	{
-		"name": "Actress Katara"
-	},
-	{
-		"name": "Actress Yue"
 	},
 	{
 		"name": "Appa",
@@ -49,12 +16,28 @@
 		"firstAppearance": "S01E01 The Boy in the Iceberg"
 	},
 	{
+		"name": "Amon",
+		"gender": "Male",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "Water",
+		"affiliations": ["Blood Bending","Equalist"],
+		"firstAppearance": "S01E01 Welcome to Republic City"
+	},
+	{
 		"name": "Arnook",
 		"gender": "Male",
 		"nationality": "Northern Water Tribe",
 		"bendingElement": "None",
 		"affiliations": [],
 		"firstAppearance": "S01E18 The Waterbending Master"
+	},
+	{
+		"name": "Asami Sato",
+		"gender": "Female",
+		"nationality": "Republic City",
+		"bendingElement": "None",
+		"affiliations": ["Romance","Team Avatar","Weapon Wielder"],
+		"firstAppearance": "S01E04 The Voice in the Night"
 	},
 	{
 		"name": "Aunt Wu",
@@ -87,6 +70,22 @@
 		"bendingElement": "None",
 		"affiliations": ["Weapon Wielder"],
 		"firstAppearance": "S01E15 Bato of the Water Tribe"
+	},
+	{
+		"name": "Bolin",
+		"gender": "Male",
+		"nationality": "Republic City",
+		"bendingElement": "Earth",
+		"affiliations": ["Romance","Lava Bending","Comic Relief","Team Avatar","Animal Companion"],
+		"firstAppearance": "S01E02 A Leaf in the Wind"
+	},
+	{
+		"name": "Bumi",
+		"gender": "Male",
+		"nationality": "Southern Water Tribe",
+		"bendingElement": "Air",
+		"affiliations": ["Comic Relief","United Forces"],
+		"firstAppearance": "S01E12 Endgame"
 	},
 	{
 		"name": "Cabbage Merchant",
@@ -129,6 +128,14 @@
 		"firstAppearance": "S03E02 The Headband"
 	},
 	{
+		"name": "Desna",
+		"gender": "Male",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "Water",
+		"affiliations": [],
+		"firstAppearance": "S02E01 Rebel Spirit"
+	},
+	{
 		"name": "Dock",
 		"gender": "Male",
 		"nationality": "Fire Nation",
@@ -143,6 +150,14 @@
 		"bendingElement": "Water",
 		"affiliations": [],
 		"firstAppearance": "S02E04 The Swamp"
+	},
+	{
+		"name": "Eska",
+		"gender": "Female",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "Water",
+		"affiliations": [],
+		"firstAppearance": "S02E01 Rebel Spirit"
 	},
 	{
 		"name": "General Fong",
@@ -167,6 +182,14 @@
 		"bendingElement": "Earth",
 		"affiliations": ["Council of Five"],
 		"firstAppearance": "S02E13 The Drill"
+	},
+	{
+		"name": "Ghazan",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Earth",
+		"affiliations": ["Lava Bending","Red Lotus"],
+		"firstAppearance": "S03E02 Rebirth"
 	},
 	{
 		"name": "Guru Pathik",
@@ -217,6 +240,14 @@
 		"firstAppearance": "S01E06 Imprisoned"
 	},
 	{
+		"name": "Hiroshi Sato",
+		"gender": "Male",
+		"nationality": "Republic City",
+		"bendingElement": "None",
+		"affiliations": ["Equalist"],
+		"firstAppearance": "S01E04 The Voice in the Night"
+	},
+	{
 		"name": "Huu",
 		"gender": "Male",
 		"nationality": "Foggy Swamp Tribe",
@@ -225,12 +256,28 @@
 		"firstAppearance": "S02E04 The Swamp"
 	},
 	{
+		"name": "Ikki",
+		"gender": "Female",
+		"nationality": "Republic City",
+		"bendingElement": "Air",
+		"affiliations": [],
+		"firstAppearance": "S01E01 Welcome to Republic City"
+	},
+	{
 		"name": "Iroh",
 		"gender": "Male",
 		"nationality": "Fire Nation",
 		"bendingElement": "Fire",
-		"affiliations": ["White Lotus","Mentor","Lightning Bending","Musician","Spiritual","Tea Enthusiast"],
+		"affiliations": ["White Lotus","Mentor","Lightning Bending","Musician","Spiritual","Tea Enthusiast","Spirit World"],
 		"firstAppearance": "S01E01 The Boy in the Iceberg"
+	},
+	{
+		"name": "Iroh II",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Royalty","United Forces"],
+		"firstAppearance": "S01E10 Turning the Tides"
 	},
 	{
 		"name": "Jee",
@@ -265,6 +312,14 @@
 		"firstAppearance": "S02E15 The Tales of Ba Sing Se"
 	},
 	{
+		"name": "Jinora",
+		"gender": "Female",
+		"nationality": "Republic City",
+		"bendingElement": "Air",
+		"affiliations": ["Spiritual","Romance"],
+		"firstAppearance": "S01E01 Welcome to Republic City"
+	},
+	{
 		"name": "Joo Dee",
 		"gender": "Female",
 		"nationality": "Earth Kingdom",
@@ -279,6 +334,14 @@
 		"bendingElement": "None",
 		"affiliations": ["Animal Companion","Tea Enthusiast","Bounty Hunter"],
 		"firstAppearance": "S01E15 Bato of the Water Tribe"
+	},
+	{
+		"name": "Kai",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Air",
+		"affiliations": ["Air Acolyte"],
+		"firstAppearance": "S03E02 Rebirth"
 	},
 	{
 		"name": "Kanna",
@@ -313,20 +376,44 @@
 		"firstAppearance": "S02E14 City of Walls and Secrets"
 	},
 	{
+		"name": "King Wu",
+		"gender": "Male",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Royalty"],
+		"firstAppearance": "S04E01 After All These Years"
+	},
+	{
 		"name": "Koh",
 		"gender": "Male",
 		"nationality": "None",
 		"bendingElement": "None",
-		"affiliations": ["Spiritual"],
+		"affiliations": ["Spirit World"],
 		"firstAppearance": "S01E20 The Siege of the North, Part 2"
+	},
+	{
+		"name": "Korra",
+		"gender": "Female",
+		"nationality": "Southern Water Tribe",
+		"bendingElement": "All",
+		"affiliations": ["Team Avatar","Metal Bending","Romance","Spirit World","Animal Companion"],
+		"firstAppearance": "S01E01 Welcome to Republic City"
 	},
 	{
 		"name": "Kuruk",
 		"gender": "Male",
 		"nationality": "Northern Water Tribe",
 		"bendingElement": "All",
-		"affiliations": ["Spiritual"],
+		"affiliations": ["Spirit World"],
 		"firstAppearance": "S02E01 The Avatar State"
+	},
+	{
+		"name": "Kuvira",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Earth",
+		"affiliations": ["Metal Bending","Metal Clan"],
+		"firstAppearance": "S03E05 The Metal Clan"
 	},
 	{
 		"name": "Kya",
@@ -351,6 +438,22 @@
 		"bendingElement": "None",
 		"affiliations": [],
 		"firstAppearance": "S02E07 Zuko Alone"
+	},
+	{
+		"name": "Lieutenant",
+		"gender": "Male",
+		"nationality": "Republic City",
+		"bendingElement": "None",
+		"affiliations": ["Weapon Wielder","Equalist"],
+		"firstAppearance": "S01E01 Welcome to Republic City"
+	},
+	{
+		"name": "Lin Beifong",
+		"gender": "Female",
+		"nationality": "Republic City",
+		"bendingElement": "Earth",
+		"affiliations": ["Metal Bending"],
+		"firstAppearance": "S01E01 Welcome to Republic City"
 	},
 	{
 		"name": "Lion Turtle",
@@ -401,6 +504,14 @@
 		"firstAppearance": "S02E03 Return to Omashu"
 	},
 	{
+		"name": "Mako",
+		"gender": "Male",
+		"nationality": "Republic City",
+		"bendingElement": "Fire",
+		"affiliations": ["Lightning Bending","Romance","Team Avatar"],
+		"firstAppearance": "S01E02 A Leaf in the Wind"
+	},
+	{
 		"name": "Mayor Tong",
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
@@ -433,6 +544,14 @@
 		"firstAppearance": "S03E10 The Day of Black Sun, Part 1: The Invasion"
 	},
 	{
+		"name": "Ming-Hua",
+		"gender": "Female",
+		"nationality": "Unknown",
+		"bendingElement": "Water",
+		"affiliations": ["Red Lotus"],
+		"firstAppearance": "S03E02 Rebirth"
+	},
+	{
 		"name": "Miyuki",
 		"gender": "Female",
 		"nationality": "Earth Kingdom",
@@ -463,6 +582,14 @@
 		"bendingElement": "None",
 		"affiliations": ["Romance"],
 		"firstAppearance": "S03E02 The Headband"
+	},
+	{
+		"name": "Opal",
+		"gender": "Female",
+		"nationality": "Earth Kingdom",
+		"bendingElement": "Air",
+		"affiliations": ["Romance","Metal Clan"],
+		"firstAppearance": "S03E05 The Metal Clan"
 	},
 	{
 		"name": "Oyaji",
@@ -511,6 +638,14 @@
 		"bendingElement": "None",
 		"affiliations": ["Ba Sing Se"],
 		"firstAppearance": "S02E10 The Library"
+	},
+	{
+		"name": "P'Li",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Romance","Combustion Bending","Red Lotus"],
+		"firstAppearance": "S03E03 The Earth Queen"
 	},
 	{
 		"name": "Roku",
@@ -570,6 +705,30 @@
 		"firstAppearance": "S01E04 The Warriors of Kyoshi"
 	},
 	{
+		"name": "Suyin Beifong",
+		"gender": "Female",
+		"nationality": "Republic City",
+		"bendingElement": "Earth",
+		"affiliations": ["Metal Bending"],
+		"firstAppearance": "S03E05 The Metal Clan"
+	},
+	{
+		"name": "Tarrlock",
+		"gender": "Male",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "Water",
+		"affiliations": [],
+		"firstAppearance": "S01E04 The Voice in the Night"
+	},
+	{
+		"name": "Tenzin",
+		"gender": "Male",
+		"nationality": "Republic City",
+		"bendingElement": "Air",
+		"affiliations": ["Mentor"],
+		"firstAppearance": "S01E01 Welcome to Republic City"
+	},
+	{
 		"name": "Teo",
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
@@ -602,6 +761,14 @@
 		"firstAppearance": "S02E04 The Swamp"
 	},
 	{
+		"name": "Tonraq",
+		"gender": "Male",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "Water",
+		"affiliations": [],
+		"firstAppearance": "S01E01 Welcome to Republic City"
+	},
+	{
 		"name": "Toph Beifong",
 		"gender": "Female",
 		"nationality": "Earth Kingdom",
@@ -618,6 +785,14 @@
 		"firstAppearance": "S02E03 Return to Omashu"
 	},
 	{
+		"name": "Unalaq",
+		"gender": "Male",
+		"nationality": "Northern Water Tribe",
+		"bendingElement": "Water",
+		"affiliations": ["Spiritual"],
+		"firstAppearance": "S02E01 Rebel Spirit"
+	},
+	{
 		"name": "Ursa",
 		"gender": "Female",
 		"nationality": "Fire Nation",
@@ -626,11 +801,27 @@
 		"firstAppearance": "S02E07 Zuko Alone"
 	},
 	{
+		"name": "Varrick",
+		"gender": "Male",
+		"nationality": "Southern Water Tribe",
+		"bendingElement": "None",
+		"affiliations": ["Romance","Comic Relief"],
+		"firstAppearance": "S02E01 Rebel Spirit"
+	},
+	{
+		"name": "Wan",
+		"gender": "Male",
+		"nationality": "None",
+		"bendingElement": "All",
+		"affiliations": [],
+		"firstAppearance": "S02E07 Beginnings, Part 1"
+	},
+	{
 		"name": "Wan Shi Tong",
 		"gender": "Male",
 		"nationality": "None",
 		"bendingElement": "None",
-		"affiliations": ["Spiritual","Flight"],
+		"affiliations": ["Spirit World","Flight"],
 		"firstAppearance": "S02E10 The Library"
 	},
 	{
@@ -648,6 +839,14 @@
 		"bendingElement": "Earth",
 		"affiliations": ["Muscular","Earth Rumble","Bounty Hunter"],
 		"firstAppearance": "S02E06 The Blind Bandit"
+	},
+	{
+		"name": "Yakone",
+		"gender": "Male",
+		"nationality": "Republic City",
+		"bendingElement": "Water",
+		"affiliations": ["Blood Bending"],
+		"firstAppearance": "S01E04 The Voice in the Night"
 	},
 	{
 		"name": "Yangchen",
@@ -674,12 +873,28 @@
 		"firstAppearance": "S01E18 The Waterbending Master"
 	},
 	{
+		"name": "Zaheer",
+		"gender": "Male",
+		"nationality": "Unknown",
+		"bendingElement": "Air",
+		"affiliations": ["Spiritual","Spirit World","Romance","Red Lotus"],
+		"firstAppearance": "S03E01 A Breath of Fresh Air"
+	},
+	{
 		"name": "Zhao",
 		"gender": "Male",
 		"nationality": "Fire Nation",
 		"bendingElement": "Fire",
-		"affiliations": ["Royalty"],
+		"affiliations": ["Royalty","Spirit World"],
 		"firstAppearance": "S01E03 The Southern Air Temple"
+	},
+	{
+		"name": "Zhu Li",
+		"gender": "Female",
+		"nationality": "Republic City",
+		"bendingElement": "None",
+		"affiliations": ["Romance"],
+		"firstAppearance": "S02E01 Rebel Spirit"
 	},
 	{
 		"name": "Zuko",	

@@ -1,0 +1,44 @@
+p {
+    background-color: rgb(20, 20, 20);
+    padding: 0.5rem;
+    border-radius: 1vh;
+}
+
+textarea {
+
+    resize: none;
+    outline: none;
+    border: none;
+    color: beige;
+    font: 1rem Georgia;
+    background-color: rgb(40, 40, 40);
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+
+}
+
+#comment-button {
+
+    border-radius: 10px;
+    padding: 0.5rem;
+    background-color: teal;
+    font: 1rem Georgia;
+    border: none;
+    cursor: pointer;
+
+}
+
+#comment-button:disabled{
+
+    background-color: rgb(40, 40, 40);
+    color:dimgray;
+    cursor: default;
+}
+
+#comment-button:not(:disabled):hover{
+
+    filter: brightness(1.1);
+}

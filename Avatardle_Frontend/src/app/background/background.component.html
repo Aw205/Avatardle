@@ -4,8 +4,9 @@
     <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" class="title-text">Avatardle </a>
 </div>
 
-<button id="help-button" (click)="openDialog('help')">?</button>
-<button id="about-button" (click)="openDialog('about')">i</button>
-<!-- <button id="calendar-button" (click)="openDialog('calendar')">x</button> -->
+<mat-icon id="help-button" (click)="openDialog('help')" fontSet="material-symbols-outlined">help</mat-icon>
+<mat-icon id="about-button" (click)="openDialog('about')" fontSet="material-symbols-outlined">info</mat-icon>
+<mat-icon id="comment-button" (click)="openDialog('comment')" fontSet="material-symbols-outlined">comment</mat-icon>
 
+<!-- <button id="calendar-button" (click)="openDialog('calendar')">x</button> -->
 <img id="iroh-figure" src="images/iroh_paisho.webp" alt="">
