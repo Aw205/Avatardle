@@ -24,21 +24,23 @@ textarea {
 
     border-radius: 10px;
     padding: 0.5rem;
-    background-color: teal;
+    background-color: rgb(40, 40, 40);
     font: 1rem Georgia;
-    border: none;
+    color: beige;
     cursor: pointer;
-
+    border: 1px outset black;
+    outline: 2px solid black;
 }
 
-#comment-button:disabled{
+#comment-button:disabled {
 
-    background-color: rgb(40, 40, 40);
-    color:dimgray;
+    border: none;
+    outline: none;
+    color: dimgray;
     cursor: default;
 }
 
-#comment-button:not(:disabled):hover{
+#comment-button:not(:disabled):hover {
 
-    filter: brightness(1.1);
+    filter: brightness(0.9);
 }

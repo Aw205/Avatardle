@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import Rand, { PRNG } from 'rand-seed';
-import { Character, DailyStats, DataService } from '../services/data.service';
+import Rand from 'rand-seed';
+import {  DailyStats, DataService } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
 import { HintDialogComponent } from '../hint-dialog/hint-dialog.component';
@@ -10,10 +10,13 @@ import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { AvatardleProgress } from '../app.component';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
+import { HttpClient } from '@angular/common/http';
+import { CountdownComponent } from 'ngx-countdown';
+
 
 @Component({
     selector: 'quote',
-    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe,HyphenatePipe],
+    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe,CountdownComponent],
     templateUrl: './quote.component.html',
     styleUrl: './quote.component.css'
 })
@@ -36,31 +39,31 @@ export class QuoteMode {
     quoteEpisode: string = "";
 
     $stat!: Observable<DailyStats>;
+    
     progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
 
-    constructor(private ds: DataService, private dialog: MatDialog) { }
+    constructor(private ds: DataService, private dialog: MatDialog, private http: HttpClient) { }
 
     ngOnInit() {
 
-        this.$stat = this.ds.$stats;
+        this.$stat = this.ds.stats$;
         this.characterData = this.ds.getQuoteCharacterData();
 
         let rand = new Rand(this.progress.date! + "quote");
         let idx = this.ds.quoteIndices[Math.floor(rand.next() * this.ds.quoteIndices.length)];
 
-        this.prevQuote = this.ds.transcript[idx - 1].script;
-        this.nextQuote = this.ds.transcript[idx + 1].script;
-
-        this.quote = this.ds.transcript[idx].script;
-        this.target = this.ds.transcript[idx].Character;
-
-        let keys = Object.keys(this.ds.episodeData);
-        this.quoteEpisode = keys[this.ds.transcript[idx].total_number - 1];
-
-
         if (this.progress.quote.complete) {
             this.searchVal = "-" + this.progress.quote.target;
         }
+
+        this.ds.transcript$.subscribe((data) => {
+
+            this.prevQuote = data[idx - 1].script;
+            this.nextQuote = data[idx + 1].script;
+            this.quote = data[idx].script;
+            this.target = data[idx].Character;
+            this.quoteEpisode = this.ds.episodes[data[idx].total_number - 1];
+        });
     }
 
     onInput() {
@@ -75,26 +78,23 @@ export class QuoteMode {
             this.selected = select;
         }
         if (this.selected == this.target) {
-            this.searchVal = "-" + this.target;
-            this.progress.quote.complete = true;
-            this.progress.quote.target = this.target;
-            this.progress.quote.numGuesses++;
 
+            this.searchVal = "-" + this.target;
+            let guesses = this.progress.quote.numGuesses + 1;
+            this.progress.quote = {complete: true, target: this.target, numGuesses: guesses}
             this.ds.throwConfetti(this.progress.quote.numGuesses);
             this.ds.updateStats("quote");
-
             localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
 
         }
         else if (this.selected != "") {
+
             let char = this.characterData.find(char => char == this.selected);
             this.incorrectAnswers.unshift(char!);
             this.searchVal = "";
             this.charList = [];
             this.characterData.splice(this.characterData.indexOf(char!), 1)
-
             this.progress.quote.numGuesses++;
-
             localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
 
         }
@@ -130,6 +130,11 @@ export class QuoteMode {
             return "Hint in 1 more guess";
         }
         return `Hint in ${diff} more guesses`;
+    }
+
+
+    getCountdownConfig(){
+        return this.ds.getCountdownConfig();
     }
 }
 

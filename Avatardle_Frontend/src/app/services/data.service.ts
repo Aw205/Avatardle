@@ -1,16 +1,14 @@
 
 import confetti from 'canvas-confetti';
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { interval, map, Observable, shareReplay, startWith, switchMap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-interface Episode {
+export interface Episode {
   [key: string]: [];
 }
-
-interface Transcript {
+export interface Transcript {
 
   Character: string,
   script: string,
@@ -33,7 +31,6 @@ export interface Character {
 export interface CharacterFilter {
   classic: { [key: string]: string[] },
   quote: string[]
-
 }
 
 export interface DailyStats {
@@ -41,7 +38,13 @@ export interface DailyStats {
   classic_completion: number,
   quote_completion: number,
   picture_completion: number,
+}
 
+export interface FanArt{
+
+  character: string,
+  images: {pathName:string,artist:{name:string,link:string},epithet:string}[]
+  
 }
 
 @Injectable({
@@ -50,15 +53,21 @@ export interface DailyStats {
 
 export class DataService {
 
-
   characterData!: Character[];
   characterFilter!: CharacterFilter;
-  episodeData!: Episode;
+ 
   transcript!: Transcript[];
   quoteIndices!: number[];
   dailyStats!: DailyStats;
+  fanArt!: FanArt[];
 
-  $stats!: Observable<DailyStats>;
+  episodes!: string[];
+
+
+  pictureData$!: Observable<Episode>;
+  stats$!: Observable<DailyStats>;
+  con$!: Observable<any>;
+  transcript$!: Observable<Transcript[]>;
 
   constructor(private http: HttpClient) { }
 
@@ -66,7 +75,7 @@ export class DataService {
   initialize(): Observable<Character[]> {
 
     console.log(environment.statsApiUrl);
-    this.$stats = interval(120000).pipe(
+    this.stats$ = interval(120000).pipe(
       startWith(0),
       switchMap(() => this.http.get<DailyStats>(`${environment.statsApiUrl}/getStats`))
     );
@@ -75,22 +84,26 @@ export class DataService {
       map(chars => {
         return chars.map((char, index): Character => ({ ...char, index: index }))
       })
-    )
+    );
     ob.subscribe((data) => {
       this.characterData = data;
     });
     this.http.get<CharacterFilter>('json/characterFilters.json').subscribe((data) => {
       this.characterFilter = data;
     });
-    this.http.get<Transcript[]>('json/full_transcript.json').subscribe((data) => {
-      this.transcript = data;
+    this.http.get<string[]>('json/episode.json').subscribe((data) => {
+      this.episodes = data;
     });
     this.http.get<number[]>('json/quote_indices.json').subscribe((data) => {
       this.quoteIndices = data;
     });
-    this.http.get<Episode>('json/episodes.json').subscribe((data) => {
-      this.episodeData = data;
+    this.http.get<FanArt[]>('json/fanart.json').subscribe((data) => {
+      this.fanArt = data;
     });
+
+    this.transcript$ = this.http.get<Transcript[]>('json/full_transcript.json').pipe(shareReplay(1));
+    this.pictureData$ = this.http.get<Episode>('json/episodes.json').pipe(shareReplay(1));
+    this.con$ = this.http.get<any>('json/particleConfigs.json').pipe(shareReplay(1));
     return ob;
   }
 
@@ -112,6 +125,15 @@ export class DataService {
   updateStats(mode: string) {
 
     this.http.patch(`${environment.statsApiUrl}/updateStats`, { type: "daily", mode: mode }).subscribe(data => { });
+  }
+
+  getCountdownConfig(){
+
+    let tom = new Date();
+    tom.setUTCDate(tom.getUTCDate() + 1);
+    tom.setUTCHours(0,0,0,0);
+    return {leftTime: Math.floor((tom.getTime() - Date.now())/1000)};
+
   }
 
   throwConfetti(numGuesses: number) {

@@ -23,7 +23,7 @@ export class ClassicSettingsDialogComponent {
   list: { name: string, icon: string, selected: boolean }[] = [
 
     { name: 'Avatar: The Last Airbender', icon: "images/characters/Aang.webp", selected: false },
-    { name: 'Coming soon (leave suggestions on who to include)', icon: "images/characters/Korra.webp", selected: false }
+    { name: 'Coming soon...', icon: "images/characters/Korra.webp", selected: false }
   ]
 
   constructor(public dialogRef: MatDialogRef<ClassicSettingsDialogComponent>) {

@@ -46,26 +46,54 @@ blockquote::before {
    filter:none;
 }
 
-.incorrect-quote-guess,
-.correct-quote-guess {
+.incorrect-quote-guess {
 
-    position: relative;
-    top: 10rem;
-    display: block;
-    margin: auto;
-    background-color: rgb(30, 30, 30);
-    width: 10rem;
-    border: 1px solid rgb(40, 40, 40);
-    padding: 0.5rem;
-    text-align: center;
+
     font: 1rem avatar2;
     color: indianred;
+    position: relative;
+    top: 5vh;
+    width: 10rem;
+    display: block;
+    margin: auto;
+    padding: 0.5rem;
+    text-align: center;
     margin-bottom: 1rem;
+    border-radius: 1rem;
+    background-color: rgb(15, 15, 15);
+    border: 2px outset black;
+    outline: 2px solid black;
 
 }
 
 .correct-quote-guess {
-    border: 1px solid green;
+
+    margin: auto;
+    margin-top: 10vh;
+    color: goldenrod;
+    text-align: left;
+    width: 15rem;
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 1rem 20px #00000082;
+    padding: 1rem;
+    border-radius: 1rem;
+    font: 1rem avatar2;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .quote-search-bar {

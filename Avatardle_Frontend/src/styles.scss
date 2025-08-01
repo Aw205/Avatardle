@@ -21,28 +21,7 @@
             subhead-color: beige,
         ));
     @include mat.tooltip-overrides((container-shape: 5px));
-    // @include mat.datepicker-overrides((calendar-date-text-color: burlywood,
-    //         calendar-date-selected-state-text-color: green,
-    //         calendar-date-disabled-state-text-color: dimgray));
 }
-
-// .mat-calendar-body-cell .mat-calendar-body-cell-content {
-//     background-color: rgb(20, 20, 20);
-//     border-radius: 10px;
-//     border: none;
-// }
-
-// .mat-calendar-body-cell.date-complete .mat-calendar-body-cell-content {
-//     background-color: rgba(0, 100, 0, 0.499);
-// }
-
-// .mat-calendar-header {
-//     display: none;
-// }
-
-// .mat-calendar-table thead {
-//     display: none;
-// }
 
 .mat-mdc-tab-body-content {
 

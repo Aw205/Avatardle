@@ -36,6 +36,7 @@
 
     background-color: rgb(20, 20, 20);
     border-radius: 0 10px 10px 0;
+
 }
 
 #grid-container {
@@ -71,6 +72,79 @@
 
     transform: rotate(70deg);
 }
+
+#artist-name {
+    text-decoration: underline 1px;
+    color: inherit;
+    text-underline-offset: 0.2rem;
+}
+
+#artist-name:hover {
+    color: darkgoldenrod;
+}
+
+#fanart-container {
+
+    width: 20vw;
+    margin: auto;
+    border-radius: 1rem;
+    padding: 1rem;
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 1rem 20px #00000082;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+#fanart-container>img {
+
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    border: 1px outset black;
+    outline: 2px solid black;
+    border-radius: 1rem;
+}
+
+#fanart-title {
+
+    font: 2rem avatar2;
+    color: darkgoldenrod;
+    text-align: center;
+    margin-bottom: 1rem;
+    border: 2px outset black;
+    outline: 2px solid black;
+    border-radius: 1rem;
+    background-color: rgb(15, 15, 15);
+}
+
+#fanart-description {
+
+    font: 1rem avatar2;
+    color: beige;
+    border: 2px outset black;
+    outline: 2px solid black;
+    border-radius: 1rem;
+    background-color: rgb(15, 15, 15);
+    margin-top: 1rem;
+    text-indent: 1rem;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 
 
 @media only screen and (max-width:768px) {

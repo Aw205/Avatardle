@@ -1,12 +1,15 @@
 <div
     style="position:relative; font: 1rem avatar2; color: gray; text-align: center;  margin-top: 5vh; z-index: 1; padding-bottom: 1vh;">
-    <tm-ng-odometer [number]="($stat | async)?.quote_completion ?? 0" [theme]="'minimal'"
+    <tm-ng-odometer [number]="($stat | async)?.quote_completion ?? 0" theme="minimal"
         style="color:darkgoldenrod;"></tm-ng-odometer> people completed today!
 </div>
+
+
+
+@if(quote){
+
 <div id="quote-container">
-
     <blockquote id="bquote">{{quote}}</blockquote>
-
     <div
         style="display: flex; position: absolute; top:0; left:100%; flex-direction: column; border-radius: 0 0.5rem 0.5rem 0; overflow: hidden;">
 
@@ -39,11 +42,36 @@
             [class.search-complete]="progress.quote.complete" />
     </div>
 </div>
+}
+
+@if(progress.quote.complete){
+
+<div class="correct-quote-guess fade-in" >
+
+    <div
+        style=" font: 2rem avatar2; color: darkgoldenrod; text-align: center; margin-bottom: 1rem;  border: 2px outset black; outline: 2px solid black; border-radius: 1rem;background-color: rgb(15, 15, 15);">
+        {{target}}
+    </div>
+
+    <img src="images/characters/{{target | hyphenate}}.webp"
+        style="width: 100%; border-radius: 0.5rem; border: 1px outset black; outline: 2px solid black;">
+
+    <div
+        style="border: 2px outset black; outline: 2px solid black; border-radius: 1rem; background-color: rgb(15, 15, 15); text-indent: 1rem; margin-top: 1rem;">
+
+        <p>Attempts: <span style="color: beige;">{{progress.quote.numGuesses}}</span></p>
+        <p>Next quote in: <span style="color: beige;">
+                <countdown [config]="getCountdownConfig()" />
+            </span></p>
+    </div>
+</div>
+
+}
 
 @for (ans of incorrectAnswers; track ans){
 <div class="incorrect-quote-guess">
     <div style="width:3.33rem; height: 2.5rem; margin:auto; margin-bottom: 0.5rem;">
-        <img src="images/characters/{{ans | hyphenate}}.webp" style="width: 3.33vw; padding-right: 1rem;border-radius: 10px;">
+        <img src="images/characters/{{ans | hyphenate}}.webp" style="width: 3.33rem;border-radius: 0.5rem;">
     </div>
     {{ans}}
 </div>

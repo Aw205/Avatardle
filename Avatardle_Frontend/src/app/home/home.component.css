@@ -33,10 +33,12 @@ a {
     text-align: left;
     background-color: rgb(30, 30, 30);
     border-radius: 10px;
+    border: 3px outset rgb(83, 46, 40);
+    outline: 2px solid black;
     flex-grow: 1;
     font: 3.8vw avatar2;
     color: white;
-
+    
 }
 
 .paisho-sprite {

@@ -1,0 +1,57 @@
+.element {
+    filter: grayscale(1);
+    width: 60%;
+    cursor: pointer;
+}
+
+.element:hover {
+    filter: none;
+}
+
+.selected{
+    filter: none;
+}
+
+.fire-selected{
+    background-color: rgb(46, 1, 1) !important;
+    transform: scale(1.1);
+}
+.water-selected{
+    background-color:rgb(5, 20, 35) !important;
+    transform: scale(1.1);
+}
+.earth-selected{
+    background-color:rgb(11, 32, 20) !important;
+    transform: scale(1.1);
+}
+.air-selected{
+    background-color:rgb(17, 28, 30) !important;
+    transform: scale(1.1);
+}
+
+.element-container {
+    position:relative;
+    background-color: rgb(30, 30, 30);
+    border: 5px ridge rgb(83, 46, 40);
+    aspect-ratio: 1/1;
+    width: 50%;
+    transition: transform 0.5s;
+}
+
+.cycle-button {
+
+    background-color: rgb(30,30,30);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50%-50%;
+    color: darkgoldenrod;
+    transition: rotate 0.5s;
+    cursor:pointer;
+    z-index: 2;
+}
+
+.cycle-button:hover{
+    rotate: 45deg;
+}

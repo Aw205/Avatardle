@@ -4,7 +4,7 @@
         (input)="onInput()" (focusout)="isVisible=false" (focusin)="isVisible=true" (keydown.enter)="onEnter()"
         [(ngModel)]="searchVal" [disabled]="progress.classic.complete"
         [class.search-complete]="progress.classic.complete" />
-        <mat-icon id="settings-icon" (click)="openDialog('settings')" fontSet="material-symbols-outlined">settings</mat-icon>
+    <span id="settings-icon" class="material-symbols-outlined" (click)="openDialog('settings')">settings</span>
 
     @if (isVisible) {
     <ul id="myUL">
@@ -21,8 +21,9 @@
 
 <div
     style="font: 1rem avatar2; color: gray; text-align: center; background-color: rgb(0,0,0,0.3); width: fit-content; margin: auto; padding: 0.5rem; border-radius: 5px;">
-    <tm-ng-odometer [number]="($stat | async)?.classic_completion ?? 0" [theme]="'minimal'"
-        style="color:darkgoldenrod;"></tm-ng-odometer> people completed today!</div>
+    <tm-ng-odometer [number]="($stat | async)?.classic_completion ?? 0" theme="minimal"
+        style="color:darkgoldenrod;"></tm-ng-odometer> people completed today!
+</div>
 
 <div id="grid-container">
     <div id="categories-container">
@@ -45,5 +46,26 @@
 
     </div>
 </div>
+
+
+@if(progress.classic.complete){
+<div id="fanart-container" class="fade-in">
+    <div id="fanart-title">
+        {{fanArt.character}}
+        <div style="font: 1rem avatar2; color: gray; text-align: center;">{{img.epithet}}</div>
+    </div>
+    <img src="images/fanart/{{img.pathName}}">
+
+    <div id="fanart-description">
+        <p><span style="color: goldenrod;">Art by: </span> <a id="artist-name" [href]="img.artist.link"
+                target="_blank">{{img.artist.name}}</a></p>
+        <p><span style="color: goldenrod;">Attempts: </span>{{guessAttempts}}</p>
+        <p><span style="color: goldenrod;">Next character in: </span>
+            <countdown [config]="getCountdownConfig()" />
+        </p>
+    </div>
+</div>
+}
+
 
 <p id="mobile-help-text">Scroll horizontally to see more!</p>

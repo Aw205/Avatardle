@@ -1,0 +1,334 @@
+{
+    "water": [
+        {
+            "particles": {
+                "color": {
+                    "value": [
+                        "#c6fbff",
+                        "#abf0ff",
+                        "#99c4ce",
+                        "#73999a",
+                        "#628485"
+                    ]
+                },
+                "move": {
+                    "direction": "bottom",
+                    "straight": true,
+                    "enable": true,
+                    "speed": {
+                        "min": 15,
+                        "max": 20
+                    }
+                },
+                "number": {
+                    "density": {
+                        "enable": true,
+                        "area": 800
+                    },
+                    "value": 140
+                },
+                "opacity": {
+                    "value": {
+                        "min": 0.2,
+                        "max": 0.4
+                    }
+                },
+                "shape": {
+                    "type": "char",
+                    "options": {
+                        "char": {
+                            "value": "|",
+                            "font": "Verdana"
+                        }
+                    }
+                },
+                "size": {
+                    "value": {
+                        "min": 8,
+                        "max": 13
+                    }
+                }
+            },
+            "detectRetina": true
+        }
+    ],
+    "fire": [
+        {
+            "particles": {
+                "color": {
+                    "value": [
+                        "#ff4500",
+                        "#ff8c00",
+                        "#ffa500",
+                        "#FDDA0D"
+                    ]
+                },
+                "move": {
+                    "direction": "top",
+                    "enable": true,
+                    "random": true,
+                    "speed": 3
+                },
+                "number": {
+                    "density": {
+                        "enable": true,
+                        "area": 800
+                    },
+                    "value": 80
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "size": {
+                    "value": {
+                        "min": 1,
+                        "max": 3
+                    },
+                    "animation": {
+                        "enable": true,
+                        "speed": 2,
+                        "minimumValue": 0.5,
+                        "sync": false
+                    }
+                },
+                "shadow": {
+                    "enable": true,
+                    "color": "#ff4500",
+                    "blur": 10
+                },
+                "opacity": {
+                    "value": {
+                        "min": 0.2,
+                        "max": 1
+                    },
+                    "random": true,
+                    "animation": {
+                        "enable": true,
+                        "speed": 0.5,
+                        "minimumValue": 0.2,
+                        "sync": false
+                    }
+                }
+            },
+            "detectRetina": true
+        }
+    ],
+    "air": [
+        {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "area": 800
+                    }
+                },
+                "color": {
+                    "value": [
+                        "#042408",
+                        "#22421a",
+                        "#286f29",
+                        "#368d33",
+                        "#56b24e"
+                    ]
+                },
+                "shape": {
+                    "type": "image",
+                    "options": {
+                        "image": {
+                            "src": "images/particles/leaf.svg",
+                            "replaceColor": true
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": {
+                        "min": 0.5,
+                        "max": 1
+                    },
+                    "random": true,
+                    "animation": {
+                        "enable": true,
+                        "speed": 0.5,
+                        "minimumValue": 0.5,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": {
+                        "min": 1,
+                        "max": 9
+                    },
+                    "random": true
+                },
+                "move": {
+                    "enable": true,
+                    "direction": "right",
+                    "speed": 6,
+                    "random": true
+                },
+                "rotate": {
+                    "direction": "random",
+                    "value": {
+                        "min": 0,
+                        "max": 360
+                    },
+                    "animation": {
+                        "enable": true,
+                        "speed": 5
+                    }
+                },
+                "tilt": {
+                    "enable": true,
+                    "value": {
+                        "min": 0,
+                        "max": 360
+                    },
+                    "animation": {
+                        "enable": true,
+                        "speed": 2
+                    }
+                }
+            },
+            "detectRetina": true
+        }
+    ],
+    "earth": [
+        {
+            "fpsLimit": 20,
+            "particles": {
+                "color": {
+                    "value": [
+                        "#c0ffe7",
+                        "#82e7c0",
+                        "#57d7a5"
+                    ]
+                },
+                "move": {
+                    "direction": "none",
+                    "enable": true,
+                    "random": true,
+                    "speed": 0.5
+                },
+                "number": {
+                    "density": {
+                        "enable": true,
+                        "area": 800
+                    },
+                    "value": 18
+                },
+                "shape": {
+                    "type": [
+                        "image"
+                    ],
+                    "options": {
+                        "image": [
+                            {
+                                "src": "images/particles/crystal_1.svg",
+                                "replaceColor": true
+                            },
+                            {
+                                "src": "images/particles/crystal_2.svg",
+                                "replaceColor": true
+                            },
+                            {
+                                "src": "images/particles/crystal_3.svg",
+                                "replaceColor": true
+                            },
+                            {
+                                "src": "images/particles/crystal_4.svg"
+                            }
+                        ]
+                    }
+                },
+                "size": {
+                    "value": {
+                        "min": 5,
+                        "max": 28
+                    },
+                    "random": true
+                },
+                "shadow": {
+                    "enable": true,
+                    "color": "#0BDA51",
+                    "blur": 20
+                },
+                "opacity": {
+                    "value": {
+                        "min": 0.7,
+                        "max": 1
+                    },
+                    "random": true,
+                    "animation": {
+                        "enable": true,
+                        "speed": 1,
+                        "sync": false
+                    }
+                },
+                "rotate": {
+                    "value": {
+                        "min": 0,
+                        "max": 360
+                    }
+                },
+                "links": {
+                    "enable": true,
+                    "color": "#90EE90",
+                    "opacity": 0.2,
+                    "distance": 400,
+                    "width": 1
+                }
+            },
+            "detectRetina": true
+        },
+        {
+            "particles": {
+                "color": {
+                    "value": [
+                        "#00a1ae",
+                        "#68c7ca"
+                    ]
+                },
+                "move": {
+                    "direction": "none",
+                    "enable": true,
+                    "random": true,
+                    "speed": 0.5
+                },
+                "number": {
+                    "density": {
+                        "enable": true,
+                        "area": 800
+                    },
+                    "value": 100
+                },
+                "shape": {
+                    "type": [
+                        "star",
+                        "polygon"
+                    ],
+                    "options": {
+                        "star": [
+                            {
+                                "sides": 2,
+                                "inset": 1
+                            },
+                            {
+                                "sides": 4,
+                                "inset": 2
+                            }
+                        ]
+                    }
+                },
+                "size": {
+                    "value": {
+                        "min": 1,
+                        "max": 2
+                    },
+                    "random": true
+                }
+            },
+            "detectRetina": true
+        }
+    ]
+}

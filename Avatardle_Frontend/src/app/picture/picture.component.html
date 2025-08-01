@@ -15,7 +15,7 @@
     }
 </div>
 
-<div style="position:relative; font: 1rem avatar2; color: gray; text-align: center; z-index: 1;"> <tm-ng-odometer [number]="($stat | async)?.picture_completion ?? 0" [theme]="'minimal'" style="color:darkgoldenrod;"></tm-ng-odometer> people completed today!</div>
+<div style="position:relative; font: 1rem avatar2; color: gray; text-align: center; z-index: 1;"> <tm-ng-odometer [number]="($stat | async)?.picture_completion ?? 0" theme="minimal" style="color:darkgoldenrod;"></tm-ng-odometer> people completed today!</div>
 <div id="image-container">
     <div id="image-wrapper">
         <img [src]="targetFrame" id="episode-frame" alt="A frame from an episode of Avatar: The Last Airbender" [class.df]="addt" width="960" height="540"

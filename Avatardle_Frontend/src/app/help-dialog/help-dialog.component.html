@@ -1,14 +1,15 @@
-<h1 mat-dialog-title style="font-size: xx-large; color: burlywood;">Help</h1>
-<mat-dialog-content style="
-background-color: rgb(25,25,25); border-radius: 10px; padding:1rem; margin: 1rem; margin-bottom: 0;">
+<h1 mat-dialog-title style="color: burlywood; font: xx-large avatar2;">Help</h1>
+<mat-dialog-content style="background-color: rgb(25,25,25); border-radius: 10px; padding:1rem; margin: 1rem; margin-bottom: 0; font-family: Georgia;">
 
     <mat-tab-group style="color: beige;">
         <mat-tab label="Classic">
 
-            <h2>Goal</h2>
-            <p>Guess the character based on different characteristics!</p>
+            <h2>Objective</h2>
+            <p>Guess the character based on different characteristics! Character resets daily at <span style="color:goldenrod;">12:00 AM UTC</span>.</p>
 
             <h2>Color Indicators</h2>
+
+            The colors indicate whether the guessed character matches the traits of the target character.
 
             <div style="display: flex; flex-direction: column;">
                 <div style="color:tomato;">
@@ -64,7 +65,7 @@ background-color: rgb(25,25,25); border-radius: 10px; padding:1rem; margin: 1rem
 
         <mat-tab label="Quote">
 
-            <h2>Goal</h2>
+            <h2>Objective</h2>
             <p>Guess who said the quote!</p>
 
             <h2>Hints <img src="images/lotus.svg" style="width: 2rem; vertical-align: sub;" alt=""></h2>
@@ -90,7 +91,7 @@ background-color: rgb(25,25,25); border-radius: 10px; padding:1rem; margin: 1rem
 
         </mat-tab>
         <mat-tab label="Picture">
-            <h2>Goal</h2>
+            <h2>Objective</h2>
             <p>Guess which episode the frame is from!</p>
         </mat-tab>
     </mat-tab-group>

@@ -3,20 +3,20 @@ import { FormsModule } from '@angular/forms';
 import Rand, { PRNG } from 'rand-seed';
 import { tileData } from '../tile/tile.component';
 import { TileComponent } from '../tile/tile.component';
-import { Character, DailyStats, DataService } from '../services/data.service';
+import { Character, DailyStats, DataService, FanArt } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TmNgOdometerModule } from 'odometer-ngx';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { AvatardleProgress } from '../app.component';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
-import {MatIconModule} from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassicSettingsDialogComponent } from '../classic-settings-dialog/classic-settings-dialog.component';
+import {CountdownComponent} from 'ngx-countdown'
 
 @Component({
     selector: 'classic',
-    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe,HyphenatePipe,MatIconModule],
+    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe,CountdownComponent],
     templateUrl: './classic.component.html',
     styleUrl: './classic.component.css'
 })
@@ -37,13 +37,17 @@ export class ClassicMode {
     $stat!: Observable<DailyStats>;
     progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
     rand: Rand = new Rand(this.progress.date! + "classic");
-    readonly dialog = inject(MatDialog);
 
+    fanArt!: FanArt;
+    img!: { pathName: string, artist: { name: string, link: string }, epithet: string };
+  
+
+    readonly dialog = inject(MatDialog);
     constructor(private ds: DataService) { }
 
     ngOnInit() {
 
-        this.$stat = this.ds.$stats;
+        this.$stat = this.ds.stats$;
         this.characterData = this.ds.getClassicCharacterData(this.progress.classic.series);
         this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
 
@@ -51,6 +55,10 @@ export class ClassicMode {
             this.searchVal = this.progress.classic.target;
         }
         this.tileArray = this.progress.classic.guesses;
+        this.guessAttempts = this.tileArray.length/6;
+
+        this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
+        this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
     }
 
     onInput() {
@@ -70,12 +78,12 @@ export class ClassicMode {
             let char = this.characterData.find(char => char.name == this.selected)!;
             let numCorrect: number = 0;
 
-            let tmp: tileData[] = [{name: char.name}];
+            let tmp: tileData[] = [{ name: char.name }];
 
             Object.entries(char).forEach(([key, val], index) => {
 
                 let tileData: tileData = { isCorrect: false, backgroundPosition: `${index * 20}% 0`, delay: 800 * (index - 1), hasTransition: true };
-                let targetVal:any = this.targetChar![key as keyof Character];
+                let targetVal: any = this.targetChar![key as keyof Character];
 
                 if (val == targetVal) {
                     tileData.isCorrect = true;
@@ -105,18 +113,18 @@ export class ClassicMode {
                         tileData.affiliations = val.sort(() => 0.5 - this.rand.next()).slice(0, 3);
 
                         let count = 0;
-                        for(let aff of tileData.affiliations!){
-                            if(targetVal.includes(aff)){
+                        for (let aff of tileData.affiliations!) {
+                            if (targetVal.includes(aff)) {
                                 count++;
                             }
                         }
-                        if(count == 0){
+                        if (count == 0) {
                             tileData.isCorrect = false;
                         }
-                        else if(count < tileData.affiliations!.length){
+                        else if (count < tileData.affiliations!.length) {
                             tileData.isCorrect = undefined;
                         }
-                        else{
+                        else {
                             tileData.isCorrect = true;
                         }
                         break;
@@ -127,10 +135,10 @@ export class ClassicMode {
                         tileData.episodeName = episodeName;
 
                         if (!tileData.isCorrect) {
-                            let vals = parseInt(val.substring(1, 3)) * 100 + parseInt(val.substring(4, 6));
-                            let t = targetVal as string;
-                            let target = parseInt(t.substring(1, 3)) * 100 + parseInt(t.substring(4, 6));
-                            tileData.arrowDir = (target < vals) ? "none" : "rotate(180deg)";
+
+                            let currIndex = this.ds.episodes.findIndex((episodeName) => episodeName == val);
+                            let targetIndex = this.ds.episodes.findIndex((episodeName) => episodeName == targetVal);
+                            tileData.arrowDir = (targetIndex < currIndex) ? "none" : "rotate(180deg)";
                             tileData.imageUrl = `images/down-arrow.webp`;
                         }
                         break;
@@ -167,14 +175,20 @@ export class ClassicMode {
             this.progress.classic.complete = true;
             localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
 
+            setTimeout(() => {
+                window.scrollTo({behavior:"smooth",top: document.body.scrollHeight})
+            }, 1000);
+
         }
     }
 
-  openDialog(name: string) {
-
-    if (name == "settings") {
-      let dialogRef = this.dialog.open(ClassicSettingsDialogComponent, { width: '50vw',maxWidth:'none'});
+    openDialog(name: string) {
+        if (name == "settings") {
+            this.dialog.open(ClassicSettingsDialogComponent, { width: '50vw', maxWidth: 'none' });
+        }
     }
 
-  }
+    getCountdownConfig(){
+        return this.ds.getCountdownConfig();
+    }
 }

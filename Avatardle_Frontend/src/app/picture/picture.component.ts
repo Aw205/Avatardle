@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import Rand, { PRNG } from 'rand-seed';
 import { DailyStats, DataService } from '../services/data.service';
 import { TmNgOdometerModule } from 'odometer-ngx';
 import { Observable } from 'rxjs';
@@ -38,10 +37,10 @@ export class PictureMode {
   ngOnInit() {
 
     this.targetFrame = this.route.snapshot.data["image"].frame;
-    this.episodeData = this.route.snapshot.data["image"].names;
+    this.episodeData = [...this.ds.episodes];
     this.targetEpisode = this.route.snapshot.data["image"].target;
 
-    this.$stat = this.ds.$stats;
+    this.$stat = this.ds.stats$;
     if (this.progress.picture.complete) {
       this.searchVal = this.progress.picture.target;
     }
