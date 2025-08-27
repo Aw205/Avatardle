@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand from 'rand-seed';
-import {  DailyStats, DataService } from '../services/data.service';
+import { DailyStats, DataService } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
 import { HintDialogComponent } from '../hint-dialog/hint-dialog.component';
@@ -12,11 +12,11 @@ import { AvatardleProgress } from '../app.component';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { HttpClient } from '@angular/common/http';
 import { CountdownComponent } from 'ngx-countdown';
-
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'quote',
-    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe,CountdownComponent],
+    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent,TranslatePipe],
     templateUrl: './quote.component.html',
     styleUrl: './quote.component.css'
 })
@@ -39,7 +39,7 @@ export class QuoteMode {
     quoteEpisode: string = "";
 
     $stat!: Observable<DailyStats>;
-    
+
     progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
 
     constructor(private ds: DataService, private dialog: MatDialog, private http: HttpClient) { }
@@ -51,7 +51,6 @@ export class QuoteMode {
 
         let rand = new Rand(this.progress.date! + "quote");
         let idx = this.ds.quoteIndices[Math.floor(rand.next() * this.ds.quoteIndices.length)];
-
         if (this.progress.quote.complete) {
             this.searchVal = "-" + this.progress.quote.target;
         }
@@ -81,7 +80,7 @@ export class QuoteMode {
 
             this.searchVal = "-" + this.target;
             let guesses = this.progress.quote.numGuesses + 1;
-            this.progress.quote = {complete: true, target: this.target, numGuesses: guesses}
+            this.progress.quote = { complete: true, target: this.target, numGuesses: guesses }
             this.ds.throwConfetti(this.progress.quote.numGuesses);
             this.ds.updateStats("quote");
             localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
@@ -133,7 +132,7 @@ export class QuoteMode {
     }
 
 
-    getCountdownConfig(){
+    getCountdownConfig() {
         return this.ds.getCountdownConfig();
     }
 }

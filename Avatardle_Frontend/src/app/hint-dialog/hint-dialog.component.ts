@@ -1,9 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 
 @Component({
   selector: 'hint-dialog',
-  imports: [MatDialogTitle, MatDialogContent, MatDialogActions],
+  imports: [MatDialogTitle, MatDialogContent],
   templateUrl: './hint-dialog.component.html',
   styleUrl: './hint-dialog.component.css'
 })

@@ -1,31 +1,36 @@
-<div
-    id="search-bar-container">
+<div id="search-bar-container">
     <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250" class="search-symbol">
-    <input type="text" placeholder="search..." class="search-bar" spellcheck="false" autocomplete="off"
+    <input type="text" placeholder="{{'searchPlaceholder' | translate }}" class="search-bar" spellcheck="false" autocomplete="off"
         (input)="onInput()" (focusout)="isVisible=false" (focusin)="isVisible=true" (keydown.enter)="onEnter()"
-        [(ngModel)]="searchVal" [disabled]="progress.picture.complete" [class.search-complete]="progress.picture.complete"/>
+        [(ngModel)]="searchVal" [disabled]="progress.picture.complete"
+        [class.search-complete]="progress.picture.complete" />
 
     @if (isVisible) {
     <ul id="myUL" style="z-index: 2;">
         @for (episode of episodeList; track episode){
+            @let name = 'episodes.' + episode | translate;
         <li style="white-space: pre;" (mousedown)="onEnter(episode)"><span
-                style="color:goldenrod;">{{episode.substring(0,6)}}</span>{{episode.substring(6)}}</li>
+                style="color:goldenrod;">{{episode.substring(0,7)}}</span>{{name}}</li>
         }
     </ul>
     }
 </div>
 
-<div style="position:relative; font: 1rem avatar2; color: gray; text-align: center; z-index: 1;"> <tm-ng-odometer [number]="($stat | async)?.picture_completion ?? 0" theme="minimal" style="color:darkgoldenrod;"></tm-ng-odometer> people completed today!</div>
+<div style="position:relative; width: fit-content; margin:auto; font: 1rem avatar2; color: gray; z-index: 1;"> <tm-ng-odometer
+        [number]="($stat | async)?.picture_completion ?? 0" theme="minimal"
+        style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}</div>
 <div id="image-container">
     <div id="image-wrapper">
-        <img [src]="targetFrame" id="episode-frame" alt="A frame from an episode of Avatar: The Last Airbender" [class.df]="addt" width="960" height="540"
-            [style.transform]="'scale('+ scaleRatio + ')'" [style.filter]="'grayscale('+ grayscaleRatio +')'">
+        <img [src]="targetFrame" id="episode-frame" alt="A frame from an episode of Avatar: The Last Airbender"
+            [class.df]="addt" width="960" height="540" [style.transform]="'scale('+ scaleRatio + ')'"
+            [style.filter]="'grayscale('+ grayscaleRatio +')'">
 
     </div>
     <div style="font:1rem Georgia; color: dimgray; text-align: right;">{{scaleRatio}}&times;</div>
 </div>
 
 @for (ans of incorrectAnswers; track ans){
+    @let name = 'episodes.' + ans | translate;
 <div class="incorrect-picture-guess"> <span style="color: darkgoldenrod;"> {{ans.substring(0,6)}} </span>
-    {{ans.substring(6)}} </div>
+    {{name}} </div>
 }

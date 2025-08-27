@@ -6,10 +6,11 @@ import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { AvatardleProgress } from '../app.component';
 import { ActivatedRoute } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'picture',
-  imports: [FormsModule, TmNgOdometerModule, AsyncPipe],
+  imports: [FormsModule, TmNgOdometerModule, AsyncPipe,TranslatePipe],
   templateUrl: './picture.component.html',
   styleUrl: './picture.component.css'
 })

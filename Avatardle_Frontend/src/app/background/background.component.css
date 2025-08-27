@@ -86,6 +86,10 @@ ngx-particles {
     opacity: 0.6;
 }
 
+#language-button:hover {
+    opacity: 0.6;
+}
+
 #iroh-figure {
 
     position: fixed;

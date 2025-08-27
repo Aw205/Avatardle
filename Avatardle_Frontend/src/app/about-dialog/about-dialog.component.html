@@ -1,24 +1,17 @@
-<h1 mat-dialog-title style="font: 2rem Georgia; ">About</h1>
+<h1 mat-dialog-title style="font: 2rem Georgia;"> {{'aboutDialog.title' | translate}}
+    <button mat-dialog-close (click)="onNoClick()" class="exit-button">&times;</button>
+</h1>
 <mat-dialog-content style="color:beige; font-family: Georgia;">
-    <p style="line-height:1.5em;">This website is a fan-made project inspired by Avatar: The Last Airbender. It
-        is not affiliated with or
-        endorsed by Nickelodeon, Paramount, or any of their subsidiaries. All rights to the original content
-        belong
-        to their respective owners.</p>
-
+    <p style="line-height:1.5em;">{{'aboutDialog.disclaimer' | translate}}</p>
     <p>
-        Background image reference: <a style="color: bisque; font-weight: bold; text-decoration: underline;"
-            href="https://www.deviantart.com/mikkusushi">mikkusushi</a> <br>
-        Iroh Pai Sho image reference: <a style="color: bisque; font-weight: bold; text-decoration: underline;"
-            href="https://www.deviantart.com/onililyn">onililyn</a> <br>
-        Pai Sho tile image reference: <a style="color: bisque; font-weight: bold; text-decoration: underline;"
-            href="https://www.deviantart.com/markusaliasbob">markusaliasbob</a>
+        {{'aboutDialog.credits.background' | translate}}<a style="color: bisque; font-weight: bold; text-decoration: underline;"
+            href="https://www.deviantart.com/mikkusushi/art/Legacy-508021902">mikkusushi</a> <br>
+        {{'aboutDialog.credits.iroh' | translate}}<a style="color: bisque; font-weight: bold; text-decoration: underline;"
+            href="https://www.deviantart.com/onililyn/art/Iroh-redraw-846093892">Onililyn</a> <br>
+        {{'aboutDialog.credits.paisho' | translate}}<a style="color: bisque; font-weight: bold; text-decoration: underline;"
+            href="https://www.deviantart.com/markusaliasbob/art/Pai-Sho-Tiles-Black-503176594">MarkusAliasBob</a>
     </p>
 
-    <h2>Other</h2>
-    <p>No plans yet to add characters from Korra but maybe eventually it will be in the works?</p> 
+    <h2 style="font: 2rem Georgia;">{{'aboutDialog.other.title' | translate}}</h2>
+    <p>{{'aboutDialog.other.content' | translate}}</p> 
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-    <button mat-dialog-close (click)="onNoClick()"
-        style=" font-size:xx-large; background-color: transparent; color: red; border: none; cursor:pointer;">&times;</button>
-</mat-dialog-actions>

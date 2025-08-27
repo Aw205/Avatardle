@@ -1,4 +1,6 @@
-<h1 mat-dialog-title style="color: burlywood; font: xx-large avatar2;">Help</h1>
+<h1 mat-dialog-title style="font: 2rem Georgia;">{{'helpDialog.title' | translate}}
+    <button mat-dialog-close (click)="onNoClick()" class="exit-button">&times;</button>
+</h1>
 <mat-dialog-content style="background-color: rgb(25,25,25); border-radius: 10px; padding:1rem; margin: 1rem; margin-bottom: 0; font-family: Georgia;">
 
     <mat-tab-group style="color: beige;">
@@ -97,7 +99,3 @@
     </mat-tab-group>
 
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-    <button mat-dialog-close (click)="onNoClick()"
-        style="font-size:xx-large; background-color: transparent; color: red; border:none; cursor:pointer;">&times;</button>
-</mat-dialog-actions>

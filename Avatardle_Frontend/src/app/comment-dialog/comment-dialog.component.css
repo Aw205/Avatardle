@@ -1,8 +1,3 @@
-p {
-    background-color: rgb(20, 20, 20);
-    padding: 0.5rem;
-    border-radius: 1vh;
-}
 
 textarea {
 
@@ -30,17 +25,15 @@ textarea {
     cursor: pointer;
     border: 1px outset black;
     outline: 2px solid black;
-}
 
-#comment-button:disabled {
+    &:disabled{
+        border: none;
+        outline: none;
+        color: dimgray;
+        cursor: default;
+    }
 
-    border: none;
-    outline: none;
-    color: dimgray;
-    cursor: default;
-}
-
-#comment-button:not(:disabled):hover {
-
-    filter: brightness(0.9);
+    &:not(:disabled):hover{
+        filter: brightness(0.8);
+    }
 }

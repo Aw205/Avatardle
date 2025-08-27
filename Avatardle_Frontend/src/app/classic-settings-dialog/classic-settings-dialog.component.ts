@@ -5,25 +5,24 @@ import {
   MatDialogActions,
   MatDialogRef,
 } from '@angular/material/dialog';
-import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { AvatardleProgress } from '../app.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-classic-settings-dialog',
-  imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatInputModule, FormsModule],
+  imports: [MatDialogTitle, MatDialogContent, MatDialogActions, FormsModule,TranslatePipe],
   templateUrl: './classic-settings-dialog.component.html',
   styleUrl: './classic-settings-dialog.component.css',
 })
 export class ClassicSettingsDialogComponent {
 
   progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
-  saveConfirmation: string = "";
-  isValid: boolean = false;
+  isValid: boolean = true;
   list: { name: string, icon: string, selected: boolean }[] = [
 
-    { name: 'Avatar: The Last Airbender', icon: "images/characters/Aang.webp", selected: false },
-    { name: 'Coming soon...', icon: "images/characters/Korra.webp", selected: false }
+    { name: 'ATLA-title', icon: "images/characters/Aang.webp", selected: false },
+    { name: 'TLOK-title', icon: "images/characters/Korra.webp", selected: false }
   ]
 
   constructor(public dialogRef: MatDialogRef<ClassicSettingsDialogComponent>) {
@@ -45,23 +44,17 @@ export class ClassicSettingsDialogComponent {
 
   onSave() {
 
-
     this.isValid = this.list.some((item) => {
       return item.selected;
     });
 
-    if (this.isValid) {
-
+    if (this.isValid && !this.progress.classic.complete) {
       let series = this.list.filter((item) => item.selected == true).map((item) => item.name);
-      series = ["Avatar: The Last Airbender"]; // remove later
       this.progress.classic.series = series;
-      if (!this.progress.classic.complete) {
-        this.progress.classic.guesses = [];
-      }
+      this.progress.classic.guesses = [];
       localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
       window.location.reload();
     }
-    this.saveConfirmation = "*Select at least 1 series";
   }
 
 }

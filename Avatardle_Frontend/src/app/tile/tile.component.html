@@ -6,24 +6,30 @@
             @if(data.arrowDir){
             <img [src]="data.imageUrl" alt="" class="episode-arrow" [style.transform]="data.arrowDir">
             }
-            {{data.episodeName}}
+            @let episodeName = 'episodes.' + data.episodeName;
+            {{ episodeName | translate }}
             }
             @else if(data.imageUrl){
-            <img [src]="data.imageUrl" alt="{{data.element! + ' element symbol'}}" class="img" [matTooltip]="data.element!" matTooltipPosition="below">
+            <img [src]="data.imageUrl" alt="{{data.element! + ' element symbol'}}" class="img" matTooltip="{{data.element! | translate}}" matTooltipPosition="below">
             }
             @else if(data.affiliations){
 
-            <div id="tag-container">
+            <div class="tag-container">
 
                 @for(tag of data.affiliations; track tag;){
-                <div [class]="getTag(tag)" style="border-radius: 0.5rem; padding:0 0.5rem; width: 120%; white-space: nowrap; background-color: rgb(30, 30, 30); display: flex; align-items: end; justify-content: center; max-height: 1rem;">{{tag}}
-                    <img src="images/affiliationIcons/{{getTag(tag)}}.webp" style="height: 1.5rem; padding-left: 0.2rem;">
-                </div>
-            }
+                    @let name = getTag(tag);
+                    @let icon = 'classic.icons.' + name ;
+                    <div [class]="name">{{ icon | translate }}
+                        <img src="images/affiliationIcons/{{name}}.webp" style="height: 1.5rem; padding-left: 0.2rem;">
+                    </div>
+                }
             </div>
             }
             @else if(data.text){
-            {{data.text}}
+
+            {{data.text | translate}}
+
+
             }
         </div>
     </div>

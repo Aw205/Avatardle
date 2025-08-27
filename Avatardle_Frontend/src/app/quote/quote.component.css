@@ -43,7 +43,7 @@ blockquote::before {
 }
 
 .clue-ready {
-   filter:none;
+    filter: none;
 }
 
 .incorrect-quote-guess {
@@ -60,9 +60,6 @@ blockquote::before {
     text-align: center;
     margin-bottom: 1rem;
     border-radius: 1rem;
-    background-color: rgb(15, 15, 15);
-    border: 2px outset black;
-    outline: 2px solid black;
 
 }
 
@@ -81,26 +78,27 @@ blockquote::before {
 }
 
 .fade-in {
-	opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-timing-function: ease-in;
-	animation-duration: 0.5s;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-timing-function: ease-in;
+    animation-duration: 0.5s;
 }
 
 @keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .quote-search-bar {
 
     background-color: rgb(30, 30, 30);
     width: 100%;
-    font: 2vw avatar2;
+    font: 2rem avatar2;
     color: goldenrod;
     border: none;
     border-right: 0.5rem solid gray;
@@ -110,17 +108,54 @@ blockquote::before {
 
     position: relative;
     left: 50%;
-    top: 0vh;
     transform: translateX(-50%);
     width: 60%;
+}
+
+.quote-complete {
+
+    text-align: center;
+    color: darkgoldenrod;
+
+}
+
+
+.title {
+
+    font: 2rem avatar2;
+    color: darkgoldenrod;
+    text-align: center;
+    margin-bottom: 1rem;
+    border: 2px outset black;
+    outline: 2px solid black;
+    border-radius: 1rem;
+    background-color: rgb(15, 15, 15);
+}
+
+.img {
+
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px outset black;
+    outline: 2px solid black;
+}
+
+.complete-container {
+
+    border: 2px outset black;
+    outline: 2px solid black;
+    border-radius: 1rem;
+    background-color: rgb(15, 15, 15);
+    text-indent: 1rem;
+    margin-top: 1rem;
 }
 
 @media only screen and (max-width: 768px) {
 
     blockquote {
-        font-size: 1rem;
-        line-height: 1.5rem;
-        border-width: 0.1rem;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        border-width: 0.3rem;
     }
 
     blockquote::before {
@@ -129,18 +164,14 @@ blockquote::before {
         top: 0.5rem;
     }
 
-    .lotus{
-        width: 1em;
-    }
-
-    #quote-container {
-        width: 80%;
+    .lotus {
+        width: 1.5rem;
     }
 
     .quote-search-bar {
 
-        font-size: 0.8rem;
-        border-width: 0.1rem;
+        font-size: 1rem;
+        border-width: 0.3rem;
     }
 
 }

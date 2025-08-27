@@ -4,7 +4,7 @@
 		"gender": "Male",
 		"nationality": "Southern Air Temple",
 		"bendingElement": "All",
-		"affiliations": ["Weapon Wielder","Spiritual","Animal Companion","Flight","Team Avatar","Spirit World"],
+		"affiliations": ["Weapon Wielder","Spiritual","Animal Companion","Flight","Team Avatar","Spirit World","Lion Turtle"],
 		"firstAppearance": "S01E01 The Boy in the Iceberg"
 	},
 	{
@@ -20,7 +20,7 @@
 		"gender": "Male",
 		"nationality": "Northern Water Tribe",
 		"bendingElement": "Water",
-		"affiliations": ["Blood Bending","Equalist"],
+		"affiliations": ["Blood Bending","Equalist","Alter Ego"],
 		"firstAppearance": "S01E01 Welcome to Republic City"
 	},
 	{
@@ -36,7 +36,7 @@
 		"gender": "Female",
 		"nationality": "Republic City",
 		"bendingElement": "None",
-		"affiliations": ["Romance","Team Avatar","Weapon Wielder"],
+		"affiliations": ["Romance","Team Avatar","Weapon Wielder","Engineering"],
 		"firstAppearance": "S01E04 The Voice in the Night"
 	},
 	{
@@ -52,7 +52,7 @@
 		"gender": "Female",
 		"nationality": "Fire Nation",
 		"bendingElement": "Fire",
-		"affiliations": ["Royalty","Lightning Bending","Royal Fire Academy"],
+		"affiliations": ["Royalty","Lightning Bending","Royal Fire Academy","Dai Li"],
 		"firstAppearance": "S01E12 The Storm"
 	},
 	{
@@ -84,7 +84,7 @@
 		"gender": "Male",
 		"nationality": "Southern Water Tribe",
 		"bendingElement": "Air",
-		"affiliations": ["Comic Relief","United Forces"],
+		"affiliations": ["Comic Relief"],
 		"firstAppearance": "S01E12 Endgame"
 	},
 	{
@@ -132,7 +132,7 @@
 		"gender": "Male",
 		"nationality": "Northern Water Tribe",
 		"bendingElement": "Water",
-		"affiliations": [],
+		"affiliations": ["Tribal Chief"],
 		"firstAppearance": "S02E01 Rebel Spirit"
 	},
 	{
@@ -156,7 +156,7 @@
 		"gender": "Female",
 		"nationality": "Northern Water Tribe",
 		"bendingElement": "Water",
-		"affiliations": [],
+		"affiliations": ["Romance","Tribal Chief"],
 		"firstAppearance": "S02E01 Rebel Spirit"
 	},
 	{
@@ -220,7 +220,7 @@
 		"gender": "Male",
 		"nationality": "Southern Water Tribe",
 		"bendingElement": "None",
-		"affiliations": ["Weapon Wielder"],
+		"affiliations": ["Weapon Wielder","Tribal Chief"],
 		"firstAppearance": "S01E15 Bato of the Water Tribe"
 	},
 	{
@@ -244,7 +244,7 @@
 		"gender": "Male",
 		"nationality": "Republic City",
 		"bendingElement": "None",
-		"affiliations": ["Equalist"],
+		"affiliations": ["Equalist","Engineering"],
 		"firstAppearance": "S01E04 The Voice in the Night"
 	},
 	{
@@ -276,7 +276,7 @@
 		"gender": "Male",
 		"nationality": "Fire Nation",
 		"bendingElement": "Fire",
-		"affiliations": ["Royalty","United Forces"],
+		"affiliations": ["Royalty","Lightning Bending"],
 		"firstAppearance": "S01E10 Turning the Tides"
 	},
 	{
@@ -316,7 +316,7 @@
 		"gender": "Female",
 		"nationality": "Republic City",
 		"bendingElement": "Air",
-		"affiliations": ["Spiritual","Romance"],
+		"affiliations": ["Spiritual","Romance","Spirit World"],
 		"firstAppearance": "S01E01 Welcome to Republic City"
 	},
 	{
@@ -340,7 +340,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "Air",
-		"affiliations": ["Air Acolyte"],
+		"affiliations": ["Romance","Animal Companion"],
 		"firstAppearance": "S03E02 Rebirth"
 	},
 	{
@@ -356,7 +356,7 @@
 		"gender": "Female",
 		"nationality": "Southern Water Tribe",
 		"bendingElement": "Water",
-		"affiliations": ["Romance","Blood Bending","Healing","Team Avatar"],
+		"affiliations": ["Romance","Blood Bending","Healing","Team Avatar","Alter Ego"],
 		"firstAppearance": "S01E01 The Boy in the Iceberg"
 	},
 	{
@@ -376,14 +376,6 @@
 		"firstAppearance": "S02E14 City of Walls and Secrets"
 	},
 	{
-		"name": "King Wu",
-		"gender": "Male",
-		"nationality": "Earth Kingdom",
-		"bendingElement": "None",
-		"affiliations": ["Royalty"],
-		"firstAppearance": "S04E01 After All These Years"
-	},
-	{
 		"name": "Koh",
 		"gender": "Male",
 		"nationality": "None",
@@ -396,7 +388,7 @@
 		"gender": "Female",
 		"nationality": "Southern Water Tribe",
 		"bendingElement": "All",
-		"affiliations": ["Team Avatar","Metal Bending","Romance","Spirit World","Animal Companion"],
+		"affiliations": ["Team Avatar","Metal Bending","Romance","Spirit World","Animal Companion","Healing","Spirit Bending"],
 		"firstAppearance": "S01E01 Welcome to Republic City"
 	},
 	{
@@ -524,8 +516,16 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": ["Inventor"],
+		"affiliations": ["Engineering"],
 		"firstAppearance": "S01E17 The Northern Air Temple"
+	},
+	{
+		"name": "Meelo",
+		"gender": "Male",
+		"nationality": "Republic City",
+		"bendingElement": "Air",
+		"affiliations": ["Comic Relief"],
+		"firstAppearance": "S01E01 Welcome to Republic City"
 	},
 	{
 		"name": "Meng",
@@ -548,7 +548,7 @@
 		"gender": "Female",
 		"nationality": "Unknown",
 		"bendingElement": "Water",
-		"affiliations": ["Red Lotus"],
+		"affiliations": ["Red Lotus","Disability"],
 		"firstAppearance": "S03E02 Rebirth"
 	},
 	{
@@ -608,6 +608,14 @@
 		"firstAppearance": "S01E08 Winter Solstice, Part 2: Avatar Roku"
 	},
 	{
+		"name": "P'Li",
+		"gender": "Female",
+		"nationality": "Fire Nation",
+		"bendingElement": "Fire",
+		"affiliations": ["Romance","Combustion Bending","Red Lotus"],
+		"firstAppearance": "S03E03 The Earth Queen"
+	},
+	{
 		"name": "Pakku",
 		"gender": "Male",
 		"nationality": "Northern Water Tribe",
@@ -632,6 +640,14 @@
 		"firstAppearance": "S01E10 Jet"
 	},
 	{
+		"name": "Roku",
+		"gender": "Male",
+		"nationality": "Fire Nation",
+		"bendingElement": "All",
+		"affiliations": ["Nobility","Mentor","Animal Companion","Lava Bending"],
+		"firstAppearance": "S01E08 Winter Solstice, Part 2: Avatar Roku"
+	},
+	{
 		"name": "Professor Zei",
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
@@ -640,20 +656,12 @@
 		"firstAppearance": "S02E10 The Library"
 	},
 	{
-		"name": "P'Li",
+		"name": "Prince Wu",
 		"gender": "Male",
-		"nationality": "Fire Nation",
-		"bendingElement": "Fire",
-		"affiliations": ["Romance","Combustion Bending","Red Lotus"],
-		"firstAppearance": "S03E03 The Earth Queen"
-	},
-	{
-		"name": "Roku",
-		"gender": "Male",
-		"nationality": "Fire Nation",
-		"bendingElement": "All",
-		"affiliations": ["Nobility","Mentor","Animal Companion"],
-		"firstAppearance": "S01E08 Winter Solstice, Part 2: Avatar Roku"
+		"nationality": "Earth Kingdom",
+		"bendingElement": "None",
+		"affiliations": ["Royalty","Comic Relief"],
+		"firstAppearance": "S04E01 After All These Years"
 	},
 	{
 		"name": "Shyu",
@@ -676,7 +684,7 @@
 		"gender": "Male",
 		"nationality": "Southern Water Tribe",
 		"bendingElement": "None",
-		"affiliations": ["Weapon Wielder","Comic Relief","Animal Companion","Team Avatar"],
+		"affiliations": ["Weapon Wielder","Comic Relief","Animal Companion","Team Avatar","Romance","Engineering"],
 		"firstAppearance": "S01E01 The Boy in the Iceberg"
 	},
 	{
@@ -709,15 +717,15 @@
 		"gender": "Female",
 		"nationality": "Republic City",
 		"bendingElement": "Earth",
-		"affiliations": ["Metal Bending"],
+		"affiliations": ["Metal Bending","Metal Clan"],
 		"firstAppearance": "S03E05 The Metal Clan"
 	},
 	{
-		"name": "Tarrlock",
+		"name": "Tarrlok",
 		"gender": "Male",
 		"nationality": "Northern Water Tribe",
 		"bendingElement": "Water",
-		"affiliations": [],
+		"affiliations": ["Blood Bending"],
 		"firstAppearance": "S01E04 The Voice in the Night"
 	},
 	{
@@ -733,7 +741,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": ["Flight"],
+		"affiliations": ["Flight","Disability"],
 		"firstAppearance": "S01E17 The Northern Air Temple"
 	},
 	{
@@ -749,7 +757,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": ["Royalty","Lightning Bending"],
+		"affiliations": [],
 		"firstAppearance": "S01E10 Jet"
 	},
 	{
@@ -765,7 +773,7 @@
 		"gender": "Male",
 		"nationality": "Northern Water Tribe",
 		"bendingElement": "Water",
-		"affiliations": [],
+		"affiliations": ["Tribal Chief"],
 		"firstAppearance": "S01E01 Welcome to Republic City"
 	},
 	{
@@ -773,7 +781,7 @@
 		"gender": "Female",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "Earth",
-		"affiliations": ["Nobility","Metal Bending","Team Avatar","Earth Rumble"],
+		"affiliations": ["Nobility","Metal Bending","Team Avatar","Earth Rumble", "Alter Ego","Disability"],
 		"firstAppearance": "S02E04 The Swamp"
 	},
 	{
@@ -789,7 +797,7 @@
 		"gender": "Male",
 		"nationality": "Northern Water Tribe",
 		"bendingElement": "Water",
-		"affiliations": ["Spiritual"],
+		"affiliations": ["Spiritual","Spirit Bending","Tribal Chief"],
 		"firstAppearance": "S02E01 Rebel Spirit"
 	},
 	{
@@ -805,7 +813,7 @@
 		"gender": "Male",
 		"nationality": "Southern Water Tribe",
 		"bendingElement": "None",
-		"affiliations": ["Romance","Comic Relief"],
+		"affiliations": ["Romance","Comic Relief","Engineering"],
 		"firstAppearance": "S02E01 Rebel Spirit"
 	},
 	{
@@ -813,7 +821,7 @@
 		"gender": "Male",
 		"nationality": "None",
 		"bendingElement": "All",
-		"affiliations": [],
+		"affiliations": ["Animal Companion","Lion Turtle"],
 		"firstAppearance": "S02E07 Beginnings, Part 1"
 	},
 	{
@@ -877,7 +885,7 @@
 		"gender": "Male",
 		"nationality": "Unknown",
 		"bendingElement": "Air",
-		"affiliations": ["Spiritual","Spirit World","Romance","Red Lotus"],
+		"affiliations": ["Spiritual","Spirit World","Romance","Red Lotus","Flight"],
 		"firstAppearance": "S03E01 A Breath of Fresh Air"
 	},
 	{
@@ -893,7 +901,7 @@
 		"gender": "Female",
 		"nationality": "Republic City",
 		"bendingElement": "None",
-		"affiliations": ["Romance"],
+		"affiliations": ["Romance","Engineering"],
 		"firstAppearance": "S02E01 Rebel Spirit"
 	},
 	{
@@ -901,7 +909,7 @@
 		"gender": "Male",
 		"nationality": "Fire Nation",
 		"bendingElement": "Fire",
-		"affiliations": ["Weapon Wielder","Royalty","Romance","Musician","Team Avatar"],
+		"affiliations": ["Weapon Wielder","Royalty","Romance","Musician","Team Avatar","Alter Ego"],
 		"firstAppearance": "S01E01 The Boy in the Iceberg"
 	}
 ]

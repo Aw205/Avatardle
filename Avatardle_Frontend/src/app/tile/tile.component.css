@@ -1,10 +1,12 @@
 .correct {
     box-shadow: 0 0 3rem 0.2rem rgba(0, 128, 0, 0.484);
 }
+
 .incorrect {
     box-shadow: 0 0 3rem 0.2rem rgba(255, 0, 0, 0.574);
 }
-.partial{
+
+.partial {
     box-shadow: 0 0 3rem 0.2rem rgba(255, 166, 0, 0.511)
 }
 
@@ -74,15 +76,24 @@
     width: 60%;
     aspect-ratio: 1/1;
 }
+
 .img:hover {
     scale: 1.2;
 }
 
-.no-transition{
+.no-transition {
     transition: none;
 }
 
-.animal-companion{
+.alter-ego {
+    border-bottom: double 1px transparent;
+    background-image: linear-gradient(rgb(30, 30, 30), rgb(30, 30, 30)),
+    linear-gradient(to right, royalblue 0% 50%, white 50% 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.animal-companion {
     border-bottom: 1px solid steelblue;
 }
 
@@ -109,57 +120,63 @@
     border-bottom: 1px solid darkorange;
 }
 
-.comic-relief{
+.comic-relief {
     border-bottom: 1px solid yellow;
 }
 
 
-.dai-li{
+.dai-li {
     border-bottom: 1px solid darkgreen;
 }
 
-.earth-rumble{
+.disability {
+    border-bottom: 1px solid Peru;
+}
+
+.earth-rumble {
     border-bottom: 1px solid peru;
 }
 
-.equalist{
+.engineering {
+    border-bottom: 1px solid gray;
+}
 
+.equalist {
     border-bottom: 1px solid crimson;
 }
 
-.flight{
+.flight {
     border-bottom: 1px solid darkorange;
 }
 
-.freedom-fighters{
+.freedom-fighters {
     border-bottom: 1px solid tomato;
 }
 
-.healing{
+.healing {
     border-bottom: 1px solid skyblue;
 }
 
-.imprisoned{
-    border-bottom: 1px solid darkslategray;
-}
-
-
 .kyoshi-warrior {
     border-bottom: double 1px transparent;
-    background-image: linear-gradient(rgb(30,30,30), rgb(30,30,30)),
-     linear-gradient(to right,#729663 10%,#e15d40 10% 30%, #fffee6 30% 70%, #e15d40 70% 90%, #729663 90%);
+    background-image: linear-gradient(rgb(30, 30, 30), rgb(30, 30, 30)),
+        linear-gradient(to right, #729663 10%, #e15d40 10% 30%, #fffee6 30% 70%, #e15d40 70% 90%, #729663 90%);
     background-origin: border-box;
     /* background-clip: content-box, border-box; */
     background-clip: padding-box, border-box;
 }
 
-.lava-bending{
+.lava-bending {
 
     border-bottom: 1px solid orange;
 }
 
 .lightning-bending {
     border-bottom: 1px solid dodgerblue;
+}
+
+.lion-turtle {
+    border-bottom: 1px solid darkolivegreen;
 }
 
 .mentor {
@@ -170,19 +187,23 @@
     border-bottom: 1px solid slategray;
 }
 
-.muscular{
+.metal-clan {
+    border-bottom: 1px solid gray;
+}
+
+.muscular {
     border-bottom: 1px solid sienna;
 }
 
-.musician{
+.musician {
     border-bottom: 1px solid darkslateblue;
 }
 
-.nobility{
+.nobility {
     border-bottom: 1px solid darkgoldenrod;
 }
 
-.red-lotus{
+.red-lotus {
     border-bottom: 1px solid red;
 }
 
@@ -198,7 +219,11 @@
     border-bottom: 1px solid goldenrod;
 }
 
-.spirit-world{
+.spirit-bending {
+    border-bottom: 1px solid #FFFAA0;
+}
+
+.spirit-world {
     border-bottom: 1px solid lightskyblue;
 }
 
@@ -212,10 +237,15 @@
 
 .team-avatar {
     border-bottom: double 1px transparent;
-    background-image: linear-gradient(rgb(30,30,30), rgb(30,30,30)),
-    linear-gradient(to right,deepskyblue 25%,green 25% 50%, red 50% 75%, lightblue 75%);
+    background-image: linear-gradient(rgb(30, 30, 30), rgb(30, 30, 30)),
+        linear-gradient(to right, deepskyblue 25%, green 25% 50%, red 50% 75%, lightblue 75%);
     background-origin: border-box;
     background-clip: padding-box, border-box;
+}
+
+.tribal-chief{
+
+    border-bottom: 1px solid coral;
 }
 
 .weapon-wielder {
@@ -226,25 +256,39 @@
     border-bottom: 1px solid white;
 }
 
-#tag-container {
+.tag-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     gap: 1rem;
+
+    & div {
+
+        border-radius: 0.5rem;
+        padding: 0 0.5rem;
+        width: 120%;
+        white-space: nowrap;
+        background-color: rgb(30, 30, 30);
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        max-height: 1rem;
+
+    }
 }
 
-#tag-container::-webkit-scrollbar-thumb {
+.tag-container::-webkit-scrollbar-thumb {
     background: rgb(60, 60, 60);
     border-radius: 0.5rem;
 }
 
-#tag-container::-webkit-scrollbar {
+.tag-container::-webkit-scrollbar {
     background: rgb(30, 30, 30);
     width: 0.2rem;
 }
 
-#tag-container::-webkit-scrollbar-button {
+.tag-container::-webkit-scrollbar-button {
     height: 0.8rem;
 }

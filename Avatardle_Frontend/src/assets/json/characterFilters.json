@@ -1,6 +1,6 @@
 {
     "classic": {
-        "Avatar: The Last Airbender": [
+        "ATLA-title": [
             "Aang",
             "Appa",
             "Azula",
@@ -47,7 +47,7 @@
             "Zhao",
             "Zuko"
         ],
-        "The Legend of Korra": [
+        "TLOK-title": [
             "Amon",
             "Asami Sato",
             "Bolin",
@@ -57,10 +57,8 @@
             "Ghazan",
             "Hiroshi Sato",
             "Iroh II",
-            "Izumi",
             "Jinora",
             "Kai",
-            "King Wu",
             "Korra",
             "Kuvira",
             "Lin Beifong",
@@ -69,6 +67,7 @@
             "Ming-Hua",
             "Opal",
             "P'Li",
+            "Prince Wu",
             "Suyin Beifong",
             "Tarrlok",
             "Tenzin",
@@ -77,7 +76,8 @@
             "Varrick",
             "Wan",
             "Yakone",
-            "Zaheer"
+            "Zaheer",
+            "Zhu Li"
         ]
     },
     "quote": [
@@ -129,7 +129,7 @@
         "Kuruk",
         "Kyoshi",
         "Lee",
-        "Lion turtle",
+        "Lion Turtle",
         "Lo and Li",
         "Long Feng",
         "Macmu-Ling",
@@ -142,7 +142,7 @@
         "Oyaji",
         "Ozai",
         "Pakku",
-        "Pathik",
+        "Guru Pathik",
         "Piandao",
         "Pipsqueak",
         "Roku",

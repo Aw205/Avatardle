@@ -2,18 +2,18 @@ import { Component, Inject } from '@angular/core';
 import {
   MatDialogTitle,
   MatDialogContent,
-  MatDialogActions,
   MatDialogRef,
   MAT_DIALOG_DATA
 } from '@angular/material/dialog';
 
 import { FormsModule } from '@angular/forms';
+import {TranslatePipe} from "@ngx-translate/core";
 import { AvatardleProgress } from '../app.component';
 
 
 @Component({
   selector: 'particle-settings',
-  imports: [MatDialogActions, MatDialogContent, MatDialogTitle, FormsModule],
+  imports: [MatDialogContent, MatDialogTitle, FormsModule,TranslatePipe],
   templateUrl: './particle-settings.component.html',
   styleUrl: './particle-settings.component.css'
 })
@@ -32,7 +32,6 @@ export class ParticleSettingsComponent {
     this.selected = data.currElement;
     this.progress = JSON.parse(localStorage.getItem("avatardle_progress")!);
     this.enableParticles = this.progress.particleSettings.enable;
-    this.progress.particleSettings.customElement = this.selected;
     localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
   }
 
@@ -41,19 +40,13 @@ export class ParticleSettingsComponent {
   }
 
   onClick(element: string) {
-
     this.selected = element;
-    let progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
-    progress.particleSettings.customElement = this.selected;
-    localStorage.setItem("avatardle_progress", JSON.stringify(progress));
   }
 
   onChange(event: any, type: string) {
 
     if (type == "enable") {
-      let progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
-      progress.particleSettings.enable = event.target.checked;
-      localStorage.setItem("avatardle_progress", JSON.stringify(progress));
+      this.enableParticles = event.target.checked;
     }
   }
 

@@ -1,4 +1,6 @@
-<h1 mat-dialog-title style="font: 2rem Georgia;"> Particle Settings</h1>
+<h1 mat-dialog-title style="font: 2rem Georgia;"> {{'particleSettings.title' | translate }}
+    <button mat-dialog-close (click)="onNoClick()" class="exit-button">&times;</button>
+</h1>
 <mat-dialog-content
     style="color:beige; font-family: Georgia; background-color: rgb(20,20,20); border-radius: 1rem; margin: 1rem; margin-bottom: 0;">
 
@@ -34,17 +36,13 @@
 
     <p style="text-align: center;">
         <span class="material-symbols-outlined" style="color:darkgoldenrod; vertical-align: bottom;">cycle</span>
-        - Today's element is {{cycleElement}} <img src="images/elements/{{cycleElement}}.svg"
+        {{'particleSettings.todaysElement' | translate }}<img src="images/elements/{{cycleElement}}.svg"
             style="height:2rem; vertical-align: bottom;">
     </p>
 
     <div style="padding:1rem 0;">
         <input id="enable-particle" type="checkbox" [(ngModel)]="enableParticles" (change)="onChange($event,'enable')">
-        <label for="enable-particle">Enable particle effects</label>
+        <label for="enable-particle">{{'particleSettings.enable' | translate}}</label>
     </div>
 
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-    <button mat-dialog-close (click)="onNoClick()"
-        style=" font-size:xx-large; background-color: transparent; color: red; border: none; cursor:pointer;">&times;</button>
-</mat-dialog-actions>

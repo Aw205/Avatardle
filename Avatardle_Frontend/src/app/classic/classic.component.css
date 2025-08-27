@@ -93,16 +93,17 @@
     box-shadow: 0px 0px 1rem 20px #00000082;
     margin-top: 10vh;
     margin-bottom: 10vh;
-}
 
-#fanart-container>img {
+    & > img{
 
-    width: 100%;
-    height: 100%;
-    user-select: none;
-    border: 1px outset black;
-    outline: 2px solid black;
-    border-radius: 1rem;
+        width: 100%;
+        user-select: none;
+        border: 1px outset black;
+        outline: 2px solid black;
+        border-radius: 1rem;
+        pointer-events: none;
+
+    }
 }
 
 #fanart-title {
@@ -156,15 +157,9 @@
         overflow-y: hidden;
         padding: 1rem;
     }
-
     #search-container {
         width: 60%;
     }
-
-    .search-bar {
-        font-size: 1rem;
-    }
-
     #mobile-help-text {
         display: block;
     }

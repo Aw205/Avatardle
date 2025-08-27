@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import { MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'help-dialog',
-  imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatTabsModule],
+  imports: [MatDialogTitle, MatDialogContent, MatTabsModule,TranslatePipe],
   templateUrl: './help-dialog.component.html',
   styleUrl: './help-dialog.component.scss'
 })

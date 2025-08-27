@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { TranslatePipe } from '@ngx-translate/core';
 
 export interface tileData {
 
@@ -19,7 +20,7 @@ export interface tileData {
 
 @Component({
   selector: 'tile',
-  imports: [MatTooltipModule],
+  imports: [MatTooltipModule,TranslatePipe],
   templateUrl: './tile.component.html',
   styleUrl: './tile.component.css'
 })

@@ -13,10 +13,11 @@ import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassicSettingsDialogComponent } from '../classic-settings-dialog/classic-settings-dialog.component';
 import {CountdownComponent} from 'ngx-countdown'
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'classic',
-    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe,CountdownComponent],
+    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe,CountdownComponent,TranslatePipe],
     templateUrl: './classic.component.html',
     styleUrl: './classic.component.css'
 })
@@ -131,7 +132,7 @@ export class ClassicMode {
 
                     case "firstAppearance":
 
-                        let episodeName = val.substring(6);
+                        let episodeName = val;
                         tileData.episodeName = episodeName;
 
                         if (!tileData.isCorrect) {
@@ -184,7 +185,7 @@ export class ClassicMode {
 
     openDialog(name: string) {
         if (name == "settings") {
-            this.dialog.open(ClassicSettingsDialogComponent, { width: '50vw', maxWidth: 'none' });
+            this.dialog.open(ClassicSettingsDialogComponent, { width: '50vw', maxWidth: 'none', autoFocus: false });
         }
     }
 

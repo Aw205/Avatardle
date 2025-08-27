@@ -9,17 +9,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {TranslatePipe} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-comment-dialog',
-  imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatInputModule, MatFormFieldModule, FormsModule],
+  imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatInputModule, MatFormFieldModule, FormsModule, TranslatePipe],
   templateUrl: './comment-dialog.component.html',
   styleUrl: './comment-dialog.component.css'
 })
 export class CommentDialogComponent {
 
   message: string = "";
-  buttonText: string = "Comment";
+  buttonText: string = "commentDialog.comment";
 
   constructor(public dialogRef: MatDialogRef<CommentDialogComponent>, public http: HttpClient) {
 
@@ -34,7 +35,7 @@ export class CommentDialogComponent {
     this.buttonText = "Thanks!";
     setTimeout(() => {
       this.message = "";
-      this.buttonText = "Comment"
+      this.buttonText = "commentDialog.comment"
     }, 2000);
 
 
