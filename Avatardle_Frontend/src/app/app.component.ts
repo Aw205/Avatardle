@@ -17,7 +17,7 @@ export interface AvatardleProgress {
   language: string | undefined
 }
 
-const VERSION = "1.2.0";
+const VERSION = "1.2.1";
 
 @Component({
   selector: 'app-root',
@@ -45,7 +45,12 @@ export class AppComponent {
     if (localStorage.getItem("avatardle_progress") != null) {
       try {
         let progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
-        if (currentDate != progress.date || progress.version != emptyProgress.version) {
+
+        if (progress.version != emptyProgress.version) {
+          localStorage.setItem("avatardle_progress", JSON.stringify(emptyProgress));
+        }
+
+        else if (currentDate != progress.date) {
           emptyProgress.language = progress.language;
           emptyProgress.classic.series = progress.classic.series ?? ["ATLA-title"];
           localStorage.setItem("avatardle_progress", JSON.stringify(emptyProgress));
@@ -55,7 +60,6 @@ export class AppComponent {
         console.error(e);
         localStorage.setItem("avatardle_progress", JSON.stringify(emptyProgress));
       }
-
     }
     else {
       localStorage.setItem("avatardle_progress", JSON.stringify(emptyProgress));
