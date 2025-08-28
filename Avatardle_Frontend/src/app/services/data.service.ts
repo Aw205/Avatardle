@@ -80,11 +80,7 @@ export class DataService {
       switchMap(() => this.http.get<DailyStats>(`${environment.statsApiUrl}/getStats`))
     );
 
-    let ob = this.http.get<Character[]>('json/characters.json').pipe(
-      map(chars => {
-        return chars.map((char, index): Character => ({ ...char, index: index }))
-      })
-    );
+    let ob = this.http.get<Character[]>('json/characters.json');
     ob.subscribe((data) => {
       this.characterData = data;
     });
@@ -162,5 +158,4 @@ export class DataService {
     }());
 
   }
-
 }

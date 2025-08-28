@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand from 'rand-seed';
 import { DailyStats, DataService } from '../services/data.service';
@@ -23,7 +23,8 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 export class QuoteMode {
 
-    quote: string = "";
+    quote = signal('');
+
     target: string = "";
     incorrectAnswers: string[] = [];
 
@@ -37,6 +38,7 @@ export class QuoteMode {
     prevQuote: string = "";
     nextQuote: string = "";
     quoteEpisode: string = "";
+
 
     $stat!: Observable<DailyStats>;
 
@@ -55,13 +57,15 @@ export class QuoteMode {
             this.searchVal = "-" + this.progress.quote.target;
         }
 
+
+
         this.ds.transcript$.subscribe((data) => {
 
             this.prevQuote = data[idx - 1].script;
             this.nextQuote = data[idx + 1].script;
-            this.quote = data[idx].script;
             this.target = data[idx].Character;
             this.quoteEpisode = this.ds.episodes[data[idx].total_number - 1];
+            this.quote.set(data[idx].script);
         });
     }
 
@@ -130,7 +134,6 @@ export class QuoteMode {
         }
         return `Hint in ${diff} more guesses`;
     }
-
 
     getCountdownConfig() {
         return this.ds.getCountdownConfig();

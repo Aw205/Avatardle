@@ -29,13 +29,6 @@
             item-hover-state-layer-color: rgb(50, 50, 50)));
 }
 
-// mat-dialog-content {
-
-//     background-color: rgb(20, 20, 20);
-//     border-radius: 1rem;
-//     margin: 1rem !important;
-// }
-
 .mat-mdc-tab-body-content {
 
     display: flex;
@@ -117,7 +110,8 @@ a {
 
 }
 
-#myUL {
+.search-dropdown {
+    
     padding: 0;
     margin: 0;
     position: absolute;
@@ -126,44 +120,30 @@ a {
     z-index: 1;
     max-height: 50vh;
     overflow-y: auto;
-}
 
-#myUL::-webkit-scrollbar-thumb {
-    background: rgb(60, 60, 60);
-    border-radius: 0.5rem;
-}
-
-#myUL::-webkit-scrollbar {
-    background: rgb(30, 30, 30);
-    width: 0.5rem;
-}
-
-#myUL li {
-    display: flex;
-    align-items: center;
-    background-color: rgb(20, 20, 20);
-    padding: 0.75rem;
-    font: 1rem avatar2;
-    color: beige;
-    cursor: pointer;
-}
-
-#myUL li:hover {
-    background-color: rgb(30, 30, 30);
-}
-
-.tile-char {
-    width: 9rem;
-    border: 1px solid black;
-}
-
-.sprite-container {
-
-    width: 3.33vw;
-    height: 2.5vw;
-    display: inline-block;
-    padding-right: 1rem;
-
+    &::-webkit-scrollbar-thumb {
+        background: rgb(60, 60, 60);
+        border-radius: 0.5rem;
+    }
+    
+    &::-webkit-scrollbar {
+        background: rgb(30, 30, 30);
+        width: 0.5rem;
+    }
+    
+    & li {
+        display: flex;
+        align-items: center;
+        background-color: rgb(20, 20, 20);
+        padding: 0.75rem;
+        font: 1rem avatar2;
+        color: beige;
+        cursor: pointer;
+    
+        &:hover {
+            background-color: rgb(30, 30, 30);
+        }
+    }
 }
 
 .mdc-tooltip__surface {
@@ -188,17 +168,8 @@ a {
 
 @media only screen and (max-width: 768px) {
 
-    .sprite-container {
-        width: 6.66vw;
-        height: 5vw;
-    }
-
-    #myUL {
+    .search-dropdown {
         max-height: 30vh;
-    }
-
-    #myUL::-webkit-scrollbar {
-        width: 0.2rem;
     }
 
     .responsive-panel {

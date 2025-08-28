@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand, { PRNG } from 'rand-seed';
 import { tileData } from '../tile/tile.component';
@@ -12,39 +12,34 @@ import { AvatardleProgress } from '../app.component';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassicSettingsDialogComponent } from '../classic-settings-dialog/classic-settings-dialog.component';
-import {CountdownComponent} from 'ngx-countdown'
+import { CountdownComponent } from 'ngx-countdown'
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
     selector: 'classic',
-    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe,CountdownComponent,TranslatePipe],
+    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe],
     templateUrl: './classic.component.html',
     styleUrl: './classic.component.css'
 })
 export class ClassicMode {
 
-
     charList: Character[] = [];
     characterData: Character[] = [];
-    searchVal: string = "";
+    searchVal: WritableSignal<string> = signal('');
+    isComplete: WritableSignal<boolean> = signal(false);
     isVisible: boolean = true;
-    selected: string = "";
-
+    selected: Character | undefined;
     guessAttempts: number = 0;
-
     tileArray: tileData[] = [];
     targetChar!: Character;
-
     $stat!: Observable<DailyStats>;
     progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
     rand: Rand = new Rand(this.progress.date! + "classic");
 
     fanArt!: FanArt;
     img!: { pathName: string, artist: { name: string, link: string }, epithet: string };
-  
 
-    readonly dialog = inject(MatDialog);
-    constructor(private ds: DataService) { }
+    constructor(private ds: DataService,private dialog: MatDialog) { }
 
     ngOnInit() {
 
@@ -53,32 +48,28 @@ export class ClassicMode {
         this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
 
         if (this.progress.classic.complete) {
-            this.searchVal = this.progress.classic.target;
+            this.isComplete.set(true);
+            this.searchVal.set(this.progress.classic.target);
         }
+
         this.tileArray = this.progress.classic.guesses;
-        this.guessAttempts = this.tileArray.length/6;
+        this.guessAttempts = this.tileArray.length / 6;
 
         this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
         this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
+
     }
 
     onInput() {
-
-        this.charList = this.characterData.filter(char => char.name.toLowerCase().includes(this.searchVal.toLowerCase()) && this.searchVal != "");
-        this.selected = this.charList.length == 0 ? "" : this.charList[0].name;
+        this.charList = this.characterData.filter(char => char.name.toLowerCase().includes(this.searchVal().toLowerCase()) && this.searchVal() != "");
+        this.selected = this.charList[0];
     }
 
-    onEnter(select: string = "") {
+    onEnter(char: Character | undefined) {
 
-        if (select != "") {
-            this.selected = select;
-        }
-        if (this.selected != "") {
-
+        if (char) {
             this.guessAttempts++;
-            let char = this.characterData.find(char => char.name == this.selected)!;
             let numCorrect: number = 0;
-
             let tmp: tileData[] = [{ name: char.name }];
 
             Object.entries(char).forEach(([key, val], index) => {
@@ -91,16 +82,11 @@ export class ClassicMode {
                     numCorrect++;
                 }
                 switch (key) {
-                    case "name":
-                        break;
                     case "gender":
-                        tileData.text = val;
-                        break;
                     case "nationality":
                         tileData.text = val;
                         break;
                     case "bendingElement":
-
                         if (!["None", "All"].includes(val)) {
                             tileData.imageUrl = `images/elements/${val.toLowerCase()}.svg`;
                             tileData.element = val;
@@ -112,74 +98,52 @@ export class ClassicMode {
                     case "affiliations":
 
                         tileData.affiliations = val.sort(() => 0.5 - this.rand.next()).slice(0, 3);
-
-                        let count = 0;
-                        for (let aff of tileData.affiliations!) {
-                            if (targetVal.includes(aff)) {
-                                count++;
-                            }
-                        }
-                        if (count == 0) {
-                            tileData.isCorrect = false;
-                        }
-                        else if (count < tileData.affiliations!.length) {
-                            tileData.isCorrect = undefined;
-                        }
-                        else {
-                            tileData.isCorrect = true;
-                        }
+                        let count = tileData.affiliations!.reduce((acc, curr) => acc + targetVal.includes(curr) | 0, 0);
+                        tileData.isCorrect = (count == 0) ? false : (count == tileData.affiliations!.length) ? true : undefined;
                         break;
 
                     case "firstAppearance":
 
-                        let episodeName = val;
-                        tileData.episodeName = episodeName;
-
+                        tileData.episodeName = val;
                         if (!tileData.isCorrect) {
-
-                            let currIndex = this.ds.episodes.findIndex((episodeName) => episodeName == val);
-                            let targetIndex = this.ds.episodes.findIndex((episodeName) => episodeName == targetVal);
-                            tileData.arrowDir = (targetIndex < currIndex) ? "none" : "rotate(180deg)";
+                            tileData.arrowDir = (this.ds.episodes.indexOf(targetVal) < this.ds.episodes.indexOf(val)) ? "none" : "rotate(180deg)";
                             tileData.imageUrl = `images/down-arrow.webp`;
                         }
                         break;
                 }
-                if (!["name", "index"].includes(key)) {
+                if (key!="name") {
                     tmp.push(tileData);
                 }
             });
-
             this.tileArray.unshift(...tmp);
             setTimeout(this.checkGuess.bind(this), 800 * 6, numCorrect);
             this.characterData.splice(this.characterData.indexOf(char), 1);
-
             this.progress.classic.guesses = this.tileArray.map((t) => {
                 return { ...t, hasTransition: false, delay: 0 }
             });
             localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
         }
-
-        this.searchVal = "";
+        this.selected = undefined;
+        this.searchVal.set('');
         this.charList = [];
-
     }
 
     checkGuess(numCorrect: number) {
 
-        if (numCorrect == 7) {
+        if (numCorrect == 6) {
 
             this.ds.updateStats("classic");
             this.ds.throwConfetti(this.progress.classic.guesses.length);
-            this.searchVal = this.targetChar.name;
+            this.searchVal.set(this.targetChar.name);
 
             this.progress.classic.target = this.targetChar.name;
             this.progress.classic.complete = true;
+            this.isComplete.set(true);
             localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
 
             setTimeout(() => {
-                window.scrollTo({behavior:"smooth",top: document.body.scrollHeight})
+                window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })
             }, 1000);
-
         }
     }
 
@@ -189,7 +153,7 @@ export class ClassicMode {
         }
     }
 
-    getCountdownConfig(){
+    getCountdownConfig() {
         return this.ds.getCountdownConfig();
     }
 }

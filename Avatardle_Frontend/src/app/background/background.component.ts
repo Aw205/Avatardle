@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { AboutDialogComponent } from '../about-dialog/about-dialog.component';
@@ -27,7 +27,7 @@ export class Background {
   readonly ds = inject(DataService);
 
   progress!: AvatardleProgress;
-  showParticles!: boolean;
+  showParticles: WritableSignal<boolean> = signal(true);
   cycleElement!: string;
   currElement!: string;
 
@@ -39,7 +39,8 @@ export class Background {
     this.cycleElement = ["water", "earth", "fire", "air"][daysElapsed % 4];
     this.currElement = this.cycleElement;
     this.progress = JSON.parse(localStorage.getItem("avatardle_progress")!);
-    this.showParticles = this.progress.particleSettings.enable;
+
+    this.showParticles.set(this.progress.particleSettings.enable);
   }
 
   async particlesInit(): Promise<void> {
@@ -49,13 +50,13 @@ export class Background {
   openDialog(name: string) {
 
     if (name == "about") {
-      let dialogRef = this.dialog.open(AboutDialogComponent, { width: '50vw', maxWidth: 'none', autoFocus: false });
+      this.dialog.open(AboutDialogComponent, { width: '50vw', maxWidth: 'none', autoFocus: false });
     }
     else if (name == "help") {
-      let dialogRef = this.dialog.open(HelpDialogComponent, { width: '70vw', maxWidth: 'none', height: "80vh", autoFocus: false });
+      this.dialog.open(HelpDialogComponent, { width: '70vw', maxWidth: 'none', height: "80vh", autoFocus: false });
     }
     else if (name == "comment") {
-      let dialogRef = this.dialog.open(CommentDialogComponent, { width: '30vw', maxWidth: 'none', height: "50vh", autoFocus: false });
+      this.dialog.open(CommentDialogComponent, { width: '30vw', maxWidth: 'none', height: "50vh", autoFocus: false });
     }
     else if (name == "particle-setting") {
       let dialogRef = this.dialog.open(ParticleSettingsComponent, { width: '30vw', maxWidth: 'none', height: "80vh", data: { cycleElement: this.cycleElement, currElement: this.currElement }, autoFocus: false });
@@ -63,17 +64,17 @@ export class Background {
       dialogRef.afterClosed().subscribe((res) => {
 
         let ele = dialogRef.componentInstance.selected;
-        this.showParticles = dialogRef.componentInstance.enableParticles;
+        this.showParticles.set(dialogRef.componentInstance.enableParticles);
 
         this.progress = JSON.parse(localStorage.getItem("avatardle_progress")!);
-        this.progress.particleSettings.enable = this.showParticles;
+        this.progress.particleSettings.enable = this.showParticles();
         localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
 
-        if (this.showParticles && ele != this.currElement) {
-          this.showParticles = false;
+        if (this.showParticles() && ele != this.currElement) {
+          this.showParticles.set(false);
           setTimeout(() => {
             this.currElement = ele;
-            this.showParticles = true;
+            this.showParticles.set(true);
           });
         }
       });

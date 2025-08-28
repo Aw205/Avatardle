@@ -1,6 +1,3 @@
-a {
-    width: 100%;
-}
 
 #menu {
 
@@ -12,7 +9,6 @@ a {
     top: 10vh;
     width: fit-content;
     margin: auto;
-    align-items: start;
 }
 
 .menu-container {
@@ -20,27 +16,26 @@ a {
     display: flex;
     align-items: center;
     cursor: pointer;
-}
+    width: 100%;
 
-.menu-container:hover>div {
-    transform: rotate(45deg);
-}
-
-.menu-container>span {
-
-    margin-left: -20px;
-    padding-left: 20px;
-    text-align: left;
-    border-radius: 10px;
-    background-color: rgb(30, 30, 30);
-    border: 3px outset rgb(83, 46, 40);
-    outline: 2px solid black;
-    flex-grow: 1;
-    font: 4rem avatar2;
-    color: white;
-
-    padding-right: 0.5rem;
+    &:hover > div {
+        transform: rotate(45deg);
+    }
     
+    & > span {
+    
+        margin-left: -20px;
+        padding-left: 20px;
+        border-radius: 10px;
+        background-color: rgb(30, 30, 30);
+        border: 3px outset rgb(83, 46, 40);
+        outline: 2px solid black;
+        flex-grow: 1;
+        font: 4rem avatar2;
+        color: white;
+        padding-right: 0.5rem;
+        
+    }
 }
 
 .paisho-sprite {
@@ -49,12 +44,7 @@ a {
     filter: brightness(70%);
     background-image: url('../../assets/images/paisho_final.svg');
     background-size: 600% 100%;
-    background-position: 0px 0;
     transition: transform 0.5s;
-}
-
-.paisho-sprite:hover {
-    transform: rotate(45deg);
 }
 
 @media only screen and (max-width: 768px) {

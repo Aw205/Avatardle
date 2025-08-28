@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal,WritableSignal } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TranslatePipe } from '@ngx-translate/core';
 
@@ -27,11 +27,12 @@ export interface tileData {
 export class TileComponent {
 
   @Input() data!: tileData;
-  flipTile: boolean = false;
+  flipTile:WritableSignal<boolean> = signal(false);
 
   ngOnInit() {
+
     setTimeout(() => {
-      this.flipTile = true;
+      this.flipTile.set(true);
     }, this.data.delay);
   }
 

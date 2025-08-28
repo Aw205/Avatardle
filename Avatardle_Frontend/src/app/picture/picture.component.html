@@ -1,24 +1,24 @@
 <div id="search-bar-container">
     <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250" class="search-symbol">
-    <input type="text" placeholder="{{'searchPlaceholder' | translate }}" class="search-bar" spellcheck="false" autocomplete="off"
-        (input)="onInput()" (focusout)="isVisible=false" (focusin)="isVisible=true" (keydown.enter)="onEnter()"
-        [(ngModel)]="searchVal" [disabled]="progress.picture.complete"
+    <input type="text" placeholder="{{'searchPlaceholder' | translate }}" class="search-bar" spellcheck="false"
+        autocomplete="off" (input)="onInput($event)" (focusout)="isVisible=false" (focusin)="isVisible=true"
+        (keydown.enter)="onEnter()" [ngModel]="modelKey ? (modelKey | translate) : searchVal" [disabled]="progress.picture.complete"
         [class.search-complete]="progress.picture.complete" />
 
-    @if (isVisible) {
-    <ul id="myUL" style="z-index: 2;">
+    <ul class="search-dropdown" style="z-index: 2;" [style.display]="isVisible ? 'block' : 'none'">
         @for (episode of episodeList; track episode){
-            @let name = 'episodes.' + episode | translate;
+        @let name = 'episodes.' + episode | translate;
         <li style="white-space: pre;" (mousedown)="onEnter(episode)"><span
                 style="color:goldenrod;">{{episode.substring(0,7)}}</span>{{name}}</li>
         }
     </ul>
-    }
 </div>
 
-<div style="position:relative; width: fit-content; margin:auto; font: 1rem avatar2; color: gray; z-index: 1;"> <tm-ng-odometer
-        [number]="($stat | async)?.picture_completion ?? 0" theme="minimal"
-        style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}</div>
+<div style="position:relative; width: fit-content; margin:auto; font: 1rem avatar2; color: gray; z-index: 1;">
+    <tm-ng-odometer [number]="($stat | async)?.picture_completion ?? 0" theme="minimal"
+        style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
+</div>
+
 <div id="image-container">
     <div id="image-wrapper">
         <img [src]="targetFrame" id="episode-frame" alt="A frame from an episode of Avatar: The Last Airbender"
@@ -30,7 +30,6 @@
 </div>
 
 @for (ans of incorrectAnswers; track ans){
-    @let name = 'episodes.' + ans | translate;
-<div class="incorrect-picture-guess"> <span style="color: darkgoldenrod;"> {{ans.substring(0,6)}} </span>
-    {{name}} </div>
+@let name = 'episodes.' + ans | translate;
+<div class="incorrect-picture-guess"><span>{{ans.substring(0,7)}}</span>{{name}}</div>
 }

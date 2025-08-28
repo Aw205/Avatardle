@@ -2,10 +2,10 @@
     filter: grayscale(1);
     width: 60%;
     cursor: pointer;
-}
 
-.element:hover {
-    filter: none;
+    &:hover {
+        filter: none;
+    }
 }
 
 .selected{
@@ -50,8 +50,8 @@
     transition: rotate 0.5s;
     cursor:pointer;
     z-index: 2;
-}
 
-.cycle-button:hover{
-    rotate: 45deg;
+    &:hover{
+        rotate: 45deg;
+    }
 }

@@ -1,18 +1,16 @@
-import { ApplicationConfig, inject, provideAppInitializer, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, inject, provideAppInitializer, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import {provideTranslateService, provideTranslateLoader} from "@ngx-translate/core";
+import {provideTranslateService} from "@ngx-translate/core";
 import {provideTranslateHttpLoader} from "@ngx-translate/http-loader";
-
 import { routes } from './app.routes';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { DataService } from './services/data.service';
 import { AvatardleProgress } from './app.component';
-
 
 let progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(),
+  providers: [ provideZonelessChangeDetection(), provideRouter(routes), provideHttpClient(),
 
   provideAppInitializer(() => {
     let ds = inject(DataService);

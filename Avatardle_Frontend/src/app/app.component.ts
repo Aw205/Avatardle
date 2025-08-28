@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Background } from './background/background.component';
 import { tileData } from './tile/tile.component';
-import { TranslateService } from '@ngx-translate/core';
 
 export interface AvatardleProgress {
 

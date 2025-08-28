@@ -1,54 +1,48 @@
 <div id="search-container">
     <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250" class="search-symbol">
-    <input type="text" placeholder="{{'searchPlaceholder' | translate}}" class="search-bar" spellcheck="false" autocomplete="off"
-        (input)="onInput()" (focusout)="isVisible=false" (focusin)="isVisible=true" (keydown.enter)="onEnter()"
-        [(ngModel)]="searchVal" [disabled]="progress.classic.complete"
+    <input type="text" placeholder="{{'searchPlaceholder' | translate}}" class="search-bar" spellcheck="false"
+        autocomplete="off" (input)="onInput()" (focusout)="isVisible=false" (focusin)="isVisible=true"
+        (keydown.enter)="onEnter(selected)" [(ngModel)]="searchVal" [disabled]="progress.classic.complete"
         [class.search-complete]="progress.classic.complete" />
     <span id="settings-icon" class="material-symbols-outlined" (click)="openDialog('settings')">settings</span>
 
-    @if (isVisible) {
-    <ul id="myUL">
+    <ul class="search-dropdown" [style.display]="isVisible ? 'block' : 'none'">
         @for (char of charList; track char.name){
-        <li (mousedown)="onEnter(char.name)">
+        <li (mousedown)="onEnter(char)">
             <img src="images/characters/{{char.name | hyphenate}}.webp" style="width: 3rem; padding-right: 1rem;">
             {{char.name}}
         </li>
         }
     </ul>
-    }
 </div>
 
-
 <div
-    style="font: 1rem avatar2; color: gray; background-color: rgb(0,0,0,0.3); width: fit-content; margin: auto; padding: 0.5rem; border-radius: 5px;">
+    style="font: 1rem avatar2; color: gray; background-color: rgb(0,0,0,0.3); width: fit-content; margin: auto; padding: 0.5rem; border-radius: 5px; margin-top: 0.5rem; margin-bottom: 0.5rem;">
     <tm-ng-odometer [number]="($stat | async)?.classic_completion ?? 0" theme="minimal"
         style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
 </div>
 
-<div id="grid-container">
-    <div id="categories-container">
-        <div class="category">{{'classic.character' | translate}}</div>
-        <div class="category">{{'classic.gender' | translate}}</div>
-        <div class="category">{{'classic.nationality' | translate}}</div>
-        <div class="category">{{'classic.bendingElement' | translate}}</div>
-        <div class="category">{{'classic.affiliations' | translate}}</div>
-        <div class="category">{{'classic.firstAppearance' | translate}}</div>
+<div class="categories-container">
+    <div class="category">{{'classic.character' | translate}}</div>
+    <div class="category">{{'classic.gender' | translate}}</div>
+    <div class="category">{{'classic.nationality' | translate}}</div>
+    <div class="category">{{'classic.bendingElement' | translate}}</div>
+    <div class="category">{{'classic.affiliations' | translate}}</div>
+    <div class="category">{{'classic.firstAppearance' | translate}}</div>
 
-        @for(tileData of tileArray; track tileData; let i = $index){
-        @if(i%6==0){
-        <img src="images/characters/{{tileData.name! | hyphenate}}.webp" class="tile-char" [style.borderRadius.%]="30"
-            [matTooltip]="tileData.name!" matTooltipPosition="before">
-        }
-        @else{
-        <tile [data]="tileData"></tile>
-        }
-        }
+    @for(tileData of tileArray; track tileData; let i = $index){
+    @if(i%6==0){
+    <img src="images/characters/{{tileData.name! | hyphenate}}.webp" class="tile-char" [matTooltip]="tileData.name!"
+        matTooltipPosition="before"> }
+    @else{
+    <tile [data]="tileData"></tile>
+    }
+    }
 
-    </div>
 </div>
+<p id="mobile-help-text">Scroll horizontally to see more!</p>
 
-
-@if(progress.classic.complete){
+@if(isComplete()){
 <div id="fanart-container" class="fade-in">
     <div id="fanart-title">
         {{fanArt.character}}
@@ -57,8 +51,8 @@
     <img src="images/fanart/{{img.pathName}}">
 
     <div id="fanart-description">
-        <p><span style="color: goldenrod;">{{'classic.artBy' | translate}}</span> <a id="artist-name" [href]="img.artist.link"
-                target="_blank">{{img.artist.name}}</a></p>
+        <p><span style="color: goldenrod;">{{'classic.artBy' | translate}}</span> <a id="artist-name"
+                [href]="img.artist.link" target="_blank">{{img.artist.name}}</a></p>
         <p><span style="color: goldenrod;">{{'attempts' | translate}}</span>{{guessAttempts}}</p>
         <p><span style="color: goldenrod;">{{'classic.next' | translate}}</span>
             <countdown [config]="getCountdownConfig()" />
@@ -66,6 +60,3 @@
     </div>
 </div>
 }
-
-
-<p id="mobile-help-text">Scroll horizontally to see more!</p>

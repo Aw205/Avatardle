@@ -1,36 +1,31 @@
-<div class="flip-card">
-    <div class="flip-card-inner" [class.card-transition]="flipTile" [class.no-transition]="!data.hasTransition">
-        <div class="flip-card-front" [style.backgroundPosition]="data.backgroundPosition"></div>
-        <div class="flip-card-back" [class]="getBoxShadow(data.isCorrect)">
-            @if(data.episodeName){
-            @if(data.arrowDir){
-            <img [src]="data.imageUrl" alt="" class="episode-arrow" [style.transform]="data.arrowDir">
-            }
-            @let episodeName = 'episodes.' + data.episodeName;
-            {{ episodeName | translate }}
-            }
-            @else if(data.imageUrl){
-            <img [src]="data.imageUrl" alt="{{data.element! + ' element symbol'}}" class="img" matTooltip="{{data.element! | translate}}" matTooltipPosition="below">
-            }
-            @else if(data.affiliations){
+<div class="flip-card" [class.card-transition]="flipTile()" [class.no-transition]="!data.hasTransition">
+    <div class="flip-card-front" [style.backgroundPosition]="data.backgroundPosition"></div>
+    <div class="flip-card-back" [class]="getBoxShadow(data.isCorrect)">
+        @if(data.episodeName){
+        @if(data.arrowDir){
+        <img [src]="data.imageUrl" alt="" class="episode-arrow" [style.transform]="data.arrowDir">
+        }
+        @let episodeName = 'episodes.' + data.episodeName;
+        {{ episodeName | translate }}
+        }
+        @else if(data.imageUrl){
+        <img [src]="data.imageUrl" alt="{{data.element! + ' element symbol'}}" class="img"
+            matTooltip="{{data.element! | translate}}" matTooltipPosition="below">
+        }
+        @else if(data.affiliations){
 
-            <div class="tag-container">
-
-                @for(tag of data.affiliations; track tag;){
-                    @let name = getTag(tag);
-                    @let icon = 'classic.icons.' + name ;
-                    <div [class]="name">{{ icon | translate }}
-                        <img src="images/affiliationIcons/{{name}}.webp" style="height: 1.5rem; padding-left: 0.2rem;">
-                    </div>
-                }
+        <div class="tag-container">
+            @for(tag of data.affiliations; track tag;){
+            @let name = getTag(tag);
+            @let icon = 'classic.icons.' + name ;
+            <div [class]="name">{{ icon | translate }}
+                <img src="images/affiliationIcons/{{name}}.webp" style="height: 1.5rem; padding-left: 0.2rem;">
             </div>
             }
-            @else if(data.text){
-
-            {{data.text | translate}}
-
-
-            }
         </div>
+        }
+        @else if(data.text){
+        {{data.text | translate}}
+        }
     </div>
 </div>

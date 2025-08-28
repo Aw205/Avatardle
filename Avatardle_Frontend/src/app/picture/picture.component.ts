@@ -28,6 +28,8 @@ export class PictureMode {
   scaleRatio: number = 2;
   grayscaleRatio: number = 1;
 
+  modelKey: string | null = null;
+
   addt: boolean = false;
 
   $stat!: Observable<DailyStats>;
@@ -38,12 +40,12 @@ export class PictureMode {
   ngOnInit() {
 
     this.targetFrame = this.route.snapshot.data["image"].frame;
-    this.episodeData = [...this.ds.episodes];
+    this.episodeData = [...this.ds.episodes].slice(0,61);
     this.targetEpisode = this.route.snapshot.data["image"].target;
 
     this.$stat = this.ds.stats$;
     if (this.progress.picture.complete) {
-      this.searchVal = this.progress.picture.target;
+      this.modelKey = this.modelKey = "episodes." + this.progress.picture.target;
     }
 
     this.setRatios(this.progress.picture.numGuesses);
@@ -53,8 +55,9 @@ export class PictureMode {
 
   }
 
-  onInput() {
+  onInput(event:Event) {
 
+    this.searchVal = (event.target as HTMLInputElement).value;
     this.episodeList = this.episodeData.filter(epi => epi.toLowerCase().includes(this.searchVal.toLowerCase()) && this.searchVal != "");
     this.selected = this.episodeList.length == 0 ? "" : this.episodeList[0];
   }
@@ -67,6 +70,8 @@ export class PictureMode {
 
     if (this.selected == this.targetEpisode) {
 
+      this.modelKey = "episodes." + this.targetEpisode;
+
       this.scaleRatio = 1;
       this.grayscaleRatio = 0;
       this.progress.picture.numGuesses++;
@@ -75,7 +80,6 @@ export class PictureMode {
       this.progress.picture.complete = true;
       this.progress.picture.target = this.targetEpisode;
 
-      this.searchVal = this.targetEpisode;
       localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
       this.ds.updateStats("picture");
     }
@@ -102,7 +106,6 @@ export class PictureMode {
     }
     this.scaleRatio = 2 - Math.min(1, numGuesses * 0.2);
     this.grayscaleRatio = 1 - Math.min(1, numGuesses * 0.2);
-
   }
 
 }

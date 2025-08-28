@@ -1,26 +1,31 @@
-.category {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font: bolder 1rem avatar2;
-    color: goldenrod;
-    background-color: black;
-    border-radius: 1vh;
-    border-bottom: 1px solid silver;
-    max-width: 9rem;
-    min-width: 9rem;
-
-}
-
-#categories-container {
+.categories-container {
 
     display: grid;
-    gap: 0.5vw;
-    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
+    gap: 0.75rem;
+    grid-template-columns: repeat(6, 9rem);
     justify-items: center;
 
+    &>img {
+        width: 9rem;
+        border: 1px solid black;
+        border-radius: 30%;
+    }
+
+    &>.category {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font: bolder 1rem avatar2;
+        color: goldenrod;
+        background-color: black;
+        border-radius: 10px;
+        border-bottom: 1px solid silver;
+        max-width: 9rem;
+        min-width: 9rem;
+    }
 }
 
 #search-container {
@@ -28,22 +33,15 @@
     display: flex;
     justify-content: center;
     position: relative;
-    width: 30%;
-    height: 5vh;
+    width: 30rem;
+    height: 2.75rem;
     margin: auto;
-    margin-top: 5vh;
-    margin-bottom: 1vh;
+    margin-top: 2.75rem;
+    margin-bottom: 0.5rem;
 
     background-color: rgb(20, 20, 20);
     border-radius: 0 10px 10px 0;
 
-}
-
-#grid-container {
-
-    display: flex;
-    justify-content: center;
-    padding-top: 2vh;
 }
 
 #mobile-help-text {
@@ -59,42 +57,54 @@
     display: inline-flex;
     justify-content: center;
     color: dimgray;
-    font-weight: 200;
     font-size: 2rem;
     width: 2rem;
     height: 2rem;
     cursor: pointer;
     transition: transform 300ms;
 
+    &:hover {
+        transform: rotate(70deg);
+    }
 }
 
-#settings-icon:hover {
-
-    transform: rotate(70deg);
-}
 
 #artist-name {
     text-decoration: underline 1px;
     color: inherit;
     text-underline-offset: 0.2rem;
-}
 
-#artist-name:hover {
-    color: darkgoldenrod;
+    &:hover {
+        color: darkgoldenrod;
+    }
 }
 
 #fanart-container {
 
-    width: 20vw;
+    width: 20rem;
     margin: auto;
     border-radius: 1rem;
     padding: 1rem;
     backdrop-filter: blur(5px);
     box-shadow: 0px 0px 1rem 20px #00000082;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 
-    & > img{
+
+    &>#fanart-title {
+
+        font: 2rem avatar2;
+        color: darkgoldenrod;
+        text-align: center;
+        margin-bottom: 1rem;
+        border: 1px outset black;
+        outline: 2px solid black;
+        border-radius: 1rem;
+        background-color: rgb(15, 15, 15);
+
+    }
+
+    &>img {
 
         width: 100%;
         user-select: none;
@@ -104,62 +114,52 @@
         pointer-events: none;
 
     }
+
+    &>#fanart-description {
+
+        font: 1rem avatar2;
+        color: beige;
+        border: 1px outset black;
+        outline: 2px solid black;
+        border-radius: 1rem;
+        background-color: rgb(15, 15, 15);
+        margin-top: 1rem;
+        text-indent: 1rem;
+    }
 }
 
-#fanart-title {
-
-    font: 2rem avatar2;
-    color: darkgoldenrod;
-    text-align: center;
-    margin-bottom: 1rem;
-    border: 2px outset black;
-    outline: 2px solid black;
-    border-radius: 1rem;
-    background-color: rgb(15, 15, 15);
-}
-
-#fanart-description {
-
-    font: 1rem avatar2;
-    color: beige;
-    border: 2px outset black;
-    outline: 2px solid black;
-    border-radius: 1rem;
-    background-color: rgb(15, 15, 15);
-    margin-top: 1rem;
-    text-indent: 1rem;
-}
 
 .fade-in {
-	opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-timing-function: ease-in;
-	animation-duration: 0.5s;
+    opacity: 1;
+    transition: opacity 0.5s;
+
+    @starting-style {
+        opacity: 0;
+    }
 }
-
-@keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
-
 
 @media only screen and (max-width:768px) {
 
-    #categories-container {
-
+    .categories-container {
         overflow-x: scroll;
-        width: 80%;
-        overflow-y: hidden;
-        padding: 1rem;
+        justify-content: start;
+        margin: 1rem;
+
+        &::-webkit-scrollbar {
+            background-color: rgb(30, 30, 30);
+            height: 0.5rem; 
+          }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgb(60, 60, 60);
+            border-radius: 0.5rem;
+        }
     }
+
     #search-container {
         width: 60%;
     }
+
     #mobile-help-text {
         display: block;
     }

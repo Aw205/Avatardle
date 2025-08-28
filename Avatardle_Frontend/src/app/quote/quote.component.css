@@ -26,20 +26,30 @@ blockquote::before {
     border: none;
     border-left: 1px solid rgb(40, 40, 40);
     cursor: pointer;
+
+    &:hover {
+        background-color: rgb(35, 35, 35);
+    }
+}
+
+.clue-container {
+
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0.5rem 0.5rem 0;
+    overflow: hidden;
+
 }
 
 .lotus {
-
-
     width: 2rem;
     height: auto;
     aspect-ratio: 1/1;
     filter: saturate(0) brightness(0.5);
     transition: filter 400ms linear;
-}
-
-.clue:hover {
-    background-color: rgb(35, 35, 35);
 }
 
 .clue-ready {
@@ -48,18 +58,32 @@ blockquote::before {
 
 .incorrect-quote-guess {
 
-
     font: 1rem avatar2;
     color: indianred;
     position: relative;
-    top: 5vh;
+    top: 5rem;
     width: 10rem;
     display: block;
     margin: auto;
     padding: 0.5rem;
     text-align: center;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
+
+    &>img {
+
+        width: 7rem;
+        border-radius: 8px;
+        display: block;
+        margin: auto;
+        border: 1px solid rgb(15, 15, 15);
+    }
+
+    &>div {
+
+        background-color: rgb(15, 15, 15);
+        border-radius: 10px;
+        border-bottom: 1px solid rgba(205, 92, 92, 0.5);
+        padding: 0.2rem;
+    }
 
 }
 
@@ -79,18 +103,10 @@ blockquote::before {
 
 .fade-in {
     opacity: 1;
-    animation-name: fadeInOpacity;
-    animation-timing-function: ease-in;
-    animation-duration: 0.5s;
-}
+    transition: opacity 0.5s;
 
-@keyframes fadeInOpacity {
-    0% {
+    @starting-style {
         opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
     }
 }
 
@@ -126,7 +142,7 @@ blockquote::before {
     color: darkgoldenrod;
     text-align: center;
     margin-bottom: 1rem;
-    border: 2px outset black;
+    border: 1px outset black;
     outline: 2px solid black;
     border-radius: 1rem;
     background-color: rgb(15, 15, 15);
@@ -142,7 +158,7 @@ blockquote::before {
 
 .complete-container {
 
-    border: 2px outset black;
+    border: 1px outset black;
     outline: 2px solid black;
     border-radius: 1rem;
     background-color: rgb(15, 15, 15);

@@ -4,12 +4,11 @@
         style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
 </div>
 
-@if(quote){
+@if(quote()!=''){
 
 <div id="quote-container">
-    <blockquote id="bquote">{{quote}}</blockquote>
-    <div
-        style="display: flex; position: absolute; top:0; left:100%; flex-direction: column; border-radius: 0 0.5rem 0.5rem 0; overflow: hidden;">
+    <blockquote id="bquote">{{quote()}}</blockquote>
+    <div class="clue-container">
 
         <button aria-label="Hint 1" [disabled]="!isEnabled(2)" (click)="showHint(0)" [matTooltip]="getTooltipText(3)"
             matTooltipPosition="right" class="clue" [class.clue-ready]="isEnabled(2)"><img src="images/lotus.svg" alt=""
@@ -24,20 +23,19 @@
 
 
     <div style="position:absolute; display: flex; justify-content: right; top:100%; right:0; width: 30%;">
-        @if (isVisible) {
-        <ul id="myUL">
+       
+        <ul class="search-dropdown" [style.display]="isVisible ? 'block' : 'none'">
             @for (char of charList; track char){
             <li (mousedown)="onEnter(char)">
-                <img src="images/characters/{{char | hyphenate}}.webp" style="width: 3.33vw; padding-right: 1rem;">
+                <img src="images/characters/{{char | hyphenate}}.webp" style="width: 3rem; padding-right: 1rem;">
                 {{char}}
             </li>
             }
         </ul>
-        }
-        <input type="text" placeholder="{{'searchPlaceholder' | translate}}" class="quote-search-bar" (input)="onInput()" spellcheck="false"
-            autocomplete="off" (focusout)="isVisible=false" (focusin)="isVisible=true" (keydown.enter)="onEnter()"
-            [(ngModel)]="searchVal" [disabled]="progress.quote.complete"
-            [class.quote-complete]="progress.quote.complete" />
+        <input type="text" placeholder="{{'searchPlaceholder' | translate}}" class="quote-search-bar"
+            (input)="onInput()" spellcheck="false" autocomplete="off" (focusout)="isVisible=false"
+            (focusin)="isVisible=true" (keydown.enter)="onEnter()" [(ngModel)]="searchVal"
+            [disabled]="progress.quote.complete" [class.quote-complete]="progress.quote.complete" />
     </div>
 </div>
 }
@@ -45,7 +43,6 @@
 @if(progress.quote.complete){
 
 <div class="correct-quote-guess fade-in">
-
     <div class="title">{{target}}</div>
     <img src="images/characters/{{target | hyphenate}}.webp" class="img">
     <div class="complete-container">
@@ -60,13 +57,7 @@
 
 @for (ans of incorrectAnswers; track ans){
 <div class="incorrect-quote-guess">
-
-    <img src="images/characters/{{ans | hyphenate}}.webp"
-        style="width: 7rem;border-radius: 0.5rem; display: block;margin: auto; border: 1px solid rgb(15,15,15);">
-    <div style="background-color: rgb(15, 15, 15); border-radius: 1rem;
-    border-bottom: 1px solid rgba(205, 92, 92,0.5); padding: 0.2rem;">
-        {{ans}}
-    </div>
-
+    <img src="images/characters/{{ans | hyphenate}}.webp">
+    <div> {{ans}} </div>
 </div>
 }

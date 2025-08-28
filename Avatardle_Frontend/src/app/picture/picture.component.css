@@ -1,23 +1,6 @@
-#episode-frame {
-
-    display: block;
-    width: 100%;
-    height: auto;
-    pointer-events: none;
-    transform: scale(2);
-}
 
 .df {
-
     transition: transform 0.3s 0.5s;
-}
-
-
-#image-wrapper {
-
-    overflow: hidden;
-    box-shadow: 0px 0px 1rem 40px #00000082;
-    margin-bottom: 0rem;
 }
 
 .incorrect-picture-guess {
@@ -33,15 +16,35 @@
     color: indianred;
     margin-bottom: 1rem;
 
+    &>span {
+        color: darkgoldenrod;
+    }
+
 }
 
 #image-container {
 
     display: flex;
     flex-direction: column;
-    width: 50%;
+    align-items: right;
     margin: auto;
-    margin-top: 1vh;
+    margin-top: 0.5rem;
+    width: 50%;
+}
+
+#image-wrapper {
+    overflow: hidden;
+    box-shadow: 0px 0px 1rem 40px #00000082;
+}
+
+#episode-frame {
+
+    display: block;
+    width: 100%;
+    pointer-events: none;
+    transform: scale(2);
+
+    height: auto;
 }
 
 #search-bar-container {
@@ -50,24 +53,25 @@
     justify-content: center;
     position: relative;
     width: 50%;
-    height: 6vh;
+    height: 3rem;
     margin: auto;
-    margin-top: 6vh;
-    margin-bottom: 1vh;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
 
 }
 
 @media only screen and (max-width: 768px) {
 
-    #search-bar-container{
+    #search-bar-container {
         margin-top: 10vh;
         width: 90%;
     }
-    #image-container {
 
+    #image-container {
         width: 90%;
     }
-    .search-bar{
-        font-size: 1rem;
+
+    .search-bar {
+        font-size: 1.5rem;
     }
 }
