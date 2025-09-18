@@ -818,6 +818,27 @@
         ]
     },
     {
+        "character": "Kuruk",
+        "images": [
+            {
+                "pathName": "kuruk_1.webp",
+                "artist": {
+                    "name": "Thyinum",
+                    "link": "https://thyinum.tumblr.com/post/755609479836565504/avatar-kuruk"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "kuruk_2.webp",
+                "artist": {
+                    "name": "Ghxxuls",
+                    "link": "https://ar.pinterest.com/pin/kuruk-en-2024--920282505096898892/"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Kuvira",
         "images": [
             {
@@ -1075,8 +1096,8 @@
             {
                 "pathName": "pakku_2.webp",
                 "artist": {
-                    "name": "Bensatriart",
-                    "link": "https://www.deviantart.com/bensatriart/art/Master-Pakku-613972870"
+                    "name": "Olena Richards",
+                    "link": "https://magic.wizards.com/en/products/avatar-the-last-airbender/card-image-gallery?cigquery=pakku"
                 },
                 "epithet": ""
             }

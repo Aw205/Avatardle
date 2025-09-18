@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { afterNextRender, Component, inject, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand from 'rand-seed';
 import { DailyStats, DataService } from '../services/data.service';
@@ -8,15 +8,15 @@ import { HintDialogComponent } from '../hint-dialog/hint-dialog.component';
 import { TmNgOdometerModule } from 'odometer-ngx';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-import { AvatardleProgress } from '../app.component';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
-import { HttpClient } from '@angular/common/http';
 import { CountdownComponent } from 'ngx-countdown';
 import { TranslatePipe } from '@ngx-translate/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
     selector: 'quote',
-    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent,TranslatePipe],
+    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe],
     templateUrl: './quote.component.html',
     styleUrl: './quote.component.css'
 })
@@ -34,38 +34,51 @@ export class QuoteMode {
     selected: string = "";
     characterData: string[] = [];
 
+    isComplete: WritableSignal<boolean> = signal(false);
+
     quoteIndex: number = 0;
     prevQuote: string = "";
     nextQuote: string = "";
     quoteEpisode: string = "";
 
-
+    ls: LocalStorageService = inject(LocalStorageService);
+    title: Title = inject(Title);
+    meta: Meta = inject(Meta);
     $stat!: Observable<DailyStats>;
+    isBrowser = (typeof window != "undefined");
 
-    progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
+    constructor(private ds: DataService, private dialog: MatDialog) {
 
-    constructor(private ds: DataService, private dialog: MatDialog, private http: HttpClient) { }
+        afterNextRender(() => {
+
+            this.$stat = this.ds.stats$;
+            this.characterData = this.ds.getQuoteCharacterData();
+
+            let rand = new Rand(this.ls.progress.date! + "quote");
+            let idx = this.ds.quoteIndices[Math.floor(rand.next() * this.ds.quoteIndices.length)];
+            if (this.ls.progress.quote.complete) {
+                this.isComplete.set(true);
+                this.searchVal = "-" + this.ls.progress.quote.target;
+            }
+
+            this.ds.transcript$.subscribe((data) => {
+
+                this.prevQuote = data[idx - 1].script;
+                this.nextQuote = data[idx + 1].script;
+                this.target = data[idx].Character;
+                this.quoteEpisode = this.ds.episodes[data[idx].total_number - 1];
+                this.quote.set(data[idx].script);
+            });
+
+        });
+
+    }
 
     ngOnInit() {
-
-        this.$stat = this.ds.stats$;
-        this.characterData = this.ds.getQuoteCharacterData();
-
-        let rand = new Rand(this.progress.date! + "quote");
-        let idx = this.ds.quoteIndices[Math.floor(rand.next() * this.ds.quoteIndices.length)];
-        if (this.progress.quote.complete) {
-            this.searchVal = "-" + this.progress.quote.target;
-        }
-
-
-
-        this.ds.transcript$.subscribe((data) => {
-
-            this.prevQuote = data[idx - 1].script;
-            this.nextQuote = data[idx + 1].script;
-            this.target = data[idx].Character;
-            this.quoteEpisode = this.ds.episodes[data[idx].total_number - 1];
-            this.quote.set(data[idx].script);
+        this.title.setTitle("Avatardle - Quote");
+        this.meta.updateTag({
+            name: "description",
+            content: "Guess which character from Avatar: The Last Airbender said this quote!"
         });
     }
 
@@ -83,11 +96,12 @@ export class QuoteMode {
         if (this.selected == this.target) {
 
             this.searchVal = "-" + this.target;
-            let guesses = this.progress.quote.numGuesses + 1;
-            this.progress.quote = { complete: true, target: this.target, numGuesses: guesses }
-            this.ds.throwConfetti(this.progress.quote.numGuesses);
+            let guesses = this.ls.progress.quote.numGuesses + 1;
+            this.isComplete.set(true);
+            this.ls.progress.quote = { complete: true, target: this.target, numGuesses: guesses };
+            this.ls.update();
+            this.ds.throwConfetti(this.ls.progress.quote.numGuesses);
             this.ds.updateStats("quote");
-            localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
 
         }
         else if (this.selected != "") {
@@ -97,15 +111,15 @@ export class QuoteMode {
             this.searchVal = "";
             this.charList = [];
             this.characterData.splice(this.characterData.indexOf(char!), 1)
-            this.progress.quote.numGuesses++;
-            localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
+            this.ls.progress.quote.numGuesses++;
+            this.ls.update();
 
         }
     }
 
     isEnabled(threshold: number) {
 
-        return this.progress.quote.complete || (this.progress.quote.numGuesses > threshold);
+        return this.isComplete() || (this.ls.progress.quote.numGuesses > threshold);
     }
 
     showHint(hintId: number) {
@@ -125,8 +139,8 @@ export class QuoteMode {
 
     getTooltipText(threshold: number): string {
 
-        let diff = threshold - this.progress.quote.numGuesses;
-        if (diff <= 0 || this.progress.quote.complete) {
+        let diff = threshold - this.ls.progress.quote.numGuesses;
+        if (diff <= 0 || this.isComplete()) {
             return "Hint available!";
         }
         else if (diff == 1) {

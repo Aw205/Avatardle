@@ -5,9 +5,8 @@ import {provideTranslateHttpLoader} from "@ngx-translate/http-loader";
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { DataService } from './services/data.service';
-import { AvatardleProgress } from './app.component';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
-let progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
 
 export const appConfig: ApplicationConfig = {
   providers: [ provideZonelessChangeDetection(), provideRouter(routes), provideHttpClient(),
@@ -21,8 +20,8 @@ export const appConfig: ApplicationConfig = {
       prefix: '/json/i18n/',
       suffix: '.json'
     }),
-    fallbackLang: 'en',
-    lang: (progress?.language ?? navigator.language.split("-")[0])
-  })
+    fallbackLang: 'en' 
+  }), 
+  provideClientHydration(withEventReplay())
   ]
 };

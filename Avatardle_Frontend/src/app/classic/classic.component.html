@@ -2,8 +2,8 @@
     <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250" class="search-symbol">
     <input type="text" placeholder="{{'searchPlaceholder' | translate}}" class="search-bar" spellcheck="false"
         autocomplete="off" (input)="onInput()" (focusout)="isVisible=false" (focusin)="isVisible=true"
-        (keydown.enter)="onEnter(selected)" [(ngModel)]="searchVal" [disabled]="progress.classic.complete"
-        [class.search-complete]="progress.classic.complete" />
+        (keydown.enter)="onEnter(selected)" [(ngModel)]="searchVal" [disabled]="isComplete()"
+        [class.search-complete]="isComplete()" />
     <span id="settings-icon" class="material-symbols-outlined" (click)="openDialog('settings')">settings</span>
 
     <ul class="search-dropdown" [style.display]="isVisible ? 'block' : 'none'">
@@ -16,11 +16,14 @@
     </ul>
 </div>
 
+@if(isBrowser){
 <div
     style="font: 1rem avatar2; color: gray; background-color: rgb(0,0,0,0.3); width: fit-content; margin: auto; padding: 0.5rem; border-radius: 5px; margin-top: 0.5rem; margin-bottom: 0.5rem;">
     <tm-ng-odometer [number]="($stat | async)?.classic_completion ?? 0" theme="minimal"
         style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
 </div>
+}
+
 
 <div class="categories-container">
     <div class="category">{{'classic.character' | translate}}</div>
@@ -30,7 +33,7 @@
     <div class="category">{{'classic.affiliations' | translate}}</div>
     <div class="category">{{'classic.firstAppearance' | translate}}</div>
 
-    @for(tileData of tileArray; track tileData; let i = $index){
+    @for(tileData of tileArray(); track tileData; let i = $index){
     @if(i%6==0){
     <img src="images/characters/{{tileData.name! | hyphenate}}.webp" class="tile-char" [matTooltip]="tileData.name!"
         matTooltipPosition="before"> }

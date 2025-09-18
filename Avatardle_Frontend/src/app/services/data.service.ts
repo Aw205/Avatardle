@@ -62,8 +62,6 @@ export class DataService {
   fanArt!: FanArt[];
 
   episodes!: string[];
-
-
   pictureData$!: Observable<Episode>;
   stats$!: Observable<DailyStats>;
   con$!: Observable<any>;
@@ -75,10 +73,13 @@ export class DataService {
   initialize(): Observable<Character[]> {
 
     console.log(environment.statsApiUrl);
-    this.stats$ = interval(120000).pipe(
-      startWith(0),
-      switchMap(() => this.http.get<DailyStats>(`${environment.statsApiUrl}/getStats`))
-    );
+
+    if(environment.production){
+      this.stats$ = interval(120000).pipe(
+        startWith(0),
+        switchMap(() => this.http.get<DailyStats>(`${environment.statsApiUrl}/getStats`))
+      );
+    }
 
     let ob = this.http.get<Character[]>('json/characters.json');
     ob.subscribe((data) => {

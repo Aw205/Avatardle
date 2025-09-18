@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { afterNextRender, Component, inject, Inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand, { PRNG } from 'rand-seed';
 import { tileData } from '../tile/tile.component';
@@ -8,12 +8,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { TmNgOdometerModule } from 'odometer-ngx';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-import { AvatardleProgress } from '../app.component';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassicSettingsDialogComponent } from '../classic-settings-dialog/classic-settings-dialog.component';
 import { CountdownComponent } from 'ngx-countdown'
 import { TranslatePipe } from '@ngx-translate/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
     selector: 'classic',
@@ -30,34 +31,46 @@ export class ClassicMode {
     isVisible: boolean = true;
     selected: Character | undefined;
     guessAttempts: number = 0;
-    tileArray: tileData[] = [];
+    tileArray: WritableSignal<tileData[]> = signal([]);
     targetChar!: Character;
     $stat!: Observable<DailyStats>;
-    progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
-    rand: Rand = new Rand(this.progress.date! + "classic");
+    rand!: Rand;
 
     fanArt!: FanArt;
     img!: { pathName: string, artist: { name: string, link: string }, epithet: string };
 
-    constructor(private ds: DataService,private dialog: MatDialog) { }
+    ls: LocalStorageService = inject(LocalStorageService);
+    isBrowser: boolean = (typeof window != "undefined");
+
+    constructor(private ds: DataService, private dialog: MatDialog, private title: Title, private meta: Meta) {
+
+        afterNextRender(() => {
+
+            this.rand = new Rand(this.ls.progress.date! + "classic");
+
+            if (this.ls.progress.classic.complete) {
+                this.isComplete.set(true);
+                this.searchVal.set(this.ls.progress.classic.target);
+            }
+
+            this.tileArray.set(this.ls.progress.classic.guesses);
+            this.guessAttempts = this.tileArray().length / 6;
+
+            this.$stat = this.ds.stats$;
+            this.characterData = this.ds.getClassicCharacterData(this.ls.progress.classic.series);
+            this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
+
+            this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
+            this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
+        });
+    }
 
     ngOnInit() {
-
-        this.$stat = this.ds.stats$;
-        this.characterData = this.ds.getClassicCharacterData(this.progress.classic.series);
-        this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
-
-        if (this.progress.classic.complete) {
-            this.isComplete.set(true);
-            this.searchVal.set(this.progress.classic.target);
-        }
-
-        this.tileArray = this.progress.classic.guesses;
-        this.guessAttempts = this.tileArray.length / 6;
-
-        this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
-        this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
-
+        this.title.setTitle("Avatardle - Classic");
+        this.meta.updateTag({
+            name: "description",
+            content: "Guess characters from Avatar the Last Airbender and The Legend of Korra based on their various traits."
+        });
     }
 
     onInput() {
@@ -111,17 +124,17 @@ export class ClassicMode {
                         }
                         break;
                 }
-                if (key!="name") {
+                if (key != "name") {
                     tmp.push(tileData);
                 }
             });
-            this.tileArray.unshift(...tmp);
+            this.tileArray().unshift(...tmp);
             setTimeout(this.checkGuess.bind(this), 800 * 6, numCorrect);
             this.characterData.splice(this.characterData.indexOf(char), 1);
-            this.progress.classic.guesses = this.tileArray.map((t) => {
+            this.ls.progress.classic.guesses = this.tileArray().map((t) => {
                 return { ...t, hasTransition: false, delay: 0 }
             });
-            localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
+            this.ls.update();
         }
         this.selected = undefined;
         this.searchVal.set('');
@@ -133,13 +146,13 @@ export class ClassicMode {
         if (numCorrect == 6) {
 
             this.ds.updateStats("classic");
-            this.ds.throwConfetti(this.progress.classic.guesses.length);
+            this.ds.throwConfetti(this.ls.progress.classic.guesses.length);
             this.searchVal.set(this.targetChar.name);
 
-            this.progress.classic.target = this.targetChar.name;
-            this.progress.classic.complete = true;
+            this.ls.progress.classic.target = this.targetChar.name;
+            this.ls.progress.classic.complete = true;
+            this.ls.update();
             this.isComplete.set(true);
-            localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
 
             setTimeout(() => {
                 window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })

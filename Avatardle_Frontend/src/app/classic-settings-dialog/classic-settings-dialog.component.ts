@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   MatDialogTitle,
   MatDialogContent,
@@ -6,8 +6,8 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
-import { AvatardleProgress } from '../app.component';
 import { TranslatePipe } from '@ngx-translate/core';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-classic-settings-dialog',
@@ -17,7 +17,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class ClassicSettingsDialogComponent {
 
-  progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
+  ls: LocalStorageService = inject(LocalStorageService);
   isValid: boolean = true;
   list: { name: string, icon: string, selected: boolean }[] = [
 
@@ -32,7 +32,7 @@ export class ClassicSettingsDialogComponent {
   ngOnInit() {
 
     for (let item of this.list) {
-      if (this.progress.classic.series.includes(item.name)) {
+      if (this.ls.progress.classic.series.includes(item.name)) {
         item.selected = true;
       }
     }
@@ -48,11 +48,11 @@ export class ClassicSettingsDialogComponent {
       return item.selected;
     });
 
-    if (this.isValid && !this.progress.classic.complete) {
+    if (this.isValid && !this.ls.progress.classic.complete) {
       let series = this.list.filter((item) => item.selected == true).map((item) => item.name);
-      this.progress.classic.series = series;
-      this.progress.classic.guesses = [];
-      localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
+      this.ls.progress.classic.series = series;
+      this.ls.progress.classic.guesses = [];
+      this.ls.update();
       window.location.reload();
     }
   }

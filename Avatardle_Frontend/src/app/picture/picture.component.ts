@@ -1,61 +1,90 @@
-import { Component } from '@angular/core';
+import { afterNextRender, Component, inject, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DailyStats, DataService } from '../services/data.service';
 import { TmNgOdometerModule } from 'odometer-ngx';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-import { AvatardleProgress } from '../app.component';
 import { ActivatedRoute } from '@angular/router';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'picture',
-  imports: [FormsModule, TmNgOdometerModule, AsyncPipe,TranslatePipe],
+  imports: [FormsModule, TmNgOdometerModule, AsyncPipe, TranslatePipe],
   templateUrl: './picture.component.html',
   styleUrl: './picture.component.css'
 })
 export class PictureMode {
 
-  targetFrame: string = "";
+  targetFrame: WritableSignal<string> = signal("");
   targetEpisode: string = "";
+  epiNum: string = "";
   incorrectAnswers: string[] = [];
   episodeList: string[] = [];
   episodeData: string[] = [];
+  englishEpisodeData: string[] = [];
   searchVal: string = "";
   isVisible: boolean = true;
   selected: string = "";
-
+  isComplete: WritableSignal<boolean> = signal(false);
   scaleRatio: number = 2;
   grayscaleRatio: number = 1;
-
   modelKey: string | null = null;
-
-  addt: boolean = false;
+  addt: WritableSignal<boolean> = signal(false);
 
   $stat!: Observable<DailyStats>;
-  progress: AvatardleProgress = JSON.parse(localStorage.getItem("avatardle_progress")!);
+  ls: LocalStorageService = inject(LocalStorageService);
+  isBrowser = (typeof window != "undefined");
 
-  constructor(private ds: DataService, private route: ActivatedRoute) { }
+  translationSub!: Subscription;
 
-  ngOnInit() {
+  constructor(private ds: DataService, private route: ActivatedRoute, private ts: TranslateService, private title: Title, private meta: Meta) {
 
-    this.targetFrame = this.route.snapshot.data["image"].frame;
-    this.episodeData = [...this.ds.episodes].slice(0,61);
-    this.targetEpisode = this.route.snapshot.data["image"].target;
+    this.translationSub = this.ts.stream('episodes').subscribe((res) => {
+      let arr: string[] = Object.values(res);
+      for (let i = 0; i < this.episodeData.length; i++) {
+        this.episodeData[i] = this.episodeData[i].substring(0, 7) + arr[i];
+      }
+    });
 
-    this.$stat = this.ds.stats$;
-    if (this.progress.picture.complete) {
-      this.modelKey = this.modelKey = "episodes." + this.progress.picture.target;
-    }
+    afterNextRender(() => {
 
-    this.setRatios(this.progress.picture.numGuesses);
-    setTimeout(() => {
-      this.addt = true;
-    }, 500);
+      this.targetFrame.set(this.route.snapshot.data["image"].frame);
+      this.englishEpisodeData = [...this.ds.episodes].slice(0, 61);
+      this.episodeData = [...this.ds.episodes].slice(0, 61);
+      this.targetEpisode = this.route.snapshot.data["image"].target;
+      this.epiNum = this.targetEpisode.substring(0, 7);
 
+      this.$stat = this.ds.stats$;
+
+      if (this.ls.progress.picture.complete) {
+        this.isComplete.set(true);
+        this.modelKey = this.modelKey = "episodes." + this.ls.progress.picture.target;
+      }
+
+      this.setRatios(this.ls.progress.picture.numGuesses);
+      setTimeout(() => {
+        this.addt.set(true);
+      }, 500);
+
+    })
   }
 
-  onInput(event:Event) {
+  ngOnInit() {
+    this.title.setTitle("Avatardle - Picture");
+    this.meta.updateTag({
+      name: "description",
+      content: "Guess the episode name by looking at a frame from an episode of Avatar: The Last Airbender."
+    });
+  }
+
+
+  ngOnDestroy() {
+    this.translationSub.unsubscribe();
+  }
+
+  onInput(event: Event) {
 
     this.searchVal = (event.target as HTMLInputElement).value;
     this.episodeList = this.episodeData.filter(epi => epi.toLowerCase().includes(this.searchVal.toLowerCase()) && this.searchVal != "");
@@ -67,6 +96,11 @@ export class PictureMode {
     if (select != "") {
       this.selected = select;
     }
+    if (this.selected != "") {
+      let id = this.selected.substring(0, 6);
+      this.selected = this.englishEpisodeData.find((name) => name.includes(id))!;
+    }
+
 
     if (this.selected == this.targetEpisode) {
 
@@ -74,33 +108,33 @@ export class PictureMode {
 
       this.scaleRatio = 1;
       this.grayscaleRatio = 0;
-      this.progress.picture.numGuesses++;
-      this.ds.throwConfetti(this.progress.picture.numGuesses);
+      this.ls.progress.picture.numGuesses++;
+      this.ds.throwConfetti(this.ls.progress.picture.numGuesses);
 
-      this.progress.picture.complete = true;
-      this.progress.picture.target = this.targetEpisode;
-
-      localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
+      this.isComplete.set(true);
+      this.ls.progress.picture.complete = true;
+      this.ls.progress.picture.target = this.targetEpisode;
+      this.ls.update();
       this.ds.updateStats("picture");
     }
     else if (this.selected != "") {
 
       this.incorrectAnswers.unshift(this.selected!);
-      this.progress.picture.numGuesses++;
-
-      this.setRatios(this.progress.picture.numGuesses);
       this.searchVal = "";
       this.episodeList = [];
-
       this.episodeData.splice(this.episodeData.indexOf(this.selected), 1);
+      this.selected = "";
 
-      localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
+      this.ls.progress.picture.numGuesses++;
+      this.ls.update();
+      this.setRatios(this.ls.progress.picture.numGuesses);
+
     }
   }
 
   setRatios(numGuesses: number) {
 
-    if (this.progress.picture.complete) {
+    if (this.isComplete()) {
       [this.scaleRatio, this.grayscaleRatio] = [1, 0];
       return;
     }
@@ -109,5 +143,3 @@ export class PictureMode {
   }
 
 }
-
-

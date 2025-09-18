@@ -1,8 +1,11 @@
+@if(isBrowser){
 <div
     style="max-width: fit-content; position:relative; font: 1rem avatar2; color: gray; margin:auto; margin-top: 5vh; z-index: 1; padding-bottom: 1vh;">
     <tm-ng-odometer [number]="($stat | async)?.quote_completion ?? 0" theme="minimal"
         style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
 </div>
+}
+
 
 @if(quote()!=''){
 
@@ -23,7 +26,7 @@
 
 
     <div style="position:absolute; display: flex; justify-content: right; top:100%; right:0; width: 30%;">
-       
+
         <ul class="search-dropdown" [style.display]="isVisible ? 'block' : 'none'">
             @for (char of charList; track char){
             <li (mousedown)="onEnter(char)">
@@ -34,19 +37,19 @@
         </ul>
         <input type="text" placeholder="{{'searchPlaceholder' | translate}}" class="quote-search-bar"
             (input)="onInput()" spellcheck="false" autocomplete="off" (focusout)="isVisible=false"
-            (focusin)="isVisible=true" (keydown.enter)="onEnter()" [(ngModel)]="searchVal"
-            [disabled]="progress.quote.complete" [class.quote-complete]="progress.quote.complete" />
+            (focusin)="isVisible=true" (keydown.enter)="onEnter()" [(ngModel)]="searchVal" [disabled]="isComplete()"
+            [class.quote-complete]="isComplete()" />
     </div>
 </div>
 }
 
-@if(progress.quote.complete){
+@if(isComplete()){
 
 <div class="correct-quote-guess fade-in">
     <div class="title">{{target}}</div>
     <img src="images/characters/{{target | hyphenate}}.webp" class="img">
     <div class="complete-container">
-        <p>{{'attempts' | translate}}<span style="color: beige;">{{progress.quote.numGuesses}}</span></p>
+        <p>{{'attempts' | translate}}<span style="color: beige;">{{ls.progress.quote.numGuesses}}</span></p>
         <p>{{'quote.next' | translate}}<span style="color: beige;">
                 <countdown [config]="getCountdownConfig()" />
             </span></p>

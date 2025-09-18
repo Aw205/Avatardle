@@ -1,17 +1,17 @@
-import { Component, inject, signal, WritableSignal } from '@angular/core';
+import { Component, inject, signal, WritableSignal, PLATFORM_ID, Inject, afterNextRender } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { AboutDialogComponent } from '../about-dialog/about-dialog.component';
 import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
 import { CommentDialogComponent } from '../comment-dialog/comment-dialog.component';
-import { NgParticlesService, NgxParticlesModule } from "@tsparticles/angular";
+import { NgxParticlesModule } from "@tsparticles/angular";
 import { tsParticles } from '@tsparticles/engine';
 import { loadFull } from "tsparticles";
 import { DataService } from '../services/data.service';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { ParticleSettingsComponent } from '../particle-settings/particle-settings.component';
-import { AvatardleProgress } from '../app.component';
 import { LanguageSettingsComponent } from '../language-settings/language-settings.component';
+import { LocalStorageService } from '../services/local-storage.service';
 
 
 @Component({
@@ -25,11 +25,19 @@ export class Background {
 
   readonly dialog = inject(MatDialog);
   readonly ds = inject(DataService);
+  readonly ls = inject(LocalStorageService);
 
-  progress!: AvatardleProgress;
   showParticles: WritableSignal<boolean> = signal(true);
   cycleElement!: string;
   currElement!: string;
+
+
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+
+    afterNextRender(() => {
+      this.showParticles.set(this.ls.progress.particleSettings.enable);
+    })
+  }
 
   ngOnInit() {
 
@@ -38,13 +46,15 @@ export class Background {
     let daysElapsed = Math.floor((Date.now() - epoch.valueOf()) / (1000 * 60 * 60 * 24));
     this.cycleElement = ["water", "earth", "fire", "air"][daysElapsed % 4];
     this.currElement = this.cycleElement;
-    this.progress = JSON.parse(localStorage.getItem("avatardle_progress")!);
 
-    this.showParticles.set(this.progress.particleSettings.enable);
   }
 
   async particlesInit(): Promise<void> {
-    await loadFull(tsParticles);
+
+    if (isPlatformBrowser(this.platformId)) {
+      await loadFull(tsParticles);
+    }
+
   }
 
   openDialog(name: string) {
@@ -64,11 +74,10 @@ export class Background {
       dialogRef.afterClosed().subscribe((res) => {
 
         let ele = dialogRef.componentInstance.selected;
-        this.showParticles.set(dialogRef.componentInstance.enableParticles);
+        this.showParticles.set(dialogRef.componentInstance.enableParticles());
 
-        this.progress = JSON.parse(localStorage.getItem("avatardle_progress")!);
-        this.progress.particleSettings.enable = this.showParticles();
-        localStorage.setItem("avatardle_progress", JSON.stringify(this.progress));
+        this.ls.progress.particleSettings.enable = this.showParticles();
+        this.ls.update();
 
         if (this.showParticles() && ele != this.currElement) {
           this.showParticles.set(false);
