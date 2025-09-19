@@ -42,20 +42,24 @@ export class LocalStorageService {
           this.progress = JSON.parse(localStorage.getItem("avatardle_progress")!);
           if (this.progress.version != this.default.version) {
             this.update(this.default);
+            this.progress = this.default;
           }
           else if (this.currentDate != this.progress.date) {
             this.default.language = this.progress.language;
             this.default.classic.series = this.progress.classic.series ?? ["ATLA-title"];
             this.update(this.default);
+            this.progress = this.default;
           }
         }
         catch (e) {
           console.error(e);
           this.update(this.default);
+          this.progress = this.default;
         }
       }
       else {
         this.update(this.default);
+        this.progress = this.default;
       }
       ts.use(this.progress?.language ?? navigator.language.split("-")[0]);
     });

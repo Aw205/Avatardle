@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { TranslatePipe } from "@ngx-translate/core";
@@ -11,11 +11,10 @@ import { TranslatePipe } from "@ngx-translate/core";
 })
 export class HomeComponent {
 
-    constructor(private title: Title, private meta: Meta) {
-    }
+    title: Title = inject(Title);
+    meta: Meta = inject(Meta);
 
     ngOnInit() {
-
         this.title.setTitle("Avatardle - Home");
         this.meta.updateTag({
             name: "description",
