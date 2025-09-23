@@ -15,7 +15,7 @@ export class HomeComponent {
     meta: Meta = inject(Meta);
 
     ngOnInit() {
-        this.title.setTitle("Avatardle - Home");
+        this.title.setTitle("Avatardle");
         this.meta.updateTag({
             name: "description",
             content: "A daily guessing game based on Avatar: The Last Airbender and The Legend of Korra. Guess characters, quotes, and episodes from the show!"

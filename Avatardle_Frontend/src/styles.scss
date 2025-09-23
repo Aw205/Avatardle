@@ -11,11 +11,10 @@
 }
 
 :root {
-    @include mat.tabs-overrides((label-text-font: avatar2,
-            label-text-weight:bold,
+    @include mat.tabs-overrides((
             divider-color: transparent,
             inactive-ripple-color: dimgray,
-            inactive-label-text-color: burlywood,
+            inactive-label-text-color: gray,
         ));
 
     @include mat.dialog-overrides((container-color: rgb(30, 30, 30),

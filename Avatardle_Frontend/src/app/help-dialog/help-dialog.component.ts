@@ -7,13 +7,10 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'help-dialog',
   imports: [MatDialogTitle, MatDialogContent, MatTabsModule,TranslatePipe],
   templateUrl: './help-dialog.component.html',
-  styleUrl: './help-dialog.component.scss'
+  styleUrl: './help-dialog.component.css'
 })
 export class HelpDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<HelpDialogComponent>) { }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 }

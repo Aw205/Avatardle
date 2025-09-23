@@ -1,17 +1,19 @@
 <h1 mat-dialog-title style="font: 2rem Georgia;">{{'helpDialog.title' | translate}}
-    <button mat-dialog-close (click)="onNoClick()" class="exit-button">&times;</button>
+    <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
 </h1>
-<mat-dialog-content style="background-color: rgb(25,25,25); border-radius: 10px; padding:1rem; margin: 1rem; margin-bottom: 0; font-family: Georgia;">
+<mat-dialog-content
+    style="background-color: rgb(40,40,40); border-radius: 10px; padding:1rem; margin: 1rem; margin-bottom: 0; font-family: Georgia;">
 
     <mat-tab-group style="color: beige;">
         <mat-tab label="Classic">
 
             <h2>Objective</h2>
-            <p>Guess the character based on different characteristics! Character resets daily at <span style="color:goldenrod;">12:00 AM UTC</span>.</p>
+            <p>Guess the character based on different characteristics! Resets daily at <span
+                    style="color:goldenrod;">12:00 AM UTC</span>.</p>
 
             <h2>Color Indicators</h2>
 
-            The colors indicate whether the guessed character matches the traits of the target character.
+            <p>The colors indicate whether the guessed character matches the traits of the target character.</p>
 
             <div style="display: flex; flex-direction: column;">
                 <div style="color:tomato;">
@@ -21,47 +23,58 @@
                 <div style="color:orange;">
                     <div style="box-shadow: 0 0 0.5rem 0 rgba(255, 140, 0)" class="color-indicator">
                     </div> Partially correct - <span style="color:beige;">only applicable to the affiliations category,
-                        where only some affiliations may match.</span>
+                        when only some affiliations may match.</span>
                 </div>
                 <div style="color:forestgreen;">
                     <div style="box-shadow: 0 0 0.5rem 0 rgba(0, 128, 0)" class="color-indicator">
                     </div> Correct - <span style="color:beige;">when the character traits do match.</span>
                 </div>
-
             </div>
 
             <h2>Categories</h2>
 
             <div style="margin-left:1rem;">
                 <h3>Gender</h3>
-                <p>Most characters fall under male or female, other entities like spirits that don't have a gender
-                    would be denoted with none.</p>
+                <p>A character's gender can be male, female, or none.</p>
 
                 <h3>Nationality</h3>
-                <p>This refers to where a character originates. Keep in mind that sometimes the place of origin may
-                    not be a clearly defined nation (like the spirit world) so they would be denoted with none. </p>
+                <p>This refers to where a character originates. Sometimes the place of origin may
+                    not be a clearly defined nation (like the spirit world), in that case the nationality would be
+                    marked as none.</p>
 
                 <h3>Bending Element</h3>
-                <p>This only includes the 4 basic bending elements: Water, Earth, Fire, and Air.</p>
+                <p>This only includes the 4 basic bending elements: Water <img src="images/elements/water.svg"
+                        style="height: 1em; vertical-align: sub;">, Earth <img src="images/elements/earth.svg"
+                        style="height: 1em;vertical-align: sub;">, Fire
+                    <img src="images/elements/fire.svg" style="height: 1em;vertical-align: sub;">, and Air <img
+                        src="images/elements/air.svg" style="height: 1em;vertical-align: sub;">.
+                </p>
 
                 <h3>Affiliations</h3>
-                <p>Affiliations refer to traits or charateristics that relate to the character. Every character
-                    has at least 1 affiliation. Regardless of how many afflliations
-                    the character has, only a maximum of 3 affiliations are shown per character. If a character has
-                    more than 3 affiliations, 3 affiliations will be chosen at random from their pool.
+                <p>This refers to more specific qualities, traits, and groups related to the character. A maximum of 3
+                    affiliations are shown per character. If a character has
+                    more than 3 affiliations in their pool, affiliations will be chosen at random.
                 </p>
-                <p>Note about the color indicators: 0 matching affiliations = Incorrect, 1-2 matching affiliations = Partially Correct, 
-                    3 matching affiliations = Correct
-                </p>
+                <p>Color indicators: 🔴 = <span style="color: indianred">0</span> matching affiliations, 🟠 = <span
+                        style="color: orange">1-2</span> matching affiliations, 🟢 = <span
+                        style="color: forestgreen">3</span> matching affiliations.</p>
 
                 <h3>First Appearance</h3>
-                <p>This refers to the name of first episode that the character appears in. In addition, there is an
-                    arrow indicator that states whether the first appearance of the target character
-                    takes place before or after the current episode. The upwards arrow <span
-                        style="color:lightblue; font-size: large;">⬆</span> means the target episode
-                    takes place after and the downwards arrow <span style="color:lightblue; font-size: large;">⬇</span>
-                    means it takes place before.
+                <p>This refers to the first episode that the character appears in. The arrow symbol indicates whether
+                    the target episode takes place before or after the current episode.
                 </p>
+
+                <div style="display: flex; flex-direction: column; margin-left: 2rem;">
+                    <div>
+                        <span style="color:lightblue; font-size: large;">⬆</span> = target episode is <span
+                            style="color: lightskyblue;">after</span> the current episode.
+                    </div>
+                    <div>
+                        <span style="color:lightblue; font-size: large;">⬇</span> = target episode is <span
+                            style="color: lightskyblue;">before</span> the current episode.
+                    </div>
+                </div>
+
             </div>
         </mat-tab>
 
@@ -71,30 +84,21 @@
             <p>Guess who said the quote!</p>
 
             <h2>Hints <img src="images/lotus.svg" style="width: 2rem; vertical-align: sub;" alt=""></h2>
-            
-            <p>There are 3 hints in total, each unlocked with a certain number of guesses.</p>
+            <p>There are 3 hints in total, each unlocked after a certain number of guesses.</p>
 
-            <div style="margin-left: 1rem;">
-
-                <div style="color: #8c78c0;">Next Line</div>
-                <p>This refers to the immediate next line that is spoken. </p>
-
-                <div style="color: #8c78c0;">Previous Line</div>
-                <p>This refers to the immediate previous line that is spoken.</p>
-
-                <div style="color: #8c78c0;">Episode Name</div>
-                <p>This refers to the episode in which the quote is spoken. </p>
-
+            <div style="margin-left: 3rem; display: flex; flex-direction: column;">
+                <div> <span style="color: #8c78c0;font-weight: bold;">Next Line - </span>the immediate next line that is spoken.</div>
+                <div><span style="color: #8c78c0;font-weight: bold;">Previous Line - </span>the immediate previous line that is spoken.</div>
+                <div> <span style="color: #8c78c0;font-weight: bold;">Episode Name - </span>the episode in which the quote is spoken.</div>
             </div>
 
             <h2>What if the quote is the first/last line of an episode?</h2>
-            <p>The hints will not give you the next/previous line but instead state that the quote is the first or last
-                line. </p>
+            <p>The hints will state whether the quote is the first or last line.</p>
 
         </mat-tab>
         <mat-tab label="Picture">
             <h2>Objective</h2>
-            <p>Guess which episode the frame is from!</p>
+            <p>Guess which episode the scene is from!</p>
         </mat-tab>
     </mat-tab-group>
 

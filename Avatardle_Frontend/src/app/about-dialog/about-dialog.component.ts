@@ -14,13 +14,6 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class AboutDialogComponent {
 
-
-  constructor(public dialogRef: MatDialogRef<AboutDialogComponent>){
-
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+  constructor(public dialogRef: MatDialogRef<AboutDialogComponent>){}
 
 }
