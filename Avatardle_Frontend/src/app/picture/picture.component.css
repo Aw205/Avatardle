@@ -1,4 +1,3 @@
-
 .df {
     transition: transform 0.3s 0.5s;
 }
@@ -58,13 +57,33 @@
     margin-top: 3rem;
     margin-bottom: 1rem;
 
+    &>img {
+        width: auto;
+        height: 100%;
+        border-radius: 10px 0 0 10px;
+    }
+
+    &>input {
+        background-color: rgb(20, 20, 20);
+        width: 90%;
+        font: 2rem avatar2;
+        color: beige;
+        border-radius: 0 10px 10px 0;
+        border: none;
+    }
+
 }
 
 @media only screen and (max-width: 768px) {
 
     #search-bar-container {
-        margin-top: 10vh;
-        width: 90%;
+        width: 95%;
+        height: 2rem;
+
+        &>input {
+            font: 1rem avatar2;
+        }
+
     }
 
     #image-container {

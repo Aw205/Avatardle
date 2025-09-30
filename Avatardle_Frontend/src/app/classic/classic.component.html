@@ -1,6 +1,6 @@
 <div id="search-container">
     <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250" class="search-symbol">
-    <input type="text" placeholder="{{'searchPlaceholder' | translate}}" class="search-bar" spellcheck="false"
+    <input type="text" placeholder="{{'searchPlaceholder' | translate}}" spellcheck="false"
         autocomplete="off" (input)="onInput()" (focusout)="isVisible=false" (focusin)="isVisible=true"
         (keydown.enter)="onEnter(selected)" [(ngModel)]="searchVal" [disabled]="isComplete()"
         [class.search-complete]="isComplete()" />
@@ -36,7 +36,7 @@
     @for(tileData of tileArray(); track tileData; let i = $index){
     @if(i%6==0){
     <img src="images/characters/{{tileData.name! | hyphenate}}.webp" class="tile-char" [matTooltip]="tileData.name!"
-        matTooltipPosition="before"> }
+        matTooltipPosition="before" alt="{{tileData.name!}}"> }
     @else{
     <tile [data]="tileData"></tile>
     }

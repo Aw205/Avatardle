@@ -37,9 +37,12 @@ export class PictureMode {
   ls: LocalStorageService = inject(LocalStorageService);
   isBrowser = (typeof window != "undefined");
 
+  title: Title = inject(Title);
+  meta: Meta = inject(Meta);
+
   translationSub!: Subscription;
 
-  constructor(private ds: DataService, private route: ActivatedRoute, private ts: TranslateService, private title: Title, private meta: Meta) {
+  constructor(private ds: DataService, private route: ActivatedRoute, private ts: TranslateService) {
 
     this.translationSub = this.ts.stream('episodes').subscribe((res) => {
       let arr: string[] = Object.values(res);

@@ -1,6 +1,6 @@
 <div id="search-bar-container">
-    <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250" class="search-symbol">
-    <input type="text" placeholder="{{'searchPlaceholder' | translate }}" class="search-bar" spellcheck="false"
+    <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250">
+    <input type="text" placeholder="{{'searchPlaceholder' | translate }}" spellcheck="false"
         autocomplete="off" (input)="onInput($event)" (focusout)="isVisible=false" (focusin)="isVisible=true"
         (keydown.enter)="onEnter()" [ngModel]="modelKey ? epiNum + (modelKey | translate) : searchVal"
         [disabled]="isComplete()" [class.search-complete]="isComplete()" />

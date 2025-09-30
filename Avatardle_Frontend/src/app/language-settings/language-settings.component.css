@@ -2,11 +2,18 @@
     cursor: pointer;
     color: bisque;
     font-size: 2rem;
-    width: 2rem;
-    height: auto;
     font-weight: 200;
 
     &:hover{
        opacity: 0.6;
     }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .language-icon {
+        font-size: 1.5rem;
+        color: beige;
+    }
+    
 }

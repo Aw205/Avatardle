@@ -1,5 +1,5 @@
 <h1 mat-dialog-title style="font: 2rem Georgia;"> {{'particleSettings.title' | translate }}
-    <button mat-dialog-close (click)="onNoClick()" class="exit-button">&times;</button>
+    <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
 </h1>
 <mat-dialog-content
     style="color:beige; font-family: Georgia; background-color: rgb(20,20,20); border-radius: 1rem; margin: 1rem; margin-bottom: 0;">

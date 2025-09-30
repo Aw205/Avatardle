@@ -6,27 +6,18 @@
 </div>
 }
 
-
 @if(quote()!=''){
 
-<div id="quote-container">
-    <blockquote id="bquote">{{quote()}}</blockquote>
+<div class="quote-container">
+    <blockquote>{{quote()}}</blockquote>
     <div class="clue-container">
-
-        <button aria-label="Hint 1" [disabled]="!isEnabled(2)" (click)="showHint(0)" [matTooltip]="getTooltipText(3)"
-            matTooltipPosition="right" class="clue" [class.clue-ready]="isEnabled(2)"><img src="images/lotus.svg" alt=""
-                class="lotus" [class.clue-ready]="isEnabled(2)"></button>
-        <button aria-label="Hint 2" [disabled]="!isEnabled(3)" (click)="showHint(1)" [matTooltip]="getTooltipText(4)"
-            matTooltipPosition="right" class="clue" [class.clue-ready]="isEnabled(3)"><img src="images/lotus.svg" alt=""
-                class="lotus" [class.clue-ready]="isEnabled(3)"></button>
-        <button aria-label="Hint 3" [disabled]="!isEnabled(4)" (click)="showHint(2)" [matTooltip]="getTooltipText(5)"
-            matTooltipPosition="right" class="clue"><img src="images/lotus.svg" class="lotus" alt=""
-                [class.clue-ready]="isEnabled(4)"></button>
+        @for(h of hints; track h; let i = $index){
+        <button aria-label="Quote Hint" [disabled]="!isEnabled(i)" (click)="showHint(i)" [matTooltip]="getTooltipText(i)"
+            matTooltipPosition="right"><img src="images/lotus.svg" alt=""></button>
+        }
     </div>
 
-
-    <div style="position:absolute; display: flex; justify-content: right; top:100%; right:0; width: 30%;">
-
+    <div class="search-container">
         <ul class="search-dropdown" [style.display]="isVisible ? 'block' : 'none'">
             @for (char of charList; track char){
             <li (mousedown)="onEnter(char)">
@@ -44,10 +35,9 @@
 }
 
 @if(isComplete()){
-
 <div class="correct-quote-guess fade-in">
     <div class="title">{{target}}</div>
-    <img src="images/characters/{{target | hyphenate}}.webp" class="img">
+    <img src="images/characters/{{target | hyphenate}}.webp">
     <div class="complete-container">
         <p>{{'attempts' | translate}}<span style="color: beige;">{{ls.progress.quote.numGuesses}}</span></p>
         <p>{{'quote.next' | translate}}<span style="color: beige;">
@@ -55,7 +45,6 @@
             </span></p>
     </div>
 </div>
-
 }
 
 @for (ans of incorrectAnswers; track ans){

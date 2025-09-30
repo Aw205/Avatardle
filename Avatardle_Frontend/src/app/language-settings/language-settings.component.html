@@ -1,5 +1,4 @@
-<span class="material-symbols-outlined language-icon" [matMenuTriggerFor]="menu" (menuOpened)="onMenuOpen()" role="button">translate</span>
-<mat-menu #menu="matMenu">
+
     <div style="border-bottom:1px solid gray; font: 1rem Georgia; color: beige; margin: 0.5rem; padding-bottom: 1rem;">{{'languageSettings.title' | translate}}</div>
     @for(l of languages; track l.name){
     <button mat-menu-item (click)="setLanguage(l.code)">
@@ -10,4 +9,3 @@
         </span>
         {{l.name}}</button>
     }
-</mat-menu>

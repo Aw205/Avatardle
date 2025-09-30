@@ -36,16 +36,12 @@ export class QuoteMode {
 
     isComplete: WritableSignal<boolean> = signal(false);
 
-    quoteIndex: number = 0;
-    prevQuote: string = "";
-    nextQuote: string = "";
-    quoteEpisode: string = "";
-
     ls: LocalStorageService = inject(LocalStorageService);
     title: Title = inject(Title);
     meta: Meta = inject(Meta);
     $stat!: Observable<DailyStats>;
     isBrowser = (typeof window != "undefined");
+    hints: { title: string, quote: string }[] = [];
 
     constructor(private ds: DataService, private dialog: MatDialog) {
 
@@ -63,15 +59,16 @@ export class QuoteMode {
 
             this.ds.transcript$.subscribe((data) => {
 
-                this.prevQuote = data[idx - 1].script;
-                this.nextQuote = data[idx + 1].script;
                 this.target = data[idx].Character;
-                this.quoteEpisode = this.ds.episodes[data[idx].total_number - 1];
                 this.quote.set(data[idx].script);
+                this.hints = [
+                    { title: "Previous Line", quote: data[idx - 1].script },
+                    { title: "Next Line", quote: data[idx + 1].script },
+                    { title: "Episode Name", quote: this.ds.episodes[data[idx].total_number - 1] }
+                ];
             });
 
         });
-
     }
 
     ngOnInit() {
@@ -117,29 +114,24 @@ export class QuoteMode {
         }
     }
 
-    isEnabled(threshold: number) {
+    isEnabled(hintId: number) {
 
-        return this.isComplete() || (this.ls.progress.quote.numGuesses > threshold);
+        return this.isComplete() || this.ls.progress.quote.numGuesses >= 2 + hintId;
     }
 
     showHint(hintId: number) {
 
-        let hints = [
-            { title: "Previous Line", quote: this.prevQuote },
-            { title: "Next Line", quote: this.nextQuote },
-            { title: "Episode Name", quote: this.quoteEpisode }
-        ];
         this.dialog.open(HintDialogComponent, {
             width: '50vw', maxWidth: 'none', panelClass: 'responsive-panel', data: {
-                title: hints[hintId].title,
-                quote: hints[hintId].quote
+                title: this.hints[hintId].title,
+                quote: this.hints[hintId].quote
             }
         });
     }
 
-    getTooltipText(threshold: number): string {
-
-        let diff = threshold - this.ls.progress.quote.numGuesses;
+    getTooltipText(hintId: number): string {
+        
+        let diff = hintId + 2 - this.ls.progress.quote.numGuesses;
         if (diff <= 0 || this.isComplete()) {
             return "Hint available!";
         }

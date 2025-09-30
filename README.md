@@ -4,9 +4,9 @@ A guessing game based on Avatar: The Last Airbender and The Legend of Korra!
 ![Avatardle collage](/assets/readme_collage.webp)
 
 ## Modes 
-- Classic - Guess the character using various traits.
-- Quote - Random quote from a character.
-- Picture - Random frame from an episode.
+- ```Classic``` - Guess the random character.
+- ```Quote``` - Random quote from a character.
+- ```Picture``` - Random frame from an episode.
 
 Resets daily at 12:00 AM UTC.
 

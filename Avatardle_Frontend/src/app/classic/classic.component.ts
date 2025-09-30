@@ -1,4 +1,4 @@
-import { afterNextRender, Component, inject, Inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
+import { afterNextRender, Component, inject, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand, { PRNG } from 'rand-seed';
 import { tileData } from '../tile/tile.component';
@@ -42,7 +42,10 @@ export class ClassicMode {
     ls: LocalStorageService = inject(LocalStorageService);
     isBrowser: boolean = (typeof window != "undefined");
 
-    constructor(private ds: DataService, private dialog: MatDialog, private title: Title, private meta: Meta) {
+    title: Title = inject(Title);
+    meta: Meta = inject(Meta);
+
+    constructor(private ds: DataService, private dialog: MatDialog) {
 
         afterNextRender(() => {
 

@@ -5,25 +5,24 @@ blockquote {
     padding: 0.5rem;
     color: beige;
     line-height: 2rem;
+
+    &::before {
+
+        content: "\201C";
+        color: #8c78c0;
+        font-size: 4rem;
+        position: relative;
+        top: 0.5rem;
+        left: -0.3rem;
+
+    }
 }
-
-blockquote::before {
-
-    font-family: Arial;
-    content: "\201C";
-    color: #8c78c0;
-    font-size: 4rem;
-    position: relative;
-    top: 0.5rem;
-    left: -0.3rem;
-}
-
 
 @media only screen and (max-width: 768px) {
 
-   blockquote{
-    margin:0;
-    line-height: 1.5rem;
-   }
+    blockquote {
+        margin: 0;
+        line-height: 1.5rem;
+    }
 
 }

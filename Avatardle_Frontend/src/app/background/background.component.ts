@@ -1,5 +1,6 @@
 import { Component, inject, signal, WritableSignal, PLATFORM_ID, Inject, afterNextRender } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { AboutDialogComponent } from '../about-dialog/about-dialog.component';
 import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
@@ -13,10 +14,9 @@ import { ParticleSettingsComponent } from '../particle-settings/particle-setting
 import { LanguageSettingsComponent } from '../language-settings/language-settings.component';
 import { LocalStorageService } from '../services/local-storage.service';
 
-
 @Component({
   selector: 'background',
-  imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent],
+  imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent,MatMenuModule],
   templateUrl: './background.component.html',
   styleUrl: './background.component.css',
 })
@@ -30,7 +30,6 @@ export class Background {
   showParticles: WritableSignal<boolean> = signal(true);
   cycleElement!: string;
   currElement!: string;
-
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) {
 

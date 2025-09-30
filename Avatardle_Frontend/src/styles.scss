@@ -11,8 +11,14 @@
 }
 
 :root {
-    @include mat.tabs-overrides((
-            divider-color: transparent,
+
+    .custom-panel {
+        & span {
+            vertical-align: middle;
+        }
+    }
+
+    @include mat.tabs-overrides((divider-color: transparent,
             inactive-ripple-color: dimgray,
             inactive-label-text-color: gray,
         ));
@@ -32,22 +38,22 @@
 
     display: flex;
     flex-direction: column;
+
+    &::-webkit-scrollbar-thumb {
+        background: rgb(60, 60, 60);
+        border-radius: 0.5rem;
+    }
+
+    &::-webkit-scrollbar {
+        background: rgb(30, 30, 30);
+        width: 0.5rem;
+    }
 }
 
 .mat-mdc-tab-body-wrapper {
     flex-grow: 1;
     overflow-y: auto;
     max-height: 50vh;
-}
-
-.mat-mdc-tab-body-content::-webkit-scrollbar-thumb {
-    background: rgb(60, 60, 60);
-    border-radius: 0.5rem;
-}
-
-.mat-mdc-tab-body-content::-webkit-scrollbar {
-    background: rgb(30, 30, 30);
-    width: 0.5rem;
 }
 
 input {
@@ -110,7 +116,7 @@ a {
 }
 
 .search-dropdown {
-    
+
     padding: 0;
     margin: 0;
     position: absolute;
@@ -124,12 +130,12 @@ a {
         background: rgb(60, 60, 60);
         border-radius: 0.5rem;
     }
-    
+
     &::-webkit-scrollbar {
         background: rgb(30, 30, 30);
         width: 0.5rem;
     }
-    
+
     & li {
         display: flex;
         align-items: center;
@@ -138,7 +144,7 @@ a {
         font: 1rem avatar2;
         color: beige;
         cursor: pointer;
-    
+
         &:hover {
             background-color: rgb(30, 30, 30);
         }

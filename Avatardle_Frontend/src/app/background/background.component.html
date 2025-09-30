@@ -1,5 +1,4 @@
 @defer( on idle){
-
 @if(showParticles()){
 @if(ds.con$ | async; as opt){
 <ngx-particles id="id1" [options]="opt[currElement][0]" [particlesInit]="particlesInit"></ngx-particles>
@@ -11,17 +10,41 @@
 }
 
 
-<div id="title-container">
-    <img id="brush-stroke" src="images/brush_stroke.svg" alt="" width="1100" height="300">
-    <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" class="title-text">Avatardle </a>
+<div class="title-container">
+    <img src="images/brush_stroke.svg" alt="" width="1100" height="300">
+    <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Avatardle</a>
 </div>
+
+<div>
+
+    <span class="material-symbols-outlined menu-button" [matMenuTriggerFor]="menu" role="button">menu</span>
+    <mat-menu #menu="matMenu" class="custom-panel">
+        <button mat-menu-item (click)="openDialog('help')"><span class="material-symbols-outlined">help</span>
+            Help</button>
+        <button mat-menu-item (click)="openDialog('comment')"><span class="material-symbols-outlined">comment</span>
+            Comment</button>
+        <button mat-menu-item (click)="openDialog('particle-setting')"><span
+                class="material-symbols-outlined">grain</span>
+            Particles</button>
+        <button mat-menu-item [matMenuTriggerFor]="submenu"><span class="material-symbols-outlined">translate</span>
+            Translate</button>
+        <button mat-menu-item (click)="openDialog('about')"> <span class="material-symbols-outlined">info</span>
+            About</button>
+    </mat-menu>
+
+</div>
+
+<mat-menu #submenu="matMenu">
+    <language-settings></language-settings>
+</mat-menu>
 
 <div class="button-container">
     <span class="material-symbols-outlined" (click)="openDialog('help')">help</span>
     <span class="material-symbols-outlined" (click)="openDialog('comment')">comment</span>
     <span class="material-symbols-outlined" (click)="openDialog('particle-setting')">grain</span>
-    <language-settings></language-settings>
+    <span class="material-symbols-outlined" [matMenuTriggerFor]="submenu">translate</span>
+    <span id="about-button" class="material-symbols-outlined" (click)="openDialog('about')"
+        style="position: fixed; right: 1rem; bottom: 1rem;">info</span>
 </div>
-<span id="about-button" class="material-symbols-outlined" (click)="openDialog('about')">info</span>
 
 <img id="iroh-figure" src="images/iroh_paisho.webp" alt="">

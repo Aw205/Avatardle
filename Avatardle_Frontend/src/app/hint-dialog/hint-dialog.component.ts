@@ -9,13 +9,6 @@ import { MAT_DIALOG_DATA, MatDialogContent, MatDialogRef, MatDialogTitle } from 
 })
 export class HintDialogComponent {
 
-
-  constructor(public dialogRef: MatDialogRef<HintDialogComponent>, @Inject(MAT_DIALOG_DATA) public data:any){
-
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
+  constructor(public dialogRef: MatDialogRef<HintDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  
 }

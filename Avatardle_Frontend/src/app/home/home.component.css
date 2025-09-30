@@ -1,5 +1,4 @@
-
-#menu {
+.menu {
 
     display: flex;
     flex-direction: column;
@@ -9,32 +8,36 @@
     top: 10vh;
     width: fit-content;
     margin: auto;
-}
 
-.menu-container {
+    &>a {
 
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    width: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: 100%;
 
-    &:hover > div {
-        transform: rotate(45deg);
-    }
-    
-    & > span {
-    
-        margin-left: -20px;
-        padding-left: 20px;
-        border-radius: 10px;
-        background-color: rgb(30, 30, 30);
-        border: 3px outset rgb(83, 46, 40);
-        outline: 2px solid black;
-        flex-grow: 1;
-        font: 4rem avatar2;
-        color: white;
-        padding-right: 0.5rem;
-        
+        &:focus{
+            outline:none;
+        }
+
+        &:hover>div {
+            transform: rotate(45deg);
+        }
+
+        &>span {
+
+            margin-left: -20px;
+            padding-left: 20px;
+            border-radius: 10px;
+            background-color: rgb(30, 30, 30);
+            border: 3px outset rgb(83, 46, 40);
+            outline: 2px solid black;
+            flex-grow: 1;
+            font: 4rem avatar2;
+            color: white;
+            padding-right: 0.5rem;
+
+        }
     }
 }
 
@@ -49,7 +52,27 @@
 
 @media only screen and (max-width: 768px) {
 
-    .menu-container>span {
-        font: 3rem avatar2;
+    .menu {
+
+        position: absolute;
+        gap: 5rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &>a {
+            &>span {
+                font: 3rem avatar2;
+                border-width: 2px;
+                outline-width: 1px;
+            }
+        }
     }
+
+    .paisho-sprite {
+        width: 5rem;
+        height: 5rem;
+    }
+
+
 }

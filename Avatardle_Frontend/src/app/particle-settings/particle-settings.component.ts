@@ -26,11 +26,7 @@ export class ParticleSettingsComponent {
       this.enableParticles.set(this.ls.progress.particleSettings.enable);
     })
   }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
+  
   onClick(element: string) {
     this.selected = element;
   }

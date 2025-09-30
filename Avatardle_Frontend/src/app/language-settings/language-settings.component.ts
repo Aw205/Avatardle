@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LocalStorageService } from '../services/local-storage.service';
 
@@ -23,8 +23,12 @@ export class LanguageSettingsComponent {
     { name: "Português", code: "pt" }
   ];
 
-  onMenuOpen() {
+  ngOnInit() {
+
     this.currLang = this.ts.getCurrentLang();
+    this.ts.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.currLang = event.lang;
+    });
   }
 
   setLanguage(code: string) {

@@ -42,6 +42,16 @@
     background-color: rgb(20, 20, 20);
     border-radius: 0 10px 10px 0;
 
+    &>input {
+
+        background-color: rgb(20, 20, 20);
+        width: 90%;
+        font: 2rem avatar2;
+        color: beige;
+        border-radius: 0 10px 10px 0;
+        border: none;
+    }
+
 }
 
 #mobile-help-text {
@@ -157,11 +167,16 @@
     }
 
     #search-container {
-        width: 60%;
+        width: 90%;
+        height:2rem;
+
+        &>input {
+            width: 90%;
+            font: 1.5rem avatar2;
+        }
     }
 
     #mobile-help-text {
         display: block;
     }
-
 }
