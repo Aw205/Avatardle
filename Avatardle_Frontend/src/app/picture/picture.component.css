@@ -64,7 +64,7 @@
     }
 
     &>input {
-        background-color: rgb(20, 20, 20);
+        background-color: var(--search-bar-background-color);
         width: 90%;
         font: 2rem avatar2;
         color: beige;

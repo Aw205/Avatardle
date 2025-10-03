@@ -12,18 +12,58 @@
 
 :root {
 
+    --search-bar-background-color: rgb(20, 20, 20);
+    --snack-bar-background-color: rgb(30, 30, 30);
+    --dialog-container-color: rgb(30, 30, 30);
+
     .custom-panel {
         & span {
             vertical-align: middle;
         }
     }
 
+    .snack-bar {
+        background-color: var(--snack-bar-background-color);
+        border-radius: 5px;
+        color: beige;
+        text-align: center;
+        border: 2px outset seagreen;
+        outline: 1px solid black;
+    }
+
+    .help-dialog {
+        width: 70vw;
+        max-width: none !important;
+        height: 80vh;
+    }
+
+    .particles-dialog {
+
+        width: 30vw;
+        max-width: none !important;
+    }
+
+    .about-dialog {
+
+        width: 50vw;
+        max-width: none !important;
+    }
+
+    .comment-dialog {
+
+        width: 30vw;
+        height: 25rem;
+        max-width: none !important;
+    }
+
+
+
     @include mat.tabs-overrides((divider-color: transparent,
             inactive-ripple-color: dimgray,
             inactive-label-text-color: gray,
         ));
 
-    @include mat.dialog-overrides((container-color: rgb(30, 30, 30),
+    @include mat.dialog-overrides((container-color: var(--dialog-container-color),
             subhead-color: beige,
         ));
     @include mat.tooltip-overrides((container-shape: 5px));
@@ -66,25 +106,25 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-}
 
-body::before {
+    &::before {
 
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    display: block;
-    width: 100%;
-    height: 100%;
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        height: 100%;
 
-    background-image: url('assets/images/atla_background.webp');
-    background-size: cover;
-    background-position: center top;
-    mask: radial-gradient(circle, rgba(0, 0, 0, 0.9766500350140056) 47%, rgba(0, 0, 0, 0.9) 75%);
-    filter: brightness(0.2) sepia(0.6);
+        background-image: url('assets/images/atla_background.webp');
+        background-size: cover;
+        background-position: center top;
+        mask: radial-gradient(circle, rgba(0, 0, 0, 0.9766500350140056) 47%, rgba(0, 0, 0, 0.9) 75%);
+        filter: brightness(0.2) sepia(0.6);
+    }
 }
 
 a {
@@ -172,6 +212,23 @@ a {
 }
 
 @media only screen and (max-width: 768px) {
+
+    .comment-dialog {
+
+        width: 95vw !important;
+    }
+
+    .about-dialog {
+        width: 95vw !important;
+    }
+
+    .help-dialog {
+        width: 100vw !important;
+    }
+
+    .particles-dialog {
+        width: 95vw !important;
+    }
 
     .search-dropdown {
         max-height: 30vh;

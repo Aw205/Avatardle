@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   MatDialogTitle,
   MatDialogContent,
@@ -9,7 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {TranslatePipe} from "@ngx-translate/core";
+import { TranslatePipe } from "@ngx-translate/core";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-comment-dialog',
@@ -22,23 +23,13 @@ export class CommentDialogComponent {
   message: string = "";
   buttonText: string = "commentDialog.comment";
 
-  constructor(public dialogRef: MatDialogRef<CommentDialogComponent>, public http: HttpClient) {
+  private snackBar = inject(MatSnackBar);
 
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+  constructor(public dialogRef: MatDialogRef<CommentDialogComponent>, public http: HttpClient) {}
 
   onSubmit() {
 
-    this.buttonText = "Thanks!";
-    setTimeout(() => {
-      this.message = "";
-      this.buttonText = "commentDialog.comment"
-    }, 2000);
-
-
+    this.snackBar.open("Comment sent, thanks!", undefined, { panelClass: "snack-bar", duration: 4000 });
     var headers = new HttpHeaders({
       "Content-Type": "text/plain"
     });
@@ -46,6 +37,10 @@ export class CommentDialogComponent {
     this.http.post("https://script.google.com/macros/s/AKfycbzPXIT7QUAqrSfu8L_zR5Cmu7D-FlqDgSEyFYKYE__9KNN6cA50g53gIrnKHB67eNUM/exec",
       data,
       { headers: headers }).subscribe((data) => { });
+    this.message = "";
   }
 
+
+
 }
+

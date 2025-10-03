@@ -1,3 +1,8 @@
+:root{
+
+    --font-size-base: 16px;
+}
+
 .categories-container {
 
     display: grid;
@@ -5,6 +10,7 @@
     gap: 0.75rem;
     grid-template-columns: repeat(6, 9rem);
     justify-items: center;
+    margin-bottom: 5rem;
 
     &>img {
         width: 9rem;
@@ -39,12 +45,12 @@
     margin-top: 2.75rem;
     margin-bottom: 0.5rem;
 
-    background-color: rgb(20, 20, 20);
+    background-color: var(--search-bar-background-color);
     border-radius: 0 10px 10px 0;
 
     &>input {
 
-        background-color: rgb(20, 20, 20);
+        background-color: var(--search-bar-background-color);
         width: 90%;
         font: 2rem avatar2;
         color: beige;
@@ -62,7 +68,7 @@
     display: none;
 }
 
-#settings-icon {
+.settings-icon {
 
     display: inline-flex;
     justify-content: center;
@@ -142,7 +148,6 @@
 .fade-in {
     opacity: 1;
     transition: opacity 0.5s;
-
     @starting-style {
         opacity: 0;
     }

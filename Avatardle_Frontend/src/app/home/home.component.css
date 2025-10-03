@@ -15,11 +15,6 @@
         align-items: center;
         cursor: pointer;
         width: 100%;
-        -webkit-tap-highlight-color: transparent;
-
-        &:focus{
-            outline:none;
-        }
 
         &:hover>div {
             transform: rotate(45deg);

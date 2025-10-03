@@ -1,8 +1,8 @@
 import { afterNextRender, Component, inject, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DailyStats, DataService } from '../services/data.service';
+import { DataService } from '../services/data.service';
 import { TmNgOdometerModule } from 'odometer-ngx';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -33,7 +33,6 @@ export class PictureMode {
   modelKey: string | null = null;
   addt: WritableSignal<boolean> = signal(false);
 
-  $stat!: Observable<DailyStats>;
   ls: LocalStorageService = inject(LocalStorageService);
   isBrowser = (typeof window != "undefined");
 
@@ -41,8 +40,11 @@ export class PictureMode {
   meta: Meta = inject(Meta);
 
   translationSub!: Subscription;
+  ds: DataService = inject(DataService);
+  ts: TranslateService = inject(TranslateService);
 
-  constructor(private ds: DataService, private route: ActivatedRoute, private ts: TranslateService) {
+
+  constructor(private route: ActivatedRoute) {
 
     this.translationSub = this.ts.stream('episodes').subscribe((res) => {
       let arr: string[] = Object.values(res);
@@ -58,8 +60,6 @@ export class PictureMode {
       this.episodeData = [...this.ds.episodes].slice(0, 61);
       this.targetEpisode = this.route.snapshot.data["image"].target;
       this.epiNum = this.targetEpisode.substring(0, 7);
-
-      this.$stat = this.ds.stats$;
 
       if (this.ls.progress.picture.complete) {
         this.isComplete.set(true);

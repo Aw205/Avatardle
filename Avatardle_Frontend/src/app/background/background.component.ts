@@ -16,7 +16,7 @@ import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'background',
-  imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent,MatMenuModule],
+  imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent, MatMenuModule],
   templateUrl: './background.component.html',
   styleUrl: './background.component.css',
 })
@@ -59,16 +59,19 @@ export class Background {
   openDialog(name: string) {
 
     if (name == "about") {
-      this.dialog.open(AboutDialogComponent, { width: '50vw', maxWidth: 'none', autoFocus: false });
+      this.dialog.open(AboutDialogComponent, { panelClass: "about-dialog", autoFocus: false });
     }
     else if (name == "help") {
-      this.dialog.open(HelpDialogComponent, { width: '70vw', maxWidth: 'none', height: "80vh", autoFocus: false });
+      this.dialog.open(HelpDialogComponent, { panelClass: "help-dialog", autoFocus: false });
     }
     else if (name == "comment") {
-      this.dialog.open(CommentDialogComponent, { width: '30vw', maxWidth: 'none', height: "50vh", autoFocus: false });
+      this.dialog.open(CommentDialogComponent, { panelClass: "comment-dialog", autoFocus: false });
     }
     else if (name == "particle-setting") {
-      let dialogRef = this.dialog.open(ParticleSettingsComponent, { width: '30vw', maxWidth: 'none', height: "80vh", data: { cycleElement: this.cycleElement, currElement: this.currElement }, autoFocus: false });
+      let dialogRef = this.dialog.open(ParticleSettingsComponent, {
+        panelClass: "particles-dialog",
+        data: { cycleElement: this.cycleElement, currElement: this.currElement }, autoFocus: false
+      });
 
       dialogRef.afterClosed().subscribe((res) => {
 

@@ -5,9 +5,9 @@ import { tileData } from '../tile/tile.component';
 export interface AvatardleProgress {
   date: string,
   version: string,
-  classic: { complete: boolean, target: string, guesses: tileData[], series: string[] },
-  quote: { complete: boolean, target: string, numGuesses: number },
-  picture: { complete: boolean, target: string, numGuesses: number },
+  classic: { complete: boolean, target: string | undefined, guesses: tileData[], series: string[] },
+  quote: { complete: boolean, target: string | undefined, numGuesses: number },
+  picture: { complete: boolean, target: string | undefined, numGuesses: number },
   particleSettings: { enable: boolean },
   language: string | undefined
 }
@@ -17,15 +17,15 @@ export interface AvatardleProgress {
 })
 export class LocalStorageService {
 
-  VERSION: string = "1.2.1";
+  VERSION: string = "1.2.2";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
   progress!: AvatardleProgress;
   default: AvatardleProgress = {
     date: this.currentDate,
     version: this.VERSION,
-    classic: { complete: false, target: "", guesses: [], series: ["ATLA-title"] },
-    quote: { complete: false, target: "", numGuesses: 0 },
-    picture: { complete: false, target: "", numGuesses: 0 },
+    classic: { complete: false, target: undefined, guesses: [], series: ["ATLA-title"] },
+    quote: { complete: false, target: undefined, numGuesses: 0 },
+    picture: { complete: false, target: undefined, numGuesses: 0 },
     particleSettings: {
       enable: true
     },

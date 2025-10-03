@@ -1,12 +1,11 @@
 import { afterNextRender, Component, inject, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand from 'rand-seed';
-import { DailyStats, DataService } from '../services/data.service';
+import { DataService } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
 import { HintDialogComponent } from '../hint-dialog/hint-dialog.component';
 import { TmNgOdometerModule } from 'odometer-ngx';
-import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { CountdownComponent } from 'ngx-countdown';
@@ -39,15 +38,15 @@ export class QuoteMode {
     ls: LocalStorageService = inject(LocalStorageService);
     title: Title = inject(Title);
     meta: Meta = inject(Meta);
-    $stat!: Observable<DailyStats>;
+    ds: DataService = inject(DataService);
+    dialog: MatDialog = inject(MatDialog);
     isBrowser = (typeof window != "undefined");
     hints: { title: string, quote: string }[] = [];
 
-    constructor(private ds: DataService, private dialog: MatDialog) {
+    constructor() {
 
         afterNextRender(() => {
 
-            this.$stat = this.ds.stats$;
             this.characterData = this.ds.getQuoteCharacterData();
 
             let rand = new Rand(this.ls.progress.date! + "quote");

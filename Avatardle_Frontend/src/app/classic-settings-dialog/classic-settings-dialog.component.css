@@ -12,7 +12,6 @@ label:has(input[type="checkbox"]:checked) {
 
 label {
 
-
     display: flex;
     align-items: center;
     gap: 0.5rem;

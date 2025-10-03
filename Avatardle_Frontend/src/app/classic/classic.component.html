@@ -4,7 +4,7 @@
         autocomplete="off" (input)="onInput()" (focusout)="isVisible=false" (focusin)="isVisible=true"
         (keydown.enter)="onEnter(selected)" [(ngModel)]="searchVal" [disabled]="isComplete()"
         [class.search-complete]="isComplete()" />
-    <span id="settings-icon" class="material-symbols-outlined" (click)="openDialog('settings')">settings</span>
+    <span class="material-symbols-outlined settings-icon" (click)="openDialog('settings')">settings</span>
 
     <ul class="search-dropdown" [style.display]="isVisible ? 'block' : 'none'">
         @for (char of charList; track char.name){
@@ -19,7 +19,7 @@
 @if(isBrowser){
 <div
     style="font: 1rem avatar2; color: gray; background-color: rgb(0,0,0,0.3); width: fit-content; margin: auto; padding: 0.5rem; border-radius: 5px; margin-top: 0.5rem; margin-bottom: 0.5rem;">
-    <tm-ng-odometer [number]="($stat | async)?.classic_completion ?? 0" theme="minimal"
+    <tm-ng-odometer [number]="(ds.stats$ | async)?.classic_completion ?? 0" theme="minimal"
         style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
 </div>
 }
