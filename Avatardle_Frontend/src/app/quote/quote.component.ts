@@ -1,4 +1,4 @@
-import { afterNextRender, Component, inject, signal, WritableSignal } from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand from 'rand-seed';
 import { DataService } from '../services/data.service';
@@ -17,31 +17,30 @@ import { LocalStorageService } from '../services/local-storage.service';
     selector: 'quote',
     imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe],
     templateUrl: './quote.component.html',
-    styleUrl: './quote.component.css'
+    styleUrl: './quote.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class QuoteMode {
 
-    quote = signal('');
-
-    target: string = "";
-    incorrectAnswers: string[] = [];
+    quote: WritableSignal<string> = signal('');
+    target: WritableSignal<string> = signal('');
+    isComplete: WritableSignal<boolean> = signal(false);
+    isVisible: WritableSignal<boolean> = signal(true);
+    searchVal: WritableSignal<string> = signal('');
 
     charList: string[] = [];
-    searchVal: string = "";
-    isVisible: boolean = true;
-    selected: string = "";
     characterData: string[] = [];
-
-    isComplete: WritableSignal<boolean> = signal(false);
-
-    ls: LocalStorageService = inject(LocalStorageService);
-    title: Title = inject(Title);
-    meta: Meta = inject(Meta);
-    ds: DataService = inject(DataService);
-    dialog: MatDialog = inject(MatDialog);
-    isBrowser = (typeof window != "undefined");
     hints: { title: string, quote: string }[] = [];
+    incorrectAnswers: string[] = [];
+
+    ls = inject(LocalStorageService);
+    title = inject(Title);
+    meta = inject(Meta);
+    ds = inject(DataService);
+    dialog = inject(MatDialog);
+    isBrowser = (typeof window != "undefined");
+
 
     constructor() {
 
@@ -53,12 +52,12 @@ export class QuoteMode {
             let idx = this.ds.quoteIndices[Math.floor(rand.next() * this.ds.quoteIndices.length)];
             if (this.ls.progress.quote.complete) {
                 this.isComplete.set(true);
-                this.searchVal = "-" + this.ls.progress.quote.target;
+                this.searchVal.set("-" + this.ls.progress.quote.target); 
             }
 
             this.ds.transcript$.subscribe((data) => {
 
-                this.target = data[idx].Character;
+                this.target.set(data[idx].Character);
                 this.quote.set(data[idx].script);
                 this.hints = [
                     { title: "Previous Line", quote: data[idx - 1].script },
@@ -79,34 +78,28 @@ export class QuoteMode {
     }
 
     onInput() {
-
-        this.charList = this.characterData.filter(char => char.toLowerCase().includes(this.searchVal.toLowerCase()) && this.searchVal != "");
-        this.selected = this.charList.length == 0 ? "" : this.charList[0];
+        this.charList = this.characterData.filter(char => char.toLowerCase().includes(this.searchVal().toLowerCase()) && this.searchVal() != "");
     }
 
-    onEnter(select: string = "") {
+    onEnter(select: string | undefined) {
 
-        if (select != "") {
-            this.selected = select;
-        }
-        if (this.selected == this.target) {
+        if (select == this.target()) {
 
-            this.searchVal = "-" + this.target;
+            this.searchVal.set("-" + this.target());
             let guesses = this.ls.progress.quote.numGuesses + 1;
             this.isComplete.set(true);
-            this.ls.progress.quote = { complete: true, target: this.target, numGuesses: guesses };
+            this.ls.progress.quote = { complete: true, target: this.target(), numGuesses: guesses };
             this.ls.update();
             this.ds.throwConfetti(this.ls.progress.quote.numGuesses);
             this.ds.updateStats("quote");
 
         }
-        else if (this.selected != "") {
+        else if (select != undefined) {
 
-            let char = this.characterData.find(char => char == this.selected);
-            this.incorrectAnswers.unshift(char!);
-            this.searchVal = "";
+            this.incorrectAnswers.unshift(select);
+            this.searchVal.set('');
             this.charList = [];
-            this.characterData.splice(this.characterData.indexOf(char!), 1)
+            this.characterData.splice(this.characterData.indexOf(select), 1)
             this.ls.progress.quote.numGuesses++;
             this.ls.update();
 
@@ -129,7 +122,7 @@ export class QuoteMode {
     }
 
     getTooltipText(hintId: number): string {
-        
+
         let diff = hintId + 2 - this.ls.progress.quote.numGuesses;
         if (diff <= 0 || this.isComplete()) {
             return "Hint available!";
@@ -138,10 +131,6 @@ export class QuoteMode {
             return "Hint in 1 more guess";
         }
         return `Hint in ${diff} more guesses`;
-    }
-
-    getCountdownConfig() {
-        return this.ds.getCountdownConfig();
     }
 }
 

@@ -1,11 +1,11 @@
-<div id="search-bar-container">
+<div class="search-bar-container">
     <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250">
-    <input type="text" placeholder="{{'searchPlaceholder' | translate }}" spellcheck="false"
-        autocomplete="off" (input)="onInput($event)" (focusout)="isVisible=false" (focusin)="isVisible=true"
+    <input type="text" placeholder="{{'searchPlaceholder' | translate }}" spellcheck="false" autocomplete="off"
+        (input)="onInput($event)" (focusout)="isVisible.set(false)" (focusin)="isVisible.set(true)"
         (keydown.enter)="onEnter()" [ngModel]="modelKey ? epiNum + (modelKey | translate) : searchVal"
         [disabled]="isComplete()" [class.search-complete]="isComplete()" />
 
-    <ul class="search-dropdown" style="z-index: 2;" [style.display]="isVisible ? 'block' : 'none'">
+    <ul class="search-dropdown" style="z-index: 2;" [style.display]="isVisible() ? 'block' : 'none'">
         @for (episode of episodeList; track episode){
         <li style="white-space: pre;" (mousedown)="onEnter(episode)"><span
                 style="color:goldenrod;">{{episode.substring(0,7)}}</span>{{episode.substring(7)}}</li>
@@ -21,14 +21,14 @@
 }
 
 
-<div id="image-container">
-    <div id="image-wrapper">
-        <img [src]="targetFrame()" id="episode-frame" alt="A frame from an episode of Avatar: The Last Airbender"
-            [class.df]="addt()" width="960" height="540" [style.transform]="'scale('+ scaleRatio + ')'"
-            [style.filter]="'grayscale('+ grayscaleRatio +')'">
+<div class="image-container">
+    <div class="image-wrapper">
+        <img [src]="targetFrame()" alt="A frame from an episode of Avatar: The Last Airbender" [class.df]="addt()"
+            width="960" height="540" [style.transform]="'scale('+ scaleRatio() + ')'"
+            [style.filter]="'grayscale('+ grayscaleRatio() +')'">
 
     </div>
-    <div style="font:1rem Georgia; color: dimgray; text-align: right;">{{scaleRatio}}&times;</div>
+    <div style="font:1rem Georgia; color: dimgray; text-align: right;">{{scaleRatio()}}&times;</div>
 </div>
 
 @for (ans of incorrectAnswers; track ans){

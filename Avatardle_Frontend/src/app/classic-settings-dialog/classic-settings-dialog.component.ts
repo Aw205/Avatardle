@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogRef } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -14,12 +14,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ClassicSettingsDialogComponent {
 
   ls: LocalStorageService = inject(LocalStorageService);
-  isValid: boolean = true;
   list: { name: string, icon: string, selected: boolean }[] = [
     { name: 'ATLA-title', icon: "images/characters/Aang.webp", selected: false },
     { name: 'TLOK-title', icon: "images/characters/Korra.webp", selected: false }
   ];
-
+  selectedCount: WritableSignal<number> = signal(0);
   private snackBar = inject(MatSnackBar);
 
   constructor(public dialogRef: MatDialogRef<ClassicSettingsDialogComponent>) { }
@@ -31,28 +30,29 @@ export class ClassicSettingsDialogComponent {
         item.selected = true;
       }
     }
+    this.updateCount();
+  }
+
+  updateCount() {
+
+    this.selectedCount.set(this.list.filter(e => e.selected).length);
   }
 
   onSave() {
 
-    this.isValid = this.list.some((item) => item.selected);
-    if (this.isValid) {
+    this.snackBar.open("Saved!", undefined, { panelClass: "snack-bar", duration: 4000 });
+    let series = this.list.filter((item) => item.selected == true).map((item) => item.name);
 
-      this.snackBar.open("Saved!", undefined, { panelClass: "snack-bar", duration: 4000 });
-      let series = this.list.filter((item) => item.selected == true).map((item) => item.name);
-
-      if (JSON.stringify(series) != JSON.stringify(this.ls.progress.classic.series)) {
-
-        this.ls.progress.classic.series = series;
-        if (!this.ls.progress.classic.complete) {
-          this.ls.progress.classic.guesses = [];
-          this.ls.update();
-          return this.dialogRef.close({ reset: true });
-        }
+    if (JSON.stringify(series) != JSON.stringify(this.ls.progress.classic.series)) {
+      this.ls.progress.classic.series = series;
+      if (!this.ls.progress.classic.complete) {
+        this.ls.progress.classic.guesses = [];
         this.ls.update();
+        return this.dialogRef.close({ reset: true });
       }
-      this.dialogRef.close();
+      this.ls.update();
     }
+    this.dialogRef.close();
   }
 
 }

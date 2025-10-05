@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -7,7 +7,8 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'help-dialog',
   imports: [MatDialogTitle, MatDialogContent, MatTabsModule,TranslatePipe],
   templateUrl: './help-dialog.component.html',
-  styleUrl: './help-dialog.component.css'
+  styleUrl: './help-dialog.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HelpDialogComponent {
 

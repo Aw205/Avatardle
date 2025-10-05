@@ -1,13 +1,8 @@
-mat-dialog-content > div {
+mat-dialog-content>div {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 1rem; 
-}
-
-label:has(input[type="checkbox"]:checked) {
-    color: beige;
-
+    padding: 1rem;
 }
 
 label {
@@ -26,24 +21,27 @@ label {
     transition: transform 200ms;
     user-select: none;
 
-}
+    &:hover {
+        transform: translateY(-0.2rem);
+    }
 
-label:hover {
-    transform: translateY(-0.2rem);
-}
+    &:has(input[type="checkbox"]:checked) {
+        color: beige;
 
-.icon {
+    }
 
-    width: 4rem;
-    opacity: 0.2;
-    border-radius: 1rem;
+    &>img {
+        width: 4rem;
+        opacity: 0.2;
+        border-radius: 1rem;
+    }
 }
 
 .selected {
-    opacity: 1;
+    opacity: 1 !important;
 }
 
-#save-button {
+.save-button {
 
     border-radius: 10px;
     padding: 0.5rem;
@@ -55,24 +53,13 @@ label:hover {
     border: 1px outset black;
     outline: 2px solid black;
 
-}
+    &:disabled {
 
-#save-button:hover {
+        border: none;
+        outline: none;
+        color: dimgray;
+        background-color: rgb(40, 40, 40)!important;
+        cursor: default;
+    }
 
-    filter: brightness(1.1);
-}
-
-.error {
-    color: indianred;
-    display: inline;
-}
-
-span {
-
-    display: none;
-    font: 1rem Georgia;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-   
 }

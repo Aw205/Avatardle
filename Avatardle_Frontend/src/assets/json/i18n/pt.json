@@ -35,8 +35,7 @@
         "next": "Próximo personagem em: ",
         "settings": {
             "title": "Selecione a série",
-            "progressWarning": "O salvamento redefinirá o progresso atual se estiver incompleto",
-            "errorMessage": "*Selecione pelo menos 1 série"
+            "progressWarning": "O salvamento redefinirá o progresso atual se estiver incompleto"
         },
         "icons": {
             "alter-ego": "Alter Ego",

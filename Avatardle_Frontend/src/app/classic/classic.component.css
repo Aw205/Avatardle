@@ -85,7 +85,7 @@
 }
 
 
-#artist-name {
+.artist-name {
     text-decoration: underline 1px;
     color: inherit;
     text-underline-offset: 0.2rem;

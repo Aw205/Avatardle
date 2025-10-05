@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -8,7 +8,8 @@ import { LocalStorageService } from '../services/local-storage.service';
   selector: 'language-settings',
   imports: [MatMenuModule, TranslatePipe],
   templateUrl: './language-settings.component.html',
-  styleUrl: './language-settings.component.css'
+  styleUrl: './language-settings.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LanguageSettingsComponent {
 

@@ -2,7 +2,7 @@
 import confetti from 'canvas-confetti';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { interval, map, Observable, shareReplay, startWith, switchMap } from 'rxjs';
+import { interval, Observable, shareReplay, startWith, switchMap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 export interface Episode {

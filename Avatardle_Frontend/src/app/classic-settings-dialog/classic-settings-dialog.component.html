@@ -6,17 +6,15 @@
     <div>
         @for(item of list; track item.name){
         <label for="{{item.name}}">
-            <img [src]="item.icon" class="icon" [class.selected]="item.selected">
-            <input type="checkbox" id="{{item.name}}" value="atla" [(ngModel)]="item.selected">
+            <img [src]="item.icon" [class.selected]="item.selected">
+            <input type="checkbox" id="{{item.name}}" value="atla" [(ngModel)]="item.selected" (ngModelChange)="updateCount()">
             {{item.name | translate}}
         </label>
         }
         <div style="font-size:small; color: dimgray; text-align: center;">{{'classic.settings.progressWarning' | translate }}</div>
     </div>
    
-
 </mat-dialog-content>
 <mat-dialog-actions>
-        <button id="save-button" (click)="onSave()">{{'save' | translate}}</button>
-        <span [class.error]="!isValid">{{'classic.settings.errorMessage' | translate }}</span>
+        <button class="save-button" (click)="onSave()" [disabled]="selectedCount() == 0">{{'save' | translate}}</button>
 </mat-dialog-actions>

@@ -21,7 +21,7 @@
 
 }
 
-#image-container {
+.image-container {
 
     display: flex;
     flex-direction: column;
@@ -29,24 +29,24 @@
     margin: auto;
     margin-top: 0.5rem;
     width: 50%;
+
+    &>.image-wrapper {
+        overflow: hidden;
+        box-shadow: 0px 0px 1rem 40px #00000082;
+
+        &>img {
+            display: block;
+            width: 100%;
+            pointer-events: none;
+            transform: scale(2);
+
+            height: auto;
+
+        }
+    }
 }
 
-#image-wrapper {
-    overflow: hidden;
-    box-shadow: 0px 0px 1rem 40px #00000082;
-}
-
-#episode-frame {
-
-    display: block;
-    width: 100%;
-    pointer-events: none;
-    transform: scale(2);
-
-    height: auto;
-}
-
-#search-bar-container {
+.search-bar-container {
 
     display: flex;
     justify-content: center;
@@ -76,17 +76,16 @@
 
 @media only screen and (max-width: 768px) {
 
-    #search-bar-container {
+    .search-bar-container {
         width: 95%;
         height: 2rem;
 
         &>input {
             font: 1rem avatar2;
         }
-
     }
 
-    #image-container {
+    .image-container {
         width: 90%;
     }
 

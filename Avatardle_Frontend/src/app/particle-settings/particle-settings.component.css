@@ -34,7 +34,6 @@
     background-color: rgb(30, 30, 30);
     border: 5px ridge rgb(83, 46, 40);
     aspect-ratio: 1/1;
-    width: 50%;
     transition: transform 0.5s;
 }
 
@@ -45,7 +44,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    translate: -50%-50%;
+    translate: -50% -50%;
     color: darkgoldenrod;
     transition: rotate 0.5s;
     cursor:pointer;

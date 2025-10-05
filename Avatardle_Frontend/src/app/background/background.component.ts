@@ -1,4 +1,4 @@
-import { Component, inject, signal, WritableSignal, PLATFORM_ID, Inject, afterNextRender } from '@angular/core';
+import { Component, inject, signal, WritableSignal, PLATFORM_ID, Inject, afterNextRender, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
@@ -19,6 +19,7 @@ import { LocalStorageService } from '../services/local-storage.service';
   imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent, MatMenuModule],
   templateUrl: './background.component.html',
   styleUrl: './background.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class Background {

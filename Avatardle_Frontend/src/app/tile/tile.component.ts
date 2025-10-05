@@ -1,4 +1,4 @@
-import { Component, Input, signal,WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, signal,WritableSignal } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TranslatePipe } from '@ngx-translate/core';
 
@@ -22,7 +22,8 @@ export interface tileData {
   selector: 'tile',
   imports: [MatTooltipModule,TranslatePipe],
   templateUrl: './tile.component.html',
-  styleUrl: './tile.component.css'
+  styleUrl: './tile.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TileComponent {
 

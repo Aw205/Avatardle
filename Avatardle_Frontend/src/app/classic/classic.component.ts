@@ -1,12 +1,11 @@
-import { afterNextRender, Component, inject, signal, WritableSignal } from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand, { PRNG } from 'rand-seed';
 import { tileData } from '../tile/tile.component';
 import { TileComponent } from '../tile/tile.component';
-import { Character, DailyStats, DataService, FanArt } from '../services/data.service';
+import { Character, DataService, FanArt } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TmNgOdometerModule } from 'odometer-ngx';
-import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,38 +19,37 @@ import { LocalStorageService } from '../services/local-storage.service';
     selector: 'classic',
     imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe],
     templateUrl: './classic.component.html',
-    styleUrl: './classic.component.css'
+    styleUrl: './classic.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ClassicMode {
 
-    charList: Character[] = [];
-    characterData: Character[] = [];
     searchVal: WritableSignal<string> = signal('');
     isComplete: WritableSignal<boolean> = signal(false);
-    isVisible: boolean = true;
-    selected: Character | undefined;
+    isVisible: WritableSignal<boolean> = signal(true);
     guessAttempts: number = 0;
-    tileArray: WritableSignal<tileData[]> = signal([]);
+   
     targetChar!: Character;
     rand!: Rand;
 
     fanArt!: FanArt;
     img!: { pathName: string, artist: { name: string, link: string }, epithet: string };
 
-    ls: LocalStorageService = inject(LocalStorageService);
-    isBrowser: boolean = (typeof window != "undefined");
+    charList: Character[] = [];
+    characterData: Character[] = [];
+    tileArray: WritableSignal<tileData[]> = signal([]);
 
-    title: Title = inject(Title);
-    meta: Meta = inject(Meta);
-    ds: DataService = inject(DataService);
-    dialog: MatDialog = inject(MatDialog);
+    ls = inject(LocalStorageService);
+    title = inject(Title);
+    meta = inject(Meta);
+    ds = inject(DataService);
+    dialog = inject(MatDialog);
+    isBrowser: boolean = (typeof window != "undefined");
 
     constructor() {
 
         afterNextRender(() => {
-
-           this.setData();
-
+            this.setData();
         });
     }
 
@@ -65,7 +63,6 @@ export class ClassicMode {
 
     onInput() {
         this.charList = this.characterData.filter(char => char.name.toLowerCase().includes(this.searchVal().toLowerCase()) && this.searchVal() != "");
-        this.selected = this.charList[0];
     }
 
     onEnter(char: Character | undefined) {
@@ -100,7 +97,8 @@ export class ClassicMode {
                         break;
                     case "affiliations":
 
-                        tileData.affiliations = this.shuffleArray(val).slice(0,3);
+                        this.rand = new Rand(this.ls.progress.date! + char!.name);
+                        tileData.affiliations = this.shuffleArray([...val]).slice(0, 3);
                         let count = tileData.affiliations!.reduce((acc, curr) => acc + targetVal.includes(curr) | 0, 0);
                         tileData.isCorrect = (count == 0) ? false : (count == tileData.affiliations!.length) ? true : undefined;
                         break;
@@ -126,7 +124,6 @@ export class ClassicMode {
             });
             this.ls.update();
         }
-        this.selected = undefined;
         this.searchVal.set('');
         this.charList = [];
     }
@@ -152,39 +149,34 @@ export class ClassicMode {
 
     openDialog(name: string) {
         if (name == "settings") {
-            this.dialog.open(ClassicSettingsDialogComponent, { width: '50vw', maxWidth: 'none', autoFocus: false }).afterClosed().subscribe((res)=>{
-                if(res!=undefined){
+            this.dialog.open(ClassicSettingsDialogComponent, { width: '50vw', maxWidth: 'none', autoFocus: false }).afterClosed().subscribe((res) => {
+                if (res != undefined) {
                     this.setData();
                 }
-              
             });
         }
     }
 
-    setData(){
+    setData() {
 
         this.rand = new Rand(this.ls.progress.date! + "classic");
-            this.tileArray.set(this.ls.progress.classic.guesses);
-            this.guessAttempts = this.tileArray().length / 6;
-            this.characterData = this.ds.getClassicCharacterData(this.ls.progress.classic.series);
-            this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
-            this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
+        this.tileArray.set(this.ls.progress.classic.guesses);
+        this.guessAttempts = this.tileArray().length / 6;
+        this.characterData = this.ds.getClassicCharacterData(this.ls.progress.classic.series);
+        this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
+        this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
 
-            if (this.ls.progress.classic.complete) {
-                this.isComplete.set(true);
-                this.searchVal.set(this.ls.progress.classic.target!);
-                this.fanArt = this.ds.fanArt.find(e => e.character == this.ls.progress.classic.target)!;
-            }
-            this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
+        if (this.ls.progress.classic.complete) {
+            this.isComplete.set(true);
+            this.searchVal.set(this.ls.progress.classic.target!);
+            this.fanArt = this.ds.fanArt.find(e => e.character == this.ls.progress.classic.target)!;
+        }
+        this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
 
 
     }
 
-    getCountdownConfig() {
-        return this.ds.getCountdownConfig();
-    }
-
-    shuffleArray(array: []) {
+    shuffleArray(array: any[]) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(this.rand.next() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];

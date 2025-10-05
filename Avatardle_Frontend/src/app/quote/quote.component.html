@@ -18,7 +18,7 @@
     </div>
 
     <div class="search-container">
-        <ul class="search-dropdown" [style.display]="isVisible ? 'block' : 'none'">
+        <ul class="search-dropdown" [style.display]="isVisible() ? 'block' : 'none'">
             @for (char of charList; track char){
             <li (mousedown)="onEnter(char)">
                 <img src="images/characters/{{char | hyphenate}}.webp" style="width: 3rem; padding-right: 1rem;">
@@ -27,8 +27,8 @@
             }
         </ul>
         <input type="text" placeholder="{{'searchPlaceholder' | translate}}" class="quote-search-bar"
-            (input)="onInput()" spellcheck="false" autocomplete="off" (focusout)="isVisible=false"
-            (focusin)="isVisible=true" (keydown.enter)="onEnter()" [(ngModel)]="searchVal" [disabled]="isComplete()"
+            (input)="onInput()" spellcheck="false" autocomplete="off" (focusout)="isVisible.set(false)"
+            (focusin)="isVisible.set(true)" (keydown.enter)="onEnter(charList[0])" [(ngModel)]="searchVal" [disabled]="isComplete()"
             [class.quote-complete]="isComplete()" />
     </div>
 </div>
@@ -36,12 +36,12 @@
 
 @if(isComplete()){
 <div class="correct-quote-guess fade-in">
-    <div class="title">{{target}}</div>
-    <img src="images/characters/{{target | hyphenate}}.webp">
+    <div class="title">{{target()}}</div>
+    <img src="images/characters/{{target() | hyphenate}}.webp">
     <div class="complete-container">
         <p>{{'attempts' | translate}}<span style="color: beige;">{{ls.progress.quote.numGuesses}}</span></p>
         <p>{{'quote.next' | translate}}<span style="color: beige;">
-                <countdown [config]="getCountdownConfig()" />
+                <countdown [config]="ds.getCountdownConfig()" />
             </span></p>
     </div>
 </div>

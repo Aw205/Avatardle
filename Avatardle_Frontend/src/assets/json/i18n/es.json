@@ -35,8 +35,7 @@
         "next": "Siguiente personaje en: ",
         "settings": {
             "title": "Seleccionar series",
-            "progressWarning": "Guardar restablecerá el progreso actual si está incompleto",
-            "errorMessage": "*Selecciona al menos 1 serie"
+            "progressWarning": "Guardar restablecerá el progreso actual si está incompleto"
         },
         "icons": {
             "alter-ego": "Álter Ego",

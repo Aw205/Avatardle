@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   MatDialogTitle,
   MatDialogContent,
@@ -10,7 +10,8 @@ import { TranslatePipe } from '@ngx-translate/core';
     selector: 'app-about-dialog',
     imports: [MatDialogTitle, MatDialogContent,TranslatePipe],
     templateUrl: './about-dialog.component.html',
-    styleUrl: './about-dialog.component.css'
+    styleUrl: './about-dialog.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutDialogComponent {
 

@@ -2,35 +2,30 @@
     <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
 </h1>
 <mat-dialog-content
-    style="color:beige; font-family: Georgia; background-color: rgb(20,20,20); border-radius: 1rem; margin: 1rem; ">
+    style="color:beige; font-family: Georgia; background-color: rgb(20,20,20); border-radius: 1rem; margin: 1rem;">
 
-    <div style="display: flex; flex-direction: column; position:relative; padding: 1.5rem;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; width: 80%; margin: auto; margin-top:10%; position: relative; ">
         <span class="material-symbols-outlined cycle-button">cycle</span>
-
-        <div style="display: flex; justify-content: center;">
-            <div style="border-top-left-radius: 100%;transform-origin:bottom right" class="element-container"
-                [class.water-selected]="selected =='water'">
-                <img src="images/elements/water.svg" style="position:relative;top:30%; left:30%;" class="element"
-                    (click)="onClick('water')" [class.selected]="selected =='water'">
-            </div>
-            <div style="border-top-right-radius: 100%;transform-origin:bottom left" class="element-container"
-                [class.earth-selected]="selected =='earth'">
-                <img src="images/elements/earth.svg" style="position:relative;top:30%; left:10%;" class="element"
-                    (click)="onClick('earth')" [class.selected]="selected =='earth'">
-            </div>
+       
+        <div style="border-top-left-radius: 100%;transform-origin:bottom right" class="element-container"
+            [class.water-selected]="selected =='water'">
+            <img src="images/elements/water.svg" style="position:relative;top:30%; left:30%;" class="element"
+                (click)="onClick('water')" [class.selected]="selected =='water'">
         </div>
-
-        <div style="display: flex; justify-content: center;">
-            <div style="border-bottom-left-radius: 100%; transform-origin:top right" class="element-container"
-                [class.air-selected]="selected =='air'">
-                <img src="images/elements/air.svg" style="position:relative;top:10%; left:30%;" class="element"
-                    (click)="onClick('air')" [class.selected]="selected =='air'">
-            </div>
-            <div style="border-bottom-right-radius: 100%; transform-origin: top left;" class="element-container"
-                [class.fire-selected]="selected=='fire'">
-                <img src="images/elements/fire.svg" style="position:relative;top:5%; left:10%;" class="element"
-                    (click)="onClick('fire')" [class.selected]="selected =='fire'">
-            </div>
+        <div style="border-top-right-radius: 100%;transform-origin:bottom left" class="element-container"
+            [class.earth-selected]="selected =='earth'">
+            <img src="images/elements/earth.svg" style="position:relative;top:30%; left:10%;" class="element"
+                (click)="onClick('earth')" [class.selected]="selected =='earth'">
+        </div>
+        <div style="border-bottom-left-radius: 100%; transform-origin:top right" class="element-container"
+            [class.air-selected]="selected =='air'">
+            <img src="images/elements/air.svg" style="position:relative;top:10%; left:30%;" class="element"
+                (click)="onClick('air')" [class.selected]="selected =='air'">
+        </div>
+        <div style="border-bottom-right-radius: 100%; transform-origin: top left;" class="element-container"
+            [class.fire-selected]="selected=='fire'">
+            <img src="images/elements/fire.svg" style="position:relative;top:5%; left:10%;" class="element"
+                (click)="onClick('fire')" [class.selected]="selected =='fire'">
         </div>
     </div>
 

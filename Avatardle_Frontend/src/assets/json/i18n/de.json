@@ -35,8 +35,7 @@
         "next": "Nächstes Zeichen in: ",
         "settings": {
             "title": "Serie auswählen",
-            "progressWarning": "Wenn das Speichern unvollständig ist, wird der aktuelle Fortschritt zurückgesetzt",
-            "errorMessage": "*Wählen Sie mindestens 1 Serie"
+            "progressWarning": "Wenn das Speichern unvollständig ist, wird der aktuelle Fortschritt zurückgesetzt"
         },
         "icons": {
             "alter-ego": "Alter Ego",

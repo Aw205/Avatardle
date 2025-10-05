@@ -35,8 +35,7 @@
         "next": "Next character in: ",
         "settings": {
             "title": "Select series",
-            "progressWarning": "Saving will reset current progress if incomplete",
-            "errorMessage": "*Select at least 1 series"
+            "progressWarning": "Saving will reset current progress if incomplete"
         },
         "icons": {
             "alter-ego": "Alter Ego",

@@ -1,4 +1,4 @@
-import { afterNextRender, Component, inject, signal, WritableSignal } from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DataService } from '../services/data.service';
 import { TmNgOdometerModule } from 'odometer-ngx';
@@ -13,35 +13,39 @@ import { LocalStorageService } from '../services/local-storage.service';
   selector: 'picture',
   imports: [FormsModule, TmNgOdometerModule, AsyncPipe, TranslatePipe],
   templateUrl: './picture.component.html',
-  styleUrl: './picture.component.css'
+  styleUrl: './picture.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PictureMode {
 
   targetFrame: WritableSignal<string> = signal("");
+  isVisible: WritableSignal<boolean> = signal(true);
+  isComplete: WritableSignal<boolean> = signal(false);
+
   targetEpisode: string = "";
   epiNum: string = "";
+  searchVal: string = "";
+  selected: string = "";
+
   incorrectAnswers: string[] = [];
   episodeList: string[] = [];
   episodeData: string[] = [];
   englishEpisodeData: string[] = [];
-  searchVal: string = "";
-  isVisible: boolean = true;
-  selected: string = "";
-  isComplete: WritableSignal<boolean> = signal(false);
-  scaleRatio: number = 2;
-  grayscaleRatio: number = 1;
+
+
+  scaleRatio: WritableSignal<number> = signal(2);
+  grayscaleRatio: WritableSignal<number> = signal(1);
   modelKey: string | null = null;
   addt: WritableSignal<boolean> = signal(false);
 
-  ls: LocalStorageService = inject(LocalStorageService);
-  isBrowser = (typeof window != "undefined");
+  translationSub!: Subscription;
 
   title: Title = inject(Title);
   meta: Meta = inject(Meta);
-
-  translationSub!: Subscription;
-  ds: DataService = inject(DataService);
-  ts: TranslateService = inject(TranslateService);
+  ls = inject(LocalStorageService);
+  ds = inject(DataService);
+  ts = inject(TranslateService);
+  isBrowser = (typeof window != "undefined");
 
 
   constructor(private route: ActivatedRoute) {
@@ -104,13 +108,12 @@ export class PictureMode {
       this.selected = this.englishEpisodeData.find((name) => name.includes(id))!;
     }
 
-
     if (this.selected == this.targetEpisode) {
 
       this.modelKey = "episodes." + this.targetEpisode;
 
-      this.scaleRatio = 1;
-      this.grayscaleRatio = 0;
+      this.scaleRatio.set(1);
+      this.grayscaleRatio.set(0);
       this.ls.progress.picture.numGuesses++;
       this.ds.throwConfetti(this.ls.progress.picture.numGuesses);
 
@@ -138,11 +141,12 @@ export class PictureMode {
   setRatios(numGuesses: number) {
 
     if (this.isComplete()) {
-      [this.scaleRatio, this.grayscaleRatio] = [1, 0];
+      this.scaleRatio.set(1);
+      this.grayscaleRatio.set(0);
       return;
     }
-    this.scaleRatio = 2 - Math.min(1, numGuesses * 0.2);
-    this.grayscaleRatio = 1 - Math.min(1, numGuesses * 0.2);
+    this.scaleRatio.set(2 - Math.min(1, numGuesses * 0.2));
+    this.grayscaleRatio.set(1 - Math.min(1, numGuesses * 0.2));
   }
 
 }

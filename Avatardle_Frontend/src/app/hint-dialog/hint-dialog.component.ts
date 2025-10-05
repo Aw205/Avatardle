@@ -1,11 +1,12 @@
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 
 @Component({
   selector: 'hint-dialog',
   imports: [MatDialogTitle, MatDialogContent],
   templateUrl: './hint-dialog.component.html',
-  styleUrl: './hint-dialog.component.css'
+  styleUrl: './hint-dialog.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HintDialogComponent {
 
