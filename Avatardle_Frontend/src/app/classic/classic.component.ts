@@ -172,8 +172,6 @@ export class ClassicMode {
             this.fanArt = this.ds.fanArt.find(e => e.character == this.ls.progress.classic.target)!;
         }
         this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
-
-
     }
 
     shuffleArray(array: any[]) {
