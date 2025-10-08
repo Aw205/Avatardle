@@ -12,23 +12,23 @@
     <blockquote>{{quote()}}</blockquote>
     <div class="clue-container">
         @for(h of hints; track h; let i = $index){
-        <button aria-label="Quote Hint" [disabled]="!isEnabled(i)" (click)="showHint(i)" [matTooltip]="getTooltipText(i)"
-            matTooltipPosition="right"><img src="images/lotus.svg" alt=""></button>
+        <button aria-label="Quote Hint" [disabled]="!isEnabled(i)" (click)="showHint(i)"
+            [matTooltip]="getTooltipText(i)" matTooltipPosition="right"><img src="images/lotus.svg" alt=""></button>
         }
     </div>
 
     <div class="search-container">
         <ul class="search-dropdown" [style.display]="isVisible() ? 'block' : 'none'">
-            @for (char of charList; track char){
+            @for (char of charList(); track char){
             <li (mousedown)="onEnter(char)">
                 <img src="images/characters/{{char | hyphenate}}.webp" style="width: 3rem; padding-right: 1rem;">
                 {{char}}
             </li>
             }
         </ul>
-        <input type="text" placeholder="{{'searchPlaceholder' | translate}}" class="quote-search-bar"
-            (input)="onInput()" spellcheck="false" autocomplete="off" (focusout)="isVisible.set(false)"
-            (focusin)="isVisible.set(true)" (keydown.enter)="onEnter(charList[0])" [(ngModel)]="searchVal" [disabled]="isComplete()"
+        <input type="text" placeholder="{{'searchPlaceholder' | translate}}" class="quote-search-bar" spellcheck="false"
+            autocomplete="off" (focusout)="isVisible.set(false)" (focusin)="isVisible.set(true)"
+            (keydown.enter)="onEnter(charList()[0])" [(ngModel)]="searchVal" [disabled]="isComplete()"
             [class.quote-complete]="isComplete()" />
     </div>
 </div>
@@ -39,7 +39,7 @@
     <div class="title">{{target()}}</div>
     <img src="images/characters/{{target() | hyphenate}}.webp">
     <div class="complete-container">
-        <p>{{'attempts' | translate}}<span style="color: beige;">{{ls.progress.quote.numGuesses}}</span></p>
+        <p>{{'attempts' | translate}}<span style="color: beige;">{{ls.progress().quote.numGuesses}}</span></p>
         <p>{{'quote.next' | translate}}<span style="color: beige;">
                 <countdown [config]="ds.getCountdownConfig()" />
             </span></p>

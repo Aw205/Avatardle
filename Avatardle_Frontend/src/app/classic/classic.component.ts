@@ -1,4 +1,4 @@
-import { afterNextRender, ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, computed, effect, inject, Signal, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand, { PRNG } from 'rand-seed';
 import { tileData } from '../tile/tile.component';
@@ -28,14 +28,17 @@ export class ClassicMode {
     isComplete: WritableSignal<boolean> = signal(false);
     isVisible: WritableSignal<boolean> = signal(true);
     guessAttempts: number = 0;
-   
+
     targetChar!: Character;
     rand!: Rand;
 
     fanArt!: FanArt;
     img!: { pathName: string, artist: { name: string, link: string }, epithet: string };
 
-    charList: Character[] = [];
+    charList: Signal<Character[]> = computed(() => {
+        let val = this.searchVal().toLowerCase();
+        return this.characterData.filter(char => val != '' && char.name.toLowerCase().includes(val));
+    });
     characterData: Character[] = [];
     tileArray: WritableSignal<tileData[]> = signal([]);
 
@@ -59,10 +62,6 @@ export class ClassicMode {
             name: "description",
             content: "Guess characters from Avatar the Last Airbender and The Legend of Korra based on their various traits."
         });
-    }
-
-    onInput() {
-        this.charList = this.characterData.filter(char => char.name.toLowerCase().includes(this.searchVal().toLowerCase()) && this.searchVal() != "");
     }
 
     onEnter(char: Character | undefined) {
@@ -97,7 +96,7 @@ export class ClassicMode {
                         break;
                     case "affiliations":
 
-                        this.rand = new Rand(this.ls.progress.date! + char!.name);
+                        this.rand = new Rand(this.ls.progress().date! + char!.name);
                         tileData.affiliations = this.shuffleArray([...val]).slice(0, 3);
                         let count = tileData.affiliations!.reduce((acc, curr) => acc + targetVal.includes(curr) | 0, 0);
                         tileData.isCorrect = (count == 0) ? false : (count == tileData.affiliations!.length) ? true : undefined;
@@ -119,13 +118,12 @@ export class ClassicMode {
             this.tileArray().unshift(...tmp);
             setTimeout(this.checkGuess.bind(this), 800 * 6, numCorrect);
             this.characterData.splice(this.characterData.indexOf(char), 1);
-            this.ls.progress.classic.guesses = this.tileArray().map((t) => {
+
+            this.ls.patch(['classic', 'guesses'], this.tileArray().map((t) => {
                 return { ...t, hasTransition: false, delay: 0 }
-            });
-            this.ls.update();
+            }));
         }
         this.searchVal.set('');
-        this.charList = [];
     }
 
     checkGuess(numCorrect: number) {
@@ -133,12 +131,10 @@ export class ClassicMode {
         if (numCorrect == 6) {
 
             this.ds.updateStats("classic");
-            this.ds.throwConfetti(this.ls.progress.classic.guesses.length);
+            this.ds.throwConfetti(this.ls.progress().classic.guesses.length);
             this.searchVal.set(this.targetChar.name);
 
-            this.ls.progress.classic.target = this.targetChar.name;
-            this.ls.progress.classic.complete = true;
-            this.ls.update();
+            this.ls.patch(['classic', 'complete'], true);
             this.isComplete.set(true);
 
             setTimeout(() => {
@@ -159,17 +155,18 @@ export class ClassicMode {
 
     setData() {
 
-        this.rand = new Rand(this.ls.progress.date! + "classic");
-        this.tileArray.set(this.ls.progress.classic.guesses);
+        this.rand = new Rand(this.ls.progress().date! + "classic");
+        this.tileArray.set(this.ls.progress().classic.guesses);
         this.guessAttempts = this.tileArray().length / 6;
-        this.characterData = this.ds.getClassicCharacterData(this.ls.progress.classic.series);
+        this.characterData = this.shuffleArray(this.ds.getClassicCharacterData(this.ls.progress().classic.series));
+
         this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
         this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
 
-        if (this.ls.progress.classic.complete) {
+        if (this.ls.progress().classic.complete) {
             this.isComplete.set(true);
-            this.searchVal.set(this.ls.progress.classic.target!);
-            this.fanArt = this.ds.fanArt.find(e => e.character == this.ls.progress.classic.target)!;
+            this.searchVal.set(this.targetChar.name);
+            this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
         }
         this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
     }

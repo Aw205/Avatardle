@@ -1,4 +1,4 @@
-import { afterNextRender, ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, computed, inject, Signal, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand from 'rand-seed';
 import { DataService } from '../services/data.service';
@@ -29,7 +29,10 @@ export class QuoteMode {
     isVisible: WritableSignal<boolean> = signal(true);
     searchVal: WritableSignal<string> = signal('');
 
-    charList: string[] = [];
+    charList: Signal<string[]> = computed(() => {
+        let val = this.searchVal().toLowerCase();
+        return this.characterData.filter(char => val != '' && char.toLowerCase().includes(val));
+    });
     characterData: string[] = [];
     hints: { title: string, quote: string }[] = [];
     incorrectAnswers: string[] = [];
@@ -48,11 +51,10 @@ export class QuoteMode {
 
             this.characterData = this.ds.getQuoteCharacterData();
 
-            let rand = new Rand(this.ls.progress.date! + "quote");
+            let rand = new Rand(this.ls.progress().date! + "quote");
             let idx = this.ds.quoteIndices[Math.floor(rand.next() * this.ds.quoteIndices.length)];
-            if (this.ls.progress.quote.complete) {
+            if (this.ls.progress().quote.complete) {
                 this.isComplete.set(true);
-                this.searchVal.set("-" + this.ls.progress.quote.target); 
             }
 
             this.ds.transcript$.subscribe((data) => {
@@ -64,6 +66,10 @@ export class QuoteMode {
                     { title: "Next Line", quote: data[idx + 1].script },
                     { title: "Episode Name", quote: this.ds.episodes[data[idx].total_number - 1] }
                 ];
+
+                if (this.ls.progress().quote.complete) {
+                    this.searchVal.set("-" + this.target()); 
+                }
             });
 
         });
@@ -77,20 +83,14 @@ export class QuoteMode {
         });
     }
 
-    onInput() {
-        this.charList = this.characterData.filter(char => char.toLowerCase().includes(this.searchVal().toLowerCase()) && this.searchVal() != "");
-    }
-
     onEnter(select: string | undefined) {
 
         if (select == this.target()) {
 
             this.searchVal.set("-" + this.target());
-            let guesses = this.ls.progress.quote.numGuesses + 1;
             this.isComplete.set(true);
-            this.ls.progress.quote = { complete: true, target: this.target(), numGuesses: guesses };
-            this.ls.update();
-            this.ds.throwConfetti(this.ls.progress.quote.numGuesses);
+            this.ls.patch(['quote'],{ complete: true, numGuesses: this.ls.progress().quote.numGuesses + 1 });
+            this.ds.throwConfetti(this.ls.progress().quote.numGuesses);
             this.ds.updateStats("quote");
 
         }
@@ -98,17 +98,14 @@ export class QuoteMode {
 
             this.incorrectAnswers.unshift(select);
             this.searchVal.set('');
-            this.charList = [];
-            this.characterData.splice(this.characterData.indexOf(select), 1)
-            this.ls.progress.quote.numGuesses++;
-            this.ls.update();
-
+            this.characterData.splice(this.characterData.indexOf(select), 1);
+            this.ls.patch(['quote','numGuesses'], this.ls.progress().quote.numGuesses + 1);
         }
     }
 
     isEnabled(hintId: number) {
 
-        return this.isComplete() || this.ls.progress.quote.numGuesses >= 2 + hintId;
+        return this.isComplete() || this.ls.progress().quote.numGuesses >= 2 + hintId;
     }
 
     showHint(hintId: number) {
@@ -123,7 +120,7 @@ export class QuoteMode {
 
     getTooltipText(hintId: number): string {
 
-        let diff = hintId + 2 - this.ls.progress.quote.numGuesses;
+        let diff = hintId + 2 - this.ls.progress().quote.numGuesses;
         if (diff <= 0 || this.isComplete()) {
             return "Hint available!";
         }

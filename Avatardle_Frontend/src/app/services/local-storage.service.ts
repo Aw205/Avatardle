@@ -1,13 +1,13 @@
-import { afterNextRender, inject, Injectable } from '@angular/core';
+import { afterNextRender, effect, inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { tileData } from '../tile/tile.component';
 
 export interface AvatardleProgress {
   date: string,
   version: string,
-  classic: { complete: boolean, target: string | undefined, guesses: tileData[], series: string[] },
-  quote: { complete: boolean, target: string | undefined, numGuesses: number },
-  picture: { complete: boolean, target: string | undefined, numGuesses: number },
+  classic: { complete: boolean, guesses: tileData[], series: string[] },
+  quote: { complete: boolean, numGuesses: number },
+  picture: { complete: boolean, numGuesses: number },
   particleSettings: { enable: boolean },
   language: string | undefined
 }
@@ -17,55 +17,61 @@ export interface AvatardleProgress {
 })
 export class LocalStorageService {
 
-  VERSION: string = "1.2.2";
+  VERSION: string = "1.2.3";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
-  progress!: AvatardleProgress;
+  progress: WritableSignal<AvatardleProgress>;
   default: AvatardleProgress = {
     date: this.currentDate,
     version: this.VERSION,
-    classic: { complete: false, target: undefined, guesses: [], series: ["ATLA-title"] },
-    quote: { complete: false, target: undefined, numGuesses: 0 },
-    picture: { complete: false, target: undefined, numGuesses: 0 },
+    classic: { complete: false, guesses: [], series: ["ATLA-title"] },
+    quote: { complete: false, numGuesses: 0 },
+    picture: { complete: false, numGuesses: 0 },
     particleSettings: {
       enable: true
     },
     language: undefined
   };
-
+  
+  isBrowser: boolean = (typeof window != "undefined");
 
   constructor() {
-
     let ts = inject(TranslateService);
+    this.progress = signal(this.default);
     afterNextRender(() => {
       if (localStorage.getItem("avatardle_progress") != null) {
         try {
-          this.progress = JSON.parse(localStorage.getItem("avatardle_progress")!);
-          if (this.progress.version != this.default.version) {
-            this.update(this.default);
-            this.progress = this.default;
-          }
-          else if (this.currentDate != this.progress.date) {
-            this.default.language = this.progress.language;
-            this.default.classic.series = this.progress.classic.series ?? ["ATLA-title"];
-            this.update(this.default);
-            this.progress = this.default;
+          this.progress.set(JSON.parse(localStorage.getItem("avatardle_progress")!));
+          if (this.currentDate != this.progress().date || this.VERSION != this.progress().version) {
+            this.default.language = this.progress().language;
+            this.default.classic.series = this.progress().classic.series ?? ["ATLA-title"];
+            this.progress.set(this.default);
           }
         }
         catch (e) {
           console.error(e);
-          this.update(this.default);
-          this.progress = this.default;
+          this.progress.set(this.default);
         }
       }
-      else {
-        this.update(this.default);
-        this.progress = this.default;
-      }
-      ts.use(this.progress?.language ?? navigator.language.split("-")[0]);
+      ts.use(this.progress()?.language ?? navigator.language.split("-")[0]);
     });
+
+    if(this.isBrowser){
+      effect(() => {
+        localStorage.setItem("avatardle_progress", JSON.stringify(this.progress()));
+      });
+    }
   }
 
-  update(data: AvatardleProgress = this.progress) {
-    localStorage.setItem("avatardle_progress", JSON.stringify(data));
+  patch(path: string[], value: any) {
+
+    this.progress.update(obj => {
+      const copy = structuredClone(obj);
+      let curr: any = copy;
+      for (let i = 0; i < path.length - 1; i++) {
+        curr = curr[path[i]];
+      }
+      curr[path[path.length - 1]] = value;
+      return copy;
+    });
   }
 }

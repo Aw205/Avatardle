@@ -26,7 +26,7 @@ export class ClassicSettingsDialogComponent {
   ngOnInit() {
 
     for (let item of this.list) {
-      if (this.ls.progress.classic.series.includes(item.name)) {
+      if (this.ls.progress().classic.series.includes(item.name)) {
         item.selected = true;
       }
     }
@@ -43,14 +43,12 @@ export class ClassicSettingsDialogComponent {
     this.snackBar.open("Saved!", undefined, { panelClass: "snack-bar", duration: 4000 });
     let series = this.list.filter((item) => item.selected == true).map((item) => item.name);
 
-    if (JSON.stringify(series) != JSON.stringify(this.ls.progress.classic.series)) {
-      this.ls.progress.classic.series = series;
-      if (!this.ls.progress.classic.complete) {
-        this.ls.progress.classic.guesses = [];
-        this.ls.update();
+    if (JSON.stringify(series) != JSON.stringify(this.ls.progress().classic.series)) {
+      this.ls.patch(['classic','series'],series);
+      if (!this.ls.progress().classic.complete) {
+        this.ls.patch(['classic','guesses'],[]);
         return this.dialogRef.close({ reset: true });
       }
-      this.ls.update();
     }
     this.dialogRef.close();
   }

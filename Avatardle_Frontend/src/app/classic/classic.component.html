@@ -1,13 +1,12 @@
 <div id="search-container">
     <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250" class="search-symbol">
-    <input type="text" placeholder="{{'searchPlaceholder' | translate}}" spellcheck="false"
-        autocomplete="off" (input)="onInput()" (focusout)="isVisible.set(false)" (focusin)="isVisible.set(true)"
-        (keydown.enter)="onEnter(charList[0])" [(ngModel)]="searchVal" [disabled]="isComplete()"
-        [class.search-complete]="isComplete()" />
+    <input type="text" placeholder="{{'searchPlaceholder' | translate}}" spellcheck="false" autocomplete="off"
+        (focusout)="isVisible.set(false)" (focusin)="isVisible.set(true)" (keydown.enter)="onEnter(charList()[0])"
+        [(ngModel)]="searchVal" [disabled]="isComplete()" [class.search-complete]="isComplete()" />
     <span class="material-symbols-outlined settings-icon" (click)="openDialog('settings')">settings</span>
 
     <ul class="search-dropdown" [style.display]="isVisible() ? 'block' : 'none'">
-        @for (char of charList; track char.name){
+        @for (char of charList(); track char.name){
         <li (mousedown)="onEnter(char)">
             <img src="images/characters/{{char.name | hyphenate}}.webp" style="width: 3rem; padding-right: 1rem;">
             {{char.name}}

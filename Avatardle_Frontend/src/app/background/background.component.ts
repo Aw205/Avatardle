@@ -35,7 +35,7 @@ export class Background {
   constructor(@Inject(PLATFORM_ID) private platformId: object) {
 
     afterNextRender(() => {
-      this.showParticles.set(this.ls.progress.particleSettings.enable);
+      this.showParticles.set(this.ls.progress().particleSettings.enable);
     })
   }
 
@@ -79,8 +79,7 @@ export class Background {
         let ele = dialogRef.componentInstance.selected;
         this.showParticles.set(dialogRef.componentInstance.enableParticles());
 
-        this.ls.progress.particleSettings.enable = this.showParticles();
-        this.ls.update();
+        this.ls.patch(['particleSettings','enable'], this.showParticles());
 
         if (this.showParticles() && ele != this.currElement) {
           this.showParticles.set(false);

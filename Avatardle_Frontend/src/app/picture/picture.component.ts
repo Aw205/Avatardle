@@ -65,12 +65,12 @@ export class PictureMode {
       this.targetEpisode = this.route.snapshot.data["image"].target;
       this.epiNum = this.targetEpisode.substring(0, 7);
 
-      if (this.ls.progress.picture.complete) {
+      if (this.ls.progress().picture.complete) {
         this.isComplete.set(true);
-        this.modelKey = this.modelKey = "episodes." + this.ls.progress.picture.target;
+        this.modelKey = this.modelKey = "episodes." + this.targetEpisode;
       }
 
-      this.setRatios(this.ls.progress.picture.numGuesses);
+      this.setRatios(this.ls.progress().picture.numGuesses);
       setTimeout(() => {
         this.addt.set(true);
       }, 500);
@@ -114,13 +114,12 @@ export class PictureMode {
 
       this.scaleRatio.set(1);
       this.grayscaleRatio.set(0);
-      this.ls.progress.picture.numGuesses++;
-      this.ds.throwConfetti(this.ls.progress.picture.numGuesses);
-
+     
       this.isComplete.set(true);
-      this.ls.progress.picture.complete = true;
-      this.ls.progress.picture.target = this.targetEpisode;
-      this.ls.update();
+
+      this.ls.patch(['picture'],{complete: true, numGuesses: this.ls.progress().picture.numGuesses + 1});
+
+      this.ds.throwConfetti(this.ls.progress().picture.numGuesses);
       this.ds.updateStats("picture");
     }
     else if (this.selected != "") {
@@ -131,10 +130,8 @@ export class PictureMode {
       this.episodeData.splice(this.episodeData.indexOf(this.selected), 1);
       this.selected = "";
 
-      this.ls.progress.picture.numGuesses++;
-      this.ls.update();
-      this.setRatios(this.ls.progress.picture.numGuesses);
-
+      this.ls.patch(['picture','numGuesses'],this.ls.progress().picture.numGuesses + 1);
+      this.setRatios(this.ls.progress().picture.numGuesses);
     }
   }
 

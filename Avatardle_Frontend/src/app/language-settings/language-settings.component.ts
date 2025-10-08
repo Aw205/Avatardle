@@ -33,8 +33,7 @@ export class LanguageSettingsComponent {
   }
 
   setLanguage(code: string) {
-    this.ls.progress.language = code;
-    this.ls.update();
+    this.ls.patch(['language'],code);
     this.ts.use(code);
   }
 

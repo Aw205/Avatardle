@@ -24,7 +24,7 @@ export class ParticleSettingsComponent {
     this.selected = data.currElement;
 
     afterNextRender(() => {
-      this.enableParticles.set(this.ls.progress.particleSettings.enable);
+      this.enableParticles.set(this.ls.progress().particleSettings.enable);
     })
   }
   
