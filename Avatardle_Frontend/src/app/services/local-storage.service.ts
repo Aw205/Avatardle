@@ -37,9 +37,8 @@ export class LocalStorageService {
   constructor() {
     let ts = inject(TranslateService);
     this.progress = signal(this.default);
-    
+
     if(this.isBrowser){
-     
       if (localStorage.getItem("avatardle_progress") != null) {
         try {
           this.progress.set(JSON.parse(localStorage.getItem("avatardle_progress")!));

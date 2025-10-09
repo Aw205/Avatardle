@@ -165,15 +165,17 @@ export class ClassicMode {
 
         if (this.ls.progress().classic.complete) {
             this.isComplete.set(true);
-            this.searchVal.set(this.targetChar.name);
-            this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
+            this.searchVal.set(this.tileArray()[0].name!);
+            this.fanArt = this.ds.fanArt.find(e => e.character == this.tileArray()[0].name!)!;
         }
         this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
     }
 
     shuffleArray(array: any[]) {
+
+        let rand = new Rand(this.ls.progress().date! + "classic_shuffle");
         for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(this.rand.next() * (i + 1));
+            const j = Math.floor(rand.next() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
