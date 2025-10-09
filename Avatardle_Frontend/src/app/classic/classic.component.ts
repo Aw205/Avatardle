@@ -26,7 +26,7 @@ export class ClassicMode {
 
     searchVal: WritableSignal<string> = signal('');
     isComplete: WritableSignal<boolean> = signal(false);
-    isVisible: WritableSignal<boolean> = signal(true);
+    isVisible: WritableSignal<boolean> = signal(false);
     guessAttempts: number = 0;
 
     targetChar!: Character;
@@ -36,8 +36,8 @@ export class ClassicMode {
     img!: { pathName: string, artist: { name: string, link: string }, epithet: string };
 
     charList: Signal<Character[]> = computed(() => {
-        let val = this.searchVal().toLowerCase();
-        return this.characterData.filter(char => val != '' && char.name.toLowerCase().includes(val));
+            let val = this.searchVal().toLowerCase();
+            return this.characterData.filter(char => val != '' && char.name.toLowerCase().includes(val));
     });
     characterData: Character[] = [];
     tileArray: WritableSignal<tileData[]> = signal([]);
