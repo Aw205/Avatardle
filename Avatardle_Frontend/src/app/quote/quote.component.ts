@@ -53,9 +53,7 @@ export class QuoteMode {
 
             let rand = new Rand(this.ls.progress().date! + "quote");
             let idx = this.ds.quoteIndices[Math.floor(rand.next() * this.ds.quoteIndices.length)];
-            if (this.ls.progress().quote.complete) {
-                this.isComplete.set(true);
-            }
+            this.isComplete.set(this.ls.progress().quote.complete);
 
             this.ds.transcript$.subscribe((data) => {
 

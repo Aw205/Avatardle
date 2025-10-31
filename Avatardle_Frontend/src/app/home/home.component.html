@@ -6,13 +6,18 @@
     </a>
 
     <a routerLink="/quote" routerLinkActive="active" ariaCurrentWhenActive="page">
-        <div class="paisho-sprite" style="background-position: 20% 0;"></div>
+        <div class="paisho-sprite" style="background-position: calc(100%/6) 0;"></div>
         <span>{{'home.quote' | translate}}</span>
     </a>
 
     <a routerLink="/picture" routerLinkActive="active" ariaCurrentWhenActive="page">
-        <div class="paisho-sprite" style="background-position: 40% 0;"></div>
+        <div class="paisho-sprite" style="background-position: calc(100%/6 * 2) 0;"></div>
         <span>{{'home.picture' | translate}}</span>
+    </a>
+
+    <a routerLink="/music" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <div class="paisho-sprite" style="background-position: calc(100%/6 * 6) 0;"></div>
+        <span>{{'home.music' | translate}}</span>
     </a>
     
 </div>

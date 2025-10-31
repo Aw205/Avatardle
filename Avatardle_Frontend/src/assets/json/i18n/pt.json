@@ -4,6 +4,7 @@
     "searchPlaceholder": "pesquisar...",
     "save": "Salvar",
     "odometer": "pessoas completaram hoje!",
+    "artist": "Artista: ",
     "attempts": "Tentativos: ",
     "All": "Todos",
     "Unknown": "Desconhecido",
@@ -22,7 +23,8 @@
     "home": {
         "classic": "Clássico",
         "quote": "Citação",
-        "picture": "Imagen"
+        "picture": "Imagen",
+        "music": "Música"
     },
     "classic": {
         "character": "Personagem",
@@ -31,7 +33,6 @@
         "bendingElement": "Elemento de Dobra",
         "affiliations": "Afiliações",
         "firstAppearance": "Primeira Aparição",
-        "artBy": "Arte de: ",
         "next": "Próximo personagem em: ",
         "settings": {
             "title": "Selecione a série",
@@ -81,6 +82,13 @@
     "quote": {
         "next": "Próxima citação em: "
     },
+    "music":{
+        "help": "Combine a música com a cena",
+        "next": "Próxima música em: ",
+        "char-hint": "Personagem relevante:",
+        "music-hint":"Música completa revelada!",
+        "confirm": "Confirmar"
+    },
     "commentDialog": {
         "title": "Envie um comentário",
         "placeholder": "Quaisquer comentários, feedback ou sugestões são bem-vindos :)",
@@ -94,17 +102,17 @@
     "helpDialog": {
         "title": "Ajuda"
     },
-    "aboutDialog":{
+    "aboutDialog": {
         "title": "Sobre",
         "disclaimer": "Este site é um projeto criado por um fã, inspirado em Avatar: A Lenda de Aang. Não é afiliado nem endossado pela Nickelodeon, Paramount ou qualquer uma de suas subsidiárias. Todos os direitos sobre o conteúdo original pertencem aos seus respectivos proprietários.",
-        "credits":{
+        "credits": {
             "background": "Imagem de fundo: ",
             "iroh": "Imagem de Iroh Pai Sho: ",
             "paisho": "Imagem do bloco Pai Sho: "
         },
-        "other":{
+        "other": {
             "title": "Outro",
-            "content": "Por favor, me digam quais melhorias eu poderia fazer e quaisquer outros recursos que vocês queiram adicionar! Obrigado a todos que enviaram comentários, eu realmente gosto de lê-los :)" 
+            "content": "Por favor, me digam quais melhorias eu poderia fazer e quaisquer outros recursos que vocês queiram adicionar! Obrigado a todos que enviaram comentários, eu realmente gosto de lê-los :)"
         }
     },
     "languageSettings": {

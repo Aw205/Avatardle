@@ -38,6 +38,7 @@ export interface DailyStats {
   classic_completion: number,
   quote_completion: number,
   picture_completion: number,
+  music_completion: number
 }
 
 export interface FanArt{
@@ -45,6 +46,17 @@ export interface FanArt{
   character: string,
   images: {pathName:string,artist:{name:string,link:string},epithet:string}[]
   
+}
+
+export interface Ost{
+  name: string,
+  audio: string,
+  book: number,
+  episode: number,
+  link: string,
+  characters: string[],
+  numScenes: number,
+  timestamps: string[]
 }
 
 @Injectable({
@@ -66,6 +78,7 @@ export class DataService {
   stats$!: Observable<DailyStats>;
   con$!: Observable<any>;
   transcript$!: Observable<Transcript[]>;
+  osts$!: Observable<Ost[]>;
 
   constructor(private http: HttpClient) { }
 
@@ -101,6 +114,7 @@ export class DataService {
     this.transcript$ = this.http.get<Transcript[]>('json/full_transcript.json').pipe(shareReplay(1));
     this.pictureData$ = this.http.get<Episode>('json/episodes.json').pipe(shareReplay(1));
     this.con$ = this.http.get<any>('json/particleConfigs.json').pipe(shareReplay(1));
+    this.osts$ = this.http.get<Ost[]>('json/osts.json').pipe(shareReplay(1));
     return ob;
   }
 

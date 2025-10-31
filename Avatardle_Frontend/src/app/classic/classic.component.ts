@@ -73,7 +73,7 @@ export class ClassicMode {
 
             Object.entries(char).forEach(([key, val], index) => {
 
-                let tileData: tileData = { isCorrect: false, backgroundPosition: `${index * 20}% 0`, delay: 800 * (index - 1), hasTransition: true };
+                let tileData: tileData = { isCorrect: false, backgroundPosition: `${100/6 * index}% 0`, delay: 800 * (index - 1), hasTransition: true };
                 let targetVal: any = this.targetChar![key as keyof Character];
 
                 if (val == targetVal) {

@@ -39,6 +39,6 @@ app.listen(port, () => {
 });
 
 cron.schedule('0 0 * * *', () => {
-    let sql = `UPDATE stats SET classic_completion = 0, quote_completion = 0, picture_completion = 0 WHERE type='daily'`;
+    let sql = `UPDATE stats SET classic_completion = 0, quote_completion = 0, picture_completion = 0, music_completion = 0 WHERE type='daily'`;
     pool.query(sql);
 });

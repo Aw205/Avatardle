@@ -4,6 +4,7 @@
     "searchPlaceholder": "rechercher...",
     "save": "Enregistrer",
     "odometer": "personnes l'ont terminé aujourd'hui !",
+    "artist": "Artiste: ",
     "attempts": "Tentatives : ",
     "All": "Tout",
     "Unknown": "Inconnu",
@@ -22,7 +23,8 @@
     "home": {
         "classic": "Classique",
         "quote": "Citation",
-        "picture": "Image"
+        "picture": "Image",
+        "music": "Musique"
     },
     "classic": {
         "character": "Personnage",
@@ -31,7 +33,6 @@
         "bendingElement": "Maîtrise élémentaire",
         "affiliations": "Affiliations",
         "firstAppearance": "Première apparition",
-        "artBy": "Art de: ",
         "next": "Prochain personnage dans : ",
         "settings": {
             "title": "Choisissez séries",
@@ -81,6 +82,13 @@
     "quote": {
         "next": "Prochaine citation dans : "
     },
+    "music":{
+        "help": "Associez la musique à la scène.",
+        "next": "Prochaine chanson dans: ",
+        "char-hint": "Personnage pertinent:",
+        "music-hint":"Musique complète dévoilée !",
+        "confirm": "Confirmer"
+    },
     "commentDialog": {
         "title": "Envoyer un commentaire",
         "placeholder": "Tous commentaires, retours ou suggestions sont les bienvenus :)",
@@ -94,25 +102,25 @@
     "helpDialog": {
         "title": "Aide"
     },
-    "aboutDialog":{
+    "aboutDialog": {
         "title": "À propos",
         "disclaimer": "Ce site web est un projet créé par un fan, inspiré d'Avatar : Le Dernier Maître de l'Air. Il n'est ni affilié ni approuvé par Nickelodeon, Paramount ou leurs filiales. Tous les droits sur le contenu original appartiennent à leurs propriétaires respectifs.",
-        "credits":{
+        "credits": {
             "background": "Image d'arrière-plan : ",
             "iroh": "Image d'Iroh Pai Sho : ",
             "paisho": "Image de tuile Pai Sho : "
         },
-        "other":{
+        "other": {
             "title": "Autre",
-            "content": "N'hésitez pas à me faire part des améliorations que je pourrais apporter et des fonctionnalités que vous souhaiteriez ajouter ! Merci à tous vos commentaires ; j'ai vraiment plaisir à les lire :)" 
+            "content": "N'hésitez pas à me faire part des améliorations que je pourrais apporter et des fonctionnalités que vous souhaiteriez ajouter ! Merci à tous vos commentaires ; j'ai vraiment plaisir à les lire :)"
         }
     },
-    "languageSettings":{
+    "languageSettings": {
         "title": "Choisissez votre langue"
     },
     "Water": "Eau",
     "Earth": "Terre",
-    "Air": "Air",   
+    "Air": "Air",
     "Fire": "Feu",
     "episodes": {
         "S01E01 The Boy in the Iceberg": "Le garçon bloqué dans l'iceberg",

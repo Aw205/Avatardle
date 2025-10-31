@@ -4,11 +4,12 @@
     "searchPlaceholder": "suchen...",
     "save": "Speichern",
     "odometer": "Personen haben es heute geschafft!",
+    "artist": "Künstler: ",
     "attempts": "Versuche: ",
     "All": "Alle",
     "Unknown": "Unbekannt",
     "None": "Keiner",
-    "Male": "Männlich", 
+    "Male": "Männlich",
     "Female": "Weiblich",
     "Fire Nation": "Feuernation",
     "Earth Kingdom": "Erdkönigreich",
@@ -22,7 +23,8 @@
     "home": {
         "classic": "Klassiker",
         "quote": "Zitat",
-        "picture": "Bild"
+        "picture": "Bild",
+        "music": "Musik"
     },
     "classic": {
         "character": "Charakter",
@@ -31,7 +33,6 @@
         "bendingElement": "Bändigen de Element",
         "affiliations": "Zugehörigkeiten",
         "firstAppearance": "Erster Auftritt",
-        "artBy": "Kunst von: ",
         "next": "Nächstes Zeichen in: ",
         "settings": {
             "title": "Serie auswählen",
@@ -81,6 +82,13 @@
     "quote": {
         "next": "Das nächste Angebot in: "
     },
+    "music":{
+        "help": "Die Musik zur Szene anpassen",
+        "next": "Nächster Song in: ",
+        "char-hint": "Relevante Figur:",
+        "music-hint":"Vollständige Musik enthüllt!",
+        "confirm": "Bestätigen"
+    },
     "commentDialog": {
         "title": "Einen Kommentar hinterlassen",
         "placeholder": "Kommentare, Feedback oder Vorschläge sind willkommen :)",
@@ -94,20 +102,20 @@
     "helpDialog": {
         "title": "Hilfe"
     },
-    "aboutDialog":{
+    "aboutDialog": {
         "title": "Über",
         "disclaimer": "Diese Website ist ein von Fans erstelltes Projekt, inspiriert von Avatar: Der Herr der Elemente. Sie steht in keiner Verbindung zu Nickelodeon, Paramount oder deren Tochtergesellschaften und wird auch nicht von diesen unterstützt. Alle Rechte an den Originalinhalten liegen bei den jeweiligen Eigentümern.",
-        "credits":{
+        "credits": {
             "background": "Hintergrundbild: ",
             "iroh": "Iroh Pai Sho Bild: ",
             "paisho": "Pai Sho-Kachelbild: "
         },
-        "other":{
+        "other": {
             "title": "Sonstige",
-            "content": "Bitte lasst mich wissen, welche Verbesserungen ich vornehmen könnte und welche weiteren Funktionen ihr hinzufügen möchtet! Vielen Dank an alle, die mir Kommentare geschickt haben. Ich lese sie sehr gerne :)" 
+            "content": "Bitte lasst mich wissen, welche Verbesserungen ich vornehmen könnte und welche weiteren Funktionen ihr hinzufügen möchtet! Vielen Dank an alle, die mir Kommentare geschickt haben. Ich lese sie sehr gerne :)"
         }
     },
-    "languageSettings":{
+    "languageSettings": {
         "title": "Sprache auswählen"
     },
     "Water": "Wasser",

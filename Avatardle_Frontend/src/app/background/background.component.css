@@ -3,7 +3,7 @@
     position: relative;
     width: fit-content;
     margin: auto;
-    margin-top: 3.5vh;
+    margin-top: 2rem;
 
     &>img {
         position: absolute;

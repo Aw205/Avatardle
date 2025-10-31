@@ -947,6 +947,19 @@
         ]
     },
     {
+        "character": "Longshot",
+        "images": [
+            {
+                "pathName": "longshot_1.webp",
+                "artist": {
+                    "name": "Chiptrillino",
+                    "link": "https://www.tumblr.com/chiptrillino/652019724790726656/you-use-this-ask-as-an-excuse-to-post-all-those"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Mai",
         "images": [
             {

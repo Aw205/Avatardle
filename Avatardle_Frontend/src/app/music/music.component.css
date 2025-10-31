@@ -1,0 +1,260 @@
+.play-pause-btn {
+    cursor: pointer;
+
+    &.paused path {
+        d: path("M35 25 H45 V75 H35 Z M55 25 H65 V75 H55 Z");
+    }
+}
+
+
+.image-grid {
+
+    display: grid;
+    justify-content: center;
+    gap: 0.75rem;
+    grid-template-columns: repeat(3, 15rem);
+    justify-items: center;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+
+    div:has(> .disabled-image)::after {
+
+        content: "\00d7";
+        color: rgba(255, 0, 0, 0.288);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 5rem;
+
+    }
+
+    & img {
+        width: 100%;
+        height: auto;
+        border: 1px solid black;
+        cursor: pointer;
+        transition: filter 0.3s ease-in-out;
+
+        &.disabled-image {
+            filter: grayscale(1) brightness(0.2);
+        }
+    }
+}
+
+.audio-container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    gap: 1rem;
+    border: 1px outset black;
+    outline: 2px solid black;
+    background-color: rgb(20, 20, 20);
+    border-radius: 16px;
+    padding-inline: 1rem;
+
+
+    &>.time {
+        font: 1rem avatar2;
+        color: gray;
+        width: 3rem;
+        user-select: none;
+    }
+
+    &>.slider {
+        position: relative;
+        height: 0.3rem;
+        border-radius: 16px;
+        width: 100%;
+        background-color: #333;
+        cursor: pointer;
+
+
+        &>.filled {
+            position: absolute;
+            background-color: dimgray;
+            border-radius: 16px;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+        }
+
+        &>.thumb {
+            position: absolute;
+            visibility: hidden;
+            background-color: gray;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 0;
+            width: 0.8rem;
+            height: 0.8rem;
+            border-radius: 50%;
+        }
+
+        &:hover {
+            &>.filled {
+                background-color: darkgoldenrod;
+            }
+
+            &>.thumb {
+                visibility: visible;
+            }
+        }
+    }
+
+}
+
+.main-container {
+
+    width: 40rem;
+    height: 15rem;
+    margin: auto;
+    position: relative;
+    background-color: rgb(30, 30, 30);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    box-shadow: 0px 0px 1rem 40px #00000082;
+}
+
+.complete {
+
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    color: goldenrod;
+    text-align: left;
+    width: 25rem;
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 1rem 20px #00000082;
+    padding: 1rem;
+    border-radius: 16px;
+    font: 1rem avatar2;
+
+    &>.title {
+
+        font: 1.5rem avatar2;
+        color: darkgoldenrod;
+        text-align: center;
+        margin-bottom: 1rem;
+        border: 1px outset black;
+        outline: 2px solid black;
+        border-radius: 8px;
+        background-color: rgb(15, 15, 15);
+    }
+
+    &>img {
+        width: 100%;
+        border-radius: 0.5rem;
+        border: 1px outset black;
+        outline: 2px solid black;
+    }
+
+    &>.complete-container {
+
+        border: 1px outset black;
+        outline: 2px solid black;
+        border-radius: 1rem;
+        background-color: rgb(15, 15, 15);
+        text-indent: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+.artist-name {
+    text-decoration: underline 1px;
+    color: inherit;
+    text-underline-offset: 0.2rem;
+
+    &:hover {
+        color: darkgoldenrod;
+    }
+}
+
+.spoiler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    background-color: rgb(30, 30, 30);
+    border: none;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s linear;
+}
+
+.hint-content {
+    position: relative;
+    width: 70%;
+    font: bolder 1rem avatar2;
+    color: gray;
+    padding-left: 1rem;
+    white-space: pre;
+
+    &>span {
+        color: darkgoldenrod;
+        padding-left: 1rem;
+    }
+}
+
+.disable-hint {
+
+    filter: saturate(0) brightness(0.5);
+    transition: filter 400ms linear;
+}
+
+.clue-container {
+
+    display: flex;
+    padding-left: 1rem;
+    flex-direction: column;
+    width: 80%;
+    border: 1px outset black;
+    outline: 2px solid black;
+    background-color: rgb(20, 20, 20);
+    border-radius: 16px;
+    padding: 1rem;
+
+    & img {
+
+        width: 2rem;
+    }
+
+}
+
+.revealed {
+    opacity: 0.2;
+    cursor: default;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .main-container {
+        width: 90%;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(3, 7rem);
+    }
+
+    .clue-container {
+
+        & img {
+            width: 1.5rem;
+        }
+    }
+
+    .hint-content {
+
+        width: 90%;
+        font: bolder 0.8rem avatar2;
+        padding-left: 0;
+    }
+
+    .spoiler {
+        height: 100%;
+    }
+}

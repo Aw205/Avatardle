@@ -1,0 +1,63 @@
+@if(isBrowser){
+<div
+    style="max-width: fit-content; position:relative; font: 1rem avatar2; color: gray; margin:auto; margin-top: 5rem; z-index: 1; padding-bottom: 0.5rem;">
+    <tm-ng-odometer [number]="(ds.stats$ | async)?.music_completion ?? 0" theme="minimal"
+        style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
+</div>
+}
+
+<div class="main-container">
+    <div style="font:1rem avatar2;" [style.color]="isComplete() ? 'seagreen' : 'gray'">{{'music.help' | translate}}
+    </div>
+    <div class="audio-container">
+        <svg viewBox="0 0 100 100" width="32" height="32" class="play-pause-btn" [class.paused]="!isPaused()"
+            (click)="togglePlay()">
+            <path fill="gray" d="M35 25 L75 50 L35 75 Z" />
+        </svg>
+        <span class="time" [style.color]="hints?.[1]?.show ? 'plum': 'gray'">{{displayCurrTime()*1000 | date: 'm:ss'}}
+        </span>
+        <div #slider class="slider" (pointerdown)="onPointerDown($event)">
+            <div class="filled" [style.width.%]="progress() * 100"></div>
+            <div #thumb class="thumb" [style.left.%]="progress() * 100"></div>
+        </div>
+        <span class="time" [style.color]="hints?.[1]?.show ? 'plum': 'gray'">{{duration()*1000 | date: 'm:ss'}}</span>
+    </div>
+
+    <div class="clue-container">
+        @for(h of hints; track h; let i = $index){
+        <div style="font: 1rem avatar2; color: gray; display: flex; gap:1rem; width: 100%; align-items: center;">
+            <img src="images/lotus.svg" alt="" [class.disable-hint]="!isEnabled(i)">
+            <div class="hint-content">{{h.title | translate}}<span>{{h.body}}</span>
+                <button aria-label="Hint" class="spoiler" [disabled]="hints?.[i]?.show" [matTooltip]="getTooltipText(i)"
+                    matTooltipPosition="right" (click)="revealHint(i)" [class.revealed]="hints?.[i]?.show"
+                    [matTooltipDisabled]="hints?.[i]?.show"></button>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+<div class="image-grid">
+    @for(img of images(); track img;){
+    <div style="position: relative;">
+        <img [src]="img" alt="A scene from Avatar: The Last Airbender" width="720" height="540"
+            [class.disabled-image]="selected().has(img)" (click)="expandImage(img)">
+    </div>
+    }
+</div>
+
+@if(isComplete()){
+<div class="complete">
+    <div class="title">{{targetOST?.name}}</div>
+    <img [src]="targetScene">
+    <div class="complete-container">
+        <p>{{'artist' | translate}} <span style="color: beige;"><a class="artist-name" [href]="targetOST?.link"
+                    target="_blank">Jeremy
+                    Zuckerman</a></span> </p>
+        <p>{{'attempts' | translate}}<span style="color: beige;">{{ls.progress().music.numGuesses}}</span></p>
+        <p>{{'music.next' | translate}}<span style="color: beige;">
+                <countdown [config]="ds.getCountdownConfig()" />
+            </span></p>
+    </div>
+</div>
+}

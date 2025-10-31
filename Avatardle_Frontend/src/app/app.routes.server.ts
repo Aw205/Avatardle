@@ -20,5 +20,9 @@ export const serverRoutes: ServerRoute[] = [
   {
     path: 'picture',
     renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'music',
+    renderMode: RenderMode.Prerender
   }
 ];

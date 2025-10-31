@@ -1,0 +1,742 @@
+[
+    {
+        "name": "Yip Yip",
+        "audio": "Yip Yip.mp3",
+        "book": 1,
+        "episode": 1,
+        "link": "https://open.spotify.com/track/6bAoiBiWjH0rmJvImBd6xk",
+        "characters": [
+            "Aang",
+            "Katara",
+            "Sokka"
+        ],
+        "numScenes": 12,
+        "timeStamps": [
+            "9:50 - 10:27"
+        ]
+    },
+    {
+        "name": "A Way With Animals",
+        "audio": "A Way With Animals.mp3",
+        "book": 1,
+        "episode": 1,
+        "link": "https://open.spotify.com/track/2tZEVJaFiSRVMmxkNACzGZ",
+        "characters": [
+            "Aang",
+            "Katara"
+        ],
+        "numScenes": 23,
+        "timeStamps": [
+            "18:52 - 19:38"
+        ]
+    },
+    {
+        "name": "Banished",
+        "audio": "Banished.mp3",
+        "book": 1,
+        "episode": 2,
+        "link": "https://open.spotify.com/track/5qPPkJVtGVolTEMDqFgwHv",
+        "characters": [
+            "Aang", "Katara" ,"Sokka"
+        ],
+        "numScenes": 16,
+        "timeStamps": [
+            "1:58 - 3:55"
+        ]
+    },
+    {
+        "name": "Katara",
+        "audio": "main.mp3",
+        "book": 1,
+        "episode": 2,
+        "link": "https://open.spotify.com/track/1qJ4R74wjxIppvI2Y7kblF",
+        "characters": [
+            "Katara"
+        ],
+        "numScenes": 29,
+        "timeStamps": [
+            "10:40 - 12:08"
+        ]
+    },
+    {
+        "name": "Aang (The Avatar State)",
+        "audio": "Aang (The Avatar State).mp3",
+        "book": 1,
+        "episode": 2,
+        "link": "https://open.spotify.com/track/3635MrstNCZ9uLvTHxe0cI",
+        "characters": [
+            "Aang"
+        ],
+        "numScenes": 24,
+        "timeStamps": [
+            "17:30 - 18:25"
+        ]
+    },
+    {
+        "name": "Into a Nighttime Sky",
+        "audio": "Into a Nighttime Sky.mp3",
+        "book": 1,
+        "episode": 3,
+        "link": "https://open.spotify.com/track/2y8BlRGslycrmocQMHfG7a",
+        "characters": [
+            "Aang"
+        ],
+        "numScenes": 4,
+        "timeStamps": [
+            "21:54 - 22:32"
+        ]
+    },
+    {
+        "name": "Agni Kai",
+        "audio": "Agni Kai.mp3",
+        "book": 1,
+        "episode": 3,
+        "link": "https://open.spotify.com/track/5QANrRucwudemMzx5kXlUM",
+        "characters": [
+            "Zuko",
+            "Zhao"
+        ],
+        "numScenes": 42,
+        "timeStamps": [
+            "17:52 - 19:22"
+        ]
+    },
+    {
+        "name": "The Kyoshi Warriors",
+        "audio": "The Kyoshi Warriors.mp3",
+        "book": 1,
+        "episode": 4,
+        "link": "https://open.spotify.com/track/2XpNbYRNJjsgwmKYcjbJsY",
+        "characters": [
+            "Suki"
+        ],
+        "numScenes": 32,
+        "timeStamps": [
+            "5:02 - 5:12",
+            "7:28 - 7:48",
+            "13:18 - 13:30",
+            "18:20 - 19:20"
+        ]
+    },
+    {
+        "name": "Just a Simple Monk",
+        "audio": "Just a Simple Monk.mp3",
+        "book": 1,
+        "episode": 4,
+        "link": "https://open.spotify.com/track/07QNFKsDgAeKgrcO2sGNfa",
+        "characters": [
+            "Aang"
+        ],
+        "numScenes": 12,
+        "timeStamps": [
+            "8:45 - 9:42"
+        ]
+    },
+    {
+        "name": "Superslide",
+        "audio": "Superslide.mp3",
+        "book": 1,
+        "episode": 5,
+        "link": "https://open.spotify.com/track/0Vlob0TM8TV8Nqj5RSQTdG",
+        "characters": [
+            "Aang",
+            "Katara",
+            "Sokka"
+        ],
+        "numScenes": 37,
+        "timeStamps": [
+            "4:47 - 6:39"
+        ]
+    },
+    {
+        "name": "Remember Your Courage",
+        "audio": "Remember Your Courage.mp3",
+        "book": 1,
+        "episode": 6,
+        "link": "https://open.spotify.com/track/2M3f5n02Z1v8AQje7Y0quW",
+        "characters": [
+            "Katara"
+        ],
+        "numScenes": 8,
+        "timeStamps": [
+            "14:40 - 15:45"
+        ]
+    },
+    {
+        "name": "Into Fire Nation Territory",
+        "audio": "Into Fire Nation Territory.mp3",
+        "book": 1,
+        "episode": 8,
+        "link": "https://open.spotify.com/track/5e7p50wdaDIUFyT9Y9oVqL",
+        "characters": [
+            "Aang",
+            "Katara",
+            "Sokka",
+            "Zhao"
+        ],
+        "numScenes": 117,
+        "timeStamps": [
+            "2:13 - 7:56"
+        ]
+    },
+    {
+        "name": "Roku Destroys the Temple",
+        "audio": "Roku Destroys the Temple.mp3",
+        "book": 1,
+        "episode": 8,
+        "link": "https://open.spotify.com/track/73Yw0JO26G3QzZ4cbCWOFf",
+        "characters": [
+            "Roku"
+        ],
+        "numScenes": 21,
+        "timeStamps": [
+            "1:58 - 2:00"
+        ]
+    },
+    {
+        "name": "Jet",
+        "audio": "Jet.mp3",
+        "book": 1,
+        "episode": 10,
+        "link": "https://open.spotify.com/track/5XZVcvcia7iRH9I90raVvR",
+        "characters": [
+            "Jet","Katara"
+        ],
+        "numScenes": 16,
+        "timeStamps": [
+            "4:18 - 5:34",
+            "7:20 - 7:40"
+        ]
+    },
+    {
+        "name": "Running Away",
+        "audio": "Running Away.mp3",
+        "book": 1,
+        "episode": 12,
+        "link": "https://open.spotify.com/track/1LHWrNnibfLMfDGyzr2blk",
+        "characters": [
+            "Aang"
+        ],
+        "numScenes": 19,
+        "timeStamps": [
+            "6:30 - 7:10",
+            "7:20 - 7:50",
+            "8:55 - 9:48"
+        ]
+    },
+    {
+        "name": "Zuko's Scar",
+        "audio": "Zuko's Scar.mp3",
+        "book": 1,
+        "episode": 12,
+        "link": "https://open.spotify.com/track/18itPzo0FlsaQvzSOVaNWJ",
+        "characters": [
+            "Zuko","Ozai"
+        ],
+        "numScenes": 8,
+        "timeStamps": [
+            "17:15 - 17:45"
+        ]
+    },
+    {
+        "name": "A Dream",
+        "audio": "A Dream.mp3",
+        "book": 1,
+        "episode": 12,
+        "link": "https://open.spotify.com/track/4YAtuYuQxUdMkrDofheXQl",
+        "characters": [
+            "Aang"
+        ],
+        "numScenes": 16,
+        "timeStamps": [
+            "1:00 - 1:50"
+        ]
+    },
+    {
+        "name": "Blue Spirit Rescue",
+        "audio": "Blue Spirit Rescue.mp3",
+        "book": 1,
+        "episode": 13,
+        "link": "https://open.spotify.com/track/7JnFkdHqC5l4BW5C08j8wU",
+        "characters": [
+            "Aang",
+            "Zuko"
+        ],
+        "numScenes": 37,
+        "timeStamps": [
+            "8:37 - 10:10",
+            "17:20 - 19:20"
+        ]
+    },
+    {
+        "name": "The Blue Spirit",
+        "audio": "The Blue Spirit.mp3",
+        "book": 1,
+        "episode": 13,
+        "link": "https://open.spotify.com/track/5DmBTZsWmDNPTiyJdqAAkV",
+        "characters": [
+            "Zuko"
+        ],
+        "numScenes": 25,
+        "timeStamps": [
+            "12:05 - 13:55",
+            "20:57 - 21:32"
+        ]
+    },
+    {
+        "name": "June (Underbelly)",
+        "audio": "June (Underbelly).mp3",
+        "book": 1,
+        "episode": 15,
+        "link": "https://open.spotify.com/track/3gfg4gAoTXEhIk2eEOeI2D",
+        "characters": [
+            "June"
+        ],
+        "numScenes": 23,
+        "timeStamps": [
+            "6:14 - 7:42"
+        ]
+    },
+    {
+        "name": "The Deserter",
+        "audio": "The Deserter.mp3",
+        "book": 1,
+        "episode": 16,
+        "link": "https://open.spotify.com/track/0e66o0CYIfRZH952iV9ns5",
+        "characters": [
+            "Jeong Jeong","Aang"
+        ],
+        "numScenes": 22,
+        "timeStamps": [
+            "6:48 - 7:25",
+            "9:50 - 11:52"
+        ]
+    },
+    {
+        "name": "To the Air Temple",
+        "audio": "To the Air Temple.mp3",
+        "book": 1,
+        "episode": 17,
+        "link": "https://open.spotify.com/track/2lqeZSQi1EqG7MHwmgMs6o",
+        "characters": [
+            "Teo",
+            "Aang"
+        ],
+        "numScenes": 35,
+        "timeStamps": [
+            "2:02 - 4:47"
+        ]
+    },
+    {
+        "name": "Descendents",
+        "audio": "Descendents.mp3",
+        "book": 1,
+        "episode": 17,
+        "link": "https://open.spotify.com/track/4suLfFEAcUMug2h90QatYo",
+        "characters": ["Teo","Mechanist"],
+        "numScenes": 49,
+        "timeStamps": [
+            "5:05 - 8:30",
+            "22:10 - 22:40"
+        ]
+    },
+    {
+        "name": "The Northern Water Tribe (Yue and Sokka)",
+        "audio": "The Northern Water Tribe (Yue and Sokka).mp3",
+        "book": 1,
+        "episode": 18,
+        "link": "https://open.spotify.com/track/3t0U97mMaHJj1wje6BfsoK",
+        "characters": [
+            "Yue",
+            "Sokka"
+        ],
+        "numScenes": 27,
+        "timeStamps": [
+            "2:25 - 3:45"
+        ]
+    },
+    {
+        "name": "Winter, Spring, Summer and Fall",
+        "audio": "Winter, Spring, Summer and Fall.mp3",
+        "book": 1,
+        "episode": 18,
+        "link": "https://open.spotify.com/track/38GifS782SoRqYWBEnpdX1",
+        "characters": [
+            "Iroh"
+        ],
+        "numScenes": 7,
+        "timeStamps": [
+            "3:50 - 4:24"
+        ]
+    },
+    {
+        "name": "Koh the Face Stealer",
+        "audio": "Koh the Face Stealer.mp3",
+        "book": 1,
+        "episode": 20,
+        "link": "https://open.spotify.com/track/7KsFr9P59b99Blih7KKYoK",
+        "characters": [
+            "Koh"
+        ],
+        "numScenes": 41,
+        "timeStamps": [
+            "6:35 - 8:28",
+            "8:56 - 10:12"
+        ]
+    },
+    {
+        "name": "The Spirit World",
+        "audio": "The Spirit World.mp3",
+        "book": 1,
+        "episode": 20,
+        "link": "https://open.spotify.com/track/2Mcs6d25CCJ93zgiQxx7OP",
+        "characters": ["Aang"],
+        "numScenes": 28,
+        "timeStamps": [
+            "1:44 - 2:33"
+        ]
+    },
+    {
+        "name": "Yue Becomes the Moon Spirit",
+        "audio": "Yue Becomes the Moon Spirit.mp3",
+        "book": 1,
+        "episode": 20,
+        "link": "https://open.spotify.com/track/2Rk9Upo9W0UyQvHqmbTERA",
+        "characters": [
+            "Yue","Sokka"
+        ],
+        "numScenes": 26,
+        "timeStamps": [
+            "18:35 - 19:22",
+            "20:00 - 20:33"
+        ]
+    },
+    {
+        "name": "Aang Becomes Ocean",
+        "audio": "Aang Becomes Ocean.mp3",
+        "book": 1,
+        "episode": 20,
+        "link": "https://open.spotify.com/track/5fWYUYpBbnpQYkQSie8Moj",
+        "characters": [
+            "Aang"
+        ],
+        "numScenes": 24,
+        "timeStamps": [
+            "16:34 - 17:46",
+            "19:28 - 20:00"
+        ]
+    },
+    {
+        "name": "Aftermath",
+        "audio": "Aftermath.mp3",
+        "book": 1,
+        "episode": 20,
+        "link": "https://open.spotify.com/track/66MjQuppOze62MWlULglI9",
+        "characters": ["Aang","Katara","Sokka"],
+        "numScenes": 13,
+        "timeStamps": [
+            "21:32 - 23:09"
+        ]
+    },
+    {
+        "name": "Aang and Roku",
+        "audio": "Aang and Roku.mp3",
+        "book": 2,
+        "episode": 1,
+        "link": "https://open.spotify.com/track/5RzYTCss5eQAzpbeOqXTLC",
+        "characters": [
+            "Aang",
+            "Roku"
+        ],
+        "numScenes": 29,
+        "timeStamps": [
+            "20:16 - 21:45"
+        ]
+    },
+    {
+        "name": "Secret Tunnel",
+        "audio": "Secret Tunnel.mp3",
+        "book": 2,
+        "episode": 2,
+        "link": "https://open.spotify.com/track/2t9V5MYwfADqSdKWqnRRFP",
+        "characters": [
+            "Chong"
+        ],
+        "numScenes": 6,
+        "timeStamps": [
+            "4:30 - 5:12"
+        ]
+    },
+    {
+        "name": "The Cave of Two Lovers",
+        "audio": "The Cave of Two Lovers.mp3",
+        "book": 2,
+        "episode": 2,
+        "link": "https://open.spotify.com/track/2mr7bU5l1YZykv3i7jQFLi",
+        "characters": [
+            "Aang",
+            "Katara"
+        ],
+        "numScenes": 23,
+        "timeStamps": [
+            "14:18 - 15:46",
+            "16:43 - 17:00",
+            "19:00 - 19:20"
+        ]
+    },
+    {
+        "name": "Visions in the Swamp",
+        "audio": "Visions in the Swamp.mp3",
+        "book": 2,
+        "episode": 4,
+        "link": "https://open.spotify.com/track/4acvzXW84tYIyhEyIOnL7k",
+        "characters": [
+            "Aang",
+            "Katara",
+            "Sokka"
+        ],
+        "numScenes": 27,
+        "timeStamps": [
+            "10:11 - 10:47",
+            "11:03 - 12:12",
+            "13:18 - 13:35"
+        ]
+    },
+    {
+        "name": "The Mystical Swamp",
+        "audio": "The Mystical Swamp.mp3",
+        "book": 2,
+        "episode": 4,
+        "link": "https://open.spotify.com/track/1jcr5cxnQbkU2IiFD1UW1P",
+        "characters": ["Huu"],
+        "numScenes": 14,
+        "timeStamps": [
+            "18:14 - 20:10"
+        ]
+    },
+    {
+        "name": "Ursa",
+        "audio": "Ursa.mp3",
+        "book": 2,
+        "episode": 7,
+        "link": "https://open.spotify.com/track/65SWSfHiRMMJmdRtsqv9zj",
+        "characters": [
+            "Ursa"
+        ],
+        "numScenes": 18,
+        "timeStamps": [
+            "6:17 - 7:04",
+            "11:47 - 12:03",
+            "20:12 - 20:33",
+            "22:16 - 22:25"
+        ]
+    },
+    {
+        "name": "Heroism and Rejection",
+        "audio": "Heroism and Rejection.mp3",
+        "book": 2,
+        "episode": 7,
+        "link": "https://open.spotify.com/track/79RgCWudqRaWO3LoGUb9Q9",
+        "characters": [
+            "Zuko"
+        ],
+        "numScenes": 72,
+        "timeStamps": [
+            "17:50 - 20:08",
+            "20:35 - 21:20"
+        ]
+    },
+    {
+        "name": "The White Lotus",
+        "audio": "The White Lotus.mp3",
+        "book": 2,
+        "episode": 11,
+        "link": "https://open.spotify.com/track/5eDiuXgdcgZS1VVlrc9J5V",
+        "characters": [
+            "Iroh",
+            "Zuko"
+        ],
+        "numScenes": 26,
+        "timeStamps": [
+            "10:50 - 12:02",
+            "15:18 - 16:08"
+        ]
+    },
+    {
+        "name": "Aang and the Sandbenders",
+        "audio": "Aang and the Sandbenders.mp3",
+        "book": 2,
+        "episode": 11,
+        "link": "https://open.spotify.com/track/7BJhb8yDJEyVl57tT33Txe",
+        "characters": [
+            "Aang","Katara","Toph"
+        ],
+        "numScenes": 43,
+        "timeStamps": [
+            "20:38 - 21:30",
+            "22:20 - 23:40"
+        ]
+    },
+    {
+        "name": "Aang and Hope",
+        "audio": "Aang and Hope.mp3",
+        "book": 2,
+        "episode": 12,
+        "link": "https://open.spotify.com/track/59UhOwrMuneMmc3zzz43IV",
+        "characters": [
+            "Aang","Katara","Sokka","Suki"
+        ],
+        "numScenes": 33,
+        "timeStamps": [
+            "20:16 - 22:50"
+        ]
+    },
+    {
+        "name": "Aang Takes Down the Drill",
+        "audio": "Aang Takes Down the Drill.mp3",
+        "book": 2,
+        "episode": 13,
+        "link": "https://open.spotify.com/track/6uQPnakf4pZDOzkj9S4iFw",
+        "characters": [
+            "Aang"
+        ],
+        "numScenes": 34,
+        "timeStamps": [
+            "42:23 - 43:50"
+        ]
+    },
+    {
+        "name": "Ba Sing Se",
+        "audio": "Ba Sing Se.mp3",
+        "book": 2,
+        "episode": 14,
+        "link": "https://open.spotify.com/track/3GzwwYwnlb7DDPm8qGUac2",
+        "characters": ["Aang","Katara","Sokka"],
+        "numScenes": 20,
+        "timeStamps": [
+            "1:31 - 2:42"
+        ]
+    },
+    {
+        "name": "Long Feng and the Dai Li",
+        "audio": "Long Feng and the Dai Li.mp3",
+        "book": 2,
+        "episode": 14,
+        "link": "https://open.spotify.com/track/2v9KhpeJtrTbcNfopb6pQp",
+        "characters": [
+            "Long Feng"
+        ],
+        "numScenes": 22,
+        "timeStamps": [
+            "21:14 - 23:40"
+        ]
+    },
+    {
+        "name": "Leaves From the Vine",
+        "audio": "Leaves From the Vine.mp3",
+        "book": 2,
+        "episode": 15,
+        "link": "https://open.spotify.com/track/2ogAu2P0u0BP7zGbKUotyO",
+        "characters": [
+            "Iroh"
+        ],
+        "numScenes": 14,
+        "timeStamps": [
+            "7:59 - 9:00",
+            "5:32 - 6:00"
+        ]
+    },
+    {
+        "name": "The Tale of Momo",
+        "audio": "The Tale of Momo.mp3",
+        "book": 2,
+        "episode": 15,
+        "link": "https://open.spotify.com/track/6aLwCYKt2XlOZRJjA3gYNJ",
+        "characters": [
+            "Momo"
+        ],
+        "numScenes": 64,
+        "timeStamps": [
+            "20:02 - 23:42"
+        ]
+    },
+    {
+        "name": "Appa's Lost Days",
+        "audio": "Appa's Lost Days.mp3",
+        "book": 2,
+        "episode": 16,
+        "link": "https://open.spotify.com/track/07WZHUrknF63okH7r7aui5",
+        "characters": [
+            "Appa"
+        ],
+        "numScenes": 46,
+        "timeStamps": [
+            "18:38 - 23:40"
+        ]
+    },
+    {
+        "name": "Zuko's Transformation",
+        "audio": "Zuko's Transformation.mp3",
+        "book": 2,
+        "episode": 17,
+        "link": "https://open.spotify.com/track/2c1sFq4SRgrlS5yVUsTYpF",
+        "characters": [
+            "Zuko"
+        ],
+        "numScenes": 10,
+        "timeStamps": [
+            "18:32 - 19:27"
+        ]
+    },
+    {
+        "name": "Unlocking the Chakras",
+        "audio": "Unlocking the Chakras.mp3",
+        "book": 2,
+        "episode": 19,
+        "link": "https://open.spotify.com/track/6yKgzfZaS0XO0Iwp9eAo8H",
+        "characters": [
+            "Aang",
+            "Guru Pathik"
+        ],
+        "numScenes": 80,
+        "timeStamps": [
+            "4:00 - 4:50",
+            "6:32 - 9:55",
+            "13:39 - 16:16",
+            "17:17 - 18:30",
+            "19:03 - 20:34"
+        ]
+    },
+    {
+        "name": "Zuko and Katara",
+        "audio": "Zuko and Katara.mp3",
+        "book": 2,
+        "episode": 20,
+        "link": "https://open.spotify.com/track/504Ww42kS7MIm2GFtNsrEP",
+        "characters": [
+            "Zuko",
+            "Katara"
+        ],
+        "numScenes": 14,
+        "timeStamps": [
+            "30:22 - 30:51",
+            "35:10 - 36:05"
+        ]
+    },
+    {
+        "name": "The Fall",
+        "audio": "The Fall.mp3",
+        "book": 2,
+        "episode": 20,
+        "link": "https://open.spotify.com/track/4eKc3af2rMAOz4jlK5Re4F",
+        "characters": [
+            "Aang",
+            "Katara",
+            "Azula"
+        ],
+        "numScenes": 54,
+        "timeStamps": [
+            "42:32 - 45:40"
+        ]
+    }
+]

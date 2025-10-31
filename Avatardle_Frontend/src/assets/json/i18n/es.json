@@ -4,6 +4,7 @@
     "searchPlaceholder": "buscar...",
     "save": "Guardar",
     "odometer": "personas completadas hoy!",
+    "artist": "Artista: ",
     "attempts": "Intentos: ",
     "All": "Todo",
     "Unknown": "Desconocido",
@@ -22,7 +23,8 @@
     "home": {
         "classic": "Clásico",
         "quote": "Cita",
-        "picture": "Imagen"
+        "picture": "Imagen",
+        "music": "Música"
     },
     "classic": {
         "character": "Personaje",
@@ -31,7 +33,6 @@
         "bendingElement": "Elemento de Control",
         "affiliations": "Afiliación",
         "firstAppearance": "Primera Aparición",
-        "artBy": "Arte de: ",
         "next": "Siguiente personaje en: ",
         "settings": {
             "title": "Seleccionar series",
@@ -82,6 +83,13 @@
     "quote": {
         "next": "Siguiente cita en: "
     },
+    "music":{
+        "help": "Acompaña la música a la escena.",
+        "next": "Siguiente canción en: ",
+        "char-hint": "Personaje relevante:",
+        "music-hint":"¡Música completa revelada!",
+        "confirm": "Confirmar"
+    },
     "commentDialog": {
         "title": "Enviar un comentario",
         "placeholder": "Cualquier comentario, retroalimentación o sugerencia es bienvenido :)",
@@ -92,23 +100,23 @@
         "todaysElement": "- El elemento de hoy es ",
         "enable": "Habilitar efectos de partículas"
     },
-    "helpDialog":{
+    "helpDialog": {
         "title": "Ayuda"
     },
-    "aboutDialog":{
+    "aboutDialog": {
         "title": "Acerca de",
         "disclaimer": "Este sitio web es un proyecto creado por fans e inspirado en Avatar: La Leyenda de Aang. No está afiliado ni respaldado por Nickelodeon, Paramount ni ninguna de sus subsidiarias. Todos los derechos del contenido original pertenecen a sus respectivos propietarios.",
-        "credits":{
+        "credits": {
             "background": "Imagen de fondo: ",
             "iroh": "Imagen de Iroh Pai Sho: ",
             "paisho": "Imagen de mosaico de Pai Sho: "
         },
-        "other":{
+        "other": {
             "title": "Otro",
-            "content": "¡Por favor, díganme qué mejoras puedo hacer y qué otras funciones les gustaría añadir! Gracias a todos los comentarios; disfruto mucho leyéndolos :)" 
+            "content": "¡Por favor, díganme qué mejoras puedo hacer y qué otras funciones les gustaría añadir! Gracias a todos los comentarios; disfruto mucho leyéndolos :)"
         }
     },
-    "languageSettings":{
+    "languageSettings": {
         "title": "Selecciona tu idioma"
     },
     "Water": "Agua",

@@ -4,6 +4,7 @@
     "searchPlaceholder": "search...",
     "save": "Save",
     "odometer": "people completed today!",
+    "artist": "Artist: ",
     "attempts": "Attempts: ",
     "All": "All",
     "Unknown": "Unknown",
@@ -22,7 +23,8 @@
     "home": {
         "classic": "Classic",
         "quote": "Quote",
-        "picture": "Picture"
+        "picture": "Picture",
+        "music": "Music"
     },
     "classic": {
         "character": "Character",
@@ -31,7 +33,6 @@
         "bendingElement": "Bending Element",
         "affiliations": "Affiliations",
         "firstAppearance": "First Appearance",
-        "artBy": "Art by: ",
         "next": "Next character in: ",
         "settings": {
             "title": "Select series",
@@ -80,6 +81,13 @@
     },
     "quote": {
         "next": "Next quote in: "
+    },
+    "music":{
+        "help": "Match the music to the scene",
+        "next": "Next song in: ",
+        "char-hint": "Relevant character:",
+        "music-hint":"Full music revealed!",
+        "confirm": "Confirm"
     },
     "commentDialog": {
         "title": "Send a comment",

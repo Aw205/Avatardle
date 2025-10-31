@@ -8,6 +8,7 @@ export interface AvatardleProgress {
   classic: { complete: boolean, guesses: tileData[], series: string[] },
   quote: { complete: boolean, numGuesses: number },
   picture: { complete: boolean, numGuesses: number },
+  music: { complete: boolean, numGuesses: number },
   particleSettings: { enable: boolean },
   language: string | undefined
 }
@@ -17,7 +18,7 @@ export interface AvatardleProgress {
 })
 export class LocalStorageService {
 
-  VERSION: string = "1.2.3";
+  VERSION: string = "1.3.0";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
   progress: WritableSignal<AvatardleProgress>;
   default: AvatardleProgress = {
@@ -26,6 +27,7 @@ export class LocalStorageService {
     classic: { complete: false, guesses: [], series: ["ATLA-title"] },
     quote: { complete: false, numGuesses: 0 },
     picture: { complete: false, numGuesses: 0 },
+    music: { complete: false, numGuesses: 0 },
     particleSettings: {
       enable: true
     },

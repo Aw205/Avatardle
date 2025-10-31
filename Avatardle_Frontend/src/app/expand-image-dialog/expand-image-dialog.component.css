@@ -1,0 +1,18 @@
+.confirm-button {
+
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(20, 20, 20);
+    width: fit-content;
+    border: 1px outset black;
+    outline: 2px solid black;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: gray;
+    font: 1rem avatar2;
+    margin-bottom: 1rem;
+
+}
