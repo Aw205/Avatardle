@@ -9,6 +9,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
 
+
 @Component({
   selector: 'picture',
   imports: [FormsModule, TmNgOdometerModule, AsyncPipe, TranslatePipe],
@@ -79,10 +80,10 @@ export class PictureMode {
   }
 
   ngOnInit() {
-    this.title.setTitle("Avatardle - Picture");
+    this.title.setTitle("Picture | Avatardle");
     this.meta.updateTag({
       name: "description",
-      content: "Guess the episode name by looking at a frame from an episode of Avatar: The Last Airbender."
+      content: "Play Picture Mode on Avatardle, the daily Avatar guessing game. Guess episodes from Avatar: The Last Airbender using frames from the show!"
     });
   }
 

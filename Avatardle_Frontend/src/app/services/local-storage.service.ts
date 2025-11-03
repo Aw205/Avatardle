@@ -1,4 +1,4 @@
-import { afterNextRender, effect, inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { effect, inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { tileData } from '../tile/tile.component';
 
@@ -18,7 +18,7 @@ export interface AvatardleProgress {
 })
 export class LocalStorageService {
 
-  VERSION: string = "1.3.0";
+  VERSION: string = "1.3.1";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
   progress: WritableSignal<AvatardleProgress>;
   default: AvatardleProgress = {

@@ -155,6 +155,7 @@
 
     &>.complete-container {
 
+        position: relative;
         border: 1px outset black;
         outline: 2px solid black;
         border-radius: 1rem;
@@ -238,6 +239,10 @@
 
     .image-grid {
         grid-template-columns: repeat(3, 7rem);
+    }
+
+    .complete{
+        width: 18rem;
     }
 
     .clue-container {

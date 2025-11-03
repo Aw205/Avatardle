@@ -13,10 +13,11 @@ import Rand from 'rand-seed';
 import { ExpandImageDialogComponent } from '../expand-image-dialog/expand-image-dialog.component';
 import { environment } from '../../environments/environment';
 import { LocalStorageService } from '../services/local-storage.service';
+import { ShareResultsComponent } from '../share-results/share-results.component';
 
 @Component({
   selector: 'music',
-  imports: [DatePipe, TranslatePipe, FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, CountdownComponent],
+  imports: [DatePipe, TranslatePipe, FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, CountdownComponent,ShareResultsComponent],
   templateUrl: './music.component.html',
   styleUrl: './music.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -59,16 +60,16 @@ export class MusicMode {
   duration: WritableSignal<number> = signal(30);
   animId: number = 0;
   timeOffset: number = 0;
-  targetOST!: Ost;
+  targetOST: Ost | undefined;
   targetScene: string = "";
 
   @ViewChild('slider') slider!: ElementRef<HTMLDivElement>;
 
   ngOnInit() {
-    this.title.setTitle("Avatardle - Music");
+    this.title.setTitle("Music | Avatardle");
     this.meta.updateTag({
       name: "description",
-      content: "Match the music from Avatar: The Last Airbender to the correct scene!"
+      content: "Play Music Mode on Avatardle, the daily Avatar guessing game. Guess and match music to scenes from Avatar: The Last Airbender!"
     });
 
     if (this.isBrowser) {
@@ -191,7 +192,7 @@ export class MusicMode {
       }
     }).afterClosed().subscribe((data) => {
       if (data) {
-        if (imgURL.includes(encodeURIComponent(this.targetOST.name))) {
+        if (imgURL.includes(encodeURIComponent(this.targetOST!.name))) {
           this.isComplete.set(true);
           this.ls.patch(['music'], { complete: true, numGuesses: this.ls.progress().music.numGuesses + 1 });
           this.ds.throwConfetti(this.ls.progress().music.numGuesses);

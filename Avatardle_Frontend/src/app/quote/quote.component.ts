@@ -12,10 +12,11 @@ import { CountdownComponent } from 'ngx-countdown';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
+import { ShareResultsComponent } from '../share-results/share-results.component';
 
 @Component({
     selector: 'quote',
-    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe],
+    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe,ShareResultsComponent],
     templateUrl: './quote.component.html',
     styleUrl: './quote.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -74,10 +75,10 @@ export class QuoteMode {
     }
 
     ngOnInit() {
-        this.title.setTitle("Avatardle - Quote");
+        this.title.setTitle("Quote | Avatardle");
         this.meta.updateTag({
             name: "description",
-            content: "Guess which character from Avatar: The Last Airbender said this quote!"
+            content: "Play Quote Mode on Avatardle, the daily Avatar guessing game. Guess various quotes from Avatar: The Last Airbender!"
         });
     }
 

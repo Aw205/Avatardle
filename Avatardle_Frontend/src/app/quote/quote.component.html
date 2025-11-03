@@ -40,9 +40,10 @@
     <img src="images/characters/{{target() | hyphenate}}.webp">
     <div class="complete-container">
         <p>{{'attempts' | translate}}<span style="color: beige;">{{ls.progress().quote.numGuesses}}</span></p>
-        <p>{{'quote.next' | translate}}<span style="color: beige;">
-                <countdown [config]="ds.getCountdownConfig()" />
-            </span></p>
+        <p>{{'quote.next' | translate}}
+            <countdown [config]="ds.getCountdownConfig()" style="color:beige;" />
+        </p>
+        <share-results [numGuesses]="ls.progress().quote.numGuesses" [mode]="'quote'"></share-results>
     </div>
 </div>
 }

@@ -71,7 +71,18 @@
     @include mat.menu-overrides((container-color: rgb(40, 40, 40),
             item-label-text-color: beige,
             item-label-text-font: Georgia,
-            item-hover-state-layer-color: rgb(50, 50, 50)));
+            item-hover-state-layer-color: rgb(30, 30, 30)
+            ));
+}
+
+.share-menu {
+
+    @include mat.menu-overrides((container-color: rgb(20, 20, 20),
+            container-shape: 10px,
+            item-label-text-color: beige,
+            item-label-text-font: Georgia,
+        ));
+
 }
 
 .mat-mdc-tab-body-content {
@@ -200,7 +211,6 @@ a {
 .responsive-panel {
     max-width: none;
 }
-
 
 .exit-button {
     font-size: xx-large;

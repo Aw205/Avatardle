@@ -14,10 +14,11 @@ import { CountdownComponent } from 'ngx-countdown'
 import { TranslatePipe } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
+import { ShareResultsComponent } from '../share-results/share-results.component';
 
 @Component({
     selector: 'classic',
-    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe],
+    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent],
     templateUrl: './classic.component.html',
     styleUrl: './classic.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -36,8 +37,8 @@ export class ClassicMode {
     img!: { pathName: string, artist: { name: string, link: string }, epithet: string };
 
     charList: Signal<Character[]> = computed(() => {
-            let val = this.searchVal().toLowerCase();
-            return this.characterData.filter(char => val != '' && char.name.toLowerCase().includes(val));
+        let val = this.searchVal().toLowerCase();
+        return this.characterData.filter(char => val != '' && char.name.toLowerCase().includes(val));
     });
     characterData: Character[] = [];
     tileArray: WritableSignal<tileData[]> = signal([]);
@@ -57,10 +58,10 @@ export class ClassicMode {
     }
 
     ngOnInit() {
-        this.title.setTitle("Avatardle - Classic");
+        this.title.setTitle("Classic | Avatardle");
         this.meta.updateTag({
             name: "description",
-            content: "Guess characters from Avatar the Last Airbender and The Legend of Korra based on their various traits."
+            content: "Play Classic Mode on Avatardle, the daily Avatar guessing game. Guess characters from Avatar: The Last Airbender and The Legend of Korra!"
         });
     }
 
@@ -73,7 +74,7 @@ export class ClassicMode {
 
             Object.entries(char).forEach(([key, val], index) => {
 
-                let tileData: tileData = { isCorrect: false, backgroundPosition: `${100/6 * index}% 0`, delay: 800 * (index - 1), hasTransition: true };
+                let tileData: tileData = { isCorrect: false, backgroundPosition: `${100 / 6 * index}% 0`, delay: 800 * (index - 1), hasTransition: true };
                 let targetVal: any = this.targetChar![key as keyof Character];
 
                 if (val == targetVal) {

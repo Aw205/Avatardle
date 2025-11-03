@@ -70,10 +70,10 @@
 .correct-quote-guess {
 
     margin: auto;
-    margin-top: 10vh;
+    margin-top: 5rem;
     color: goldenrod;
     text-align: left;
-    width: 15rem;
+    width: 20rem;
     backdrop-filter: blur(5px);
     box-shadow: 0px 0px 1rem 20px #00000082;
     padding: 1rem;
@@ -168,6 +168,7 @@
 
 .complete-container {
 
+    position: relative;
     border: 1px outset black;
     outline: 2px solid black;
     border-radius: 1rem;
@@ -197,6 +198,10 @@
         &>.search-container {
             width: 60%;
         }
+    }
+
+    .correct-quote-guess {
+        width: 15rem;
     }
 
     .clue-container {

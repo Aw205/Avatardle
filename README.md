@@ -1,12 +1,13 @@
 # Avatardle
-A guessing game based on Avatar: The Last Airbender and The Legend of Korra!
+A daily guessing game based on Avatar: The Last Airbender and The Legend of Korra!
 
 ![Avatardle collage](/assets/readme_collage.webp)
 
 ## Modes 
-- ```Classic``` - Guess the random character.
-- ```Quote``` - Random quote from a character.
-- ```Picture``` - Random frame from an episode.
+- ```Classic``` - Guess the character with clues on each try.
+- ```Quote``` - Guess the character from a quote.
+- ```Picture``` - Guess the episode name from a still frame.
+- ```Music``` - Match the music to the scene.
 
 Resets daily at 12:00 AM UTC.
 

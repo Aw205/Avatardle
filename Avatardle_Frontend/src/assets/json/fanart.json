@@ -729,7 +729,15 @@
                     "name": "Cangdu06",
                     "link": "https://www.instagram.com/p/C2cpWqcvmkc/?hl=en&img_index=1"
                 },
-                "epithet": "blood boil"
+                "epithet": "boiling blood"
+            },
+            {
+                "pathName": "katara_7.webp",
+                "artist": {
+                    "name": "Yueko",
+                    "link": "https://x.com/yueko__/status/1969632787339849999/photo/1"
+                },
+                "epithet": ""
             }
         ]
     },
@@ -985,6 +993,14 @@
                     "link": "https://www.instagram.com/p/DIRjAChMT7h/?img_index=4"
                 },
                 "epithet": ""
+            },
+            {
+                "pathName": "mai_4.webp",
+                "artist": {
+                    "name": "Yuhong Ding",
+                    "link": "https://www.artstation.com/artwork/rlVxqe"
+                },
+                "epithet": ""
             }
         ]
     },
@@ -1196,6 +1212,27 @@
         ]
     },
     {
+        "character": "Smellerbee",
+        "images": [
+            {
+                "pathName": "smellerbee_1.webp",
+                "artist": {
+                    "name": "Roda",
+                    "link": "https://www.reddit.com/r/TheLastAirbender/comments/hnnase/made_a_quick_fan_art_of_smellerbee/"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "smellerbee_2.webp",
+                "artist": {
+                    "name": "Chiptrillino",
+                    "link": "https://www.tumblr.com/chiptrillino/652019724790726656/you-use-this-ask-as-an-excuse-to-post-all-those"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Sokka",
         "images": [
             {
@@ -1313,6 +1350,14 @@
                     "link": "https://www.deviantart.com/friedchicken365/art/Suki-647005793"
                 },
                 "epithet": "silver lining"
+            },
+            {
+                "pathName": "suki_6.webp",
+                "artist": {
+                    "name": "Yuhong Ding",
+                    "link": "https://www.artstation.com/artwork/dyqVrX"
+                },
+                "epithet": ""
             }
         ]
     },

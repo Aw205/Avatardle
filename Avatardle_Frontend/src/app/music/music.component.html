@@ -55,9 +55,10 @@
                     target="_blank">Jeremy
                     Zuckerman</a></span> </p>
         <p>{{'attempts' | translate}}<span style="color: beige;">{{ls.progress().music.numGuesses}}</span></p>
-        <p>{{'music.next' | translate}}<span style="color: beige;">
-                <countdown [config]="ds.getCountdownConfig()" />
-            </span></p>
+        <p>{{'music.next' | translate}}
+            <countdown [config]="ds.getCountdownConfig()" style="color: beige;" />
+        </p>
+        <share-results [numGuesses]="ls.progress().music.numGuesses" [mode]="'music'"></share-results>
     </div>
 </div>
 }

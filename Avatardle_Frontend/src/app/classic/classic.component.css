@@ -133,6 +133,7 @@
 
     &>#fanart-description {
 
+        position: relative;
         font: 1rem avatar2;
         color: beige;
         border: 1px outset black;

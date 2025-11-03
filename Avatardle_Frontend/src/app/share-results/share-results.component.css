@@ -1,0 +1,18 @@
+.share-button {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    text-indent: 0;
+    color: goldenrod;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+img {
+    width: 1.5rem;
+    padding: 0.2rem;
+    border-radius: 40%;
+    vertical-align: middle;
+}
