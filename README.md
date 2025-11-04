@@ -12,4 +12,5 @@ A daily guessing game based on Avatar: The Last Airbender and The Legend of Korr
 Resets daily at 12:00 AM UTC.
 
 ## Suggestions
-Always looking for new ideas or improvements so any feedback is really appreciated. You can send them through the comments button on the site.
+Always looking for new ideas or improvements so any feedback is really appreciated. You can send them through the comments button in the website or open a new
+[issue](https://github.com/Aw205/Avatardle/issues).

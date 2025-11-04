@@ -2,7 +2,7 @@
 import confetti from 'canvas-confetti';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { interval, Observable, shareReplay, startWith, switchMap } from 'rxjs';
+import { interval, Observable, shareReplay, startWith, Subject, switchMap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 export interface Episode {
@@ -77,8 +77,11 @@ export class DataService {
   pictureData$!: Observable<Episode>;
   stats$!: Observable<DailyStats>;
   con$!: Observable<any>;
-  transcript$!: Observable<Transcript[]>;
+  transcript$!: Observable<Transcript[]>; 
   osts$!: Observable<Ost[]>;
+
+
+  pageNotFound$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private http: HttpClient) { }
 

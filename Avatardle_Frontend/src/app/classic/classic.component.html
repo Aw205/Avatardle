@@ -59,7 +59,7 @@
         <p><span style="color: goldenrod;">{{'classic.next' | translate}}</span>
             <countdown [config]="ds.getCountdownConfig()" />
         </p>
-        <share-results [numGuesses]="ls.progress().classic.guesses.length" [mode]="'classic'"></share-results>
+        <share-results [numGuesses]="guessAttempts" [mode]="'classic'"></share-results>
     </div>
 </div>
 }

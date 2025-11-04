@@ -3,7 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { pictureResolver } from './picture.resolver';
 
 export const routes: Routes = [
-   { path: '', component: HomeComponent },
+   { path: '', component: HomeComponent},
    {
       path: 'classic',
       loadComponent: () => import('./classic/classic.component').then(module => module.ClassicMode)
@@ -21,4 +21,5 @@ export const routes: Routes = [
       path: 'music',
       loadComponent: () => import('./music/music.component').then(module => module.MusicMode)
    },
+   { path: '**', loadComponent: () => import('./not-found/not-found.component').then(module => module.NotFoundComponent) }
 ];

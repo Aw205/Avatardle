@@ -32,6 +32,8 @@ export class Background {
   cycleElement!: string;
   currElement!: string;
 
+  pageNotFound: boolean = false;
+
   constructor(@Inject(PLATFORM_ID) private platformId: object) {
 
     afterNextRender(() => {
@@ -46,6 +48,10 @@ export class Background {
     let daysElapsed = Math.floor((Date.now() - epoch.valueOf()) / (1000 * 60 * 60 * 24));
     this.cycleElement = ["water", "earth", "fire", "air"][daysElapsed % 4];
     this.currElement = this.cycleElement;
+
+    this.ds.pageNotFound$.subscribe((val)=>{
+      this.pageNotFound = val;
+    })
 
   }
 

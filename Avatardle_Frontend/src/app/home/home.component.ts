@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslatePipe } from "@ngx-translate/core";
 
@@ -10,5 +11,16 @@ import { TranslatePipe } from "@ngx-translate/core";
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
+
+    title: Title = inject(Title);
+    meta: Meta = inject(Meta);
+
+    ngOnInit() {
+        this.title.setTitle("Avatardle | Daily Avatar Guessing Game");
+        this.meta.updateTag({
+            name: "description",
+            content: "A daily guessing game based on Avatar: The Last Airbender and The Legend of Korra. Guess characters, quotes, music, and scenes from the show!"
+        });
+    }
 
 }
