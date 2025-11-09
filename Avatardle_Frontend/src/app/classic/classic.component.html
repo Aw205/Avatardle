@@ -13,6 +13,7 @@
         </li>
         }
     </ul>
+
 </div>
 
 @if(isBrowser){
@@ -20,6 +21,9 @@
     style="font: 1rem avatar2; color: gray; background-color: rgb(0,0,0,0.3); width: fit-content; margin: auto; padding: 0.5rem; border-radius: 5px; margin-top: 0.5rem; margin-bottom: 0.5rem;">
     <tm-ng-odometer [number]="(ds.stats$ | async)?.classic_completion ?? 0" theme="minimal"
         style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
+        <button [disabled]="isSurrenderDisabled()" (click)="openDialog('surrender')" class="surrender-button">
+            <span class="material-symbols-outlined" [matTooltip]="getSurrenderText()" matTooltipPosition="right" [matTooltipDisabled]="isComplete()" >flag</span>
+        </button>
 </div>
 }
 

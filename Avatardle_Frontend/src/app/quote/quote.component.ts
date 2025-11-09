@@ -13,10 +13,11 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
+import {SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
 
 @Component({
     selector: 'quote',
-    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe,ShareResultsComponent],
+    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent],
     templateUrl: './quote.component.html',
     styleUrl: './quote.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -67,7 +68,7 @@ export class QuoteMode {
                 ];
 
                 if (this.ls.progress().quote.complete) {
-                    this.searchVal.set("-" + this.target()); 
+                    this.searchVal.set("-" + this.target());
                 }
             });
 
@@ -88,7 +89,7 @@ export class QuoteMode {
 
             this.searchVal.set("-" + this.target());
             this.isComplete.set(true);
-            this.ls.patch(['quote'],{ complete: true, numGuesses: this.ls.progress().quote.numGuesses + 1 });
+            this.ls.patch(['quote'], { complete: true, numGuesses: this.ls.progress().quote.numGuesses + 1 });
             this.ds.throwConfetti(this.ls.progress().quote.numGuesses);
             this.ds.updateStats("quote");
 
@@ -98,7 +99,7 @@ export class QuoteMode {
             this.incorrectAnswers.unshift(select);
             this.searchVal.set('');
             this.characterData.splice(this.characterData.indexOf(select), 1);
-            this.ls.patch(['quote','numGuesses'], this.ls.progress().quote.numGuesses + 1);
+            this.ls.patch(['quote', 'numGuesses'], this.ls.progress().quote.numGuesses + 1);
         }
     }
 
@@ -106,6 +107,12 @@ export class QuoteMode {
 
         return this.isComplete() || this.ls.progress().quote.numGuesses >= 2 + hintId;
     }
+    
+    isSurrenderDisabled() {
+
+        return this.isComplete() || this.ls.progress().quote.numGuesses < 5;
+    }
+
 
     showHint(hintId: number) {
 
@@ -127,6 +134,28 @@ export class QuoteMode {
             return "Hint in 1 more guess";
         }
         return `Hint in ${diff} more guesses`;
+    }
+
+    getSurrenderText(): string {
+
+        let diff = 5 - this.ls.progress().quote.numGuesses;
+        if (diff <= 0 || this.isComplete()) {
+            return "Reveal answer";
+        }
+        else if (diff == 1) {
+            return "Reveal answer in 1 more guess";
+        }
+        return `Reveal answer in ${diff} more guesses`;
+    }
+
+    openDialog(name: string) {
+        if (name == "surrender") {
+            this.dialog.open(SurrenderDialogComponent, { width: '30vw', maxWidth: 'none', autoFocus: false }).afterClosed().subscribe((res) => {
+                if (res == true) {
+                    this.onEnter(this.target());
+                }
+            });
+        }
     }
 }
 

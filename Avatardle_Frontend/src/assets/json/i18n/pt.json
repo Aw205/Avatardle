@@ -115,6 +115,12 @@
             "content": "Por favor, me digam quais melhorias eu poderia fazer e quaisquer outros recursos que vocês queiram adicionar! Obrigado a todos que enviaram comentários, eu realmente gosto de lê-los :)"
         }
     },
+    "surrenderDialog":{
+        "confirmation": "Tem certeza de que deseja revelar a resposta?",
+        "yes": "Sim",
+        "no": "Não"
+        
+    },
     "languageSettings": {
         "title": "Selecione seu idioma"
     },

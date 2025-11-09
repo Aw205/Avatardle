@@ -1,0 +1,10 @@
+button {
+    border-radius: 10px;
+    width: 5rem;
+    background-color: rgb(20, 20, 20);
+    font: 1rem Georgia;
+    color: gray;
+    cursor: pointer;
+    border: 1px outset black;
+    outline: 2px solid black;
+}

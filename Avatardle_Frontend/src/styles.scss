@@ -71,8 +71,7 @@
     @include mat.menu-overrides((container-color: rgb(40, 40, 40),
             item-label-text-color: beige,
             item-label-text-font: Georgia,
-            item-hover-state-layer-color: rgb(30, 30, 30)
-            ));
+            item-hover-state-layer-color: rgb(30, 30, 30)));
 }
 
 .share-menu {
@@ -219,6 +218,28 @@ a {
     border: none;
     float: right;
     cursor: pointer;
+}
+
+
+.surrender-button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+
+    &:not(:disabled){
+        & > span{
+            color: goldenrod;
+        }
+    }
+
+    &>span {
+        position: relative;
+        color: dimgray;
+        font-size: 1rem;
+        font-variation-settings: 'FILL' 1;
+        vertical-align: text-bottom;
+    }
+
 }
 
 @media only screen and (max-width: 768px) {

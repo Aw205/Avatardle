@@ -15,6 +15,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
+import {SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
 
 @Component({
     selector: 'classic',
@@ -152,6 +153,13 @@ export class ClassicMode {
                 }
             });
         }
+        else if(name == "surrender"){
+            this.dialog.open(SurrenderDialogComponent, { width: '30vw', maxWidth: 'none', autoFocus: false }).afterClosed().subscribe((res) => {
+                if (res == true) {
+                    this.onEnter(this.targetChar);
+                }
+            });
+        }
     }
 
     setData() {
@@ -160,7 +168,6 @@ export class ClassicMode {
         this.tileArray.set(this.ls.progress().classic.guesses);
         this.guessAttempts = this.tileArray().length / 6;
         this.characterData = this.shuffleArray(this.ds.getClassicCharacterData(this.ls.progress().classic.series));
-
         this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
         this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
 
@@ -181,4 +188,22 @@ export class ClassicMode {
         }
         return array;
     }
+
+    isSurrenderDisabled() {
+
+        return this.isComplete() || this.guessAttempts < 6;
+    }
+
+    getSurrenderText(): string {
+
+        let diff = 6 - this.guessAttempts;
+        if (diff <= 0 || this.isComplete()) {
+            return "Reveal answer";
+        }
+        else if (diff == 1) {
+            return "Reveal answer in 1 more guess";
+        }
+        return `Reveal answer in ${diff} more guesses`;
+    }
+
 }

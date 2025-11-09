@@ -115,6 +115,11 @@
             "content": "N'hésitez pas à me faire part des améliorations que je pourrais apporter et des fonctionnalités que vous souhaiteriez ajouter ! Merci à tous vos commentaires ; j'ai vraiment plaisir à les lire :)"
         }
     },
+    "surrenderDialog":{
+        "confirmation": "Êtes-vous sûr de vouloir révéler la réponse ?",
+        "yes": "Oui",
+        "no": "Non"
+    },
     "languageSettings": {
         "title": "Choisissez votre langue"
     },

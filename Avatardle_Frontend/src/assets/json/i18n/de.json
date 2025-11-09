@@ -115,6 +115,12 @@
             "content": "Bitte lasst mich wissen, welche Verbesserungen ich vornehmen könnte und welche weiteren Funktionen ihr hinzufügen möchtet! Vielen Dank an alle, die mir Kommentare geschickt haben. Ich lese sie sehr gerne :)"
         }
     },
+    "surrenderDialog":{
+        "confirmation": "Möchten Sie die Antwort wirklich preisgeben?",
+        "yes": "Ja",
+        "no": "Nein"
+        
+    },
     "languageSettings": {
         "title": "Sprache auswählen"
     },

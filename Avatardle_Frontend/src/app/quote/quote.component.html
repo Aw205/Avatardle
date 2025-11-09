@@ -3,7 +3,13 @@
     style="max-width: fit-content; position:relative; font: 1rem avatar2; color: gray; margin:auto; margin-top: 3rem; z-index: 1; padding-bottom: 0.5rem;">
     <tm-ng-odometer [number]="(ds.stats$ | async)?.quote_completion ?? 0" theme="minimal"
         style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
+
+    <button [disabled]="isSurrenderDisabled()" (click)="openDialog('surrender')" class="surrender-button">
+        <span class="material-symbols-outlined" [matTooltip]="getSurrenderText()" matTooltipPosition="right" [matTooltipDisabled]="isComplete()" >flag</span>
+    </button>
+
 </div>
+
 }
 
 @if(quote()!=''){

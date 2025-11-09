@@ -1,0 +1,7 @@
+<mat-dialog-content style="color:beige; font-family: Georgia; display: flex; justify-content: center;">
+        <p>{{'surrenderDialog.confirmation' | translate}}</p>
+</mat-dialog-content>
+<mat-dialog-actions style="display: flex; gap: 1rem; justify-content: center;">
+        <button (click)="this.dialogRef.close(false)">{{'surrenderDialog.no' | translate}}</button>
+        <button (click)="this.dialogRef.close(true)">{{'surrenderDialog.yes' | translate}}</button>
+</mat-dialog-actions>

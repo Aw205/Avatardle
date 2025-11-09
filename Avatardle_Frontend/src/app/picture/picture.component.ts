@@ -8,11 +8,14 @@ import { ActivatedRoute } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialog } from '@angular/material/dialog';
+import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
 
 
 @Component({
   selector: 'picture',
-  imports: [FormsModule, TmNgOdometerModule, AsyncPipe, TranslatePipe],
+  imports: [FormsModule, TmNgOdometerModule, AsyncPipe, TranslatePipe, MatTooltipModule],
   templateUrl: './picture.component.html',
   styleUrl: './picture.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -46,6 +49,7 @@ export class PictureMode {
   ls = inject(LocalStorageService);
   ds = inject(DataService);
   ts = inject(TranslateService);
+  dialog = inject(MatDialog);
   isBrowser = (typeof window != "undefined");
 
 
@@ -115,10 +119,10 @@ export class PictureMode {
 
       this.scaleRatio.set(1);
       this.grayscaleRatio.set(0);
-     
+
       this.isComplete.set(true);
 
-      this.ls.patch(['picture'],{complete: true, numGuesses: this.ls.progress().picture.numGuesses + 1});
+      this.ls.patch(['picture'], { complete: true, numGuesses: this.ls.progress().picture.numGuesses + 1 });
 
       this.ds.throwConfetti(this.ls.progress().picture.numGuesses);
       this.ds.updateStats("picture");
@@ -131,7 +135,7 @@ export class PictureMode {
       this.episodeData.splice(this.episodeData.indexOf(this.selected), 1);
       this.selected = "";
 
-      this.ls.patch(['picture','numGuesses'],this.ls.progress().picture.numGuesses + 1);
+      this.ls.patch(['picture', 'numGuesses'], this.ls.progress().picture.numGuesses + 1);
       this.setRatios(this.ls.progress().picture.numGuesses);
     }
   }
@@ -145,6 +149,33 @@ export class PictureMode {
     }
     this.scaleRatio.set(2 - Math.min(1, numGuesses * 0.2));
     this.grayscaleRatio.set(1 - Math.min(1, numGuesses * 0.2));
+  }
+
+  isSurrenderDisabled() {
+    return this.isComplete() || this.ls.progress().picture.numGuesses < 6;
+  }
+
+
+  getSurrenderText(): string {
+
+    let diff = 6 - this.ls.progress().picture.numGuesses;
+    if (diff <= 0 || this.isComplete()) {
+      return "Reveal answer";
+    }
+    else if (diff == 1) {
+      return "Reveal answer in 1 more guess";
+    }
+    return `Reveal answer in ${diff} more guesses`;
+  }
+
+  openDialog(name: string) {
+    if (name == "surrender") {
+      this.dialog.open(SurrenderDialogComponent, { width: '30vw', maxWidth: 'none', autoFocus: false }).afterClosed().subscribe((res) => {
+        if (res == true) {
+          this.onEnter(this.targetEpisode);
+        }
+      });
+    }
   }
 
 }
