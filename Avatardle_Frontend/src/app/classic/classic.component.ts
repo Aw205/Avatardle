@@ -16,6 +16,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
 import {SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
+import { environment } from '../../environments/environment';
 
 @Component({
     selector: 'classic',
@@ -26,6 +27,8 @@ import {SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.co
 })
 export class ClassicMode {
 
+
+    environment = environment;
     searchVal: WritableSignal<string> = signal('');
     isComplete: WritableSignal<boolean> = signal(false);
     isVisible: WritableSignal<boolean> = signal(false);

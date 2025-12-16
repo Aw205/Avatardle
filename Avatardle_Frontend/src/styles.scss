@@ -72,6 +72,10 @@
             item-label-text-color: beige,
             item-label-text-font: Georgia,
             item-hover-state-layer-color: rgb(30, 30, 30)));
+
+    @include mat.badge-overrides((background-color: red,
+    small-size-container-overlap-offset: -9px,
+            container-shape: 50%));
 }
 
 .share-menu {
@@ -226,8 +230,8 @@ a {
     background-color: transparent;
     border: none;
 
-    &:not(:disabled){
-        & > span{
+    &:not(:disabled) {
+        &>span {
             color: goldenrod;
         }
     }

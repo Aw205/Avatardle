@@ -99,6 +99,9 @@
         "todaysElement": "- Today's element is ",
         "enable": "Enable particle effects"
     },
+    "notesDialog": {
+        "title": "Notes"
+    },
     "helpDialog": {
         "title": "Help"
     },
@@ -109,6 +112,10 @@
             "background": "Background image: ",
             "iroh": "Iroh Pai Sho image: ",
             "paisho": "Pai Sho tile image: "
+        },
+        "socials":{
+            "title":"Community",
+            "content": "Discuss all things Avatardle!"
         },
         "other":{
             "title": "Other",

@@ -13,10 +13,12 @@ import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { ParticleSettingsComponent } from '../particle-settings/particle-settings.component';
 import { LanguageSettingsComponent } from '../language-settings/language-settings.component';
 import { LocalStorageService } from '../services/local-storage.service';
+import { NotesDialogComponent } from '../notes-dialog/notes-dialog.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @Component({
   selector: 'background',
-  imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent, MatMenuModule],
+  imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent, MatMenuModule,MatBadgeModule],
   templateUrl: './background.component.html',
   styleUrl: './background.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -32,12 +34,14 @@ export class Background {
   cycleElement!: string;
   currElement!: string;
 
+  notesNotif:WritableSignal<boolean> = signal(false);
   pageNotFound: boolean = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) {
 
     afterNextRender(() => {
       this.showParticles.set(this.ls.progress().particleSettings.enable);
+      this.notesNotif.set(this.ls.progress().notesNotif);
     })
   }
 
@@ -73,6 +77,11 @@ export class Background {
     }
     else if (name == "comment") {
       this.dialog.open(CommentDialogComponent, { panelClass: "comment-dialog", autoFocus: false });
+    }
+    else if (name == "notes") {
+      this.notesNotif.set(false);
+      this.ls.patch(["notesNotif"],false);
+      this.dialog.open(NotesDialogComponent, { panelClass: "notes-dialog", autoFocus: false });
     }
     else if (name == "particle-setting") {
       let dialogRef = this.dialog.open(ParticleSettingsComponent, {

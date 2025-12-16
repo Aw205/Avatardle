@@ -99,6 +99,9 @@
         "todaysElement": "- O elemento de hoje é ",
         "enable": "Ativar efeitos de partículas"
     },
+    "notesDialog": {
+        "title": "Notas"
+    },
     "helpDialog": {
         "title": "Ajuda"
     },
@@ -109,6 +112,10 @@
             "background": "Imagem de fundo: ",
             "iroh": "Imagem de Iroh Pai Sho: ",
             "paisho": "Imagem do bloco Pai Sho: "
+        },
+        "socials":{
+            "title":"Comunidade",
+            "content": "Vamos discutir tudo sobre Avatardle!"
         },
         "other": {
             "title": "Outro",

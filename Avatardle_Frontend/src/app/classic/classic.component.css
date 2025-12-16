@@ -89,6 +89,7 @@
     text-decoration: underline 1px;
     color: inherit;
     text-underline-offset: 0.2rem;
+    white-space: pre;
 
     &:hover {
         color: darkgoldenrod;

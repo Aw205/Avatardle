@@ -54,7 +54,7 @@
         {{fanArt.character}}
         <div style="font: 1rem avatar2; color: gray; text-align: center;">{{img.epithet}}</div>
     </div>
-    <img src="images/fanart/{{img.pathName}}">
+    <img [src]= "`${environment.R2Url}/fanart/${img.pathName}`">
 
     <div id="fanart-description">
         <p><span style="color: goldenrod;">{{'artist' | translate}}</span> <a class="artist-name"

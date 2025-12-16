@@ -10,7 +10,8 @@ export interface AvatardleProgress {
   picture: { complete: boolean, numGuesses: number },
   music: { complete: boolean, numGuesses: number },
   particleSettings: { enable: boolean },
-  language: string | undefined
+  language: string | undefined,
+  notesNotif: boolean
 }
 
 @Injectable({
@@ -18,7 +19,7 @@ export interface AvatardleProgress {
 })
 export class LocalStorageService {
 
-  VERSION: string = "1.3.1";
+  VERSION: string = "1.3.2";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
   progress: WritableSignal<AvatardleProgress>;
   default: AvatardleProgress = {
@@ -31,7 +32,8 @@ export class LocalStorageService {
     particleSettings: {
       enable: true
     },
-    language: undefined
+    language: undefined,
+    notesNotif: true,
   };
   
   isBrowser: boolean = (typeof window != "undefined");

@@ -1,17 +1,39 @@
-<h1 mat-dialog-title style="font: 2rem Georgia; background-color: rgb(40,40,40); margin:0;"> {{'aboutDialog.title' | translate}}
+<h1 mat-dialog-title style="font: 2rem Georgia; background-color: rgb(40,40,40); margin:0;"> {{'aboutDialog.title' |
+    translate}}
     <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
 </h1>
 <mat-dialog-content style="color:beige; font-family: Georgia; background-color: rgb(40,40,40);">
     <p style="line-height:1.5em;">{{'aboutDialog.disclaimer' | translate}}</p>
     <p>
-        {{'aboutDialog.credits.background' | translate}}<a style="color: bisque; font-weight: bold; text-decoration: underline;"
+        {{'aboutDialog.credits.background' | translate}}<a
+            style="color: bisque; font-weight: bold; text-decoration: underline;"
             href="https://www.deviantart.com/mikkusushi/art/Legacy-508021902">mikkusushi</a> <br>
-        {{'aboutDialog.credits.iroh' | translate}}<a style="color: bisque; font-weight: bold; text-decoration: underline;"
+        {{'aboutDialog.credits.iroh' | translate}}<a
+            style="color: bisque; font-weight: bold; text-decoration: underline;"
             href="https://www.deviantart.com/onililyn/art/Iroh-redraw-846093892">Onililyn</a> <br>
-        {{'aboutDialog.credits.paisho' | translate}}<a style="color: bisque; font-weight: bold; text-decoration: underline;"
+        {{'aboutDialog.credits.paisho' | translate}}<a
+            style="color: bisque; font-weight: bold; text-decoration: underline;"
             href="https://www.deviantart.com/markusaliasbob/art/Pai-Sho-Tiles-Black-503176594">MarkusAliasBob</a>
     </p>
 
+    <h2 style="font: 2rem Georgia;">{{'aboutDialog.socials.title' | translate}}</h2>
+    <p>{{'aboutDialog.socials.content' | translate}}</p>
+
+    <div style="display: flex; gap: 1rem;">
+
+        <div>
+            <img src="images/reddit_logo.svg" alt="View Avatardle subreddit" style="background-color: #ff4400; height: 2rem; padding: 0.2rem; border-radius: 40%; vertical-align: middle;" />  
+            <a style="color: bisque; font-weight: bold; text-decoration: underline; padding-left: 0.5rem;" href="https://www.reddit.com/r/avatardle/" target="_blank">Reddit</a>
+        </div>
+
+        <div>
+            <img src="images/discord.svg" alt="Join Avatardle discord" style="background-color: #7289DA; height: 2rem; padding:0.2rem; border-radius: 40%;;
+            vertical-align: middle;" />
+                <a style="color: bisque; font-weight: bold; text-decoration: underline; padding-left: 0.5rem;"
+                    href="https://discord.gg/RxFqZJsSUq" target="_blank">Discord</a>
+        </div>        
+    </div>
+
     <h2 style="font: 2rem Georgia;">{{'aboutDialog.other.title' | translate}}</h2>
-    <p>{{'aboutDialog.other.content' | translate}}</p> 
+    <p>{{'aboutDialog.other.content' | translate}}</p>
 </mat-dialog-content>

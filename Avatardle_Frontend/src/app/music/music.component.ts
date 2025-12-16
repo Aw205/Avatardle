@@ -100,7 +100,7 @@ export class MusicMode {
           }
         }
         let targetName = encodeURIComponent(this.targetOST.name);
-        let targetNumScenes = String(this.targetOST.numScenes).padStart(3, "0");
+        let targetNumScenes = String(Math.floor(this.rand.next() * this.targetOST.numScenes) + 1).padStart(3, "0");
         this.targetScene = `${environment.R2Url}/scenes/${targetName}/scene_${targetNumScenes}.webp`;
         this.images().splice(this.rand.next() * 8, 0, this.targetScene);
         this.images.set([...this.images()]);
