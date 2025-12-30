@@ -28,7 +28,7 @@
     align-items: right;
     margin: auto;
     margin-top: 0.5rem;
-    width: 50%;
+    width: 40vw;
 
     &>.image-wrapper {
         overflow: hidden;
@@ -39,9 +39,7 @@
             width: 100%;
             pointer-events: none;
             transform: scale(2);
-
             height: auto;
-
         }
     }
 }
@@ -86,7 +84,7 @@
     }
 
     .image-container {
-        width: 90%;
+        width: 80%;
     }
 
     .search-bar {

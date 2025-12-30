@@ -56,6 +56,13 @@
         max-width: none !important;
     }
 
+    .leaderboard-dialog {
+
+        width: 70vw;
+        height: 40rem;
+        max-width: none !important;
+    }
+
 
 
     @include mat.tabs-overrides((divider-color: transparent,
@@ -262,6 +269,10 @@ a {
     }
 
     .particles-dialog {
+        width: 95vw !important;
+    }
+
+    .leaderboard-dialog {
         width: 95vw !important;
     }
 

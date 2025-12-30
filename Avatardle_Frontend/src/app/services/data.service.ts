@@ -1,12 +1,12 @@
 
 import confetti from 'canvas-confetti';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { interval, Observable, shareReplay, startWith, Subject, switchMap } from 'rxjs';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { interval, Observable, shareReplay, startWith, Subject, switchMap, timer } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 export interface Episode {
-  [key: string]: [];
+  [key: string]: number;
 }
 export interface Transcript {
 
@@ -41,14 +41,21 @@ export interface DailyStats {
   music_completion: number
 }
 
-export interface FanArt{
+export interface LeaderboardRecord {
 
-  character: string,
-  images: {pathName:string,artist:{name:string,link:string},epithet:string}[]
-  
+  username: string,
+  guesses: string[],
+  time: string,
 }
 
-export interface Ost{
+export interface FanArt {
+
+  character: string,
+  images: { pathName: string, artist: { name: string, link: string }, epithet: string }[]
+
+}
+
+export interface Ost {
   name: string,
   audio: string,
   book: number,
@@ -67,7 +74,7 @@ export class DataService {
 
   characterData!: Character[];
   characterFilter!: CharacterFilter;
- 
+
   transcript!: Transcript[];
   quoteIndices!: number[];
   dailyStats!: DailyStats;
@@ -77,10 +84,9 @@ export class DataService {
   pictureData$!: Observable<Episode>;
   stats$!: Observable<DailyStats>;
   con$!: Observable<any>;
-  transcript$!: Observable<Transcript[]>; 
+  transcript$!: Observable<Transcript[]>;
   osts$!: Observable<Ost[]>;
-
-
+  leaderboard$!: Observable<LeaderboardRecord[]>;
   pageNotFound$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private http: HttpClient) { }
@@ -90,7 +96,7 @@ export class DataService {
 
     console.log(environment.statsApiUrl);
 
-    if(environment.production){
+    if (environment.production) {
       this.stats$ = interval(120000).pipe(
         startWith(0),
         switchMap(() => this.http.get<DailyStats>(`${environment.statsApiUrl}/getStats`))
@@ -118,6 +124,10 @@ export class DataService {
     this.pictureData$ = this.http.get<Episode>('json/episodes.json').pipe(shareReplay(1));
     this.con$ = this.http.get<any>('json/particleConfigs.json').pipe(shareReplay(1));
     this.osts$ = this.http.get<Ost[]>('json/osts.json').pipe(shareReplay(1));
+    this.leaderboard$ = timer(0,50000).pipe(
+      switchMap(()=>this.http.get<LeaderboardRecord[]>(`${environment.statsApiUrl}/getLeaderboard`)),
+      shareReplay({bufferSize: 1,refCount:true})
+    );
     return ob;
   }
 
@@ -141,12 +151,17 @@ export class DataService {
     this.http.patch(`${environment.statsApiUrl}/updateStats`, { type: "daily", mode: mode }).subscribe(data => { });
   }
 
-  getCountdownConfig(){
+  updateLeaderboard(username: string, guesses: string[], time: string) {
+
+    return this.http.patch(`${environment.statsApiUrl}/updateLeaderboard`, { username: username, guesses: guesses, time: time });
+  }
+
+  getCountdownConfig() {
 
     let tom = new Date();
     tom.setUTCDate(tom.getUTCDate() + 1);
-    tom.setUTCHours(0,0,0,0);
-    return {leftTime: Math.floor((tom.getTime() - Date.now())/1000)};
+    tom.setUTCHours(0, 0, 0, 0);
+    return { leftTime: Math.floor((tom.getTime() - Date.now()) / 1000) };
 
   }
 

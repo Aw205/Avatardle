@@ -144,6 +144,57 @@
         margin-top: 1rem;
         text-indent: 1rem;
     }
+
+    &>#share-leaderboard {
+
+        position: relative;
+        font: 1rem avatar2;
+        color: darkgoldenrod;
+        border: 1px outset black;
+        outline: 2px solid black;
+        border-radius: 1rem;
+        background-color: rgb(15, 15, 15);
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+
+        &>input{
+
+            background-color: rgb(20,20,20);
+            border-radius: 10px;
+            font: 1rem avatar2;
+            color: darkgoldenrod;
+            border: 1px inset gray;
+            outline: 1px solid black;
+
+            &:disabled{
+                color: green;
+                text-align: center;
+            }
+        }
+
+        &>button{
+        
+            background-color: rgb(20, 20, 20);
+            border: 1px outset black;
+            outline: 2px solid black;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: gray;
+            font: 1rem avatar2;
+
+            &:disabled{
+                border: 1px solid transparent; 
+                outline: none;
+                color: dimgray;
+                cursor: default;
+            }
+        }
+    }
 }
 
 

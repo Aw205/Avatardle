@@ -27,7 +27,7 @@ textarea {
     outline: 2px solid black;
 
     &:disabled{
-        border: none;
+        border: 1px solid transparent;
         outline: none;
         color: dimgray;
         cursor: default;

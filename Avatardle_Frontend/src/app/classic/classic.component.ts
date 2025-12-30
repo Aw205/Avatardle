@@ -15,7 +15,8 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
-import {SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
+import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -29,6 +30,11 @@ export class ClassicMode {
 
 
     environment = environment;
+
+    snackBar = inject(MatSnackBar);
+    submittedToLeaderboard: WritableSignal<boolean> = signal(false);
+    usernameError: WritableSignal<boolean> = signal(false);
+
     searchVal: WritableSignal<string> = signal('');
     isComplete: WritableSignal<boolean> = signal(false);
     isVisible: WritableSignal<boolean> = signal(false);
@@ -53,6 +59,8 @@ export class ClassicMode {
     ds = inject(DataService);
     dialog = inject(MatDialog);
     isBrowser: boolean = (typeof window != "undefined");
+
+    usernameInput: WritableSignal<string> = signal('');
 
     constructor() {
 
@@ -156,7 +164,7 @@ export class ClassicMode {
                 }
             });
         }
-        else if(name == "surrender"){
+        else if (name == "surrender") {
             this.dialog.open(SurrenderDialogComponent, { width: '30vw', maxWidth: 'none', autoFocus: false }).afterClosed().subscribe((res) => {
                 if (res == true) {
                     this.onEnter(this.targetChar);
@@ -176,6 +184,8 @@ export class ClassicMode {
 
         if (this.ls.progress().classic.complete) {
             this.isComplete.set(true);
+            this.submittedToLeaderboard.set(this.ls.progress().classic.leaderboardUsername!=undefined);
+            this.usernameInput.set(this.ls.progress().classic.leaderboardUsername || '');
             this.searchVal.set(this.tileArray()[0].name!);
             this.fanArt = this.ds.fanArt.find(e => e.character == this.tileArray()[0].name!)!;
         }
@@ -207,6 +217,29 @@ export class ClassicMode {
             return "Reveal answer in 1 more guess";
         }
         return `Reveal answer in ${diff} more guesses`;
+    }
+
+    submitToLeaderboard() {
+
+        let charNames: string[] = [];
+        for (let i = this.tileArray().length - 6; i > -1; i -= 6) {
+            charNames.push(this.tileArray()[i]?.name!);
+        }
+        const now = new Date();
+        const hours = now.getUTCHours();
+        const minutes = now.getUTCMinutes();
+        let time = `${hours}:${minutes}`;
+
+        this.ds.updateLeaderboard(this.usernameInput().trim(), charNames, time).subscribe({
+            error: (err) => {
+                this.usernameError.set(true);
+            },
+            complete: () => {
+                this.snackBar.open("Submitted!", undefined, { panelClass: "snack-bar", duration: 4000 });
+                this.submittedToLeaderboard.set(true);
+                this.ls.patch(['classic','leaderboardUsername'],this.usernameInput());
+            }, 
+        });
     }
 
 }

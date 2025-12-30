@@ -15,6 +15,7 @@ import { LanguageSettingsComponent } from '../language-settings/language-setting
 import { LocalStorageService } from '../services/local-storage.service';
 import { NotesDialogComponent } from '../notes-dialog/notes-dialog.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import { LeaderboardDialogComponent } from '../leaderboard-dialog/leaderboard-dialog.component';
 
 @Component({
   selector: 'background',
@@ -77,6 +78,9 @@ export class Background {
     }
     else if (name == "comment") {
       this.dialog.open(CommentDialogComponent, { panelClass: "comment-dialog", autoFocus: false });
+    }
+    else if (name == "leaderboard") {
+      this.dialog.open(LeaderboardDialogComponent, { panelClass: "leaderboard-dialog", autoFocus: false });
     }
     else if (name == "notes") {
       this.notesNotif.set(false);

@@ -26,6 +26,8 @@
         <button mat-menu-item (click)="openDialog('particle-setting')"><span
                 class="material-symbols-outlined">grain</span>
             Particles</button>
+        <button mat-menu-item (click)="openDialog('leaderboard')"><span class="material-symbols-outlined">trophy</span>
+            Leaderboard</button>
         <button mat-menu-item (click)="openDialog('notes')"><span class="material-symbols-outlined">article</span>
             Notes</button>
         <button mat-menu-item [matMenuTriggerFor]="submenu"><span class="material-symbols-outlined">translate</span>
@@ -44,6 +46,7 @@
     <span class="material-symbols-outlined" (click)="openDialog('help')">help</span>
     <span class="material-symbols-outlined" (click)="openDialog('comment')">comment</span>
     <span class="material-symbols-outlined" (click)="openDialog('particle-setting')">grain</span>
+    <span class="material-symbols-outlined" (click)="openDialog('leaderboard')">trophy</span>
     <span class="material-symbols-outlined" (click)="openDialog('notes')" matBadge="1" matBadgeSize="small"
         [matBadgeHidden]="!notesNotif()">article</span>
     <span class="material-symbols-outlined" [matMenuTriggerFor]="submenu">translate</span>

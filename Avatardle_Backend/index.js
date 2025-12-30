@@ -34,11 +34,36 @@ app.patch('/updateStats', (req, res) => {
     return res.status(200);
 });
 
+app.get('/getLeaderboard',(req,res) => {
+
+    let sql = `SELECT * FROM leaderboard ORDER BY id DESC`;
+    pool.query(sql, (err, queryRes) => {
+        if (err) {
+            console.error(err.message);
+            return res.status(500).json({ error: 'Failed to retrieve data' });
+        }
+        return res.json(queryRes.rows);
+    });
+});
+
+app.patch('/updateLeaderboard', (req, res) => {
+
+    let sql = `INSERT INTO leaderboard (username, guesses, time) VALUES ('${req.body.username}', ARRAY${JSON.stringify(req.body.guesses).replace(/"/g, "'")}, '${req.body.time}') `;
+    pool.query(sql,(err,queryRes) =>{
+        if (err) {
+            console.error(err.message);
+            return res.status(500).json({ error: 'Failed to insert data' });
+        }
+        return res.sendStatus(204);
+    });
+});
+
 app.listen(port, () => {
     console.log(`Now listening on port ${port}`);
 });
 
 cron.schedule('0 0 * * *', () => {
-    let sql = `UPDATE stats SET classic_completion = 0, quote_completion = 0, picture_completion = 0, music_completion = 0 WHERE type='daily'`;
+    let sql = `UPDATE stats SET classic_completion = 0, quote_completion = 0, picture_completion = 0, music_completion = 0 WHERE type='daily';
+               TRUNCATE TABLE leaderboard RESTART IDENTITY;`;
     pool.query(sql);
 });

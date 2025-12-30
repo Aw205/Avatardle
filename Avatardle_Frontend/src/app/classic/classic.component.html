@@ -21,9 +21,10 @@
     style="font: 1rem avatar2; color: gray; background-color: rgb(0,0,0,0.3); width: fit-content; margin: auto; padding: 0.5rem; border-radius: 5px; margin-top: 0.5rem; margin-bottom: 0.5rem;">
     <tm-ng-odometer [number]="(ds.stats$ | async)?.classic_completion ?? 0" theme="minimal"
         style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
-        <button [disabled]="isSurrenderDisabled()" (click)="openDialog('surrender')" class="surrender-button">
-            <span class="material-symbols-outlined" [matTooltip]="getSurrenderText()" matTooltipPosition="right" [matTooltipDisabled]="isComplete()" >flag</span>
-        </button>
+    <button [disabled]="isSurrenderDisabled()" (click)="openDialog('surrender')" class="surrender-button">
+        <span class="material-symbols-outlined" [matTooltip]="getSurrenderText()" matTooltipPosition="right"
+            [matTooltipDisabled]="isComplete()">flag</span>
+    </button>
 </div>
 }
 
@@ -54,7 +55,7 @@
         {{fanArt.character}}
         <div style="font: 1rem avatar2; color: gray; text-align: center;">{{img.epithet}}</div>
     </div>
-    <img [src]= "`${environment.R2Url}/fanart/${img.pathName}`">
+    <img [src]="`${environment.R2Url}/fanart/${img.pathName}`">
 
     <div id="fanart-description">
         <p><span style="color: goldenrod;">{{'artist' | translate}}</span> <a class="artist-name"
@@ -64,6 +65,17 @@
             <countdown [config]="ds.getCountdownConfig()" />
         </p>
         <share-results [numGuesses]="guessAttempts" [mode]="'classic'"></share-results>
+    </div>
+
+    <div id="share-leaderboard">
+        Post to leaderboard
+        <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput" [disabled]="submittedToLeaderboard()">
+        @if(!submittedToLeaderboard()){
+        @if(usernameError()){
+        <div style="color:indianred;">username taken</div>
+        }
+        <button (click)="submitToLeaderboard()" [disabled]="usernameInput().trim().length == 0">Submit</button>
+        }
     </div>
 </div>
 }

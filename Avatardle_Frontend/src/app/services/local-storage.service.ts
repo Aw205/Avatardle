@@ -5,7 +5,7 @@ import { tileData } from '../tile/tile.component';
 export interface AvatardleProgress {
   date: string,
   version: string,
-  classic: { complete: boolean, guesses: tileData[], series: string[] },
+  classic: { complete: boolean, guesses: tileData[], series: string[], leaderboardUsername: string | undefined },
   quote: { complete: boolean, numGuesses: number },
   picture: { complete: boolean, numGuesses: number },
   music: { complete: boolean, numGuesses: number },
@@ -19,13 +19,13 @@ export interface AvatardleProgress {
 })
 export class LocalStorageService {
 
-  VERSION: string = "1.3.2";
+  VERSION: string = "1.4";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
   progress: WritableSignal<AvatardleProgress>;
   default: AvatardleProgress = {
     date: this.currentDate,
     version: this.VERSION,
-    classic: { complete: false, guesses: [], series: ["ATLA-title"] },
+    classic: { complete: false, guesses: [], series: ["ATLA-title"], leaderboardUsername: undefined },
     quote: { complete: false, numGuesses: 0 },
     picture: { complete: false, numGuesses: 0 },
     music: { complete: false, numGuesses: 0 },
@@ -49,6 +49,7 @@ export class LocalStorageService {
           if (this.currentDate != this.progress().date || this.VERSION != this.progress().version) {
             this.default.language = this.progress().language;
             this.default.classic.series = this.progress().classic.series ?? ["ATLA-title"];
+            this.default.notesNotif = this.progress().notesNotif;
             this.progress.set(this.default);
           }
         }
