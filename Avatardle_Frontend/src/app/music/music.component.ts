@@ -77,7 +77,13 @@ export class MusicMode {
       this.isComplete.set(this.ls.progress().music.complete);
       this.ds.osts$.subscribe(data => {
 
+
+        let selectedOSTs = [];
+
         this.targetOST = data[Math.floor(this.rand.next() * data.length)];
+
+        selectedOSTs.push(this.targetOST.name);
+
         let audioName = encodeURIComponent(this.targetOST.audio);
         this.audio = new Audio(`${environment.R2Url}/osts/${audioName}`);
         this.audio.addEventListener('loadedmetadata', () => {
@@ -92,7 +98,9 @@ export class MusicMode {
 
         while (this.images().length != 8) {
           let randomOST = data[Math.floor(this.rand.next() * data.length)];
-          if (randomOST.name != this.targetOST.name) {
+          if (!selectedOSTs.includes(randomOST.name)) {
+
+            selectedOSTs.push(randomOST.name);
             let numScenes = String(Math.floor(this.rand.next() * randomOST.numScenes) + 1).padStart(3, "0");
             let name = encodeURIComponent(randomOST.name);
             let frame = `${environment.R2Url}/scenes/${name}/scene_${numScenes}.webp`;

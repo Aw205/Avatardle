@@ -68,13 +68,13 @@
     </div>
 
     <div id="share-leaderboard">
-        Post to leaderboard
+        {{'postLeaderboard' | translate}}
         <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput" [disabled]="submittedToLeaderboard()">
         @if(!submittedToLeaderboard()){
         @if(usernameError()){
-        <div style="color:indianred;">username taken</div>
+        <div style="color:indianred;">{{'usernameTaken' | translate}}</div>
         }
-        <button (click)="submitToLeaderboard()" [disabled]="usernameInput().trim().length == 0">Submit</button>
+        <button (click)="submitToLeaderboard()" [disabled]="usernameInput().trim().length == 0">{{'submit' | translate}}</button>
         }
     </div>
 </div>
