@@ -48,11 +48,15 @@ app.get('/getLeaderboard',(req,res) => {
 
 app.patch('/updateLeaderboard', (req, res) => {
 
-    let sql = `INSERT INTO leaderboard (username, guesses, time) VALUES ('${req.body.username}', ARRAY${JSON.stringify(req.body.guesses).replace(/"/g, "'")}, '${req.body.time}') `;
-    pool.query(sql,(err,queryRes) =>{
+    const query = {
+        text: `INSERT INTO leaderboard (username, guesses, time) VALUES ($1, $2, $3)`,
+        values: [req.body.username,req.body.guesses,req.body.time], 
+      };
+
+    pool.query(query,(err,queryRes) =>{
         if (err) {
             console.error(err.message);
-            return res.status(500).json({ error: 'Failed to insert data' });
+            return res.status(500).json({ error: err.message });
         }
         return res.sendStatus(204);
     });
