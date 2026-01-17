@@ -113,9 +113,7 @@
         "name": "Name",
         "guesses": "Guesses",
         "time": "Time",
-        "noData": "It's too quiet . . . be the first!",
-        "updateInfo": "updates every 5 minutes"
-        
+        "noData": "It's too quiet . . . be the first!"
     },
     "aboutDialog":{
         "title": "About",

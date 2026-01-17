@@ -1,78 +1,46 @@
-.clue-container {
+.guess-container {
 
-    position: absolute;
-    top: 0;
-    left: 100%;
     display: flex;
-    flex-direction: column;
-    border-radius: 0 0.5rem 0.5rem 0;
-    overflow: hidden;
-
-    &>button {
-
-        background-color: rgb(30, 30, 30);
-        border: none;
-        border-left: 1px solid rgb(40, 40, 40);
-        cursor: pointer;
-
-        &:hover {
-            background-color: rgb(35, 35, 35);
-        }
-
-        &:enabled {
-            &>img {
-                filter: none;
-            }
-        }
-
-        &>img {
-            width: 2rem;
-            height: auto;
-            aspect-ratio: 1/1;
-            filter: saturate(0) brightness(0.5);
-            transition: filter 400ms linear;
-        }
-    }
-}
-
-.incorrect-quote-guess {
-
-    font: 1rem avatar2;
-    color: indianred;
-    position: relative;
-    top: 5rem;
-    width: 10rem;
-    display: block;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    gap: 1rem;
     margin: auto;
-    padding: 0.5rem;
-    text-align: center;
-    z-index: -1;
-
-    &>img {
-
-        width: 7rem;
-        border-radius: 8px;
-        display: block;
-        margin: auto;
-        border: 1px solid rgb(15, 15, 15);
-    }
+    margin-top: 5rem;
 
     &>div {
 
-        background-color: rgb(15, 15, 15);
-        border-radius: 10px;
-        border-bottom: 1px solid rgba(205, 92, 92, 0.5);
-        padding: 0.2rem;
-    }
+        font: 1rem avatar2;
+        color: indianred;
+        width: 10rem;
+        text-align: center;
+        z-index: -1;
 
+        &>img {
+            display: block;
+            margin: auto;
+            width: 7rem;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgb(15, 15, 15);
+        }
+
+        &>div {
+            background-color: rgb(15, 15, 15);
+            border-radius: 10px;
+            border-bottom: 1px solid rgba(205, 92, 92, 0.5);
+            padding: 0.2rem;
+        }
+
+    }
 }
 
 .correct-quote-guess {
 
     margin: auto;
     margin-top: 5rem;
+    margin-bottom: 5rem;
     color: goldenrod;
-    text-align: left;
     width: 20rem;
     backdrop-filter: blur(5px);
     box-shadow: 0px 0px 1rem 20px #00000082;
@@ -80,11 +48,34 @@
     border-radius: 16px;
     font: 1rem avatar2;
 
-    &>img {
-        width: 100%;
-        border-radius: 0.5rem;
+
+    &>.title {
+        font: 2rem avatar2;
+        color: darkgoldenrod;
+        text-align: center;
+        margin-bottom: 1rem;
         border: 1px outset black;
         outline: 2px solid black;
+        border-radius: 16px;
+        background-color: rgb(15, 15, 15);
+    }
+
+    &>img {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px outset black;
+        outline: 2px solid black;
+    }
+
+    &>.complete-container {
+
+        position: relative;
+        border: 1px outset black;
+        outline: 2px solid black;
+        border-radius: 1rem;
+        background-color: rgb(15, 15, 15);
+        text-indent: 1rem;
+        margin-top: 1rem;
     }
 }
 
@@ -137,6 +128,43 @@
         }
     }
 
+    &>.clue-container {
+
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        border-radius: 0 0.5rem 0.5rem 0;
+        overflow: hidden;
+
+        &>button {
+
+            background-color: rgb(30, 30, 30);
+            border: none;
+            border-left: 1px solid rgb(40, 40, 40);
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(35, 35, 35);
+            }
+
+            &:enabled {
+                &>img {
+                    filter: none;
+                }
+            }
+
+            &>img {
+                width: 2rem;
+                height: auto;
+                aspect-ratio: 1/1;
+                filter: saturate(0) brightness(0.5);
+                transition: filter 400ms linear;
+            }
+        }
+    }
+
     &>.search-container {
 
         position: absolute;
@@ -151,30 +179,6 @@
 .quote-complete {
     text-align: center;
     color: darkgoldenrod;
-}
-
-
-.title {
-
-    font: 2rem avatar2;
-    color: darkgoldenrod;
-    text-align: center;
-    margin-bottom: 1rem;
-    border: 1px outset black;
-    outline: 2px solid black;
-    border-radius: 16px;
-    background-color: rgb(15, 15, 15);
-}
-
-.complete-container {
-
-    position: relative;
-    border: 1px outset black;
-    outline: 2px solid black;
-    border-radius: 1rem;
-    background-color: rgb(15, 15, 15);
-    text-indent: 1rem;
-    margin-top: 1rem;
 }
 
 @media only screen and (max-width: 768px) {
@@ -204,18 +208,22 @@
         width: 15rem;
     }
 
-    .clue-container {
+    .clue-container {   
         &>button {
             &>img {
-                width: 1.5rem;
+                width: 1.5rem !important;
             }
         }
     }
 
     .quote-search-bar {
-
         font-size: 1rem;
         border-width: 0.3rem;
     }
+
+    .guess-container {
+        width: 100%;
+    }
+
 
 }

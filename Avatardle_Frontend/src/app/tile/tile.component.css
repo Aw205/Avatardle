@@ -1,14 +1,13 @@
-
 .correct {
     box-shadow: 0 0 1.5rem rgba(0, 128, 0, 0.7);
 }
 
 .incorrect {
-    box-shadow: 0 0 1.5rem  rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 1.5rem rgba(255, 0, 0, 0.5);
 }
 
 .partial {
-    box-shadow: 0 0 1.5rem  rgba(255, 192, 5, 0.8);
+    box-shadow: 0 0 1.5rem rgba(255, 192, 5, 0.8);
 }
 
 
@@ -268,19 +267,4 @@
         justify-content: center;
         max-height: 1rem;
     }
-
-    &::-webkit-scrollbar-thumb {
-        background: rgb(60, 60, 60);
-        border-radius: 0.5rem;
-    }
-    
-    &::-webkit-scrollbar {
-        background: rgb(30, 30, 30);
-        width: 0.2rem;
-    }
-    
-    &::-webkit-scrollbar-button {
-        height: 0.8rem;
-    }
 }
-

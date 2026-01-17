@@ -113,8 +113,7 @@
         "name": "Nom",
         "guesses": "Suppositions",
         "time": "Temps",
-        "noData": "C'est trop calme... Soyez le premier !",
-        "updateInfo": "mises à jour toutes les 5 minutes"
+        "noData": "C'est trop calme... Soyez le premier !"
         
     },
     "aboutDialog": {

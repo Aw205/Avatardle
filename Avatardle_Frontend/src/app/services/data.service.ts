@@ -1,7 +1,7 @@
 
 import confetti from 'canvas-confetti';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { interval, Observable, shareReplay, startWith, Subject, switchMap, timer } from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -76,7 +76,7 @@ export class DataService {
   characterFilter!: CharacterFilter;
 
   transcript!: Transcript[];
-  quoteIndices!: number[];
+  quoteIndices!: { [key: string]: number[] };
   dailyStats!: DailyStats;
   fanArt!: FanArt[];
 
@@ -113,7 +113,7 @@ export class DataService {
     this.http.get<string[]>('json/episode.json').subscribe((data) => {
       this.episodes = data;
     });
-    this.http.get<number[]>('json/quote_indices.json').subscribe((data) => {
+    this.http.get<{ [key: string]: number[] }>('json/quote_indices.json').subscribe((data) => {
       this.quoteIndices = data;
     });
     this.http.get<FanArt[]>('json/fanart.json').subscribe((data) => {
@@ -124,9 +124,9 @@ export class DataService {
     this.pictureData$ = this.http.get<Episode>('json/episodes.json').pipe(shareReplay(1));
     this.con$ = this.http.get<any>('json/particleConfigs.json').pipe(shareReplay(1));
     this.osts$ = this.http.get<Ost[]>('json/osts.json').pipe(shareReplay(1));
-    this.leaderboard$ = timer(0,50000).pipe(
-      switchMap(()=>this.http.get<LeaderboardRecord[]>(`${environment.statsApiUrl}/getLeaderboard`)),
-      shareReplay({bufferSize: 1,refCount:true})
+    this.leaderboard$ = timer(0, 50000).pipe(
+      switchMap(() => this.http.get<LeaderboardRecord[]>(`${environment.statsApiUrl}/getLeaderboard`)),
+      shareReplay({ bufferSize: 1, refCount: true })
     );
     return ob;
   }
@@ -143,7 +143,7 @@ export class DataService {
 
   getQuoteCharacterData(): string[] {
 
-    return this.characterFilter.quote;
+    return [...this.characterFilter.quote];
   }
 
   updateStats(mode: string) {

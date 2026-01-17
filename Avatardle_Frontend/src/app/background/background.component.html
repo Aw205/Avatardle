@@ -26,7 +26,7 @@
         <button mat-menu-item (click)="openDialog('particle-setting')"><span
                 class="material-symbols-outlined">grain</span>
             Particles</button>
-        <button mat-menu-item (click)="openDialog('leaderboard')"><span class="material-symbols-outlined">trophy</span>
+        <button mat-menu-item routerLink="/leaderboard"><span class="material-symbols-outlined">trophy</span>
             Leaderboard</button>
         <button mat-menu-item (click)="openDialog('notes')"><span class="material-symbols-outlined">article</span>
             Notes</button>
@@ -43,15 +43,15 @@
 </mat-menu>
 
 <div class="button-container">
-    <span class="material-symbols-outlined" (click)="openDialog('help')">help</span>
-    <span class="material-symbols-outlined" (click)="openDialog('comment')">comment</span>
-    <span class="material-symbols-outlined" (click)="openDialog('particle-setting')">grain</span>
-    <span class="material-symbols-outlined" (click)="openDialog('leaderboard')">trophy</span>
-    <span class="material-symbols-outlined" (click)="openDialog('notes')" matBadge="1" matBadgeSize="small"
-        [matBadgeHidden]="!notesNotif()">article</span>
-    <span class="material-symbols-outlined" [matMenuTriggerFor]="submenu">translate</span>
-    <span id="about-button" class="material-symbols-outlined" (click)="openDialog('about')"
-        style="position: fixed; right: 1rem; bottom: 1rem;">info</span>
+    <button class="material-symbols-outlined" (click)="openDialog('help')">help</button>
+    <button class="material-symbols-outlined" (click)="openDialog('comment')">comment</button>
+    <button class="material-symbols-outlined" (click)="openDialog('particle-setting')">grain</button>
+    <button class="material-symbols-outlined" routerLink="/leaderboard">trophy</button>
+    <button class="material-symbols-outlined" (click)="openDialog('notes')" matBadge="1" matBadgeSize="small"
+        [matBadgeHidden]="!notesNotif()">article</button>
+    <button class="material-symbols-outlined" [matMenuTriggerFor]="submenu">translate</button>
+    <button id="about-button" class="material-symbols-outlined" (click)="openDialog('about')"
+        style="position: fixed; right: 1rem; bottom: 1rem;">info</button>
 </div>
 
 @if(pageNotFound){

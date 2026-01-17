@@ -272,7 +272,7 @@
         ]
     },
     {
-        "character": "Cabbage merchant",
+        "character": "Cabbage Merchant",
         "images": [
             {
                 "pathName": "cabbage_1.webp",
@@ -888,6 +888,19 @@
         ]
     },
     {
+        "character": "Kanna",
+        "images": [
+            {
+                "pathName": "kanna_1.webp",
+                "artist": {
+                    "name": "Arou",
+                    "link": "https://gatherer.wizards.com/TLA/en-us/54/gran-gran"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Katara",
         "images": [
             {
@@ -1313,6 +1326,19 @@
         ]
     },
     {
+        "character": "Mechanist",
+        "images": [
+            {
+                "pathName": "mechanist_1.webp",
+                "artist": {
+                    "name": "Le Vuong",
+                    "link": "https://www.artstation.com/artwork/Zln1v0"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Meelo",
         "images": [
             {
@@ -1359,7 +1385,7 @@
             },
             {
                 "pathName": "momo_3.webp",
-                "artist": { 
+                "artist": {
                     "name": "Awanqi",
                     "link": "https://gatherer.wizards.com/TLA/en-us/30/momo-playful-pet"
                 },
@@ -1473,6 +1499,32 @@
         ]
     },
     {
+        "character": "Prince Wu",
+        "images": [
+            {
+                "pathName": "princewu_1.webp",
+                "artist": {
+                    "name": "Caro-Oliveira",
+                    "link": "https://www.deviantart.com/caro-oliveira/art/Eccentric-Prince-Wu-871719095"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
+        "character": "Professor Zei",
+        "images": [
+            {
+                "pathName": "zei_1.webp",
+                "artist": {
+                    "name": "Pauline  Voss",
+                    "link": "https://www.instagram.com/p/DRLGJ-5iOo4/?hl=en&img_index=1"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Roku",
         "images": [
             {
@@ -1504,19 +1556,6 @@
                 "artist": {
                     "name": "Thyinum",
                     "link": "https://www.tumblr.com/thyinum/751989390144929792/fire-grandpa"
-                },
-                "epithet": ""
-            }
-        ]
-    },
-    {
-        "character": "Prince Wu",
-        "images": [
-            {
-                "pathName": "princewu_1.webp",
-                "artist": {
-                    "name": "Caro-Oliveira",
-                    "link": "https://www.deviantart.com/caro-oliveira/art/Eccentric-Prince-Wu-871719095"
                 },
                 "epithet": ""
             }

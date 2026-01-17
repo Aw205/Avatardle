@@ -4,6 +4,7 @@
     width: fit-content;
     margin: auto;
     margin-top: 2rem;
+    user-select: none;
 
     &>img {
         position: absolute;
@@ -11,17 +12,18 @@
         left: -15%;
         width: 130%;
         height: auto;
+        user-select: none;
         pointer-events: none;
     }
 
     &>a {
+        position: relative;
         display: block;
         color: white;
-        font: 6rem avatar;
         cursor: pointer;
+        font: 6rem avatar;
         transition: transform 0.5s;
-        position: relative;
-
+    
         &:hover {
             transform: scale(1.1);
         }
@@ -32,21 +34,24 @@
 
     display: flex;
     flex-direction: column;
+    position: fixed;
+    user-select: none;
+
     gap: 1rem;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    position: fixed;
     right: 1rem;
     top: 1rem;
     padding: 0.5rem;
+  
 
-    &>span {
+    &>button {
         cursor: pointer;
         color: bisque;
+        background-color: transparent;
+        border: none;
+        padding: 0;
         font-size: 2rem;
-        width: 2rem;
-        height: auto;
-
         &:hover {
             opacity: 0.6;
         }

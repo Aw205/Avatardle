@@ -5,11 +5,10 @@
         style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
 
     <button [disabled]="isSurrenderDisabled()" (click)="openDialog('surrender')" class="surrender-button">
-        <span class="material-symbols-outlined" [matTooltip]="getSurrenderText()" matTooltipPosition="right" [matTooltipDisabled]="isComplete()" >flag</span>
+        <span class="material-symbols-outlined" [matTooltip]="getSurrenderText()" matTooltipPosition="right"
+            [matTooltipDisabled]="isComplete()">flag</span>
     </button>
-
 </div>
-
 }
 
 @if(quote()!=''){
@@ -43,20 +42,22 @@
 @if(isComplete()){
 <div class="correct-quote-guess fade-in">
     <div class="title">{{target()}}</div>
-    <img src="images/characters/{{target() | hyphenate}}.webp">
+    <img src="images/characters/{{target() | hyphenate}}.webp" alt="">
     <div class="complete-container">
-        <p>{{'attempts' | translate}}<span style="color: beige;">{{ls.progress().quote.numGuesses}}</span></p>
+        <p>{{'attempts' | translate}}<span style="color: beige;">{{guesses.length}}</span></p>
         <p>{{'quote.next' | translate}}
             <countdown [config]="ds.getCountdownConfig()" style="color:beige;" />
         </p>
-        <share-results [numGuesses]="ls.progress().quote.numGuesses" [mode]="'quote'"></share-results>
+        <share-results [numGuesses]="guesses.length" [mode]="'quote'"></share-results>
     </div>
 </div>
 }
 
-@for (ans of incorrectAnswers; track ans){
-<div class="incorrect-quote-guess">
-    <img src="images/characters/{{ans | hyphenate}}.webp">
-    <div> {{ans}} </div>
+<div class="guess-container">
+    @for (name of guesses; track name){
+    <div>
+        <img src="images/characters/{{name | hyphenate}}.webp" width="333" height="250" alt="">
+        <div> {{name}} </div>
+    </div>
+    }
 </div>
-}

@@ -1,0 +1,258 @@
+:host {
+
+    --guess-container-height: 6rem;
+    --base-chibi-width: 2.5rem;
+    --base-offset-chibi: 1rem;
+
+    --small-chibi-width: calc(var(--base-chibi-width) * 0.7);
+    --small-plus-chibi-width: calc(var(--base-chibi-width) * 0.85);
+    --large-chibi-width: calc(var(--base-chibi-width) * 1.2);
+    --xlarge-chibi-width: calc(var(--base-chibi-width) * 1.5);
+
+    --small-offset-chibi: calc(var(--base-offset-chibi) * 0.2);
+    --small-plus-offset-chibi: calc(var(--base-offset-chibi) * 0.5);
+    --large-offset-chibi: calc(var(--base-offset-chibi) * 2);
+}
+
+.leaderboard-container {
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 70%;
+    background-color: rgba(20, 20, 20, 0.5);
+    padding: 1rem;
+    position: relative;
+    border-radius: 10px;
+    font: 1rem Georgia;
+    margin-top: 4rem;
+}
+
+.leaderboard-record {
+
+    margin-top: 1rem;
+
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: fit-content;
+    color: darkgoldenrod;
+
+    &>.username {
+        display: flex;
+        align-items: top;
+        flex: 0 0 11rem;
+    }
+
+    &>.time {
+        display: flex;
+        align-items: top;
+        justify-content: right;
+        flex: 0 0 9rem;
+    }
+}
+
+/* .view-more {
+
+    position: absolute;
+    right: -3rem;
+    top: 2rem;
+
+    display: inline-flex;
+    font-size: 1rem;
+    color: darkgoldenrod;
+    background-color: rgba(20, 20, 20, 0.5);
+    padding: 0.2rem;
+    border-radius: 5px;
+
+    border: 2px ridge black;
+    cursor: pointer;
+
+    &:hover {
+        color: pink;
+    }
+} */
+
+.guess-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 0;
+    /* width: fit-content; */
+    width: 100%;
+    height: var(--guess-container-height);
+    align-items: center;
+    overflow-x: clip;
+}
+
+img {
+    position: relative;
+    width: var(--base-chibi-width);
+    transition: scale 0.3s;
+    user-select: none;
+
+    &:hover {
+        scale: 1.1;
+    }
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    color: beige;
+    border-bottom: 1px solid dimgray;
+    padding-bottom: 1rem;
+
+
+    & .time-sort {
+        display: inline-flex;
+        user-select: none;
+        flex-direction: column;
+        vertical-align: middle;
+        padding-left: 0.5rem;
+        cursor: pointer;
+
+        & > span{
+            line-height: 0.5;
+        }
+    }
+}
+
+.Appa {
+    bottom: var(--small-offset-chibi);
+    width: var(--xlarge-chibi-width);
+}
+
+.Azula {
+    bottom: var(--small-offset-chibi);
+}
+
+.Cabbage_Merchant {
+    width: var(--small-plus-chibi-width);
+}
+
+.Guru_Pathik {
+    top: var(--small-offset-chibi);
+}
+
+.Iroh {
+    width: var(--large-chibi-width);
+}
+
+.Jet {
+    width: var(--large-chibi-width);
+}
+
+.Jeong_Jeong {
+    width: var(--xlarge-chibi-width);
+}
+
+.Katara {
+    top: var(--base-offset-chibi);
+}
+
+.King_Bumi {
+    width: var(--xlarge-chibi-width);
+    top: var(--small-offset-chibi);
+}
+
+.King_Kuei {
+    width: var(--small-plus-chibi-width);
+    bottom: var(--base-offset-chibi);
+}
+
+.Kuruk {
+    width: var(--large-chibi-width);
+}
+
+.Kyoshi {
+    width: var(--large-chibi-width);
+}
+
+.Long_Feng {
+    width: var(--small-plus-chibi-width);
+    top: var(--large-offset-chibi);
+}
+
+.Longshot {
+    width: var(--large-chibi-width);
+}
+
+
+.Suki {
+    width: var(--large-chibi-width);
+}
+
+.Mai {
+    width: var(--large-chibi-width);
+    top: var(--small-offset-chibi);
+}
+
+.Mechanist {
+    width: var(--xlarge-chibi-width);
+}
+
+.Momo {
+    width: var(--large-chibi-width);
+}
+
+.Ozai {
+    width: var(--large-chibi-width);
+    bottom: var(--small-offset-chibi);
+}
+
+.Teo {
+    bottom: var(--small-offset-chibi);
+}
+
+.Ty_Lee {
+    top: var(--small-offset-chibi);
+}
+
+.Pakku {
+    top: var(--small-plus-offset-chibi);
+}
+
+.Piandao {
+    width: var(--small-plus-chibi-width);
+    bottom: var(--small-offset-chibi);
+}
+
+.Yangchen {
+    width: var(--large-chibi-width);
+    top: var(--small-plus-offset-chibi);
+}
+
+.Yue {
+    width: var(--large-chibi-width);
+    top: var(--small-offset-chibi);
+}
+
+.Roku {
+    width: var(--xlarge-chibi-width);
+}
+
+.Sokka {
+    bottom: var(--small-offset-chibi);
+}
+
+.Zhao {
+    width: var(--large-chibi-width);
+    bottom: var(--small-offset-chibi);
+}
+
+.Zuko {
+    width: var(--large-chibi-width);
+}
+
+
+@media only screen and (max-width:768px) {
+    :host {
+        --base-chibi-width: calc(2.5rem * 0.8);
+        --base-offset-chibi: calc(1rem * 0.8);
+    }
+    .leaderboard-container {
+        width: 90%;
+    }
+}

@@ -348,7 +348,7 @@
 		"gender": "Female",
 		"nationality": "Northern Water Tribe",
 		"bendingElement": "None",
-		"affiliations": [],
+		"affiliations": ["Romance"],
 		"firstAppearance": "S01E01 The Boy in the Iceberg"
 	},
 	{
@@ -620,7 +620,7 @@
 		"gender": "Male",
 		"nationality": "Northern Water Tribe",
 		"bendingElement": "Water",
-		"affiliations": ["White Lotus","Mentor"],
+		"affiliations": ["White Lotus","Mentor","Romance"],
 		"firstAppearance": "S01E18 The Waterbending Master"
 	},
 	{

@@ -6,7 +6,7 @@ export interface AvatardleProgress {
   date: string,
   version: string,
   classic: { complete: boolean, guesses: tileData[], series: string[], leaderboardUsername: string | undefined },
-  quote: { complete: boolean, numGuesses: number },
+  quote: { complete: boolean, guesses: string[] },
   picture: { complete: boolean, numGuesses: number },
   music: { complete: boolean, numGuesses: number },
   particleSettings: { enable: boolean },
@@ -19,14 +19,14 @@ export interface AvatardleProgress {
 })
 export class LocalStorageService {
 
-  VERSION: string = "1.4";
+  VERSION: string = "1.5";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
   progress: WritableSignal<AvatardleProgress>;
   default: AvatardleProgress = {
     date: this.currentDate,
     version: this.VERSION,
     classic: { complete: false, guesses: [], series: ["ATLA-title"], leaderboardUsername: undefined },
-    quote: { complete: false, numGuesses: 0 },
+    quote: { complete: false, guesses: [] },
     picture: { complete: false, numGuesses: 0 },
     music: { complete: false, numGuesses: 0 },
     particleSettings: {
@@ -35,14 +35,14 @@ export class LocalStorageService {
     language: undefined,
     notesNotif: true,
   };
-  
+
   isBrowser: boolean = (typeof window != "undefined");
 
   constructor() {
     let ts = inject(TranslateService);
     this.progress = signal(this.default);
 
-    if(this.isBrowser){
+    if (this.isBrowser) {
       if (localStorage.getItem("avatardle_progress") != null) {
         try {
           this.progress.set(JSON.parse(localStorage.getItem("avatardle_progress")!));

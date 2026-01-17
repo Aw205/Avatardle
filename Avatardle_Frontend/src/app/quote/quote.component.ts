@@ -37,7 +37,7 @@ export class QuoteMode {
     });
     characterData: string[] = [];
     hints: { title: string, quote: string }[] = [];
-    incorrectAnswers: string[] = [];
+    guesses: string[] = [];
 
     ls = inject(LocalStorageService);
     title = inject(Title);
@@ -51,10 +51,14 @@ export class QuoteMode {
 
         afterNextRender(() => {
 
-            this.characterData = this.ds.getQuoteCharacterData();
-
+            this.guesses = this.ls.progress().quote.guesses;
+            this.characterData = this.ds.getQuoteCharacterData().filter((e) => !this.guesses.includes(e));
+            
             let rand = new Rand(this.ls.progress().date! + "quote");
-            let idx = this.ds.quoteIndices[Math.floor(rand.next() * this.ds.quoteIndices.length)];
+            let char = Object.keys(this.ds.quoteIndices)[Math.floor(rand.next() * Object.keys(this.ds.quoteIndices).length)];
+            let idxArr = this.ds.quoteIndices[char];
+            let idx = idxArr[Math.floor(rand.next() * idxArr.length)];
+            
             this.isComplete.set(this.ls.progress().quote.complete);
 
             this.ds.transcript$.subscribe((data) => {
@@ -89,28 +93,28 @@ export class QuoteMode {
 
             this.searchVal.set("-" + this.target());
             this.isComplete.set(true);
-            this.ls.patch(['quote'], { complete: true, numGuesses: this.ls.progress().quote.numGuesses + 1 });
-            this.ds.throwConfetti(this.ls.progress().quote.numGuesses);
+            this.ls.patch(['quote'], { complete: true, guesses: this.guesses});
+            this.ds.throwConfetti(this.guesses.length);
             this.ds.updateStats("quote");
 
         }
         else if (select != undefined) {
 
-            this.incorrectAnswers.unshift(select);
+            this.guesses.unshift(select);
             this.searchVal.set('');
             this.characterData.splice(this.characterData.indexOf(select), 1);
-            this.ls.patch(['quote', 'numGuesses'], this.ls.progress().quote.numGuesses + 1);
+            this.ls.patch(['quote', 'guesses'], this.guesses);
         }
     }
 
     isEnabled(hintId: number) {
 
-        return this.isComplete() || this.ls.progress().quote.numGuesses >= 2 + hintId;
+        return this.isComplete() || this.guesses.length >= 2 + hintId;
     }
     
     isSurrenderDisabled() {
 
-        return this.isComplete() || this.ls.progress().quote.numGuesses < 5;
+        return this.isComplete() || this.guesses.length < 5;
     }
 
 
@@ -126,7 +130,7 @@ export class QuoteMode {
 
     getTooltipText(hintId: number): string {
 
-        let diff = hintId + 2 - this.ls.progress().quote.numGuesses;
+        let diff = hintId + 2 - this.guesses.length;
         if (diff <= 0 || this.isComplete()) {
             return "Hint available!";
         }
@@ -138,7 +142,7 @@ export class QuoteMode {
 
     getSurrenderText(): string {
 
-        let diff = 5 - this.ls.progress().quote.numGuesses;
+        let diff = 5 - this.guesses.length;
         if (diff <= 0 || this.isComplete()) {
             return "Reveal answer";
         }

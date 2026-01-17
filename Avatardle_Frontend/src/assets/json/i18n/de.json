@@ -113,8 +113,7 @@
         "name": "Name",
         "guesses": "Schätzungen",
         "time": "Zeit",
-        "noData": "Es ist zu still ... sei der Erste!",
-        "updateInfo": "Aktualisierungen alle 5 Minuten"
+        "noData": "Es ist zu still ... sei der Erste!"
     },
     "aboutDialog": {
         "title": "Über",

@@ -6,7 +6,6 @@
     }
 }
 
-
 .image-grid {
 
     display: grid;
@@ -43,7 +42,9 @@
 }
 
 .audio-container {
+    margin-top: 1rem;
     display: flex;
+    height: 2rem;
     align-items: center;
     width: 80%;
     gap: 1rem;
@@ -108,16 +109,14 @@
 .main-container {
 
     width: 40rem;
-    height: 15rem;
+    background-color: rgba(20, 20, 20, 0.5);
     margin: auto;
-    position: relative;
-    background-color: rgb(30, 30, 30);
+    margin-top: 1rem;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-
-    box-shadow: 0px 0px 1rem 40px #00000082;
+    padding-block: 1rem;
 }
 
 .complete {
@@ -162,16 +161,16 @@
         background-color: rgb(15, 15, 15);
         text-indent: 1rem;
         margin-top: 1rem;
-    }
-}
 
-.artist-name {
-    text-decoration: underline 1px;
-    color: inherit;
-    text-underline-offset: 0.2rem;
+        &>.artist-name {
+            text-decoration: underline 1px;
+            color: inherit;
+            text-underline-offset: 0.2rem;
 
-    &:hover {
-        color: darkgoldenrod;
+            &:hover {
+                color: darkgoldenrod;
+            }
+        }
     }
 }
 
@@ -183,47 +182,63 @@
     background-color: rgb(30, 30, 30);
     border: none;
     width: 100%;
-    height: 100%;
+    height: 90%;
     transition: opacity 0.3s linear;
+
 }
 
 .hint-content {
-    position: relative;
-    width: 70%;
-    font: bolder 1rem avatar2;
+    position: absolute;
+    left: 90%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20rem;
+    font: 1rem avatar2;
     color: gray;
     padding-left: 1rem;
     white-space: pre;
+    z-index: -1;
+    background-color: rgb(20, 20, 20);
+    border: 1px outset black;
+    outline: 2px solid black;
 
     &>span {
         color: darkgoldenrod;
         padding-left: 1rem;
     }
+
+   
 }
 
 .disable-hint {
 
-    filter: saturate(0) brightness(0.5);
-    transition: filter 400ms linear;
+    filter: none !important;
+    transition: none !important;
 }
 
 .clue-container {
-
     display: flex;
-    padding-left: 1rem;
-    flex-direction: column;
-    width: 80%;
-    border: 1px outset black;
-    outline: 2px solid black;
-    background-color: rgb(20, 20, 20);
-    border-radius: 16px;
-    padding: 1rem;
+    position: relative;
 
-    & img {
+    &>div {
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: rgb(20, 20, 20);
+        border: 1px outset black;
+        outline: 2px solid black;
+        border-radius: 50%;
+        position: relative;
+        left: 1rem;
+        margin-top: 0.5rem;
+        display: flex;
+        justify-content: center;
 
-        width: 2rem;
+        &>img {
+            width: 80%;
+            filter: saturate(0) brightness(0.5);
+            transition: filter 400ms linear;
+        }
     }
-
 }
 
 .revealed {
@@ -231,35 +246,64 @@
     cursor: default;
 }
 
+.band-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    left: 1rem;
+    border: 1px outset black;
+    outline: 2px solid black;  
+    background-color: rgb(20, 20, 20);
+
+    &>span{
+        display: none;
+    }
+}
+
+.instrument-sway {
+    animation: sway 2s infinite linear, tsungiPulse 1.2s infinite ease-in-out;
+    transform-origin: center center;
+}
+
+@keyframes sway {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@keyframes tsungiPulse {
+    0%, 100% { scale: 1; }
+    50% { scale: 1.02; }
+  }
+
 @media only screen and (max-width: 768px) {
 
     .main-container {
         width: 90%;
     }
-
     .image-grid {
         grid-template-columns: repeat(3, 7rem);
     }
-
-    .complete{
+    .complete {
         width: 18rem;
-    }
-
-    .clue-container {
-
-        & img {
-            width: 1.5rem;
-        }
-    }
-
-    .hint-content {
-
-        width: 90%;
-        font: bolder 0.8rem avatar2;
-        padding-left: 0;
-    }
-
-    .spoiler {
-        height: 100%;
     }
 }

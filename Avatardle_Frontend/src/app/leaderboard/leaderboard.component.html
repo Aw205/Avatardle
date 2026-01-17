@@ -1,0 +1,52 @@
+<div class="leaderboard-container">
+    <div style="font: 1.5rem Georgia; color: beige; margin-bottom: 1rem;">{{'leaderboardDialog.title' | translate}}
+        -
+        <countdown [config]="ds.getCountdownConfig()" style="font-size: 1rem;" />
+    </div>
+    <button [matMenuTriggerFor]="submenu"
+        style="font: 1rem Georgia; color: beige; width: fit-content; cursor: pointer; margin-bottom: 1rem; background-color: transparent; border: none; padding-left: 0;">
+        <mat-menu #submenu>
+            @for(m of modes; track m){
+            <button mat-menu-item>
+                {{('home.' + m) | translate}}</button>
+            }
+        </mat-menu>
+        Classic &#9662;
+    </button>
+
+    <div class="table-header">
+        <span>{{'leaderboardDialog.name' | translate}}</span>
+        <span>{{'leaderboardDialog.guesses' | translate}}</span>
+        <div>
+            <span>{{'leaderboardDialog.time' | translate}}</span>
+            <div class="time-sort" (click)="sortTable()">
+                <span style="rotate: 180deg;">&#9662;</span>
+                <span> &#9662;</span>
+            </div>
+        </div>
+
+    </div>
+    @for(item of list(); track item.username){
+    <div style="border-bottom: 1px solid rgba(105, 105, 105, 0.2);">
+        <div class="leaderboard-record">
+            <span class="username">{{item.username}}</span>
+            <span class="time"> {{getTimeAgo(item.time)}}</span>
+        </div>
+        <!-- <div style="position: relative; display: flex; min-width: 0;width: 100%; justify-content: center;"> -->
+        <div class="guess-container">
+            @for(char of item.guesses; let i = $index; track i;){
+                @let c = char | hyphenate;
+            <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{char | hyphenate}}" [alt]="char" matTooltip="{{char}}"
+                matTooltipPosition="below" (error)="onImageError($event)">
+            }
+            <!-- <div style="position: absolute; top:3rem; width: 100%; border: 1px solid green;"></div> -->
+        </div>
+        <!-- <span class="view-more">+ 5</span> -->
+        <!-- </div> -->
+    </div>
+
+    }
+    @if(list().length == 0){
+    <p style="color: gray;">{{'leaderboardDialog.noData' | translate}} </p>
+    }
+</div>

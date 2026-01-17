@@ -179,12 +179,19 @@ export class ClassicMode {
         this.tileArray.set(this.ls.progress().classic.guesses);
         this.guessAttempts = this.tileArray().length / 6;
         this.characterData = this.shuffleArray(this.ds.getClassicCharacterData(this.ls.progress().classic.series));
+        let guessedChars = [];
+        for (let tile of this.tileArray()) {
+            if (tile.name) {
+                guessedChars.push(tile.name);
+            }
+        }
+        this.characterData = this.characterData.filter((e) => !guessedChars.includes(e.name));
         this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
         this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
 
         if (this.ls.progress().classic.complete) {
             this.isComplete.set(true);
-            this.submittedToLeaderboard.set(this.ls.progress().classic.leaderboardUsername!=undefined);
+            this.submittedToLeaderboard.set(this.ls.progress().classic.leaderboardUsername != undefined);
             this.usernameInput.set(this.ls.progress().classic.leaderboardUsername || '');
             this.searchVal.set(this.tileArray()[0].name!);
             this.fanArt = this.ds.fanArt.find(e => e.character == this.tileArray()[0].name!)!;
@@ -237,8 +244,8 @@ export class ClassicMode {
             complete: () => {
                 this.snackBar.open("Submitted!", undefined, { panelClass: "snack-bar", duration: 4000 });
                 this.submittedToLeaderboard.set(true);
-                this.ls.patch(['classic','leaderboardUsername'],this.usernameInput());
-            }, 
+                this.ls.patch(['classic', 'leaderboardUsername'], this.usernameInput());
+            },
         });
     }
 

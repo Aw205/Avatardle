@@ -2,24 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://www.avatardle.com/</loc>
+    <loc>https://avatardle.com</loc>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://www.avatardle.com/classic</loc>
+    <loc>https://avatardle.com/classic</loc>
   </url>
 
   <url>
-    <loc>https://www.avatardle.com/quote</loc>
+    <loc>https://avatardle.com/quote</loc>
   </url>
 
-   <url>
-    <loc>https://www.avatardle.com/picture</loc>
+  <url>
+    <loc>https://avatardle.com/picture</loc>
   </url>
 
-    <url>
-    <loc>https://www.avatardle.com/music</loc>
+  <url>
+    <loc>https://avatardle.com/music</loc>
+  </url>
+
+  <url>
+    <loc>https://avatardle.com/leaderboard</loc>
   </url>
 
 </urlset>

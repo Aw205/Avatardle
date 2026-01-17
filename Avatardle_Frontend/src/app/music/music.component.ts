@@ -36,7 +36,7 @@ export class MusicMode {
   selected: WritableSignal<Set<string>> = signal(new Set<string>());
   progress: WritableSignal<number> = signal(0);
   images: WritableSignal<string[]> = signal([]);
-  hints: { title: string, body: string, show: boolean }[] | undefined;
+  hints: WritableSignal<{ title: string, body: string, show: boolean }[]> | undefined = signal([]);
 
 
   pmoveListener: EventListener = this.update.bind(this);
@@ -77,12 +77,8 @@ export class MusicMode {
       this.isComplete.set(this.ls.progress().music.complete);
       this.ds.osts$.subscribe(data => {
 
-
-        let selectedOSTs = [];
-
         this.targetOST = data[Math.floor(this.rand.next() * data.length)];
-
-        selectedOSTs.push(this.targetOST.name);
+        let selectedOSTs = [this.targetOST.name];
 
         let audioName = encodeURIComponent(this.targetOST.audio);
         this.audio = new Audio(`${environment.R2Url}/osts/${audioName}`);
@@ -91,10 +87,10 @@ export class MusicMode {
           this.audio!.currentTime = this.timeOffset;
         });
 
-        this.hints = [
+        this.hints?.set([
           { title: "music.char-hint", body: this.targetOST.characters[Math.floor(this.rand.next() * this.targetOST.characters.length)], show: false },
           { title: "music.music-hint", body: "", show: false },
-        ];
+        ]);
 
         while (this.images().length != 8) {
           let randomOST = data[Math.floor(this.rand.next() * data.length)];
@@ -217,7 +213,10 @@ export class MusicMode {
   }
 
   revealHint(hintId: number) {
-    this.hints![hintId].show = true;
+
+    this.hints!()[hintId].show = true;
+    this.hints?.set([...this.hints()]);
+
     if (hintId == 1) {
       this.isPaused.set(true);
       this.audio!.pause();
@@ -228,6 +227,10 @@ export class MusicMode {
       this.timeOffset = 0;
       this.displayCurrTime.set(0);
     }
+  }
+
+  ngOnDestroy(){
+    this.audio?.pause();
   }
 
 }

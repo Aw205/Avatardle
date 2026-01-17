@@ -56,15 +56,6 @@
         max-width: none !important;
     }
 
-    .leaderboard-dialog {
-
-        width: 70vw;
-        height: 40rem;
-        max-width: none !important;
-    }
-
-
-
     @include mat.tabs-overrides((divider-color: transparent,
             inactive-ripple-color: dimgray,
             inactive-label-text-color: gray,
@@ -81,7 +72,7 @@
             item-hover-state-layer-color: rgb(30, 30, 30)));
 
     @include mat.badge-overrides((background-color: red,
-    small-size-container-overlap-offset: -9px,
+            small-size-container-overlap-offset: -9px,
             container-shape: 50%));
 }
 
@@ -99,16 +90,8 @@
 
     display: flex;
     flex-direction: column;
-
-    &::-webkit-scrollbar-thumb {
-        background: rgb(60, 60, 60);
-        border-radius: 0.5rem;
-    }
-
-    &::-webkit-scrollbar {
-        background: rgb(30, 30, 30);
-        width: 0.5rem;
-    }
+    scrollbar-color: rgb(60, 60, 60) rgb(30, 30, 30);
+    scrollbar-width: thin;
 }
 
 .mat-mdc-tab-body-wrapper {
@@ -152,7 +135,6 @@ a {
     text-decoration: none;
 }
 
-
 .search-bar {
 
     background-color: rgb(20, 20, 20);
@@ -186,16 +168,8 @@ a {
     z-index: 1;
     max-height: 50vh;
     overflow-y: auto;
-
-    &::-webkit-scrollbar-thumb {
-        background: rgb(60, 60, 60);
-        border-radius: 0.5rem;
-    }
-
-    &::-webkit-scrollbar {
-        background: rgb(30, 30, 30);
-        width: 0.5rem;
-    }
+    scrollbar-color: rgb(60, 60, 60) rgb(30, 30, 30);
+    scrollbar-width: thin;
 
     & li {
         display: flex;
@@ -231,7 +205,6 @@ a {
     cursor: pointer;
 }
 
-
 .surrender-button {
     cursor: pointer;
     background-color: transparent;
@@ -256,7 +229,6 @@ a {
 @media only screen and (max-width: 768px) {
 
     .comment-dialog {
-
         width: 95vw !important;
     }
 
@@ -269,10 +241,6 @@ a {
     }
 
     .particles-dialog {
-        width: 95vw !important;
-    }
-
-    .leaderboard-dialog {
         width: 95vw !important;
     }
 

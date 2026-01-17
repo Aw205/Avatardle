@@ -114,9 +114,7 @@
         "name": "Nombre",
         "guesses": "Conjeturas",
         "time": "Tiempo",
-        "noData": "Hay demasiado silencio... ¡Sé el primero!",
-        "updateInfo": "actualizaciones cada 5 minutos"
-        
+        "noData": "Hay demasiado silencio... ¡Sé el primero!"
     },
     "aboutDialog": {
         "title": "Acerca de",

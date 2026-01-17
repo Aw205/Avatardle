@@ -21,5 +21,9 @@ export const routes: Routes = [
       path: 'music',
       loadComponent: () => import('./music/music.component').then(module => module.MusicMode)
    },
+   {
+      path: 'leaderboard',
+      loadComponent: () => import('./leaderboard/leaderboard.component').then(module => module.LeaderboardComponent)
+   },
    { path: '**', loadComponent: () => import('./not-found/not-found.component').then(module => module.NotFoundComponent) }
 ];
