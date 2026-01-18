@@ -122,7 +122,8 @@
         "credits": {
             "background": "Imagen de fondo: ",
             "iroh": "Imagen de Iroh Pai Sho: ",
-            "paisho": "Imagen de mosaico de Pai Sho: "
+            "paisho": "Imagen de mosaico de Pai Sho: ",
+            "icons": "Iconos de personajes: "
         },
         "socials":{
             "title":"Comunidad",

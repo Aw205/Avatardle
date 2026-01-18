@@ -121,7 +121,8 @@
         "credits": {
             "background": "Hintergrundbild: ",
             "iroh": "Iroh Pai Sho Bild: ",
-            "paisho": "Pai Sho-Kachelbild: "
+            "paisho": "Pai Sho-Kachelbild: ",
+            "icons": "Zeichensymbole: "
         },
         "socials":{
             "title":"Gemeinschaft",

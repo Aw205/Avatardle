@@ -122,7 +122,8 @@
         "credits": {
             "background": "Image d'arrière-plan : ",
             "iroh": "Image d'Iroh Pai Sho : ",
-            "paisho": "Image de tuile Pai Sho : "
+            "paisho": "Image de tuile Pai Sho : ",
+            "icons": "Icônes de personnages : "
         },
         "socials":{
             "title":"Communauté",
