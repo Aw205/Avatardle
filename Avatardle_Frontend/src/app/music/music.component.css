@@ -162,7 +162,7 @@
         text-indent: 1rem;
         margin-top: 1rem;
 
-        &>.artist-name {
+        & .artist-name {
             text-decoration: underline 1px;
             color: inherit;
             text-underline-offset: 0.2rem;
@@ -298,8 +298,14 @@
 @media only screen and (max-width: 768px) {
 
     .main-container {
-        width: 90%;
+        width: 95%;
     }
+
+    .hint-content{
+        font-size: 0.8rem;
+        max-width: 17rem;
+    }
+
     .image-grid {
         grid-template-columns: repeat(3, 7rem);
     }
