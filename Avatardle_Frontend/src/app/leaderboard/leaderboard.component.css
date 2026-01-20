@@ -113,7 +113,7 @@ img {
         padding-left: 0.5rem;
         cursor: pointer;
 
-        & > span{
+        &>span {
             line-height: 0.5;
         }
     }
@@ -124,7 +124,16 @@ img {
     width: var(--xlarge-chibi-width);
 }
 
+.Asami_Sato {
+
+    top: var(--small-plus-offset-chibi);
+}
+
 .Azula {
+    bottom: var(--small-offset-chibi);
+}
+
+.Bolin {
     bottom: var(--small-offset-chibi);
 }
 
@@ -132,8 +141,35 @@ img {
     width: var(--small-plus-chibi-width);
 }
 
+.Due {
+    width: var(--large-chibi-width);
+    bottom: var(--small-plus-offset-chibi);
+}
+
+.Chong {
+    width: var(--large-chibi-width);
+    bottom: var(--small-plus-offset-chibi);
+}
+
+.Combustion_Man {
+    width: var(--large-chibi-width);
+}
+
 .Guru_Pathik {
     top: var(--small-offset-chibi);
+}
+
+.Gyatso {
+    width: var(--small-plus-chibi-width);
+}
+
+.Hama {
+
+    width: var(--large-chibi-width);
+}
+
+.Huu {
+    width: var(--xlarge-chibi-width);
 }
 
 .Iroh {
@@ -148,6 +184,14 @@ img {
     width: var(--xlarge-chibi-width);
 }
 
+.Jin {
+    bottom: var(--small-plus-offset-chibi);
+}
+
+.June {
+    top: var(--small-offset-chibi);
+}
+
 .Katara {
     top: var(--base-offset-chibi);
 }
@@ -160,6 +204,14 @@ img {
 .King_Kuei {
     width: var(--small-plus-chibi-width);
     bottom: var(--base-offset-chibi);
+}
+
+.Koh {
+    width: var(--xlarge-chibi-width);
+}
+
+.Korra {
+    width: var(--large-chibi-width);
 }
 
 .Kuruk {
@@ -179,6 +231,11 @@ img {
     width: var(--large-chibi-width);
 }
 
+.Sozin {
+
+    bottom: var(--small-plus-offset-chibi);
+}
+
 
 .Suki {
     width: var(--large-chibi-width);
@@ -187,6 +244,10 @@ img {
 .Mai {
     width: var(--large-chibi-width);
     top: var(--small-offset-chibi);
+}
+
+.Mako {
+    width: var(--small-plus-chibi-width);
 }
 
 .Mechanist {
@@ -204,6 +265,15 @@ img {
 
 .Teo {
     bottom: var(--small-offset-chibi);
+}
+
+.The_Boulder {
+    bottom: var(--small-offset-chibi)
+}
+
+.Tho {
+    width: var(--large-chibi-width);
+    bottom: var(--small-plus-offset-chibi);
 }
 
 .Ty_Lee {
@@ -237,6 +307,10 @@ img {
     bottom: var(--small-offset-chibi);
 }
 
+.Xin_Fu {
+    top: var(--small-offset-chibi);
+}
+
 .Zhao {
     width: var(--large-chibi-width);
     bottom: var(--small-offset-chibi);
@@ -252,6 +326,7 @@ img {
         --base-chibi-width: calc(2.5rem * 0.8);
         --base-offset-chibi: calc(1rem * 0.8);
     }
+
     .leaderboard-container {
         width: 90%;
     }
