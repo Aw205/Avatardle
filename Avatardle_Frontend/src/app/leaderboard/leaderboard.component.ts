@@ -37,7 +37,7 @@ export class LeaderboardComponent {
       content: "Share scores and view other people's guesses in the Avatardle leaderboard!"
     });
 
-    // let chars = this.ds.characterFilter.classic["ATLA-title"];
+    // let chars = this.ds.characterFilter.classic["TLOK-title"];
     // let arr: LeaderboardRecord[] = [];
     // let gus: string[] = [];
     // for (let i = 0; i < 10; i++) {

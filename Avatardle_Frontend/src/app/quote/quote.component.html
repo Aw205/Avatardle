@@ -44,7 +44,7 @@
     <div class="title">{{target()}}</div>
     <img src="images/characters/{{target() | hyphenate}}.webp" alt="">
     <div class="complete-container">
-        <p>{{'attempts' | translate}}<span style="color: beige;">{{guesses.length}}</span></p>
+        <p>{{'attempts' | translate}}<span style="color: beige;">{{guesses.length + 1}}</span></p>
         <p>{{'quote.next' | translate}}
             <countdown [config]="ds.getCountdownConfig()" style="color:beige;" />
         </p>

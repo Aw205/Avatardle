@@ -11,6 +11,7 @@
 
     --small-offset-chibi: calc(var(--base-offset-chibi) * 0.2);
     --small-plus-offset-chibi: calc(var(--base-offset-chibi) * 0.5);
+    --base-plus-offset-chibi: calc(var(--base-offset-chibi) * 1.3);
     --large-offset-chibi: calc(var(--base-offset-chibi) * 2);
 }
 
@@ -119,6 +120,11 @@ img {
     }
 }
 
+.Amon {
+    width: var(--large-chibi-width);
+    top: var(--small-offset-chibi);
+}
+
 .Appa {
     bottom: var(--small-offset-chibi);
     width: var(--xlarge-chibi-width);
@@ -137,6 +143,10 @@ img {
     bottom: var(--small-offset-chibi);
 }
 
+.Bumi {
+    width: var(--xlarge-chibi-width);
+}
+
 .Cabbage_Merchant {
     width: var(--small-plus-chibi-width);
 }
@@ -146,6 +156,10 @@ img {
     bottom: var(--small-plus-offset-chibi);
 }
 
+.Eska {
+    top: var(--base-offset-chibi);
+}
+
 .Chong {
     width: var(--large-chibi-width);
     bottom: var(--small-plus-offset-chibi);
@@ -153,6 +167,11 @@ img {
 
 .Combustion_Man {
     width: var(--large-chibi-width);
+}
+
+.Ghazan {
+    width: var(--small-plus-chibi-width);
+    top: var(--small-offset-chibi);
 }
 
 .Guru_Pathik {
@@ -174,6 +193,11 @@ img {
 
 .Iroh {
     width: var(--large-chibi-width);
+}
+
+.Iroh_II {
+
+    width: var(--small-plus-chibi-width);
 }
 
 .Jet {
@@ -218,7 +242,17 @@ img {
     width: var(--large-chibi-width);
 }
 
+.Kuvira {
+    width: var(--large-chibi-width);
+    top: var(--small-offset-chibi);
+}
+
 .Kyoshi {
+    width: var(--large-chibi-width);
+}
+
+.Lin_Beifong {
+
     width: var(--large-chibi-width);
 }
 
@@ -232,10 +266,8 @@ img {
 }
 
 .Sozin {
-
     bottom: var(--small-plus-offset-chibi);
 }
-
 
 .Suki {
     width: var(--large-chibi-width);
@@ -254,7 +286,16 @@ img {
     width: var(--xlarge-chibi-width);
 }
 
+.Ming-Hua {
+
+    top: var(--small-offset-chibi);
+}
+
 .Momo {
+    width: var(--large-chibi-width);
+}
+
+.Opal {
     width: var(--large-chibi-width);
 }
 
@@ -263,8 +304,17 @@ img {
     bottom: var(--small-offset-chibi);
 }
 
+.Tarrlok{
+    top: var(--base-plus-offset-chibi);
+}
+
 .Teo {
     bottom: var(--small-offset-chibi);
+}
+
+.Tenzin {
+
+    top: var(--small-offset-chibi);
 }
 
 .The_Boulder {
@@ -280,6 +330,11 @@ img {
     top: var(--small-offset-chibi);
 }
 
+.P\'Li{
+    width: var(--small-plus-chibi-width);
+    top: var(--small-plus-offset-chibi);
+}
+
 .Pakku {
     top: var(--small-plus-offset-chibi);
 }
@@ -287,6 +342,15 @@ img {
 .Piandao {
     width: var(--small-plus-chibi-width);
     bottom: var(--small-offset-chibi);
+}
+
+.Prince_Wu {
+    width: var(--small-plus-chibi-width);
+}
+
+.Professor_Zei {
+    width: var(--xlarge-chibi-width);
+    top: var(--small-offset-chibi);
 }
 
 .Yangchen {
