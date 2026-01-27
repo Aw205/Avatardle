@@ -88,7 +88,7 @@ cron.schedule('0 0 * * *', async () => {
                 }
             ]
         };
-        fetch("https://discord.com/api/webhooks/1461875154517754118/wsHC_JnsrfUBE6cq1Lseykl4jdnTXylRol0GvR6JhjIxK7Yy_st5FSs3vZRIU94tiq5D", {
+        fetch(process.env.DISCORD_WEBHOOK_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
