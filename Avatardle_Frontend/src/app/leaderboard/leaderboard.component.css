@@ -279,7 +279,8 @@ img {
 }
 
 .Mako {
-    width: var(--small-plus-chibi-width);
+   width: var(--small-plus-chibi-width);
+   bottom: var(--small-offset-chibi);
 }
 
 .Mechanist {
@@ -326,8 +327,17 @@ img {
     bottom: var(--small-plus-offset-chibi);
 }
 
+.Tonraq {
+    width: var(--large-chibi-width);
+    top: var(--small-offset-chibi);
+}
+
 .Ty_Lee {
     top: var(--small-offset-chibi);
+}
+
+.Unalaq {
+    top: var(--small-plus-offset-chibi);
 }
 
 .P\'Li{
@@ -371,13 +381,33 @@ img {
     bottom: var(--small-offset-chibi);
 }
 
+.Varrick {
+    width: var(--large-chibi-width);
+}
+
+.Wan{
+    width: var(--large-chibi-width);
+}
+
 .Xin_Fu {
     top: var(--small-offset-chibi);
+}
+
+.Yakone {
+    width: var(--small-plus-chibi-width);
+}
+
+.Zaheer {
+    width: var(--small-plus-chibi-width);
 }
 
 .Zhao {
     width: var(--large-chibi-width);
     bottom: var(--small-offset-chibi);
+}
+
+.Zhu_Li{
+    width: var(--small-plus-chibi-width);
 }
 
 .Zuko {
