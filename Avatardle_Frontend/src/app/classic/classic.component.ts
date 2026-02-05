@@ -179,6 +179,7 @@ export class ClassicMode {
         this.tileArray.set(this.ls.progress().classic.guesses);
         this.guessAttempts = this.tileArray().length / 6;
         this.characterData = this.shuffleArray(this.ds.getClassicCharacterData(this.ls.progress().classic.series));
+        this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
         let guessedChars = [];
         for (let tile of this.tileArray()) {
             if (tile.name) {
@@ -186,7 +187,6 @@ export class ClassicMode {
             }
         }
         this.characterData = this.characterData.filter((e) => !guessedChars.includes(e.name));
-        this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
         this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
 
         if (this.ls.progress().classic.complete) {

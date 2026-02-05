@@ -1,4 +1,4 @@
-.menu {
+nav {
 
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@
 
 @media only screen and (max-width: 768px) {
 
-    .menu {
+    nav {
         position: absolute;
         gap: 3rem;
         top: 50%;
