@@ -13,7 +13,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
-import {SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
+import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
 
 @Component({
     selector: 'quote',
@@ -53,12 +53,12 @@ export class QuoteMode {
 
             this.guesses = this.ls.progress().quote.guesses;
             this.characterData = this.ds.getQuoteCharacterData().filter((e) => !this.guesses.includes(e));
-            
+
             let rand = new Rand(this.ls.progress().date! + "quote");
             let char = Object.keys(this.ds.quoteIndices)[Math.floor(rand.next() * Object.keys(this.ds.quoteIndices).length)];
             let idxArr = this.ds.quoteIndices[char];
             let idx = idxArr[Math.floor(rand.next() * idxArr.length)];
-            
+
             this.isComplete.set(this.ls.progress().quote.complete);
 
             this.ds.transcript$.subscribe((data) => {
@@ -93,7 +93,7 @@ export class QuoteMode {
 
             this.searchVal.set("-" + this.target());
             this.isComplete.set(true);
-            this.ls.patch(['quote'], { complete: true, guesses: this.guesses});
+            this.ls.patch(['quote'], { complete: true, guesses: this.guesses });
             this.ds.throwConfetti(this.guesses.length);
             this.ds.updateStats("quote");
 
@@ -108,10 +108,10 @@ export class QuoteMode {
     }
 
     isEnabled(hintId: number) {
-
+        
         return this.isComplete() || this.guesses.length >= 2 + hintId;
     }
-    
+
     isSurrenderDisabled() {
 
         return this.isComplete() || this.guesses.length < 5;

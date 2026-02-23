@@ -61,6 +61,7 @@
             "lava-bending": "Lava Bending",
             "lightning-bending": "Lightning Bending",
             "lion-turtle": "Lion Turtle",
+            "makapu-village": "Makapu village",
             "mentor": "Mentor",
             "metal-bending": "Metal Bending",
             "metal-clan": "Metal Clan",
@@ -84,6 +85,10 @@
     },
     "quote": {
         "next": "Next quote in: "
+    },
+    "picture":{
+        "previous": "Previous frame",
+        "next": "Next frame"
     },
     "music":{
         "help": "Match the music to the scene",

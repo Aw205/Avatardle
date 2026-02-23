@@ -28,7 +28,8 @@
     align-items: right;
     margin: auto;
     margin-top: 0.5rem;
-    width: 40vw;
+    width: clamp(40rem,40vw,50vw);
+    position: relative;
 
     &>.image-wrapper {
         overflow: hidden;
@@ -44,12 +45,50 @@
     }
 }
 
+.hint-container {
+
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    border-radius: 0 0.5rem 0.5rem 0;
+    overflow: hidden;
+
+    &>button {
+
+        background-color: rgb(20, 20, 20);
+        border: none;
+        border-left: 1px solid rgb(40, 40, 40);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(35, 35, 35);
+        }
+
+        &:enabled {
+            &>img {
+                filter: none;
+                transition: filter 400ms linear;
+            }
+        }
+
+        &>img {
+            width: 2rem;
+            height: auto;
+            aspect-ratio: 1/1;
+            filter: saturate(0) brightness(0.5);
+        }
+    }
+}
+
 .search-bar-container {
 
     display: flex;
     justify-content: center;
     position: relative;
-    width: 50%;
+  
+    width: 50rem;
     height: 3rem;
     margin: auto;
     margin-top: 3rem;
@@ -64,7 +103,7 @@
     &>input {
         background-color: var(--search-bar-background-color);
         width: 90%;
-        font: 2rem avatar2;
+        font: 1.75rem avatar2;
         color: beige;
         border-radius: 0 10px 10px 0;
         border: none;
@@ -90,4 +129,11 @@
     .search-bar {
         font-size: 1.5rem;
     }
+
+    .hint-container {
+        & img {
+            width: 1.5rem !important;
+        }
+    }
+
 }

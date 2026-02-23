@@ -1,6 +1,6 @@
 import { afterNextRender, ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DataService } from '../services/data.service';
+import { DataService, Episode } from '../services/data.service';
 import { TmNgOdometerModule } from 'odometer-ngx';
 import { Subscription } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
@@ -11,6 +11,9 @@ import { LocalStorageService } from '../services/local-storage.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
 import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
+import Rand from 'rand-seed';
+import { environment } from '../../environments/environment';
+import { ExpandImageDialogComponent } from '../expand-image-dialog/expand-image-dialog.component';
 
 
 @Component({
@@ -23,6 +26,8 @@ import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.c
 export class PictureMode {
 
   targetFrame: WritableSignal<string> = signal("");
+  prevFrame: string = "";
+  nextFrame: string = "";
   isVisible: WritableSignal<boolean> = signal(true);
   isComplete: WritableSignal<boolean> = signal(false);
 
@@ -51,7 +56,7 @@ export class PictureMode {
   ts = inject(TranslateService);
   dialog = inject(MatDialog);
   isBrowser = (typeof window != "undefined");
-
+  rand!: Rand;
 
   constructor(private route: ActivatedRoute) {
 
@@ -62,12 +67,34 @@ export class PictureMode {
       }
     });
 
-    afterNextRender(() => {
+    if (this.isBrowser) {
+      this.rand = new Rand(this.ls.progress().date! + "picture");
+    }
 
-      this.targetFrame.set(this.route.snapshot.data["image"].frame);
+  }
+
+  ngOnInit() {
+    this.title.setTitle("Picture | Avatardle");
+    this.meta.updateTag({
+      name: "description",
+      content: "Play Picture Mode on Avatardle, the daily Avatar guessing game. Guess episodes from Avatar: The Last Airbender using frames from the show!"
+    });
+
+    this.ds.pictureData$.subscribe((data: Episode) => {
+
+      this.targetEpisode = this.ds.episodes[Math.floor(61 * this.rand.next())];
+
+      let frameIdx = Math.floor(this.rand.next() * data[this.targetEpisode]);
+      let prevIdx = String(frameIdx - 1).padStart(3, '0');
+      let nextIdx = String(frameIdx + 1).padStart(3, '0');
+      let frameStr = String(frameIdx).padStart(3, '0');
+
+      this.targetFrame.set(`${environment.R2Url}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${frameStr}.webp`);
+      this.prevFrame = `${environment.R2Url}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${prevIdx}.webp`;
+      this.nextFrame = `${environment.R2Url}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${nextIdx}.webp`;
+
       this.englishEpisodeData = [...this.ds.episodes].slice(0, 61);
       this.episodeData = [...this.ds.episodes].slice(0, 61);
-      this.targetEpisode = this.route.snapshot.data["image"].target;
       this.epiNum = this.targetEpisode.substring(0, 7);
 
       if (this.ls.progress().picture.complete) {
@@ -80,14 +107,6 @@ export class PictureMode {
         this.addt.set(true);
       }, 500);
 
-    })
-  }
-
-  ngOnInit() {
-    this.title.setTitle("Picture | Avatardle");
-    this.meta.updateTag({
-      name: "description",
-      content: "Play Picture Mode on Avatardle, the daily Avatar guessing game. Guess episodes from Avatar: The Last Airbender using frames from the show!"
     });
   }
 
@@ -176,6 +195,35 @@ export class PictureMode {
         }
       });
     }
+  }
+
+  expandImage(imgURL: string, title: string) {
+
+    this.dialog.open(ExpandImageDialogComponent, {
+      width: '40vw', maxWidth: 'none', panelClass: 'responsive-panel', data: {
+        isComplete: true,
+        imageUrl: imgURL,
+        mode: "picture",
+        title: title
+      }
+    });
+  }
+
+  getTooltipText(hintId: number): string {
+
+    let diff = hintId + 2 - this.ls.progress().picture.numGuesses;
+    if (diff <= 0 || this.isComplete()) {
+      return "Hint available!";
+    }
+    else if (diff == 1) {
+      return "Hint in 1 more guess";
+    }
+    return `Hint in ${diff} more guesses`;
+  }
+
+  isEnabled(hintId: number) {
+
+    return this.isComplete() || this.ls.progress().picture.numGuesses >= 2 + hintId;
   }
 
 }

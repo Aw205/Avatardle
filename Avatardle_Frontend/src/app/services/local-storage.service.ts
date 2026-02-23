@@ -19,7 +19,7 @@ export interface AvatardleProgress {
 })
 export class LocalStorageService {
 
-  VERSION: string = "1.5";
+  VERSION: string = "1.6";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
   progress: WritableSignal<AvatardleProgress>;
   default: AvatardleProgress = {
@@ -49,6 +49,11 @@ export class LocalStorageService {
           if (this.currentDate != this.progress().date || this.VERSION != this.progress().version) {
             this.default.language = this.progress().language;
             this.default.classic.series = this.progress().classic.series ?? ["ATLA-title"];
+
+            if (this.VERSION != this.progress().version) {
+              this.progress().notesNotif = true;
+            }
+
             this.default.notesNotif = this.progress().notesNotif;
             this.progress.set(this.default);
           }

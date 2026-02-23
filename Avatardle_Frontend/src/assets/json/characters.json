@@ -28,7 +28,7 @@
 		"gender": "Male",
 		"nationality": "Northern Water Tribe",
 		"bendingElement": "None",
-		"affiliations": [],
+		"affiliations": ["Tribal Chief","Spiritual"],
 		"firstAppearance": "S01E18 The Waterbending Master"
 	},
 	{
@@ -44,7 +44,7 @@
 		"gender": "Female",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": [],
+		"affiliations": ["Makapu Village"],
 		"firstAppearance": "S01E14 The Fortuneteller"
 	},
 	{
@@ -284,7 +284,7 @@
 		"gender": "Male",
 		"nationality": "Fire Nation",
 		"bendingElement": "Fire",
-		"affiliations": ["Military"],
+		"affiliations": ["Musician"],
 		"firstAppearance": "S01E09 The Waterbending Scroll"
 	},
 	{
@@ -484,7 +484,7 @@
 		"gender": "Female",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": ["Poetry"],
+		"affiliations": ["Ba Sing Se"],
 		"firstAppearance": "S02E15 The Tales of Ba Sing Se"
 	},
 	{
@@ -532,7 +532,7 @@
 		"gender": "Female",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": ["Romance"],
+		"affiliations": ["Romance","Makapu Village"],
 		"firstAppearance": "S01E14 The Fortuneteller"
 	},
 	{
@@ -636,7 +636,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": [],
+		"affiliations": ["Freedom Fighters"],
 		"firstAppearance": "S01E10 Jet"
 	},
 	{
@@ -757,7 +757,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": [],
+		"affiliations": ["Freedom Fighters"],
 		"firstAppearance": "S01E10 Jet"
 	},
 	{

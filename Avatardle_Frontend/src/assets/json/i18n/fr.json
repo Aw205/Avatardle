@@ -61,6 +61,7 @@
             "lava-bending": "Maîtrise de la Lave",
             "lightning-bending": "Génération d'éclairs",
             "lion-turtle": "Tortue-lion",
+            "makapu-village": "Village de Makapu",
             "mentor": "Mentor",
             "metal-bending": "Maîtrise du Métal",
             "metal-clan": "Clan du Métal",
@@ -84,6 +85,10 @@
     },
     "quote": {
         "next": "Prochaine citation dans : "
+    },
+    "picture":{
+        "previous": "Image précédente",
+        "next": "Image suivante"
     },
     "music":{
         "help": "Associez la musique à la scène.",

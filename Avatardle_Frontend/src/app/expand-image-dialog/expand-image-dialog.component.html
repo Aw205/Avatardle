@@ -1,6 +1,10 @@
+
 <img [src]="data.imageUrl" style="width: 100%; display: block;">
 @if(!data.isComplete){
 <div style="filter:brightness(0.2) blur(3px); width: 100%; height:5rem; background-size:cover; background-position-y: bottom;"
     [style.backgroundImage]="'url(\'' + data.imageUrl + '\')'"></div>
 <div class="confirm-button" (click)="dialogRef.close({confirm: true})">Confirm</div>
+}
+@if(data.mode == "picture"){
+    <div class="hint-header" [style.backgroundImage]="'url(\'' + data.imageUrl + '\')'" >{{data.title | translate}}</div>
 }

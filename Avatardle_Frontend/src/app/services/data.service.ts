@@ -94,8 +94,6 @@ export class DataService {
 
   initialize(): Observable<Character[]> {
 
-    console.log(environment.statsApiUrl);
-
     if (environment.production) {
       this.stats$ = interval(120000).pipe(
         startWith(0),

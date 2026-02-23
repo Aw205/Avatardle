@@ -61,6 +61,7 @@
             "lava-bending": "Dobra de Lava",
             "lightning-bending": "Geração de Raios",
             "lion-turtle": "Tartaruga Leão",
+            "makapu-village": "Aldeia de Makapu",
             "mentor": "Mentor",
             "metal-bending": "Dobra de Metal",
             "metal-clan": "Clã do Metal",
@@ -84,6 +85,10 @@
     },
     "quote": {
         "next": "Próxima citação em: "
+    },
+    "picture":{
+        "previous": "Quadro anterior",
+        "next": "Próximo quadro"
     },
     "music":{
         "help": "Combine a música com a cena",

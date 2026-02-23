@@ -172,6 +172,19 @@
         ]
     },
     {
+        "character": "Aunt Wu",
+        "images": [
+            {
+                "pathName": "auntwu_1.webp",
+                "artist": {
+                    "name": "Hisashi Momose",
+                    "link": "https://x.com/momos_page/status/1994654268096483589"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Azula",
         "images": [
             {
@@ -685,6 +698,19 @@
         ]
     },
     {
+        "character": "Jee",
+        "images": [
+            {
+                "pathName": "jee_1.webp",
+                "artist": {
+                    "name": "Chiptrillino",
+                    "link": "https://www.tumblr.com/chiptrillino/689073889654013952/okay-i-think-i-know-what-it-is-jee-is-like-an"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Jeong Jeong",
         "images": [
             {
@@ -761,6 +787,14 @@
                 "artist": {
                     "name": "Keiuu",
                     "link": "https://www.instagram.com/_keiuu/?hl=en"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "jet_6.webp",
+                "artist": {
+                    "name": "olidraws",
+                    "link": "https://www.instagram.com/p/C4gg9I9KF12/?img_index=5"
                 },
                 "epithet": ""
             }
@@ -1090,7 +1124,16 @@
                     "link": "https://www.tumblr.com/tamiyne/131410952336/avatar-state"
                 },
                 "epithet": ""
+            },
+            {
+                "pathName": "korra_6.webp",
+                "artist": {
+                    "name": "olidraws",
+                    "link": "https://www.instagram.com/p/C4v-NiKqqjz/?img_index=5"
+                },
+                "epithet": ""
             }
+            
         ]
     },
     {
@@ -1201,6 +1244,14 @@
                     "link": "https://www.tumblr.com/tamiyne/131410952336/avatar-state"
                 },
                 "epithet": ""
+            },
+            {
+                "pathName": "kyoshi_6.webp",
+                "artist": {
+                    "name": "olidraws",
+                    "link": "https://www.instagram.com/p/C4v-NiKqqjz/?img_index=3"
+                },
+                "epithet": ""
             }
         ]
     },
@@ -1301,6 +1352,14 @@
                     "link": "https://www.artstation.com/artwork/rlVxqe"
                 },
                 "epithet": ""
+            },
+            {
+                "pathName": "mai_5.webp",
+                "artist": {
+                    "name": "olidraws",
+                    "link": "https://www.instagram.com/p/C4gg9I9KF12/?img_index=3"
+                },
+                "epithet": ""
             }
         ]
     },
@@ -1346,6 +1405,43 @@
                 "artist": {
                     "name": "TheAmoebic",
                     "link": "https://www.deviantart.com/theamoebic/art/Meelo-307826619"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
+        "character": "Meng",
+        "images": [
+            {
+                "pathName": "meng_1.webp",
+                "artist": {
+                    "name": "Meelu-the-Bold",
+                    "link": "https://www.deviantart.com/meelu-the-bold/art/Meng-the-Fortune-Teller-23333006"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "meng_2.webp",
+                "artist": {
+                    "name": "Dragonbonez",
+                    "link": "https://www.tumblr.com/dragonbonez/636339960902025216/atla-drawing-challenge-day-1-favorite-kid"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "meng_3.webp",
+                "artist": {
+                    "name": "Penbee-of-Treewood",
+                    "link": "https://www.deviantart.com/penbee-of-treewood/art/ATLA-Meng-38440181"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "meng_4.webp",
+                "artist": {
+                    "name": "insanelemon",
+                    "link": "https://www.deviantart.com/insanelemon/art/Avatar-Month-oneshot-character-98824173"
                 },
                 "epithet": ""
             }
@@ -1440,6 +1536,14 @@
                     "link": "https://www.instagram.com/p/DRxMd9CDQKr/?img_index=1"
                 },
                 "epithet": ""
+            },
+            {
+                "pathName": "ozai_5.webp",
+                "artist": {
+                    "name": "ninesicks",
+                    "link": "https://www.instagram.com/p/DS39vmLExDM/?img_index=1"
+                },
+                "epithet": ""
             }
         ]
     },
@@ -1493,6 +1597,19 @@
                 "artist": {
                     "name": "Brian  Yuen",
                     "link": "https://www.artstation.com/artwork/L4Gwqw"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
+        "character": "Pipsqueak",
+        "images": [
+            {
+                "pathName": "pipsqueak_1.webp",
+                "artist": {
+                    "name": "Rafater",
+                    "link": "https://gatherer.wizards.com/TLE/en-us/82/pipsqueak-rebel-strongarm"
                 },
                 "epithet": ""
             }
@@ -1556,6 +1673,14 @@
                 "artist": {
                     "name": "Thyinum",
                     "link": "https://www.tumblr.com/thyinum/751989390144929792/fire-grandpa"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "roku_5.webp",
+                "artist": {
+                    "name": "olidraws",
+                    "link": "https://www.instagram.com/p/C4v-NiKqqjz/?img_index=4"
                 },
                 "epithet": ""
             }
@@ -1842,6 +1967,19 @@
         ]
     },
     {
+        "character": "The Duke",
+        "images": [
+            {
+                "pathName": "theduke_1.webp",
+                "artist": {
+                    "name": "vistarya",
+                    "link": "https://www.tumblr.com/vistarya/625547600003760128/i-think-we-as-a-society-do-not-talk-about-this"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Tarrlok",
         "images": [
             {
@@ -2050,6 +2188,14 @@
                     "link": "https://www.instagram.com/gemi333/"
                 },
                 "epithet": ""
+            },
+            {
+                "pathName": "tylee_7.webp",
+                "artist": {
+                    "name": "olidraws",
+                    "link": "https://www.instagram.com/p/C4gg9I9KF12/?img_index=4"
+                },
+                "epithet": ""
             }
         ]
     },
@@ -2069,6 +2215,27 @@
                 "artist": {
                     "name": "IsisT",
                     "link": "https://www.zerochan.net/2455243?lang=ru&utm_medium=organic&utm_source=yandexsmartcamera"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
+        "character": "Ursa",
+        "images": [
+            {
+                "pathName": "ursa_1.webp",
+                "artist": {
+                    "name": "Tadpole-art",
+                    "link": "https://www.tumblr.com/tadpole-art/744435461667323904/little-turtle-duck"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "ursa_2.webp",
+                "artist": {
+                    "name": "inkwashart",
+                    "link": "https://www.tumblr.com/inkwashhhart/805468262607601664"
                 },
                 "epithet": ""
             }
@@ -2211,6 +2378,14 @@
                 "artist": {
                     "name": "Joseph Chan",
                     "link": "https://www.artstation.com/artwork/0l9qly"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "yangchen_6.webp",
+                "artist": {
+                    "name": "olidraws",
+                    "link": "https://www.instagram.com/p/C4v-NiKqqjz/?img_index=2"
                 },
                 "epithet": ""
             }

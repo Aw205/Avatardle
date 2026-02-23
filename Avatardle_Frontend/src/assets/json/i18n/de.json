@@ -61,6 +61,7 @@
             "lava-bending": "Lavabändigen",
             "lightning-bending": "Blitzbändigen",
             "lion-turtle": "Löwenschildkröte",
+            "makapu-village": "Dorf Makapu",
             "mentor": "Mentor",
             "metal-bending": "Metallbändigen",
             "metal-clan": "Metall-Clan",
@@ -84,6 +85,10 @@
     },
     "quote": {
         "next": "Das nächste Angebot in: "
+    },
+    "picture":{
+        "previous": "Vorheriges Bild",
+        "next": "Nächster Frame"
     },
     "music":{
         "help": "Die Musik zur Szene anpassen",

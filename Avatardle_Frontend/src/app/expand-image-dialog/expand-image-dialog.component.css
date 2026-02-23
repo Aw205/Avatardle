@@ -1,7 +1,7 @@
 .confirm-button {
 
     position: absolute;
-    bottom:0;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     background-color: rgb(20, 20, 20);
@@ -14,5 +14,15 @@
     color: gray;
     font: 1rem avatar2;
     margin-bottom: 1rem;
+
+}
+
+.hint-header {
+
+    color: dimgray;
+    font: 2rem Georgia;
+    background: rgb(20, 20, 20);
+    padding: 0.5rem;
+    text-align: center;
 
 }

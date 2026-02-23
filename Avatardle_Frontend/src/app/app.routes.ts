@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { pictureResolver } from './picture.resolver';
 
 export const routes: Routes = [
    { path: '', component: HomeComponent},
@@ -15,7 +14,6 @@ export const routes: Routes = [
    {
       path: 'picture',
       loadComponent: () => import('./picture/picture.component').then(module => module.PictureMode),
-      resolve: { image: pictureResolver }
    },
    {
       path: 'music',

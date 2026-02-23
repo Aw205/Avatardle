@@ -61,6 +61,7 @@
             "lava-bending": "Lava Control",
             "lightning-bending": "Relámpago Control",
             "lion-turtle": "León Tortuga",
+            "makapu-village": "Pueblo de Makapu",
             "mentor": "Mentor",
             "metal-bending": "Metal Control",
             "metal-clan": "Clan de Metal",
@@ -85,6 +86,10 @@
     },
     "quote": {
         "next": "Siguiente cita en: "
+    },
+    "picture":{
+        "previous": "Cuadro anterior",
+        "next": "Siguiente fotograma"
     },
     "music":{
         "help": "Acompaña la música a la escena.",

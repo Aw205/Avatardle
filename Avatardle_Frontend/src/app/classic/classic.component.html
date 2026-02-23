@@ -56,7 +56,6 @@
         <div style="font: 1rem avatar2; color: gray; text-align: center;">{{img.epithet}}</div>
     </div>
     <img [src]="`${environment.R2Url}/fanart/${img.pathName}`" [alt]="`${fanArt.character} fanart`">
-
     <div id="fanart-description">
         <p><span style="color: goldenrod;">{{'artist' | translate}}</span> <a class="artist-name"
                 [href]="img.artist.link" target="_blank">{{img.artist.name}}</a></p>
@@ -69,12 +68,14 @@
 
     <div id="share-leaderboard">
         {{'postLeaderboard' | translate}}
-        <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput" [disabled]="submittedToLeaderboard()">
+        <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput"
+            [disabled]="submittedToLeaderboard()">
         @if(!submittedToLeaderboard()){
         @if(usernameError()){
         <div style="color:indianred;">{{'usernameTaken' | translate}}</div>
         }
-        <button (click)="submitToLeaderboard()" [disabled]="usernameInput().trim().length == 0">{{'submit' | translate}}</button>
+        <button (click)="submitToLeaderboard()" [disabled]="usernameInput().trim().length == 0">{{'submit' |
+            translate}}</button>
         }
     </div>
 </div>
