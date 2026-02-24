@@ -1,4 +1,4 @@
-import { Component, inject, signal, WritableSignal, PLATFORM_ID, Inject, afterNextRender, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, WritableSignal, PLATFORM_ID, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
@@ -14,11 +14,11 @@ import { ParticleSettingsComponent } from '../particle-settings/particle-setting
 import { LanguageSettingsComponent } from '../language-settings/language-settings.component';
 import { LocalStorageService } from '../services/local-storage.service';
 import { NotesDialogComponent } from '../notes-dialog/notes-dialog.component';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @Component({
   selector: 'background',
-  imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent, MatMenuModule,MatBadgeModule],
+  imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent, MatMenuModule, MatBadgeModule],
   templateUrl: './background.component.html',
   styleUrl: './background.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -34,18 +34,17 @@ export class Background {
   cycleElement!: string;
   currElement!: string;
 
-  notesNotif:WritableSignal<boolean> = signal(false);
+  notesNotif: WritableSignal<boolean> = signal(false);
   pageNotFound: boolean = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: object) {
-
-    afterNextRender(() => {
-      this.showParticles.set(this.ls.progress().particleSettings.enable);
-      this.notesNotif.set(this.ls.progress().notesNotif);
-    })
-  }
+  constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
   ngOnInit() {
+
+    if (isPlatformBrowser(this.platformId)) {
+      this.showParticles.set(this.ls.progress().particleSettings.enable);
+      this.notesNotif.set(this.ls.progress().notesNotif);
+    }
 
     let epoch = new Date(2025, 5, 25);
     epoch.setUTCHours(0, 0, 0, 0);
@@ -53,9 +52,9 @@ export class Background {
     this.cycleElement = ["water", "earth", "fire", "air"][daysElapsed % 4];
     this.currElement = this.cycleElement;
 
-    this.ds.pageNotFound$.subscribe((val)=>{
+    this.ds.pageNotFound$.subscribe((val) => {
       this.pageNotFound = val;
-    })
+    });
 
   }
 
@@ -80,7 +79,7 @@ export class Background {
     }
     else if (name == "notes") {
       this.notesNotif.set(false);
-      this.ls.patch(["notesNotif"],false);
+      this.ls.patch(["notesNotif"], false);
       this.dialog.open(NotesDialogComponent, { panelClass: "notes-dialog", autoFocus: false });
     }
     else if (name == "particle-setting") {
@@ -94,7 +93,7 @@ export class Background {
         let ele = dialogRef.componentInstance.selected;
         this.showParticles.set(dialogRef.componentInstance.enableParticles());
 
-        this.ls.patch(['particleSettings','enable'], this.showParticles());
+        this.ls.patch(['particleSettings', 'enable'], this.showParticles());
 
         if (this.showParticles() && ele != this.currElement) {
           this.showParticles.set(false);

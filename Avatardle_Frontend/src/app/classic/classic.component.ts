@@ -1,12 +1,11 @@
-import { afterNextRender, ChangeDetectionStrategy, Component, computed, inject, Signal, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, Inject, inject, PLATFORM_ID, Signal, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand, { PRNG } from 'rand-seed';
-import { tileData } from '../tile/tile.component';
-import { TileComponent } from '../tile/tile.component';
+import { TileComponent, tileData } from '../tile/tile.component';
 import { Character, DataService, FanArt } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TmNgOdometerModule } from 'odometer-ngx';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { MatDialog } from '@angular/material/dialog';
 import { ClassicSettingsDialogComponent } from '../classic-settings-dialog/classic-settings-dialog.component';
@@ -27,7 +26,6 @@ import { environment } from '../../environments/environment';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ClassicMode {
-
 
     environment = environment;
 
@@ -58,16 +56,10 @@ export class ClassicMode {
     meta = inject(Meta);
     ds = inject(DataService);
     dialog = inject(MatDialog);
-    isBrowser: boolean = (typeof window != "undefined");
 
     usernameInput: WritableSignal<string> = signal('');
 
-    constructor() {
-
-        afterNextRender(() => {
-            this.setData();
-        });
-    }
+    constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
     ngOnInit() {
         this.title.setTitle("Classic | Avatardle");
@@ -75,6 +67,10 @@ export class ClassicMode {
             name: "description",
             content: "Play Classic Mode on Avatardle, the daily Avatar guessing game. Guess characters from Avatar: The Last Airbender and The Legend of Korra!"
         });
+
+        if(isPlatformBrowser(this.platformId)){
+            this.setData();
+        }
     }
 
     onEnter(char: Character | undefined) {

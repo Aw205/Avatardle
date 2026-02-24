@@ -16,7 +16,6 @@
 
 </div>
 
-@if(isBrowser){
 <div
     style="font: 1rem avatar2; color: gray; background-color: rgb(0,0,0,0.3); width: fit-content; margin: auto; padding: 0.5rem; border-radius: 5px; margin-block: 0.5rem;">
     <tm-ng-odometer [number]="(ds.stats$ | async)?.classic_completion ?? 0" theme="minimal"
@@ -26,8 +25,6 @@
             [matTooltipDisabled]="isComplete()">flag</span>
     </button>
 </div>
-}
-
 
 <div class="categories-container">
     <div class="category">{{'classic.character' | translate}}</div>

@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, ElementRef, inject, signal, ViewChild, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Inject, inject, PLATFORM_ID, signal, ViewChild, WritableSignal } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { DatePipe } from '@angular/common';
+import { DatePipe, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 import { DataService, Ost } from '../services/data.service';
@@ -42,10 +42,8 @@ export class MusicMode {
   pmoveListener: EventListener = this.update.bind(this);
   pupListener: EventListener = this.onPointerUp.bind(this);
   isDragging: boolean = false;
-  isBrowser = (typeof window != "undefined");
 
   audio: HTMLAudioElement | undefined;
-
 
   /**
    * The current time of the music clip in seconds.
@@ -65,6 +63,10 @@ export class MusicMode {
 
   @ViewChild('slider') slider!: ElementRef<HTMLDivElement>;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: object){
+    
+  }
+
   ngOnInit() {
     this.title.setTitle("Music | Avatardle");
     this.meta.updateTag({
@@ -72,7 +74,7 @@ export class MusicMode {
       content: "Play Music Mode on Avatardle, the daily Avatar guessing game. Guess and match music to scenes from Avatar: The Last Airbender!"
     });
 
-    if (this.isBrowser) {
+    if (isPlatformBrowser(this.platformId)) {
 
       this.isComplete.set(this.ls.progress().music.complete);
       this.ds.osts$.subscribe(data => {

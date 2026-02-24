@@ -78,6 +78,7 @@
     height: 2rem;
     cursor: pointer;
     transition: transform 300ms;
+    user-select: none;
 
     &:hover {
         transform: rotate(70deg);

@@ -149,6 +149,7 @@ a {
     width: auto;
     height: 100%;
     border-radius: 10px 0 0 10px;
+    user-select: none;
 }
 
 .search-complete {
@@ -207,6 +208,7 @@ a {
 
 .surrender-button {
     cursor: pointer;
+    user-select: none;
     background-color: transparent;
     border: none;
 

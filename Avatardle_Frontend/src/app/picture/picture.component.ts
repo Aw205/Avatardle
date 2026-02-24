@@ -1,10 +1,9 @@
-import { afterNextRender, ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DataService, Episode } from '../services/data.service';
 import { TmNgOdometerModule } from 'odometer-ngx';
 import { Subscription } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
@@ -55,10 +54,9 @@ export class PictureMode {
   ds = inject(DataService);
   ts = inject(TranslateService);
   dialog = inject(MatDialog);
-  isBrowser = (typeof window != "undefined");
   rand!: Rand;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {
 
     this.translationSub = this.ts.stream('episodes').subscribe((res) => {
       let arr: string[] = Object.values(res);
@@ -67,7 +65,7 @@ export class PictureMode {
       }
     });
 
-    if (this.isBrowser) {
+    if (isPlatformBrowser(this.platformId)) {
       this.rand = new Rand(this.ls.progress().date! + "picture");
     }
 
@@ -200,7 +198,7 @@ export class PictureMode {
   expandImage(imgURL: string, title: string) {
 
     this.dialog.open(ExpandImageDialogComponent, {
-      width: '40vw', maxWidth: 'none', panelClass: 'responsive-panel', data: {
+      width: 'clamp(40rem,40vw,40vw)', maxWidth: 'none', panelClass: 'responsive-panel', data: {
         isComplete: true,
         imageUrl: imgURL,
         mode: "picture",

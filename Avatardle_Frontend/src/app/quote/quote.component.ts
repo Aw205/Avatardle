@@ -1,4 +1,4 @@
-import { afterNextRender, ChangeDetectionStrategy, Component, computed, inject, Signal, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, Inject, inject, PLATFORM_ID, Signal, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand from 'rand-seed';
 import { DataService } from '../services/data.service';
@@ -6,7 +6,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
 import { HintDialogComponent } from '../hint-dialog/hint-dialog.component';
 import { TmNgOdometerModule } from 'odometer-ngx';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { CountdownComponent } from 'ngx-countdown';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -44,13 +44,16 @@ export class QuoteMode {
     meta = inject(Meta);
     ds = inject(DataService);
     dialog = inject(MatDialog);
-    isBrowser = (typeof window != "undefined");
 
+    constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
-    constructor() {
-
-        afterNextRender(() => {
-
+    ngOnInit() {
+        this.title.setTitle("Quote | Avatardle");
+        this.meta.updateTag({
+            name: "description",
+            content: "Play Quote Mode on Avatardle, the daily Avatar guessing game. Guess various quotes from Avatar: The Last Airbender!"
+        });
+        if (isPlatformBrowser(this.platformId)) {
             this.guesses = this.ls.progress().quote.guesses;
             this.characterData = this.ds.getQuoteCharacterData().filter((e) => !this.guesses.includes(e));
 
@@ -75,16 +78,7 @@ export class QuoteMode {
                     this.searchVal.set("-" + this.target());
                 }
             });
-
-        });
-    }
-
-    ngOnInit() {
-        this.title.setTitle("Quote | Avatardle");
-        this.meta.updateTag({
-            name: "description",
-            content: "Play Quote Mode on Avatardle, the daily Avatar guessing game. Guess various quotes from Avatar: The Last Airbender!"
-        });
+        }
     }
 
     onEnter(select: string | undefined) {
@@ -108,7 +102,7 @@ export class QuoteMode {
     }
 
     isEnabled(hintId: number) {
-        
+
         return this.isComplete() || this.guesses.length >= 2 + hintId;
     }
 
