@@ -100,7 +100,7 @@ export class MusicMode {
 
             selectedOSTs.push(randomOST.name);
             let numScenes = String(Math.floor(this.rand.next() * randomOST.numScenes) + 1).padStart(3, "0");
-            let name = encodeURIComponent(randomOST.name);
+            let name = encodeURIComponent(randomOST.name).replace(/'/g, "%27");
             let frame = `${environment.R2Url}/scenes/${name}/scene_${numScenes}.webp`;
             this.images().push(frame);
           }

@@ -88,8 +88,8 @@ export class PictureMode {
       let frameStr = String(frameIdx).padStart(3, '0');
 
       this.targetFrame.set(`${environment.R2Url}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${frameStr}.webp`);
-      this.prevFrame = `${environment.R2Url}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${prevIdx}.webp`;
-      this.nextFrame = `${environment.R2Url}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${nextIdx}.webp`;
+      this.prevFrame = `${environment.R2Url}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${prevIdx}.webp`.replace(/'/g, "%27");;
+      this.nextFrame = `${environment.R2Url}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${nextIdx}.webp`.replace(/'/g, "%27");;
 
       this.englishEpisodeData = [...this.ds.episodes].slice(0, 61);
       this.episodeData = [...this.ds.episodes].slice(0, 61);
