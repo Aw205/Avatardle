@@ -68,6 +68,8 @@ app.listen(port, () => {
 
 cron.schedule('0 0 * * *', async () => {
 
+    console.log('In cron job');
+
     let query = `SELECT * FROM stats WHERE type='daily'`;
     pool.query(query, (err, queryRes) => {
 
