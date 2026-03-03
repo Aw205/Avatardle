@@ -96,6 +96,15 @@ cron.schedule('0 0 * * *', async () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(dailyStats)
+        }).then(response => {
+            if (response.ok) {
+                console.log('Discord fetch POST request was successful.');
+                return response.json();
+            } else {
+                throw new Error(`Response status: ${response.status}`);
+            }
+        }).catch(error => {
+            console.log("Discord webhook fetch: " + error);
         });
         let sql = `UPDATE stats SET classic_completion = 0, quote_completion = 0, picture_completion = 0, music_completion = 0 WHERE type='daily'; TRUNCATE TABLE leaderboard RESTART IDENTITY;`;
         pool.query(sql);
