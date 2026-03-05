@@ -74,8 +74,7 @@ cron.schedule('0 0 * * *', async () => {
     pool.query(query, (err, queryRes) => {
 
         if (err) {
-            console.error(err.message);
-            return;
+            return console.error(err.message);
         }
 
         const stats = queryRes.rows[0];
@@ -101,7 +100,8 @@ cron.schedule('0 0 * * *', async () => {
                 console.log('Discord fetch POST request was successful.');
                 return response.json();
             } else {
-                throw new Error(`Response status: ${response.status}`);
+                console.error(`Discord error ${response.status}:`, JSON.stringify(body));
+                throw new Error(`Response status: ${response}`);
             }
         }).catch(error => {
             console.log("Discord webhook fetch: " + error);
