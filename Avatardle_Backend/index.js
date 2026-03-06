@@ -2,8 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const cron = require('node-cron');
 const { Pool } = require('pg');
+const { HttpsProxyAgent } = require("https-proxy-agent");
 const app = express();
 const port = process.env.PORT || 6060;
+const proxyAgent = new HttpsProxyAgent(process.env.FIXIE_URL);
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: {
@@ -68,8 +70,6 @@ app.listen(port, () => {
 
 cron.schedule('0 0 * * *', async () => {
 
-    console.log('In cron job');
-
     let query = `SELECT * FROM stats WHERE type='daily'`;
     pool.query(query, (err, queryRes) => {
 
@@ -94,17 +94,15 @@ cron.schedule('0 0 * * *', async () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(dailyStats)
+            body: JSON.stringify(dailyStats),
+            agent: proxyAgent
         }).then(response => {
-            if (response.ok) {
-                console.log('Discord fetch POST request was successful.');
-                return response.json();
-            } else {
-                console.error(`Discord error ${response.status}:`, JSON.stringify(body));
-                throw new Error(`Response status: ${response}`);
+            if (!response.ok) {
+                throw new Error(`Discord error ${response.status}: ${response.statusText}`);
             }
+            console.log("Discord webhook POST successful.");
         }).catch(error => {
-            console.log("Discord webhook fetch: " + error);
+            console.error("Discord webhook fetch error:", error);
         });
         let sql = `UPDATE stats SET classic_completion = 0, quote_completion = 0, picture_completion = 0, music_completion = 0 WHERE type='daily'; TRUNCATE TABLE leaderboard RESTART IDENTITY;`;
         pool.query(sql);
