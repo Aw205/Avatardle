@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const cron = require('node-cron');
+const fetch = require('node-fetch');
 const { Pool } = require('pg');
 const { HttpsProxyAgent } = require("https-proxy-agent");
 const app = express();
