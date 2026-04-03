@@ -5,7 +5,11 @@ import { tileData } from '../tile/tile.component';
 export interface AvatardleProgress {
   date: string,
   version: string,
-  classic: { complete: boolean, guesses: tileData[], series: string[], leaderboardUsername: string | undefined },
+  classic: {
+    complete: boolean, guesses: tileData[], series: string[],
+    colors: { mode: string, incorrectColor: string, correctColor: string }
+    leaderboardUsername: string | undefined
+  },
   quote: { complete: boolean, guesses: string[] },
   picture: { complete: boolean, numGuesses: number },
   music: { complete: boolean, numGuesses: number },
@@ -19,13 +23,13 @@ export interface AvatardleProgress {
 })
 export class LocalStorageService {
 
-  VERSION: string = "1.6";
+  VERSION: string = "1.7";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
   progress: WritableSignal<AvatardleProgress>;
   default: AvatardleProgress = {
     date: this.currentDate,
     version: this.VERSION,
-    classic: { complete: false, guesses: [], series: ["ATLA-title"], leaderboardUsername: undefined },
+    classic: { complete: false, guesses: [], series: ["ATLA-title"], colors: { mode: "#bf2c23+#295e11", incorrectColor: "#bf2c23", correctColor: "#295e11" }, leaderboardUsername: undefined },
     quote: { complete: false, guesses: [] },
     picture: { complete: false, numGuesses: 0 },
     music: { complete: false, numGuesses: 0 },
@@ -43,18 +47,20 @@ export class LocalStorageService {
     this.progress = signal(this.default);
 
     if (this.isBrowser) {
+
       if (localStorage.getItem("avatardle_progress") != null) {
         try {
           this.progress.set(JSON.parse(localStorage.getItem("avatardle_progress")!));
           if (this.currentDate != this.progress().date || this.VERSION != this.progress().version) {
-            this.default.language = this.progress().language;
-            this.default.classic.series = this.progress().classic.series ?? ["ATLA-title"];
 
             if (this.VERSION != this.progress().version) {
               this.progress().notesNotif = true;
             }
-
+            this.default.language = this.progress().language;
+            this.default.classic.series = this.progress().classic.series ?? ["ATLA-title"];
+            this.default.classic.colors = this.progress().classic.colors ?? this.default.classic.colors;
             this.default.notesNotif = this.progress().notesNotif;
+
             this.progress.set(this.default);
           }
         }

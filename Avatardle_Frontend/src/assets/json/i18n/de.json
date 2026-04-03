@@ -38,7 +38,13 @@
         "firstAppearance": "Erster Auftritt",
         "next": "Nächstes Zeichen in: ",
         "settings": {
-            "title": "Serie auswählen",
+            "title": "Einstellungen",
+            "colorblind":"Farbblind-Modus",
+            "off":"Aus",
+            "red+blue":"Rot + Blau",
+            "purple+green":"Lila + Grün",
+            "custom": "Benutzerdefiniert",
+            "series-select": "Serie auswählen",
             "progressWarning": "Wenn das Speichern unvollständig ist, wird der aktuelle Fortschritt zurückgesetzt"
         },
         "icons": {
@@ -62,6 +68,7 @@
             "lightning-bending": "Blitzbändigen",
             "lion-turtle": "Löwenschildkröte",
             "makapu-village": "Dorf Makapu",
+            "marksman": "Scharfschütze",
             "mentor": "Mentor",
             "metal-bending": "Metallbändigen",
             "metal-clan": "Metall-Clan",
@@ -69,6 +76,7 @@
             "musician": "Musiker",
             "nobility": "Adel",
             "omashu": "Omashu",
+            "quiet":"schweigsam",
             "red-lotus": "Roter Lotus",
             "romance": "Romantik",
             "royal-fire-academy": "Königliche Feuerakademie",

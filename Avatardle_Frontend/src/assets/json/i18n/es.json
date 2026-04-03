@@ -38,7 +38,13 @@
         "firstAppearance": "Primera Aparición",
         "next": "Siguiente personaje en: ",
         "settings": {
-            "title": "Seleccionar series",
+            "title": "Configuración",
+            "colorblind":"Modo para daltónicos",
+            "off":"Desactivado",
+            "red+blue":"Rojo + Azul",
+            "purple+green":"Morado + Verde",
+            "custom": "Personalizado",
+            "series-select": "Seleccionar series",
             "progressWarning": "Guardar restablecerá el progreso actual si está incompleto"
         },
         "icons": {
@@ -62,6 +68,7 @@
             "lightning-bending": "Relámpago Control",
             "lion-turtle": "León Tortuga",
             "makapu-village": "Pueblo de Makapu",
+            "marksman": "Tirador",
             "mentor": "Mentor",
             "metal-bending": "Metal Control",
             "metal-clan": "Clan de Metal",
@@ -69,6 +76,7 @@
             "musician": "Músico",
             "nobility": "compañeros animal",
             "omashu": "Omashu",
+            "quiet":"Callado",
             "police": "Policía",
             "red-lotus": "Loto Rojo",
             "romance": "Romance",

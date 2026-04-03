@@ -17,16 +17,20 @@ textarea {
 
 #comment-button {
 
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0.5rem;
-    background-color: rgb(40, 40, 40);
     font: 1rem Georgia;
     color: beige;
     cursor: pointer;
     border: 1px outset black;
     outline: 2px solid black;
 
+    background-color: rgb(20, 20, 20);
+    border: 1px outset black;
+    outline: 2px solid black;
+
     &:disabled{
+        background-color: rgb(40, 40, 40);
         border: 1px solid transparent;
         outline: none;
         color: dimgray;

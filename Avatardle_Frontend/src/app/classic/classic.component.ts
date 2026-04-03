@@ -58,8 +58,9 @@ export class ClassicMode {
     dialog = inject(MatDialog);
 
     usernameInput: WritableSignal<string> = signal('');
+    colorTrigger: WritableSignal<string> = signal('');
 
-    constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+    constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
     ngOnInit() {
         this.title.setTitle("Classic | Avatardle");
@@ -68,7 +69,7 @@ export class ClassicMode {
             content: "Play Classic Mode on Avatardle, the daily Avatar guessing game. Guess characters from Avatar: The Last Airbender and The Legend of Korra!"
         });
 
-        if(isPlatformBrowser(this.platformId)){
+        if (isPlatformBrowser(this.platformId)) {
             this.setData();
         }
     }
@@ -102,10 +103,14 @@ export class ClassicMode {
                         else {
                             tileData.text = val;
                         }
+                        if (targetVal == "All" && ["Fire", "Water", "Earth", "Air"].includes(val)) {
+                            tileData.isCorrect = undefined;
+                        }
+                        if (val == "All" && ["Fire", "Water", "Earth", "Air"].includes(targetVal)) {
+                            tileData.isCorrect = undefined;
+                        }
                         break;
                     case "affiliations":
-
-                        this.rand = new Rand(this.ls.progress().date! + char!.name);
                         tileData.affiliations = this.shuffleArray([...val]).slice(0, 3);
                         let count = tileData.affiliations!.reduce((acc, curr) => acc + targetVal.includes(curr) | 0, 0);
                         tileData.isCorrect = (count == 0) ? false : (count == tileData.affiliations!.length) ? true : undefined;
@@ -154,7 +159,8 @@ export class ClassicMode {
 
     openDialog(name: string) {
         if (name == "settings") {
-            this.dialog.open(ClassicSettingsDialogComponent, { width: '50vw', maxWidth: 'none', autoFocus: false }).afterClosed().subscribe((res) => {
+            this.dialog.open(ClassicSettingsDialogComponent, { panelClass: "classic-settings-dialog", autoFocus: false }).afterClosed().subscribe((res) => {
+                this.colorTrigger.set("");
                 if (res != undefined) {
                     this.setData();
                 }
@@ -174,7 +180,7 @@ export class ClassicMode {
         this.rand = new Rand(this.ls.progress().date! + "classic");
         this.tileArray.set(this.ls.progress().classic.guesses);
         this.guessAttempts = this.tileArray().length / 6;
-        this.characterData = this.shuffleArray(this.ds.getClassicCharacterData(this.ls.progress().classic.series));
+        this.characterData = this.ds.getClassicCharacterData(this.ls.progress().classic.series);
         this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
         let guessedChars = [];
         for (let tile of this.tileArray()) {

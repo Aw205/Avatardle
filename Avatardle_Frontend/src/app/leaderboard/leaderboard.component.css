@@ -53,27 +53,6 @@
     }
 }
 
-/* .view-more {
-
-    position: absolute;
-    right: -3rem;
-    top: 2rem;
-
-    display: inline-flex;
-    font-size: 1rem;
-    color: darkgoldenrod;
-    background-color: rgba(20, 20, 20, 0.5);
-    padding: 0.2rem;
-    border-radius: 5px;
-
-    border: 2px ridge black;
-    cursor: pointer;
-
-    &:hover {
-        color: pink;
-    }
-} */
-
 .guess-container {
     display: flex;
     position: relative;
@@ -133,6 +112,11 @@ img {
 .Asami_Sato {
 
     top: var(--small-plus-offset-chibi);
+}
+
+.Aunt_Wu{
+
+    width: var(--large-chibi-width);
 }
 
 .Azula {
@@ -287,6 +271,10 @@ img {
     width: var(--xlarge-chibi-width);
 }
 
+.Meng{
+    width: var(--xlarge-chibi-width);
+}
+
 .Ming-Hua {
 
     top: var(--small-offset-chibi);
@@ -352,6 +340,10 @@ img {
 .Piandao {
     width: var(--small-plus-chibi-width);
     bottom: var(--small-offset-chibi);
+}
+
+.Pipsqueak {
+    width: var(--large-chibi-width);
 }
 
 .Prince_Wu {

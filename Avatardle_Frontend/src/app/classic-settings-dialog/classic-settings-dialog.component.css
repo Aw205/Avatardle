@@ -1,16 +1,9 @@
-mat-dialog-content>div {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-}
-
-label {
+.item-label {
 
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    border-radius: 0.5rem;
+    border-radius: 5px;
     padding: 0.5rem;
     background-color: rgb(20, 20, 20);
     font: 1rem Georgia;
@@ -18,16 +11,10 @@ label {
     cursor: pointer;
     border: 1px outset black;
     outline: 2px solid black;
-    transition: transform 200ms;
     user-select: none;
-
-    &:hover {
-        transform: translateY(-0.2rem);
-    }
 
     &:has(input[type="checkbox"]:checked) {
         color: beige;
-
     }
 
     &>img {
@@ -43,7 +30,7 @@ label {
 
 .save-button {
 
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0.5rem;
     padding-inline: 1rem;
     background-color: rgb(20, 20, 20);
@@ -55,11 +42,20 @@ label {
 
     &:disabled {
 
-        border: none;
+        border: 1px solid transparent;
         outline: none;
         color: dimgray;
-        background-color: rgb(40, 40, 40)!important;
+        background-color: rgb(40, 40, 40) !important;
         cursor: default;
     }
 
+}
+
+input[type="color"] {
+
+    background-color: black;
+    padding: 0;
+    &:not(:disabled) {
+        cursor: pointer;
+    }
 }

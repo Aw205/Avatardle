@@ -124,7 +124,7 @@
 		"gender": "Male",
 		"nationality": "Fire Nation",
 		"bendingElement": "Fire",
-		"affiliations": ["Bounty Hunter","Combustion Bending"],
+		"affiliations": ["Bounty Hunter","Combustion Bending","Quiet","Marksman"],
 		"firstAppearance": "S03E02 The Headband"
 	},
 	{
@@ -300,7 +300,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": ["Weapon Wielder","Freedom Fighters"],
+		"affiliations": ["Weapon Wielder","Freedom Fighters","Romance"],
 		"firstAppearance": "S01E10 Jet"
 	},
 	{
@@ -460,7 +460,7 @@
 		"gender": "Female",
 		"nationality": "Fire Nation",
 		"bendingElement": "None",
-		"affiliations": [],
+		"affiliations": ["Mentor"],
 		"firstAppearance": "S02E01 The Avatar State"
 	},
 	{
@@ -476,7 +476,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": ["Freedom Fighters","Weapon Wielder"],
+		"affiliations": ["Freedom Fighters","Weapon Wielder","Quiet","Marksman"],
 		"firstAppearance": "S01E10 Jet"
 	},
 	{
@@ -492,7 +492,7 @@
 		"gender": "Female",
 		"nationality": "Fire Nation",
 		"bendingElement": "None",
-		"affiliations": ["Weapon Wielder","Romance","Nobility","Royal Fire Academy"],
+		"affiliations": ["Weapon Wielder","Romance","Nobility","Royal Fire Academy","Marksman"],
 		"firstAppearance": "S02E03 Return to Omashu"
 	},
 	{
@@ -612,7 +612,7 @@
 		"gender": "Female",
 		"nationality": "Fire Nation",
 		"bendingElement": "Fire",
-		"affiliations": ["Romance","Combustion Bending","Red Lotus"],
+		"affiliations": ["Romance","Combustion Bending","Red Lotus","Marksman"],
 		"firstAppearance": "S03E03 The Earth Queen"
 	},
 	{
@@ -893,7 +893,7 @@
 		"gender": "Male",
 		"nationality": "Fire Nation",
 		"bendingElement": "Fire",
-		"affiliations": ["Royalty","Spirit World"],
+		"affiliations": ["Spirit World"],
 		"firstAppearance": "S01E03 The Southern Air Temple"
 	},
 	{

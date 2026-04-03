@@ -38,7 +38,13 @@
         "firstAppearance": "Première apparition",
         "next": "Prochain personnage dans : ",
         "settings": {
-            "title": "Choisissez séries",
+            "title": "Paramètres",
+            "colorblind":"Mode daltonisme",
+            "off":"Désactivé",
+            "red+blue":"Rouge + Bleu",
+            "purple+green":"Violet + Vert",
+            "custom": "Personnalisé",
+            "series-select": "Choisissez séries",
             "progressWarning": "La sauvegarde réinitialisera la progression actuelle si elle est incomplète"
         },
         "icons": {
@@ -62,6 +68,7 @@
             "lightning-bending": "Génération d'éclairs",
             "lion-turtle": "Tortue-lion",
             "makapu-village": "Village de Makapu",
+            "marksman": "Tireur d'élite",
             "mentor": "Mentor",
             "metal-bending": "Maîtrise du Métal",
             "metal-clan": "Clan du Métal",
@@ -69,6 +76,7 @@
             "musician": "Musicien",
             "nobility": "Noblesse",
             "omashu": "Omashu",
+            "quiet":"Calme",
             "red-lotus": "Lotus Rouge",
             "romance": "Romance",
             "royal-fire-academy": "Académie Royale des Pompiers",

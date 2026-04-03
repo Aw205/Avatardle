@@ -56,6 +56,12 @@
         max-width: none !important;
     }
 
+    .classic-settings-dialog{
+
+        width: 50vw;
+        max-width: none !important;
+    }
+
     @include mat.tabs-overrides((divider-color: transparent,
             inactive-ripple-color: dimgray,
             inactive-label-text-color: gray,
@@ -251,6 +257,11 @@ a {
     }
 
     .responsive-panel {
+        width: 90vw !important;
+    }
+
+    .classic-settings-dialog{
+
         width: 90vw !important;
     }
 }

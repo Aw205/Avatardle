@@ -38,7 +38,13 @@
         "firstAppearance": "Primeira Aparição",
         "next": "Próximo personagem em: ",
         "settings": {
-            "title": "Selecione a série",
+            "title": "Configurações",
+            "colorblind":"Modo para daltônicos",
+            "off":"Desligado",
+            "red+blue":"Vermelho + Azul",
+            "purple+green":"Roxo + Verde",
+            "custom": "Personalizado",
+            "series-select": "Selecione a série",
             "progressWarning": "O salvamento redefinirá o progresso atual se estiver incompleto"
         },
         "icons": {
@@ -62,6 +68,7 @@
             "lightning-bending": "Geração de Raios",
             "lion-turtle": "Tartaruga Leão",
             "makapu-village": "Aldeia de Makapu",
+            "marksman": "Atirador",
             "mentor": "Mentor",
             "metal-bending": "Dobra de Metal",
             "metal-clan": "Clã do Metal",
@@ -69,6 +76,7 @@
             "musician": "Músico",
             "nobility": "Nobreza",
             "omashu": "Omashu",
+            "quiet":"Callado",
             "red-lotus": "Lótus Vermelho",
             "romance": "Romance",
             "royal-fire-academy": "Academia Real da Nação do Fogo",

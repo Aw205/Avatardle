@@ -38,7 +38,13 @@
         "firstAppearance": "First Appearance",
         "next": "Next character in: ",
         "settings": {
-            "title": "Select series",
+            "title": "Settings",
+            "colorblind":"Colorblind mode",
+            "off":"Off",
+            "red+blue":"Red + Blue",
+            "purple+green":"Purple + Green",
+            "custom": "Custom",
+            "series-select": "Select series",
             "progressWarning": "Saving will reset current progress if incomplete"
         },
         "icons": {
@@ -62,6 +68,7 @@
             "lightning-bending": "Lightning Bending",
             "lion-turtle": "Lion Turtle",
             "makapu-village": "Makapu village",
+            "marksman": "Marksman",
             "mentor": "Mentor",
             "metal-bending": "Metal Bending",
             "metal-clan": "Metal Clan",
@@ -69,6 +76,7 @@
             "musician": "Musician",
             "nobility": "Nobility",
             "omashu": "Omashu",
+            "quiet":"Quiet",
             "red-lotus": "Red Lotus",
             "romance": "Romance",
             "royal-fire-academy": "Royal Fire Academy",

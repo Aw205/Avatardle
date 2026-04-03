@@ -1,6 +1,6 @@
 <div class="flip-card" [class.card-transition]="flipTile()" [class.no-transition]="!data.hasTransition">
     <div class="flip-card-front" [style.backgroundPosition]="data.backgroundPosition"></div>
-    <div class="flip-card-back" [class]="getBoxShadow(data.isCorrect)">
+    <div class="flip-card-back" [style.box-shadow]="color()">
         @if(data.episodeName){
         @if(data.arrowDir){
         <img [src]="data.imageUrl" alt="" class="episode-arrow" [style.transform]="data.arrowDir">

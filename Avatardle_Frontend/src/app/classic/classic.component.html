@@ -39,7 +39,7 @@
     <img src="images/characters/{{tileData.name! | hyphenate}}.webp" class="tile-char" [matTooltip]="tileData.name!"
         matTooltipPosition="before" alt="{{tileData.name!}}"> }
     @else{
-    <tile [data]="tileData"></tile>
+    <tile [data]="tileData" [trigger]="colorTrigger()"></tile>
     }
     }
 
