@@ -131,6 +131,10 @@
     border-bottom: 1px solid tomato;
 }
 
+.headband {
+    border-bottom: 1px solid darkred;
+}
+
 .healing {
     border-bottom: 1px solid skyblue;
 }
