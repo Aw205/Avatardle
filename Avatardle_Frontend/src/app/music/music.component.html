@@ -13,14 +13,14 @@
         <div style="display: flex; flex-direction: column; position: relative; align-items: center; z-index: 99;">
             <div style="position: absolute; height: 80%; border: 5px double dimgray; right: 0.4rem; "></div>
             <div class="band-container">          
-                    <img src="images/tsungi_horn.svg" style="width: 2.5rem; position: relative; right: 0.2rem; bottom:0.2rem;" [class.instrument-sway]="!isPaused()">
+                    <img src="images/tsungi_horn.svg" style="width: 2.5rem; position: relative; right: 0.2rem; bottom:0.2rem; user-select: none;" [class.instrument-sway]="!isPaused()">
             </div>
 
             @for(h of hints?.(); track h; let i = $index){
 
             <div class="clue-container">
                 <div>
-                    <img src="images/lotus.svg" alt="" [class.disable-hint]="isEnabled(i)" style="width: 80%;">
+                    <img src="images/lotus.svg" alt="" [class.disable-hint]="isEnabled(i)" style="width: 80%; user-select: none;">
                     <div class="hint-content">{{h.title | translate}}<span>{{h.body}}</span>
                         <button aria-label="Hint" class="spoiler" [disabled]="!isEnabled(i)"
                             [matTooltip]="getTooltipText(i)" matTooltipPosition="right" (click)="revealHint(i)"

@@ -36,7 +36,7 @@
 
     @for(tileData of tileArray(); track tileData; let i = $index){
     @if(i%6==0){
-    <img src="images/characters/{{tileData.name! | hyphenate}}.webp" class="tile-char" [matTooltip]="tileData.name!"
+    <img src="images/characters/{{tileData.name! | hyphenate}}.webp" [matTooltip]="tileData.name!"
         matTooltipPosition="before" alt="{{tileData.name!}}"> }
     @else{
     <tile [data]="tileData" [trigger]="colorTrigger()"></tile>

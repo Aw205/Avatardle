@@ -12,6 +12,13 @@
     transform: rotateY(180deg);
 }
 
+.edge {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: black;
+}
+
 .flip-card-front {
     position: absolute;
     background-image: url(../../assets/images/paisho_final.svg);
@@ -33,7 +40,7 @@
     border-radius: 50%;
     height: 100%;
     background-color: rgb(30, 30, 30);
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) translateZ(9px);
 
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -53,6 +60,7 @@
     transition: scale 200ms linear;
     width: 60%;
     aspect-ratio: 1/1;
+    user-select: none;
 
     &:hover {
         scale: 1.2;

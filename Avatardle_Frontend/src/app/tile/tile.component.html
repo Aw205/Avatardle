@@ -1,5 +1,18 @@
 <div class="flip-card" [class.card-transition]="flipTile()" [class.no-transition]="!data.hasTransition">
     <div class="flip-card-front" [style.backgroundPosition]="data.backgroundPosition"></div>
+
+    @if(data.hasTransition){
+    <div class="edge" style="transform: translateZ(-1px)"></div>
+    <div class="edge" style="transform: translateZ(-2px)"></div>
+    <div class="edge" style="transform: translateZ(-3px)"></div>
+    <div class="edge" style="transform: translateZ(-4px)"></div>
+    <div class="edge" style="transform: translateZ(-5px)"></div>
+    <div class="edge" style="transform: translateZ(-6px)"></div>
+    <div class="edge" style="transform: translateZ(-7px)"></div>
+    <div class="edge" style="transform: translateZ(-8px)"></div>
+    <div class="edge" style="transform: translateZ(-9px)"></div>
+    }
+
     <div class="flip-card-back" [style.box-shadow]="color()">
         @if(data.episodeName){
         @if(data.arrowDir){
@@ -19,7 +32,8 @@
             @let name = getTag(tag);
             @let icon = 'classic.icons.' + name ;
             <div [class]="name">{{ icon | translate }}
-                <img src="images/affiliationIcons/{{name}}.webp" style="height: 1.5rem; padding-left: 0.2rem;" alt="">
+                <img src="images/affiliationIcons/{{name}}.webp"
+                    style="height: 1.5rem; padding-left: 0.2rem; user-select: none;" alt="">
             </div>
             }
         </div>
