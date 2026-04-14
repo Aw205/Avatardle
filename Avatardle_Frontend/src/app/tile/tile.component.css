@@ -16,7 +16,8 @@
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background-color: black;
+    background-color: #2E2019;
+
 }
 
 .flip-card-front {
