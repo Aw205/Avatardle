@@ -3,15 +3,7 @@
         "character": "Aang",
         "images": [
             {
-                "pathName": "aang_1.webp",
-                "artist": {
-                    "name": "Mimulishizi",
-                    "link": "https://x.com/mimulishizi/status/1673485008038924289/photo/2"
-                },
-                "epithet": "flameo hotman"
-            },
-            {
-                "pathName": "aang_2.webp",
+                "pathName": "aang_yueko.webp",
                 "artist": {
                     "name": "Yueko",
                     "link": "https://www.instagram.com/p/DOkaiOHgeEk/?img_index=1"
@@ -19,7 +11,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "aang_3.webp",
+                "pathName": "aang_hammling.webp",
                 "artist": {
                     "name": "Hammling",
                     "link": "https://www.deviantart.com/hammling/art/Avatar-810974909"
@@ -27,15 +19,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "aang_4.webp",
-                "artist": {
-                    "name": "Juliette Mercier",
-                    "link": "https://juliette-mercier-book.tumblr.com/post/173488869284/bald-baby"
-                },
-                "epithet": "scooter"
-            },
-            {
-                "pathName": "aang_5.webp",
+                "pathName": "aang_mimulishizi.webp",
                 "artist": {
                     "name": "Mimulishizi",
                     "link": "https://x.com/mimulishizi/status/1673485008038924289/photo/1"
@@ -43,15 +27,7 @@
                 "epithet": "earth rumble"
             },
             {
-                "pathName": "aang_6.webp",
-                "artist": {
-                    "name": "KARAMVEER",
-                    "link": "https://www.tumblr.com/k4r4mveer/779401501805330432/inner-peace"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "aang_7.webp",
+                "pathName": "aang_konietzko.webp",
                 "artist": {
                     "name": "Bryan Konietzko",
                     "link": "https://www.instagram.com/p/BhQAA3NF4dN/"
@@ -59,7 +35,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "aang_8.webp",
+                "pathName": "aang_robinhar.webp",
                 "artist": {
                     "name": "Robin Har",
                     "link": "https://www.instagram.com/p/DQcuSLBkkli/?img_index=2"
@@ -67,10 +43,58 @@
                 "epithet": ""
             },
             {
-                "pathName": "aang_9.webp",
+                "pathName": "aang_imbong.webp",
                 "artist": {
                     "name": "ImBong @ pixiv",
                     "link": "https://www.pixiv.net/en/artworks/72814062"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "aang_knknknk.webp",
+                "artist": {
+                    "name": "Knknknk",
+                    "link": "https://www.deviantart.com/knknknk/art/aang-201632151"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "aang_wilderheart.webp",
+                "artist": {
+                    "name": "wilderheart13",
+                    "link": "https://www.tumblr.com/wilderheart13/644870816769687553/i-made-this-while-teaching-myself-sketchbook-pro"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "aang_patrolsilver.webp",
+                "artist": {
+                    "name": "草醛 | patrolsilver_",
+                    "link": "https://x.com/patrolsilver_/status/1959940171522297926"
+                },
+                "epithet": "flameo hotman"
+            },
+            {
+                "pathName": "aang_toviatoris.webp",
+                "artist": {
+                    "name": "toviatoris",
+                    "link": "https://www.tumblr.com/toviatoris/627723465212952576/when-we-hit-our-lowest-point-we-are-open-to-the"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "aang_shade.webp",
+                "artist": {
+                    "name": "yourlocalshade",
+                    "link": "https://www.tumblr.com/yourlocalshade/758360131761225728/how-would-you-forget-the-soil-you-grew-up"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "aang_mutua.webp",
+                "artist": {
+                    "name": "Mutua Mutuku",
+                    "link": "https://www.artstation.com/artwork/OmLQPK"
                 },
                 "epithet": ""
             }
@@ -80,15 +104,7 @@
         "character": "Amon",
         "images": [
             {
-                "pathName": "amon_1.webp",
-                "artist": {
-                    "name": "Ade21",
-                    "link": "https://www.deviantart.com/ade21/art/Amon-FanArt-562118980"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "amon_2.webp",
+                "pathName": "amon_demiom.webp",
                 "artist": {
                     "name": "Demiom",
                     "link": "https://www.deviantart.com/demiom/art/Amon-noatak-1083152868"
@@ -96,10 +112,34 @@
                 "epithet": ""
             },
             {
-                "pathName": "amon_3.webp",
+                "pathName": "amon_fenomena.webp",
                 "artist": {
                     "name": "Fenomena",
                     "link": "https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fajshrlpbeea61.png"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "amon_freestarisis.webp",
+                "artist": {
+                    "name": "freestarisis",
+                    "link": "https://www.deviantart.com/freestarisis/art/Amon-328575146"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "amon_shtut.webp",
+                "artist": {
+                    "name": "shtut",
+                    "link": "https://www.deviantart.com/shtut/art/Noatak-310876939"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "amon_dimasdani.webp",
+                "artist": {
+                    "name": "Dimasdani",
+                    "link": "https://www.artstation.com/artwork/VgmKvP"
                 },
                 "epithet": ""
             }
@@ -109,15 +149,7 @@
         "character": "Appa",
         "images": [
             {
-                "pathName": "appa_1.webp",
-                "artist": {
-                    "name": "TussenSessan",
-                    "link": "https://www.deviantart.com/tussensessan/art/Appa-493377537"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "appa_2.webp",
+                "pathName": "appa_tamberella.webp",
                 "artist": {
                     "name": "TamberElla",
                     "link": "https://www.deviantart.com/tamberella/art/Baby-Appa-847590382"
@@ -125,7 +157,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "appa_3.webp",
+                "pathName": "appa_devinelle.webp",
                 "artist": {
                     "name": "Devinellekurtz",
                     "link": "https://www.instagram.com/p/CY91ZdJv6vD/?hl=en"
@@ -133,7 +165,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "appa_4.webp",
+                "pathName": "appa_mael.webp",
                 "artist": {
                     "name": "Maël  OLLIVIER-HENRY",
                     "link": "https://www.artstation.com/artwork/6L6lWx"
@@ -141,10 +173,50 @@
                 "epithet": ""
             },
             {
-                "pathName": "appa_5.webp",
+                "pathName": "appa_devinelle2.webp",
                 "artist": {
                     "name": "Devinellekurtz",
                     "link": "https://www.instagram.com/p/CGX02d0jjmb/?hl=en&img_index=1"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "appa_gribok.webp",
+                "artist": {
+                    "name": "gribok-art",
+                    "link": "https://www.tumblr.com/gribok-art/757457852461989888/avatar-the-last-airbender-the-gaang"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "appa_bitter.webp",
+                "artist": {
+                    "name": "abitterberryblog",
+                    "link": "https://www.tumblr.com/abitterberryblog/809280139641946112/i-guess-this-means-well-be-together-forever"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "appa_koriofox.webp",
+                "artist": {
+                    "name": "KorioFox",
+                    "link": "https://x.com/FoxKorio/status/1618633119514652672/photo/1"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "appa_ortsmort.webp",
+                "artist": {
+                    "name": "ort-smort",
+                    "link": "https://www.tumblr.com/ort-smort/639410159749300224/cloud-busting-duty-2020-art"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "appa_onepointzero.webp",
+                "artist": {
+                    "name": "OnePointZero",
+                    "link": "https://x.com/OnePointZero_/status/1752386541387915526/photo/1"
                 },
                 "epithet": ""
             }
@@ -154,7 +226,7 @@
         "character": "Asami Sato",
         "images": [
             {
-                "pathName": "asami_1.webp",
+                "pathName": "asami_tanya.webp",
                 "artist": {
                     "name": "Tanya-buka",
                     "link": "https://www.deviantart.com/tanya-buka/art/Asami-585475908"
@@ -162,10 +234,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "asami_2.webp",
+                "pathName": "asami_artmage.webp",
                 "artist": {
                     "name": "TheArtMage",
                     "link": "https://x.com/theartmage?lang=en"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "asami_reveriesky.webp",
+                "artist": {
+                    "name": "Sora Medina",
+                    "link": "https://www.reveriesky.com/"
                 },
                 "epithet": ""
             }
@@ -175,7 +255,7 @@
         "character": "Aunt Wu",
         "images": [
             {
-                "pathName": "auntwu_1.webp",
+                "pathName": "auntwu_hisashi.webp",
                 "artist": {
                     "name": "Hisashi Momose",
                     "link": "https://x.com/momos_page/status/1994654268096483589"
@@ -188,15 +268,55 @@
         "character": "Azula",
         "images": [
             {
-                "pathName": "azula_1.webp",
+                "pathName": "azula_artbycourage.webp",
                 "artist": {
                     "name": "ArtByCourage",
-                    "link": "https://www.instagram.com/artbycourage/"
+                    "link": "https://www.artstation.com/artbycourage"
                 },
                 "epithet": "i'll show you..."
             },
             {
-                "pathName": "azula_2.webp",
+                "pathName": "azula_chasefox.webp",
+                "artist": {
+                    "name": "ChaseFoxArt",
+                    "link": "https://linktr.ee/chasefoxart"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "azula_emmakubert.webp",
+                "artist": {
+                    "name": "Emma Kubert",
+                    "link": "https://www.tumblr.com/emmakubert/773845332938424320/we-love-a-mad-queen"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "azula_eyyojimbo.jpg",
+                "artist": {
+                    "name": "EyYoJimbo",
+                    "link": "https://www.deviantart.com/eyyojimbo/art/Azula-920760587"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "azula_igorsudo.webp",
+                "artist": {
+                    "name": "Igor Sudo",
+                    "link": "https://www.instagram.com/p/DTeG4hPEfP1/"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "azula_jellolegos.webp",
+                "artist": {
+                    "name": "JelloLegos",
+                    "link": "https://jellolegos.tumblr.com/image/632697687879385089"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "azula_kelly1.webp",
                 "artist": {
                     "name": "Kelly1412",
                     "link": "https://www.deviantart.com/kelly1412/art/Fire-Prodigy-Azula-311478928"
@@ -204,23 +324,7 @@
                 "epithet": "prodigy"
             },
             {
-                "pathName": "azula_3.jpg",
-                "artist": {
-                    "name": "ErimelArt",
-                    "link": "https://www.instagram.com/p/Cy6BbiXOIAx/?img_index=2"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "azula_4.jpg",
-                "artist": {
-                    "name": "EyYoJimbo",
-                    "link": "https://www.deviantart.com/eyyojimbo/art/Azula-920760587"
-                },
-                "epithet": "monster"
-            },
-            {
-                "pathName": "azula_5.webp",
+                "pathName": "azula_kelly2.webp",
                 "artist": {
                     "name": "Kelly1412",
                     "link": "https://www.deviantart.com/kelly1412/art/Azula-in-Earth-Kingdom-262043733"
@@ -233,7 +337,7 @@
         "character": "Bato",
         "images": [
             {
-                "pathName": "bato_1.webp",
+                "pathName": "bato_chiptrillino.webp",
                 "artist": {
                     "name": "Chiptrillino",
                     "link": "https://www.tumblr.com/chiptrillino-art/754394498333900800/id-in-alt-text-bato"
@@ -246,7 +350,7 @@
         "character": "Bolin",
         "images": [
             {
-                "pathName": "bolin_1.webp",
+                "pathName": "bolin_avakoratron.webp",
                 "artist": {
                     "name": "Avakoratron",
                     "link": "https://x.com/avakoratron/status/767349282626088960?lang=en"
@@ -254,7 +358,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "bolin_2.webp",
+                "pathName": "bolin_laracazarts.webp",
                 "artist": {
                     "name": "laracazarts",
                     "link": "https://www.artstation.com/artwork/48orVL"
@@ -262,10 +366,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "bolin_3.webp",
+                "pathName": "bolin_garlic.webp",
                 "artist": {
                     "name": "garlicableningen",
                     "link": "https://garlicableningen.tumblr.com/post/22670076649/bolin-in-suit-appreciation-post-i-know-everyone"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "bolin_reveriesky.webp",
+                "artist": {
+                    "name": "Sora Medina",
+                    "link": "https://www.reveriesky.com/"
                 },
                 "epithet": ""
             }
@@ -275,7 +387,7 @@
         "character": "Bumi",
         "images": [
             {
-                "pathName": "bumi_1.webp",
+                "pathName": "bumi_inklou.webp",
                 "artist": {
                     "name": "Inklou",
                     "link": "https://koulin-blog.tumblr.com/post/26134845519/bitch-im-fabulous-thishas-got-to-be-the"
@@ -288,7 +400,7 @@
         "character": "Cabbage Merchant",
         "images": [
             {
-                "pathName": "cabbage_1.webp",
+                "pathName": "cabbage_pears.webp",
                 "artist": {
                     "name": "PearsPalette",
                     "link": "https://www.tumblr.com/pears-palette/743228704312983552/on-my-recent-cabbage-merchant-art-someone?source=share"
@@ -296,7 +408,7 @@
                 "epithet": "Sisyphus"
             },
             {
-                "pathName": "cabbage_2.webp",
+                "pathName": "cabbage_jugandi.webp",
                 "artist": {
                     "name": "Jugandi",
                     "link": "https://www.deviantart.com/jugandi/art/Cabbage-Merchant-x-Cabbage-329654561"
@@ -304,7 +416,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "cabbage_3.webp",
+                "pathName": "cabbage_thanh.webp",
                 "artist": {
                     "name": "Thanh Tuan",
                     "link": "https://www.artstation.com/artwork/eRnBy6"
@@ -317,15 +429,15 @@
         "character": "Chit Sang",
         "images": [
             {
-                "pathName": "chit_1.webp",
+                "pathName": "chit_chiptrillino.webp",
                 "artist": {
-                    "name": "Petricorah",
-                    "link": "https://www.tumblr.com/petricorah/704379160360042496/rewatching-boiling-rock-again"
+                    "name": "Chiptrillino",
+                    "link": "https://www.tumblr.com/chitsangenthusiast/659511251853000704/who-drew-your-new-profile-pic"
                 },
                 "epithet": ""
             },
             {
-                "pathName": "chit_2.webp",
+                "pathName": "chit_olausson.webp",
                 "artist": {
                     "name": "Robin  Olausson",
                     "link": "https://gatherer.wizards.com/TLA/en-us/140/how-to-start-a-riot"
@@ -338,7 +450,7 @@
         "character": "Chong",
         "images": [
             {
-                "pathName": "chong_1.webp",
+                "pathName": "chong_aternen.webp",
                 "artist": {
                     "name": "Aternen",
                     "link": "https://www.artstation.com/artwork/o2O4kJ"
@@ -351,7 +463,7 @@
         "character": "Combustion Man",
         "images": [
             {
-                "pathName": "combustion_1.webp",
+                "pathName": "combustion_6seas.webp",
                 "artist": {
                     "name": "6seas",
                     "link": "https://www.tumblr.com/6seas/798026297749209089/drawing-request-by-trinistaxmcnuggle-i-hope-you"
@@ -359,7 +471,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "combustion_2.webp",
+                "pathName": "combustion_pisukev.webp",
                 "artist": {
                     "name": "Pisukev",
                     "link": "https://www.instagram.com/p/DQ4oKdWk_C4/?hl=en&img_index=1"
@@ -367,7 +479,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "combustion_3.webp",
+                "pathName": "combustion_devinelle.webp",
                 "artist": {
                     "name": "Devinellekurtz",
                     "link": "https://gatherer.wizards.com/TLA/en-us/128/combustion-technique"
@@ -380,7 +492,7 @@
         "character": "Desna",
         "images": [
             {
-                "pathName": "desna_1.webp",
+                "pathName": "desna_yuki.webp",
                 "artist": {
                     "name": "Yuki119",
                     "link": "https://yuki119.tumblr.com/post/56220348082/desna-you-precious-waterbender-boy"
@@ -393,7 +505,7 @@
         "character": "Eska",
         "images": [
             {
-                "pathName": "eska_1.webp",
+                "pathName": "eska_nymre.webp",
                 "artist": {
                     "name": "Nymre",
                     "link": "https://www.reddit.com/r/TheLastAirbender/comments/djsl2h/eska_by_nymre/"
@@ -406,15 +518,7 @@
         "character": "Ghazan",
         "images": [
             {
-                "pathName": "ghazan_1.webp",
-                "artist": {
-                    "name": "Mshoo",
-                    "link": "https://www.deviantart.com/mshoo/art/Ghazan-466997905?q=gallery%3AMshoo&qo=3"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "ghazan_2.webp",
+                "pathName": "ghazan_gaaraxel.webp",
                 "artist": {
                     "name": "gaaraxel-13",
                     "link": "https://www.deviantart.com/gaaraxel-13/art/Ghazan-aka-Lava-guy-602650173"
@@ -422,10 +526,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "ghazan_3.webp",
+                "pathName": "ghazan_pong.webp",
                 "artist": {
                     "name": "Pong Lizardo",
                     "link": "https://www.instagram.com/p/B1fQIH0jsKt/?hl=en&img_index=1"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "ghazan_hazieash.webp",
+                "artist": {
+                    "name": "hazieash",
+                    "link": "https://www.tumblr.com/hazieash/100972382612/drew-ghazan-without-using-any-refs-pretty-sure"
                 },
                 "epithet": ""
             }
@@ -435,7 +547,7 @@
         "character": "Guru Pathik",
         "images": [
             {
-                "pathName": "pathik_1.webp",
+                "pathName": "pathik_cassio.webp",
                 "artist": {
                     "name": "Cassio Yoshiyaki",
                     "link": "https://theartofanimation.tumblr.com/post/155926014928/cassio-yoshiyaki"
@@ -443,7 +555,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "pathik_2.webp",
+                "pathName": "pathik_dee.webp",
                 "artist": {
                     "name": "Dee Nguyen",
                     "link": "https://x.com/idledee/status/1987234893982470370/photo/2"
@@ -456,15 +568,7 @@
         "character": "Gyatso",
         "images": [
             {
-                "pathName": "gyatso_1.webp",
-                "artist": {
-                    "name": "Dragonbonez",
-                    "link": "https://dragonbonez.tumblr.com/post/643796760614092800"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "gyatso_2.webp",
+                "pathName": "gyatso_artkaolinite.webp",
                 "artist": {
                     "name": "artkaolinite91",
                     "link": "https://www.instagram.com/p/C45uX69Pvri/?img_index=1"
@@ -472,7 +576,15 @@
                 "epithet": ""
             },
             {
-                "pathName": "gyatso_3.webp",
+                "pathName": "gyatso_chiptrillino.webp",
+                "artist": {
+                    "name": "Chiptrillino",
+                    "link": "https://www.tumblr.com/chiptrillino-art/790633236912095232/id-in-alt-text-we-got-green-lit-to-share-our"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "gyatso_masateru.webp",
                 "artist": {
                     "name": "池田正輝/MASATERU IKEDA",
                     "link": "https://gatherer.wizards.com/TLE/en-us/81/monk-gyatso"
@@ -485,7 +597,7 @@
         "character": "Hakoda",
         "images": [
             {
-                "pathName": "hakoda_1.webp",
+                "pathName": "hakoda_fatharan.webp",
                 "artist": {
                     "name": "Fatharan Yasmin",
                     "link": "https://fatharaniyasmin.artstation.com/projects/5XWRzz"
@@ -493,7 +605,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "hakoda_2.webp",
+                "pathName": "hakoda_renif.webp",
                 "artist": {
                     "name": "Renif",
                     "link": "https://www.tumblr.com/renif/756916721012621312/decided-to-draw-this-guy-while-listening-to-the"
@@ -514,7 +626,7 @@
         "character": "Hama",
         "images": [
             {
-                "pathName": "hama_1.webp",
+                "pathName": "hama_zachary.webp",
                 "artist": {
                     "name": "Zachary Wolff",
                     "link": "https://www.artstation.com/artwork/18B8rX"
@@ -522,7 +634,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "hama_2.webp",
+                "pathName": "hama_patrick.webp",
                 "artist": {
                     "name": "Patrick Ganas",
                     "link": "https://www.instagram.com/p/ClbR3_HyRAG/?img_index=1"
@@ -530,7 +642,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "hama_3.webp",
+                "pathName": "hama_vuong.webp",
                 "artist": {
                     "name": "Le Vuong",
                     "link": "https://www.artstation.com/artwork/Zln1v0"
@@ -538,10 +650,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "hama_4.webp",
+                "pathName": "hama_tkg.webp",
                 "artist": {
-                    "name": "藤木ゆう/Yuu Fujiki",
-                    "link": "https://x.com/fujiki_you/status/1991881802110452164"
+                    "name": "TKG | avakoratron",
+                    "link": "https://x.com/avakoratron/status/755043765274894336/photo/2"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "hama_dieauster.webp",
+                "artist": {
+                    "name": "Die-Auster",
+                    "link": "https://www.tumblr.com/die-auster/735699555491938304/i-love-the-idea-of-a-villain-from-the-water-tribe"
                 },
                 "epithet": ""
             }
@@ -551,7 +671,7 @@
         "character": "Haru",
         "images": [
             {
-                "pathName": "haru_1.webp",
+                "pathName": "haru_shubolt.webp",
                 "artist": {
                     "name": "ShuBolt",
                     "link": "https://www.deviantart.com/shubolt/art/Haru-188984231"
@@ -559,7 +679,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "haru_2.webp",
+                "pathName": "haru_lab.webp",
                 "artist": {
                     "name": "Lab-Grown-Lambs",
                     "link": "https://www.deviantart.com/lab-gr0wn-lambs/art/Haru-commission-866575511"
@@ -567,7 +687,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "haru_3.webp",
+                "pathName": "haru_mitori.webp",
                 "artist": {
                     "name": "MITORI",
                     "link": "https://gatherer.wizards.com/TLA/en-us/182/haru-hidden-talent"
@@ -575,7 +695,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "haru_4.webp",
+                "pathName": "haru_lovesilkes.webp",
                 "artist": {
                     "name": "Lovesilkes",
                     "link": "https://www.tumblr.com/lovesilkes/629549160643936256/drawing-every-atlatlok-character-12-haru"
@@ -588,7 +708,7 @@
         "character": "Hiroshi Sato",
         "images": [
             {
-                "pathName": "hiroshi_1.webp",
+                "pathName": "hiroshi_kraxchet.webp",
                 "artist": {
                     "name": "Kraxchet",
                     "link": "https://www.deviantart.com/kraxchet/art/Hiroshi-Sato-845001239"
@@ -601,18 +721,26 @@
         "character": "Huu",
         "images": [
             {
-                "pathName": "huu_1.webp",
+                "pathName": "huu_firefly.webp",
                 "artist": {
-                    "name": "Maël Ollivier-Henry",
-                    "link": "https://www.artstation.com/artwork/oJkyLW"
+                    "name": "FireFlySummers",
+                    "link": "https://fireflysummers.tumblr.com/post/640342070879518720/an-illustration-i-did-for-the-avatar-the-last"
                 },
                 "epithet": ""
             },
             {
-                "pathName": "huu_2.webp",
+                "pathName": "huu_jean.webp",
                 "artist": {
-                    "name": "FireFlySummers",
-                    "link": "https://fireflysummers.tumblr.com/post/640342070879518720/an-illustration-i-did-for-the-avatar-the-last"
+                    "name": "Jean Nguyen",
+                    "link": "https://www.artstation.com/artwork/6Ny605"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "huu_mael.webp",
+                "artist": {
+                    "name": "Maël Ollivier-Henry",
+                    "link": "https://www.artstation.com/artwork/oJkyLW"
                 },
                 "epithet": ""
             }
@@ -622,7 +750,7 @@
         "character": "Ikki",
         "images": [
             {
-                "pathName": "ikki_1.webp",
+                "pathName": "ikki_sunshine.webp",
                 "artist": {
                     "name": "Sunshine Memoir",
                     "link": "https://www.tumblr.com/sunshinememoir/188331167169/ikki-from-avatar-another-commission"
@@ -635,7 +763,7 @@
         "character": "Iroh",
         "images": [
             {
-                "pathName": "iroh_1.webp",
+                "pathName": "iroh_parororo.webp",
                 "artist": {
                     "name": "Parororo",
                     "link": "https://www.deviantart.com/parororo/art/Uncle-Iroh-861273920"
@@ -643,7 +771,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "iroh_2.webp",
+                "pathName": "iroh_michael.webp",
                 "artist": {
                     "name": "Michael Jan Penserga",
                     "link": "https://www.deviantart.com/hiimmichael/art/Uncle-Iroh-1051459043"
@@ -651,15 +779,15 @@
                 "epithet": ""
             },
             {
-                "pathName": "iroh_3.webp",
+                "pathName": "iroh_dalton.webp",
                 "artist": {
                     "name": "Dalton Pencarinha",
                     "link": "https://www.instagram.com/p/DQXPUwCjvRI/?img_index=1"
                 },
-                "epithet": "Dragon of the West"
+                "epithet": "grand lotus"
             },
             {
-                "pathName": "iroh_4.webp",
+                "pathName": "iroh_djwelch.webp",
                 "artist": {
                     "name": "DjWelch",
                     "link": "https://www.deviantart.com/djwelch/art/Iroh-Dragon-of-the-West-116834344"
@@ -667,7 +795,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "iroh_5.webp",
+                "pathName": "iroh_nikulina.webp",
                 "artist": {
                     "name": "Nikulina-Helena",
                     "link": "https://www.deviantart.com/nikulina-helena/art/Leaves-from-the-Vine-895241525"
@@ -675,10 +803,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "iroh_6.webp",
+                "pathName": "iroh_nox.webp",
                 "artist": {
                     "name": "Nox Zaiden",
                     "link": "https://noxzaiden.tumblr.com/post/93180863743/dragon-of-the-west-its-more-of-a"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "iroh_cangdu.webp",
+                "artist": {
+                    "name": "CangDu",
+                    "link": "https://www.deviantart.com/cangdu/art/Wisdom-Within-859076238"
                 },
                 "epithet": ""
             }
@@ -688,18 +824,26 @@
         "character": "Iroh II",
         "images": [
             {
-                "pathName": "irohII_1.webp",
+                "pathName": "irohII_chiou.webp",
                 "artist": {
                     "name": "Chiou",
                     "link": "https://www.deviantart.com/chiou/art/tea-time-310715006"
                 },
-                "epithet": "tea time"
+                "epithet": ""
             },
             {
-                "pathName": "irohII_2.webp",
+                "pathName": "irohII_konietzko.webp",
                 "artist": {
-                    "name": "Nazgullow",
-                    "link": "https://www.deviantart.com/nazgullow/art/General-Iroh-313988787"
+                    "name": "Bryan Konietzko",
+                    "link": "https://www.tumblr.com/bryankonietzko/26047150868/i-was-planning-on-doing-this-sketch-a-few-weeks"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "irohII_shockapple.webp",
+                "artist": {
+                    "name": "shockapple",
+                    "link": "https://www.tumblr.com/shockapple/749110767847145472/general-iroh-ii-x-oc-the-lieutenant-general"
                 },
                 "epithet": ""
             }
@@ -709,7 +853,7 @@
         "character": "Jee",
         "images": [
             {
-                "pathName": "jee_1.webp",
+                "pathName": "jee_chiptrillino.webp",
                 "artist": {
                     "name": "Chiptrillino",
                     "link": "https://www.tumblr.com/chiptrillino/689073889654013952/okay-i-think-i-know-what-it-is-jee-is-like-an"
@@ -722,7 +866,7 @@
         "character": "Jeong Jeong",
         "images": [
             {
-                "pathName": "jeong_1.webp",
+                "pathName": "jeong_isaia.webp",
                 "artist": {
                     "name": "Isaia",
                     "link": "https://www.deviantart.com/isaia/art/LJFirePinup-Jeong-Jeong-26368828"
@@ -730,15 +874,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "jeong_2.webp",
-                "artist": {
-                    "name": "AngelaJuneDesigns",
-                    "link": "https://www.deviantart.com/angelajunedesigns/art/The-Hermit-849556221"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "jeong_3.webp",
+                "pathName": "jeong_goldenshi.webp",
                 "artist": {
                     "name": "Thegoldenshi-shi",
                     "link": "https://www.tumblr.com/thegoldenshi-shi/625167781709627392/i-have-rediscovered-my-love-for-a-grumpy-old"
@@ -746,10 +882,34 @@
                 "epithet": ""
             },
             {
-                "pathName": "jeong_4.webp",
+                "pathName": "jeong_danciao.webp",
                 "artist": {
                     "name": "Danciao",
                     "link": "https://www.instagram.com/danciao/?hl=en"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "jeong_shebsart.webp",
+                "artist": {
+                    "name": "shebsart",
+                    "link": "https://www.tumblr.com/shebsart/163493092357/jeong-jeong-or-piandao-requested-by-ironduke37"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "jeong_shaolin.webp",
+                "artist": {
+                    "name": "shaolinfeilong",
+                    "link": "https://www.deviantart.com/shaolinfeilong/art/Hands-of-Another-s-Bidding-62901230"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "jeong_kimchi.webp",
+                "artist": {
+                    "name": "KimchiCrusader",
+                    "link": "https://www.deviantart.com/kimchicrusader/art/Jeong-Jeong-24421583"
                 },
                 "epithet": ""
             }
@@ -759,7 +919,7 @@
         "character": "Jet",
         "images": [
             {
-                "pathName": "jet_1.webp",
+                "pathName": "jet_astrifurious.webp",
                 "artist": {
                     "name": "astrifurious",
                     "link": "https://astrifurious.tumblr.com/post/53335671433/jet-from-avatar-the-last-airbender-made-sure-my"
@@ -767,7 +927,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "jet_2.webp",
+                "pathName": "jet_jonas.webp",
                 "artist": {
                     "name": "Jonas64",
                     "link": "https://www.deviantart.com/jonas64/art/Jet-Whatever-it-takes-73322101"
@@ -775,7 +935,7 @@
                 "epithet": "hell-bent"
             },
             {
-                "pathName": "jet_3.webp",
+                "pathName": "jet_kelly.webp",
                 "artist": {
                     "name": "Kelly1412",
                     "link": "https://www.deviantart.com/kelly1412/art/Request-Jet-252956343"
@@ -783,7 +943,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "jet_4.webp",
+                "pathName": "jet_dieauster.webp",
                 "artist": {
                     "name": "Die-Auster",
                     "link": "https://www.tumblr.com/die-auster/766527108235280384/testing-warm-colors-i-am-a-lazy-person-so"
@@ -791,7 +951,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "jet_5.webp",
+                "pathName": "jet_keiuu.webp",
                 "artist": {
                     "name": "Keiuu",
                     "link": "https://www.instagram.com/_keiuu/?hl=en"
@@ -799,7 +959,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "jet_6.webp",
+                "pathName": "jet_olidraws.webp",
                 "artist": {
                     "name": "olidraws",
                     "link": "https://www.instagram.com/p/C4gg9I9KF12/?img_index=5"
@@ -812,7 +972,7 @@
         "character": "Jin",
         "images": [
             {
-                "pathName": "jin_1.webp",
+                "pathName": "jin_truistic.webp",
                 "artist": {
                     "name": "Truistic",
                     "link": "https://www.deviantart.com/truistic/art/The-Girl-of-Ba-Sing-Se-179084274"
@@ -820,7 +980,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "jin_2.webp",
+                "pathName": "jin_kelly.webp",
                 "artist": {
                     "name": "Kelly1412",
                     "link": "https://www.deviantart.com/kelly1412/art/Jin-and-Zuzu-doll-263839196"
@@ -828,15 +988,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "jin_3.webp",
-                "artist": {
-                    "name": "絵西/Enishi",
-                    "link": "https://gatherer.wizards.com/TLE/en-us/79/kindly-customer"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "jin_4.webp",
+                "pathName": "jin_hrlshnv.webp",
                 "artist": {
                     "name": "hrlshnv",
                     "link": "https://www.instagram.com/p/CuanXwOIwom/?img_index=1"
@@ -844,10 +996,26 @@
                 "epithet": ""
             },
             {
-                "pathName": "jin_5.webp",
+                "pathName": "jin_chremes.webp",
                 "artist": {
                     "name": "Chremes007",
                     "link": "https://www.tumblr.com/chremes007/757799254211313664/that-one-customer-named-jin"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "jin_aw.webp",
+                "artist": {
+                    "name": "AW",
+                    "link": "https://www.tumblr.com/theteashopgirl/184997078637/jin-at-home-perhaps-wondering-what-might-have"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "jin_shinjiapologist.webp",
+                "artist": {
+                    "name": "shinjiapologist",
+                    "link": "https://www.tumblr.com/shinjiapologist/619375199199150080/shoutout-to-the-earth-kingdom-girl-zuko-went-on"
                 },
                 "epithet": ""
             }
@@ -857,18 +1025,26 @@
         "character": "Jinora",
         "images": [
             {
-                "pathName": "jinora_1.webp",
+                "pathName": "jinora_anirin.webp",
                 "artist": {
-                    "name": "Apoloniodraws",
-                    "link": "https://www.zerochan.net/4140208"
+                    "name": "AnirinArt",
+                    "link": "https://www.deviantart.com/anirinart/art/The-light-575185094"
                 },
                 "epithet": ""
             },
             {
-                "pathName": "jinora_2.webp",
+                "pathName": "jinora_reveriesky.webp",
                 "artist": {
-                    "name": "Melissa King",
-                    "link": "https://www.gallerynucleus.com/detail/18595/"
+                    "name": "Sora Medina",
+                    "link": "https://www.reveriesky.com/"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "jinora_pillowcloud.webp",
+                "artist": {
+                    "name": "pillowcloud",
+                    "link": "https://pillowcloud.tumblr.com/post/26348685823/jinora-request-for-starry-eyed-mice-i-think"
                 },
                 "epithet": ""
             }
@@ -878,7 +1054,7 @@
         "character": "Joo Dee",
         "images": [
             {
-                "pathName": "joo_1.webp",
+                "pathName": "joo_goldensplash.webp",
                 "artist": {
                     "name": "Goldensplash",
                     "link": "https://www.deviantart.com/goldensplash/art/Joo-Dee-Kinda-Psycho-203848214"
@@ -891,7 +1067,7 @@
         "character": "June",
         "images": [
             {
-                "pathName": "june_1.webp",
+                "pathName": "june_tashati.webp",
                 "artist": {
                     "name": "Tashati",
                     "link": "https://www.deviantart.com/tashati/art/June-264106237"
@@ -899,7 +1075,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "june_2.webp",
+                "pathName": "june_twistedorchid.webp",
                 "artist": {
                     "name": "Twisted  Orchid",
                     "link": "https://www.instagram.com/p/C-Vr8hbSFni/"
@@ -907,10 +1083,18 @@
                 "epithet": "nyla~"
             },
             {
-                "pathName": "june_3.webp",
+                "pathName": "june_shiren.webp",
                 "artist": {
                     "name": "紫蓮/Shiren",
                     "link": "https://gatherer.wizards.com/TLA/en-us/106/june-bounty-hunter"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "june_sabaah.webp",
+                "artist": {
+                    "name": "Sabaah",
+                    "link": "https://www.deviantart.com/sabaah/art/Bounty-Hunter-Jun-78345223"
                 },
                 "epithet": ""
             }
@@ -920,7 +1104,7 @@
         "character": "Kai",
         "images": [
             {
-                "pathName": "kai_1.webp",
+                "pathName": "kai_fishcakeys.webp",
                 "artist": {
                     "name": "Fishcakeys",
                     "link": "https://fishykays.tumblr.com/image/90650694711"
@@ -933,7 +1117,7 @@
         "character": "Kanna",
         "images": [
             {
-                "pathName": "kanna_1.webp",
+                "pathName": "kanna_arou.webp",
                 "artist": {
                     "name": "Arou",
                     "link": "https://gatherer.wizards.com/TLA/en-us/54/gran-gran"
@@ -946,7 +1130,7 @@
         "character": "Katara",
         "images": [
             {
-                "pathName": "katara_1.webp",
+                "pathName": "katara_teriiyaki.webp",
                 "artist": {
                     "name": "Teriiyaki",
                     "link": "https://www.inprnt.com/gallery/teriiyaki/painted-lady-katara/poster/"
@@ -954,7 +1138,7 @@
                 "epithet": "painted lady"
             },
             {
-                "pathName": "katara_2.webp",
+                "pathName": "katara_chowwu.webp",
                 "artist": {
                     "name": "ChowwuArt",
                     "link": "https://www.pixiv.net/en/artworks/64948362"
@@ -962,7 +1146,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "katara_3.webp",
+                "pathName": "katara_knknknk.webp",
                 "artist": {
                     "name": "Knknknk",
                     "link": "https://www.deviantart.com/knknknk/art/katara-243276763"
@@ -970,7 +1154,7 @@
                 "epithet": "revenge"
             },
             {
-                "pathName": "katara_4.webp",
+                "pathName": "katara_konietzko.webp",
                 "artist": {
                     "name": "Bryan Konietzko",
                     "link": "https://www.instagram.com/p/BfwQjBbhTJc/?utm_source=ig_share_sheet&igshid=lb4tvjgkqgu3&img_index=1"
@@ -978,7 +1162,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "katara_5.webp",
+                "pathName": "katara_taratjah.webp",
                 "artist": {
                     "name": "Taratjah",
                     "link": "https://www.deviantart.com/taratjah/art/Katara-764056297"
@@ -986,7 +1170,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "katara_6.webp",
+                "pathName": "katara_romaincrisis.webp",
                 "artist": {
                     "name": "romaincrisis",
                     "link": "https://www.tumblr.com/romaincrisis/745327760767156224/the-bloodbender"
@@ -994,7 +1178,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "katara_7.webp",
+                "pathName": "katara_yueko.webp",
                 "artist": {
                     "name": "Yueko",
                     "link": "https://x.com/yueko__/status/1969632787339849999/photo/1"
@@ -1002,15 +1186,15 @@
                 "epithet": ""
             },
             {
-                "pathName": "katara_8.webp",
+                "pathName": "katara_yoshioka.webp",
                 "artist": {
-                    "name": "Yoshioka",
+                    "name": "yoshioka",
                     "link": "https://scryfall.com/card/tle/148/katara-seeking-revenge"
                 },
                 "epithet": ""
             },
             {
-                "pathName": "katara_9.webp",
+                "pathName": "katara_imbong.webp",
                 "artist": {
                     "name": "ImBong @ pixiv",
                     "link": "https://www.pixiv.net/en/artworks/72735161"
@@ -1018,7 +1202,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "katara_10.webp",
+                "pathName": "katara_letay.webp",
                 "artist": {
                     "name": "letayl3",
                     "link": "https://www.redbubble.com/i/sticker/Katara-and-Penguin-by-letayl3/57070400.EJUG5"
@@ -1031,7 +1215,7 @@
         "character": "King Bumi",
         "images": [
             {
-                "pathName": "kingbumi_1.webp",
+                "pathName": "kingbumi_hyung.webp",
                 "artist": {
                     "name": "Hyung7754",
                     "link": "https://www.reddit.com/r/TheLastAirbender/comments/cxadnj/king_bumi_fanart/"
@@ -1039,7 +1223,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "kingbumi_2.webp",
+                "pathName": "kingbumi_pascual.webp",
                 "artist": {
                     "name": "PascualProductions",
                     "link": "https://www.deviantart.com/pascualproductions"
@@ -1047,10 +1231,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "kingbumi_3.webp",
+                "pathName": "kingbumi_onhiatus.webp",
                 "artist": {
                     "name": "on_hiatus",
                     "link": "https://www.reddit.com/r/TheLastAirbender/comments/md47w4/king_bumi/"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "kingbumi_vinci.webp",
+                "artist": {
+                    "name": "vinci_draws",
+                    "link": "https://www.instagram.com/p/C4FpxKDvVIW/"
                 },
                 "epithet": ""
             }
@@ -1060,15 +1252,23 @@
         "character": "King Kuei",
         "images": [
             {
-                "pathName": "kuei_1.webp",
+                "pathName": "kuei_mmonzart.webp",
                 "artist": {
-                    "name": "Phuong Le",
-                    "link": "https://www.instagram.com/p/CDeOIeohILM/"
+                    "name": "mmonzart",
+                    "link": "https://www.instagram.com/p/CizXHfBqmo8/?img_index=5"
                 },
                 "epithet": ""
             },
             {
-                "pathName": "kuei_2.webp",
+                "pathName": "kuei_ranminfan.webp",
+                "artist": {
+                    "name": "ranminfan",
+                    "link": "https://www.tumblr.com/ranminfan/809804273950048256/out-of-all-the-characters-in-atla-my-favorite-is"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "kuei_ryota.webp",
                 "artist": {
                     "name": "Ryota Murayama",
                     "link": "https://gatherer.wizards.com/TLA/en-us/172/the-earth-king"
@@ -1081,7 +1281,7 @@
         "character": "Koh",
         "images": [
             {
-                "pathName": "koh_1.webp",
+                "pathName": "koh_khyvacraft.webp",
                 "artist": {
                     "name": "Khyvacraft",
                     "link": "https://old-people-like-avatar.tumblr.com/post/143757107004/khyvacraft-avatar-and-spirited-away-cross-over"
@@ -1094,7 +1294,7 @@
         "character": "Korra",
         "images": [
             {
-                "pathName": "korra_1.webp",
+                "pathName": "korra_based.webp",
                 "artist": {
                     "name": "BasedTaka",
                     "link": "https://basedtaka.tumblr.com/post/623632686612938752/wave-studies-feat-miss-korra-and-her-gf"
@@ -1102,15 +1302,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "korra_2.webp",
-                "artist": {
-                    "name": "iahfy",
-                    "link": "https://iahfy.tumblr.com/"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "korra_3.webp",
+                "pathName": "korra_prickly.webp",
                 "artist": {
                     "name": "PricklyAlpaca",
                     "link": "https://www.deviantart.com/pricklyalpaca/art/Avatar-Korra-489116947"
@@ -1118,7 +1310,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "korra_4.webp",
+                "pathName": "korra_boszoli.webp",
                 "artist": {
                     "name": "Boszoli-san",
                     "link": "https://www.deviantart.com/boszoli-san/art/Balance-Legend-of-Korra-485946671"
@@ -1126,29 +1318,52 @@
                 "epithet": ""
             },
             {
-                "pathName": "korra_5.webp",
-                "artist": {
-                    "name": "Tamiyne",
-                    "link": "https://www.tumblr.com/tamiyne/131410952336/avatar-state"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "korra_6.webp",
+                "pathName": "korra_olidraws.webp",
                 "artist": {
                     "name": "olidraws",
                     "link": "https://www.instagram.com/p/C4v-NiKqqjz/?img_index=5"
                 },
                 "epithet": ""
+            },
+            {
+                "pathName": "korra_kisa.webp",
+                "artist": {
+                    "name": "kisa-wayne",
+                    "link": "https://www.tumblr.com/kisa-wayne/675151965082304512/por-fin-lo-termin%C3%A9"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "korra_evelmiina.webp",
+                "artist": {
+                    "name": "evelmiina",
+                    "link": "https://www.tumblr.com/evelmiina/125540387097/watched-legend-of-korra-a-while-ago-i-remember-i"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "korra_fedz.webp",
+                "artist": {
+                    "name": "fedz",
+                    "link": "https://www.instagram.com/p/C4d2SNpKjbl/?img_index=1"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "korra_dctb.webp",
+                "artist": {
+                    "name": "dCTb",
+                    "link": "https://www.deviantart.com/dctb/art/Being-The-Leaf-557034588"
+                },
+                "epithet": ""
             }
-            
         ]
     },
     {
         "character": "Kuruk",
         "images": [
             {
-                "pathName": "kuruk_1.webp",
+                "pathName": "kuruk_thynium.webp",
                 "artist": {
                     "name": "Thyinum",
                     "link": "https://thyinum.tumblr.com/post/755609479836565504/avatar-kuruk"
@@ -1156,10 +1371,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "kuruk_2.webp",
+                "pathName": "kuruk_ghxxuls.webp",
                 "artist": {
                     "name": "Ghxxuls",
                     "link": "https://ar.pinterest.com/pin/kuruk-en-2024--920282505096898892/"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "kuruk_mmonzart.webp",
+                "artist": {
+                    "name": "mmonzart",
+                    "link": "https://www.instagram.com/p/CfLCS2JPMV9/?img_index=2"
                 },
                 "epithet": ""
             }
@@ -1169,7 +1392,7 @@
         "character": "Kuvira",
         "images": [
             {
-                "pathName": "kuvira_1.webp",
+                "pathName": "kuvira_zhengjing.webp",
                 "artist": {
                     "name": "Zhengjing",
                     "link": "https://as-warm-as-choco.tumblr.com/post/137391811903/kuvira-asami-azula-portraits-by-zheng-jing"
@@ -1177,7 +1400,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "kuvira_2.webp",
+                "pathName": "kuvira_bonnie.webp",
                 "artist": {
                     "name": "bonnie_flaemort",
                     "link": "https://www.instagram.com/p/CFUwPkVDJ6I/?igshid=1cra5dbxbmnsl"
@@ -1185,7 +1408,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "kuvira_3.webp",
+                "pathName": "kuvira_lingcon.webp",
                 "artist": {
                     "name": "lingcon",
                     "link": "https://www.deviantart.com/lingcon/art/Kuvira-The-Legend-of-Korra-577536416"
@@ -1193,20 +1416,20 @@
                 "epithet": ""
             },
             {
-                "pathName": "kuvira_4.webp",
-                "artist": {
-                    "name": "kuvira-protege",
-                    "link": "https://www.tumblr.com/kuvira-protege/627364013535363072/kuvira-in-her-original-concept-uniforms"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "kuvira_5.webp",
+                "pathName": "kuvira_protege.webp",
                 "artist": {
                     "name": "kuvira-protege",
                     "link": "https://www.tumblr.com/kuvira-protege/627364013535363072/kuvira-in-her-original-concept-uniforms"
                 },
                 "epithet": "great uniter"
+            },
+            {
+                "pathName": "kuvira_na.webp",
+                "artist": {
+                    "name": "N/A",
+                    "link": "https://www.zerochan.net/2439398"
+                },
+                "epithet": ""
             }
         ]
     },
@@ -1214,7 +1437,7 @@
         "character": "Kyoshi",
         "images": [
             {
-                "pathName": "kyoshi_1.webp",
+                "pathName": "kyoshi_shinobisena.webp",
                 "artist": {
                     "name": "Shinobisena/SenaLor",
                     "link": "https://www.artstation.com/artwork/1x9rYq"
@@ -1222,7 +1445,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "kyoshi_2.webp",
+                "pathName": "kyoshi_kanae.webp",
                 "artist": {
                     "name": "Kanaedraws",
                     "link": "https://www.tumblr.com/kanaedraws/630273854278860800/last-one-of-the-set-based-on-the-scene-in-the"
@@ -1230,7 +1453,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "kyoshi_3.webp",
+                "pathName": "kyoshi_thanh.webp",
                 "artist": {
                     "name": "Thanh Tuan",
                     "link": "https://www.artstation.com/artwork/eRnBy6"
@@ -1238,15 +1461,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "kyoshi_4.webp",
-                "artist": {
-                    "name": "Thanh Tuan",
-                    "link": "https://www.artstation.com/artwork/eRnBy6"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "kyoshi_5.webp",
+                "pathName": "kyoshi_tamiyne.webp",
                 "artist": {
                     "name": "Tamiyne",
                     "link": "https://www.tumblr.com/tamiyne/131410952336/avatar-state"
@@ -1254,10 +1469,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "kyoshi_6.webp",
+                "pathName": "kyoshi_olidraws.webp",
                 "artist": {
                     "name": "olidraws",
                     "link": "https://www.instagram.com/p/C4v-NiKqqjz/?img_index=3"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "kyoshi_edrenya.webp",
+                "artist": {
+                    "name": "edrenya-fenya",
+                    "link": "https://www.tumblr.com/edrenya-fenya/786326108998172672"
                 },
                 "epithet": ""
             }
@@ -1267,7 +1490,7 @@
         "character": "Lin Beifong",
         "images": [
             {
-                "pathName": "lin_1.webp",
+                "pathName": "lin_borjen.webp",
                 "artist": {
                     "name": "Borjen-art",
                     "link": "https://www.deviantart.com/borjen-art/art/Lin-571744642"
@@ -1277,21 +1500,34 @@
         ]
     },
     {
+        "character": "Lo and Li",
+        "images": [
+            {
+                "pathName": "loli_bryttkrou.webp",
+                "artist": {
+                    "name": "BryttKrou",
+                    "link": "https://www.deviantart.com/bryttkrou/art/AtLA-Doctrine-of-fire-control-83176677"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Long Feng",
         "images": [
             {
-                "pathName": "long_1.webp",
+                "pathName": "long_robin.webp",
                 "artist": {
-                    "name": "Saba",
-                    "link": "https://aminoapps.com/c/avatar/page/user/long-feng-long-fenglong-feng/a3Gr_aktQfdnp3aoLKzLn4lnpjk5xYmnK"
+                    "name": "Robin Har",
+                    "link": "https://www.instagram.com/p/DOM9TEaiamd/?hl=en"
                 },
                 "epithet": ""
             },
             {
-                "pathName": "long_2.webp",
+                "pathName": "long_ammoniumalum.webp",
                 "artist": {
-                    "name": "Robin Har",
-                    "link": "https://www.instagram.com/p/DOM9TEaiamd/?hl=en"
+                    "name": "ammoniumalum",
+                    "link": "https://www.tumblr.com/ammoniumalum/766052539225587712/what-i-think-metaphorically-happened-in-220"
                 },
                 "epithet": ""
             }
@@ -1301,7 +1537,7 @@
         "character": "Longshot",
         "images": [
             {
-                "pathName": "longshot_1.webp",
+                "pathName": "longshot_chiptrillino.webp",
                 "artist": {
                     "name": "Chiptrillino",
                     "link": "https://www.tumblr.com/chiptrillino/652019724790726656/you-use-this-ask-as-an-excuse-to-post-all-those"
@@ -1309,7 +1545,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "longshot_2.webp",
+                "pathName": "longshot_slawek.webp",
                 "artist": {
                     "name": "Slawek Fedorczuk",
                     "link": "https://www.instagram.com/p/DSIYNIEDXHu/?img_index=3"
@@ -1317,7 +1553,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "longshot_3.webp",
+                "pathName": "longshot_morry.webp",
                 "artist": {
                     "name": "Morry",
                     "link": "https://gatherer.wizards.com/TLE/en-us/120/longshot-rebel-bowman"
@@ -1330,7 +1566,7 @@
         "character": "Mai",
         "images": [
             {
-                "pathName": "mai_1.webp",
+                "pathName": "mai_hillnerd.webp",
                 "artist": {
                     "name": "Hillnerd",
                     "link": "https://hillnerd-art.tumblr.com/post/689853486232485888/art-idea-mai-from-atla-your-art-is-gorgeous-btw"
@@ -1338,7 +1574,7 @@
                 "epithet": "love & fear"
             },
             {
-                "pathName": "mai_2.webp",
+                "pathName": "mai_pichi.webp",
                 "artist": {
                     "name": "Pichichuchu",
                     "link": "https://www.instagram.com/p/DF283MaTTRM/?img_index=6"
@@ -1346,7 +1582,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "mai_3.webp",
+                "pathName": "mai_egal.webp",
                 "artist": {
                     "name": "EGALart | Edwin Galmon",
                     "link": "https://x.com/EGAL_art/status/1748065846310621185"
@@ -1354,7 +1590,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "mai_4.webp",
+                "pathName": "mai_yuhong.webp",
                 "artist": {
                     "name": "Yuhong Ding",
                     "link": "https://www.artstation.com/artwork/rlVxqe"
@@ -1362,7 +1598,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "mai_5.webp",
+                "pathName": "mai_olidraws.webp",
                 "artist": {
                     "name": "olidraws",
                     "link": "https://www.instagram.com/p/C4gg9I9KF12/?img_index=3"
@@ -1375,7 +1611,7 @@
         "character": "Mako",
         "images": [
             {
-                "pathName": "mako_1.webp",
+                "pathName": "mako_suikuzu.webp",
                 "artist": {
                     "name": "Suikuzu",
                     "link": "https://www.zerochan.net/1097490"
@@ -1383,7 +1619,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "mako_2.webp",
+                "pathName": "mako_uberzers.webp",
                 "artist": {
                     "name": "Uberzers",
                     "link": "https://www.deviantart.com/uberzers/art/LoK-Mako-293483352?q=boost%3Apopular+mako&qo=4"
@@ -1396,7 +1632,7 @@
         "character": "Mechanist",
         "images": [
             {
-                "pathName": "mechanist_1.webp",
+                "pathName": "mechanist_vuong.webp",
                 "artist": {
                     "name": "Le Vuong",
                     "link": "https://www.artstation.com/artwork/Zln1v0"
@@ -1409,10 +1645,18 @@
         "character": "Meelo",
         "images": [
             {
-                "pathName": "meelo_1.webp",
+                "pathName": "meelo_amoebic.webp",
                 "artist": {
                     "name": "TheAmoebic",
                     "link": "https://www.deviantart.com/theamoebic/art/Meelo-307826619"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "meelo_mmonzart.webp",
+                "artist": {
+                    "name": "mmonzart",
+                    "link": "https://www.instagram.com/p/CizXHfBqmo8/?img_index=4"
                 },
                 "epithet": ""
             }
@@ -1422,7 +1666,7 @@
         "character": "Meng",
         "images": [
             {
-                "pathName": "meng_1.webp",
+                "pathName": "meng_meelu.webp",
                 "artist": {
                     "name": "Meelu-the-Bold",
                     "link": "https://www.deviantart.com/meelu-the-bold/art/Meng-the-Fortune-Teller-23333006"
@@ -1430,7 +1674,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "meng_2.webp",
+                "pathName": "meng_dragonbonez.webp",
                 "artist": {
                     "name": "Dragonbonez",
                     "link": "https://www.tumblr.com/dragonbonez/636339960902025216/atla-drawing-challenge-day-1-favorite-kid"
@@ -1438,7 +1682,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "meng_3.webp",
+                "pathName": "meng_penbee.webp",
                 "artist": {
                     "name": "Penbee-of-Treewood",
                     "link": "https://www.deviantart.com/penbee-of-treewood/art/ATLA-Meng-38440181"
@@ -1446,7 +1690,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "meng_4.webp",
+                "pathName": "meng_insanelemon.webp",
                 "artist": {
                     "name": "insanelemon",
                     "link": "https://www.deviantart.com/insanelemon/art/Avatar-Month-oneshot-character-98824173"
@@ -1459,7 +1703,7 @@
         "character": "Ming-Hua",
         "images": [
             {
-                "pathName": "minghua_1.webp",
+                "pathName": "minghua_na.webp",
                 "artist": {
                     "name": "N/A",
                     "link": "https://www.pinterest.com/pin/463941199087864094/"
@@ -1472,7 +1716,7 @@
         "character": "Momo",
         "images": [
             {
-                "pathName": "momo_1.webp",
+                "pathName": "momo_daryna.webp",
                 "artist": {
                     "name": "Daryna Deriuzhka",
                     "link": "https://www.artstation.com/artwork/NxrQEg"
@@ -1480,7 +1724,7 @@
                 "epithet": "Samurai"
             },
             {
-                "pathName": "momo_2.webp",
+                "pathName": "momo_brandon.webp",
                 "artist": {
                     "name": "Brandon L Hunt",
                     "link": "https://www.artstation.com/artwork/vbKPQA"
@@ -1488,10 +1732,26 @@
                 "epithet": ""
             },
             {
-                "pathName": "momo_3.webp",
+                "pathName": "momo_awanqi.webp",
                 "artist": {
                     "name": "Awanqi",
                     "link": "https://gatherer.wizards.com/TLA/en-us/30/momo-playful-pet"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "momo_devinelle.webp",
+                "artist": {
+                    "name": "Devinellekurtz",
+                    "link": "https://www.instagram.com/p/Ca0KUojPdBN/?img_index=1"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "momo_dania.webp",
+                "artist": {
+                    "name": "daniaafterdark",
+                    "link": "https://www.instagram.com/p/CnIDEJAIup8/?img_index=1"
                 },
                 "epithet": ""
             }
@@ -1501,7 +1761,7 @@
         "character": "Opal",
         "images": [
             {
-                "pathName": "opal_1.webp",
+                "pathName": "opal_nymre.webp",
                 "artist": {
                     "name": "Nymre",
                     "link": "https://nymre.tumblr.com/"
@@ -1514,7 +1774,7 @@
         "character": "Ozai",
         "images": [
             {
-                "pathName": "ozai_1.webp",
+                "pathName": "ozai_avatar.webp",
                 "artist": {
                     "name": "Avatar Studios",
                     "link": "https://www.instagram.com/p/Co8Qk82v-Od/?img_index=5"
@@ -1522,7 +1782,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "ozai_2.webp",
+                "pathName": "ozai_sympho.webp",
                 "artist": {
                     "name": "SymphoBunny",
                     "link": "https://www.deviantart.com/symphobunny/art/Fanart-Ozai-494928365"
@@ -1530,7 +1790,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "ozai_3.webp",
+                "pathName": "ozai_kekai.webp",
                 "artist": {
                     "name": "Kekai  Kotaki",
                     "link": "https://gatherer.wizards.com/TLA/en-us/235/ozai-the-phoenix-king"
@@ -1538,7 +1798,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "ozai_4.webp",
+                "pathName": "ozai_riccardo.webp",
                 "artist": {
                     "name": "Riccardo  Robaldo",
                     "link": "https://www.instagram.com/p/DRxMd9CDQKr/?img_index=1"
@@ -1546,10 +1806,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "ozai_5.webp",
+                "pathName": "ozai_ninesicks.webp",
                 "artist": {
                     "name": "ninesicks",
                     "link": "https://www.instagram.com/p/DS39vmLExDM/?img_index=1"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "ozai_freestarisis.webp",
+                "artist": {
+                    "name": "freestarisis",
+                    "link": "https://www.deviantart.com/freestarisis/art/Ozai-383719413"
                 },
                 "epithet": ""
             }
@@ -1559,7 +1827,7 @@
         "character": "P'Li",
         "images": [
             {
-                "pathName": "p'li_1.webp",
+                "pathName": "pli_slima.webp",
                 "artist": {
                     "name": "Silima",
                     "link": "https://silima.tumblr.com/post/633188972138528768/i-just-love-pli"
@@ -1572,7 +1840,7 @@
         "character": "Pakku",
         "images": [
             {
-                "pathName": "pakku_1.webp",
+                "pathName": "pakku_justdreamer.webp",
                 "artist": {
                     "name": "JustDreamer22",
                     "link": "https://www.deviantart.com/justdreamer22/art/Day-21-Favorite-master-798161485"
@@ -1580,10 +1848,10 @@
                 "epithet": ""
             },
             {
-                "pathName": "pakku_2.webp",
+                "pathName": "pakku_bobangeba.webp",
                 "artist": {
-                    "name": "Olena Richards",
-                    "link": "https://magic.wizards.com/en/products/avatar-the-last-airbender/card-image-gallery?cigquery=pakku"
+                    "name": "bobangeba",
+                    "link": "https://www.deviantart.com/bobangeba/art/Young-Pakku-72219871"
                 },
                 "epithet": ""
             }
@@ -1593,7 +1861,7 @@
         "character": "Piandao",
         "images": [
             {
-                "pathName": "piandao_1.webp",
+                "pathName": "piandao_hasnotact.webp",
                 "artist": {
                     "name": "Hasnotact",
                     "link": "https://piandao.love/art2.html#gallery-5"
@@ -1601,7 +1869,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "piandao_2.webp",
+                "pathName": "piandao_brian.webp",
                 "artist": {
                     "name": "Brian  Yuen",
                     "link": "https://www.artstation.com/artwork/L4Gwqw"
@@ -1622,7 +1890,7 @@
         "character": "Pipsqueak",
         "images": [
             {
-                "pathName": "pipsqueak_1.webp",
+                "pathName": "pipsqueak_rafater.webp",
                 "artist": {
                     "name": "Rafater",
                     "link": "https://gatherer.wizards.com/TLE/en-us/82/pipsqueak-rebel-strongarm"
@@ -1635,7 +1903,7 @@
         "character": "Prince Wu",
         "images": [
             {
-                "pathName": "princewu_1.webp",
+                "pathName": "princewu_caro.webp",
                 "artist": {
                     "name": "Caro-Oliveira",
                     "link": "https://www.deviantart.com/caro-oliveira/art/Eccentric-Prince-Wu-871719095"
@@ -1648,7 +1916,7 @@
         "character": "Professor Zei",
         "images": [
             {
-                "pathName": "zei_1.webp",
+                "pathName": "zei_pauline.webp",
                 "artist": {
                     "name": "Pauline  Voss",
                     "link": "https://www.instagram.com/p/DRLGJ-5iOo4/?hl=en&img_index=1"
@@ -1661,7 +1929,7 @@
         "character": "Roku",
         "images": [
             {
-                "pathName": "roku_1.webp",
+                "pathName": "roku_bre.webp",
                 "artist": {
                     "name": "Bre Melvin",
                     "link": "https://www.deviantart.com/89ravenclaw/art/Fire-523401036"
@@ -1669,7 +1937,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "roku_2.webp",
+                "pathName": "roku_tamiyne.webp",
                 "artist": {
                     "name": "Tamiyne",
                     "link": "https://www.tumblr.com/tamiyne/131410952336/avatar-state"
@@ -1677,7 +1945,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "roku_3.webp",
+                "pathName": "roku_lucasparolin.webp",
                 "artist": {
                     "name": "LucasParolin",
                     "link": "https://www.deviantart.com/lucasparolin/art/Avatar-Roku-734637707"
@@ -1693,7 +1961,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "roku_5.webp",
+                "pathName": "roku_olidraws.webp",
                 "artist": {
                     "name": "olidraws",
                     "link": "https://www.instagram.com/p/C4v-NiKqqjz/?img_index=4"
@@ -1706,7 +1974,7 @@
         "character": "Smellerbee",
         "images": [
             {
-                "pathName": "smellerbee_1.webp",
+                "pathName": "smellerbee_roda.webp",
                 "artist": {
                     "name": "Roda",
                     "link": "https://www.reddit.com/r/TheLastAirbender/comments/hnnase/made_a_quick_fan_art_of_smellerbee/"
@@ -1714,7 +1982,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "smellerbee_2.webp",
+                "pathName": "smellerbee_chiptrillino.webp",
                 "artist": {
                     "name": "Chiptrillino",
                     "link": "https://www.tumblr.com/chiptrillino/652019724790726656/you-use-this-ask-as-an-excuse-to-post-all-those"
@@ -1727,7 +1995,7 @@
         "character": "Sokka",
         "images": [
             {
-                "pathName": "sokka_1.webp",
+                "pathName": "sokka_pontyk.webp",
                 "artist": {
                     "name": "Pontyk",
                     "link": "https://www.instagram.com/p/CFSIva5K45d/?hl=en&img_index=2"
@@ -1735,7 +2003,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "sokka_2.webp",
+                "pathName": "sokka_aa.webp",
                 "artist": {
                     "name": "AApparition",
                     "link": "https://x.com/AAppariton/status/1422231714471030792"
@@ -1743,7 +2011,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "sokka_3.webp",
+                "pathName": "sokka_mimimaru.webp",
                 "artist": {
                     "name": "Mimimaru",
                     "link": "https://x.com/_mimimaru/status/1482422387698069506"
@@ -1751,7 +2019,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "sokka_4.webp",
+                "pathName": "sokka_squid.webp",
                 "artist": {
                     "name": "Squidwithelbows",
                     "link": "https://squidwithelbows.tumblr.com/image/93339160130"
@@ -1759,15 +2027,7 @@
                 "epithet": "enemy territory"
             },
             {
-                "pathName": "sokka_5.webp",
-                "artist": {
-                    "name": "EGALart | Edwin Galmon",
-                    "link": "https://x.com/EGAL_art/status/1762167027261665297/photo/1"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "sokka_6.webp",
+                "pathName": "sokka_catinq.webp",
                 "artist": {
                     "name": "CatinqArt",
                     "link": "https://catinqart.tumblr.com/post/629947741981835264/sokkas-master-art-that-i-previously-posted-on"
@@ -1775,7 +2035,7 @@
                 "epithet": "swordsman"
             },
             {
-                "pathName": "sokka_7.webp",
+                "pathName": "sokka_robin.webp",
                 "artist": {
                     "name": "Robin Har",
                     "link": "https://www.instagram.com/p/DQrshVgDxvg/?img_index=2"
@@ -1783,10 +2043,42 @@
                 "epithet": ""
             },
             {
-                "pathName": "sokka_8.webp",
+                "pathName": "sokka_faustine.webp",
                 "artist": {
                     "name": "Faustine Dumontier",
                     "link": "https://www.instagram.com/p/DQ_p-U7DNsh/?img_index=2"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "sokka_chantalart.webp",
+                "artist": {
+                    "name": "chantalart6",
+                    "link": "https://www.tumblr.com/chantalart6/621799763185139712/some-sokka-artworks-i-made-this-week"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "sokka_chantalart2.webp",
+                "artist": {
+                    "name": "chantalart6",
+                    "link": "https://www.tumblr.com/chantalart6/621799763185139712/some-sokka-artworks-i-made-this-week"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "sokka_lilsuika.webp",
+                "artist": {
+                    "name": "lilsuika",
+                    "link": "https://www.deviantart.com/lilsuika/art/The-Hawk-and-His-Boy-161080275"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "sokka_christian.webp",
+                "artist": {
+                    "name": "ChristianNauck",
+                    "link": "https://www.deviantart.com/christiannauck/art/Sokka-vs-Swordmaster-180837724"
                 },
                 "epithet": ""
             }
@@ -1796,7 +2088,7 @@
         "character": "Sozin",
         "images": [
             {
-                "pathName": "sozin_1.webp",
+                "pathName": "sozin_mitori.webp",
                 "artist": {
                     "name": "MITORI",
                     "link": "https://tagger.scryfall.com/card/tla/117/back"
@@ -1804,7 +2096,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "sozin_2.webp",
+                "pathName": "sozin_sleepy.webp",
                 "artist": {
                     "name": "Sleepy-oggyoger",
                     "link": "https://www.tumblr.com/sleepy-oggyoger/785891152896442368/rabbitology-wildfire-gone-gone-gone"
@@ -1817,15 +2109,7 @@
         "character": "Suki",
         "images": [
             {
-                "pathName": "suki_1.webp",
-                "artist": {
-                    "name": "Bonksoundeffect",
-                    "link": "https://bonksoundeffect.tumblr.com/post/719567674044284928/no-thoughts-head-empty-only-suki-in-kyoshi-warrior"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "suki_2.webp",
+                "pathName": "suki_fioleespring.webp",
                 "artist": {
                     "name": "Fioleespring",
                     "link": "https://www.tumblr.com/fioleespring/751834957016612864"
@@ -1833,7 +2117,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "suki_3.webp",
+                "pathName": "suki_mayaqiu.webp",
                 "artist": {
                     "name": "Mayaqiu",
                     "link": "https://www.instagram.com/aimya_qq/?hl=en"
@@ -1841,7 +2125,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "suki_4.webp",
+                "pathName": "suki_patrick.webp",
                 "artist": {
                     "name": "Patrick Ganas",
                     "link": "https://www.instagram.com/p/ClbR3_HyRAG/?img_index=5"
@@ -1849,15 +2133,7 @@
                 "epithet": "warrior"
             },
             {
-                "pathName": "suki_5.webp",
-                "artist": {
-                    "name": "friedChicken365",
-                    "link": "https://www.deviantart.com/friedchicken365/art/Suki-647005793"
-                },
-                "epithet": "silver lining"
-            },
-            {
-                "pathName": "suki_6.webp",
+                "pathName": "suki_yuhong.webp",
                 "artist": {
                     "name": "Yuhong Ding",
                     "link": "https://www.artstation.com/artwork/dyqVrX"
@@ -1865,7 +2141,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "suki_7.webp",
+                "pathName": "suki_vuong.webp",
                 "artist": {
                     "name": "Le Vuong",
                     "link": "https://www.artstation.com/artwork/Zln1v0"
@@ -1873,7 +2149,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "suki_8.webp",
+                "pathName": "suki_tky.webp",
                 "artist": {
                     "name": "TKY",
                     "link": "https://gatherer.wizards.com/TLA/en-us/37/suki-courageous-rescuer"
@@ -1881,10 +2157,26 @@
                 "epithet": ""
             },
             {
-                "pathName": "suki_9.webp",
+                "pathName": "suki_whonothingknows.webp",
                 "artist": {
-                    "name": "hrlshnv",
-                    "link": "https://www.instagram.com/p/C6QSMBWIAeN/?img_index=2"
+                    "name": "theonewhonothingknows",
+                    "link": "https://www.tumblr.com/theonewhonothingknows/676951465199386624/suki-and-fire"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "suki_vince.webp",
+                "artist": {
+                    "name": "Vince Serrano",
+                    "link": "https://www.artstation.com/artwork/Xn4mNw"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "suki_toviatoris.webp",
+                "artist": {
+                    "name": "toviatoris",
+                    "link": "https://www.tumblr.com/toviatoris/628907582632935425/i-am-a-warrior-but-im-a-girl-too"
                 },
                 "epithet": ""
             }
@@ -1894,7 +2186,7 @@
         "character": "Suyin Beifong",
         "images": [
             {
-                "pathName": "suyin_1.webp",
+                "pathName": "suyin_whistlinfrog.webp",
                 "artist": {
                     "name": "WhistlinFrog",
                     "link": "https://www.deviantart.com/whistlinfrog"
@@ -1902,7 +2194,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "suyin_2.webp",
+                "pathName": "suyin_synee.webp",
                 "artist": {
                     "name": "synne.i",
                     "link": "https://www.instagram.com/p/CZQB-VPg60A/?img_index=1"
@@ -1912,10 +2204,23 @@
         ]
     },
     {
+        "character": "Tarrlok",
+        "images": [
+            {
+                "pathName": "tarrlok_freestarisis.webp",
+                "artist": {
+                    "name": "freestarisis",
+                    "link": "https://www.deviantart.com/freestarisis/art/Councilman-Tarrlok-329047700"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Tenzin",
         "images": [
             {
-                "pathName": "tenzin_1.webp",
+                "pathName": "tenzin_wakana.webp",
                 "artist": {
                     "name": "Wakana-sakamoto",
                     "link": "https://www.deviantart.com/wakana-sakamoto/art/Tenzin-airbending-master-503143677"
@@ -1923,7 +2228,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "tenzin_2.webp",
+                "pathName": "tenzin_yallothar.webp",
                 "artist": {
                     "name": "yallothar",
                     "link": "https://yallove.tumblr.com/post/22489560478"
@@ -1936,7 +2241,7 @@
         "character": "Teo",
         "images": [
             {
-                "pathName": "teo_1.webp",
+                "pathName": "teo_icookiechan.webp",
                 "artist": {
                     "name": "iCookieChan",
                     "link": "https://www.deviantart.com/icookiechan/art/Teo-Avatar-the-Last-Airbender-810074862"
@@ -1944,7 +2249,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "teo_2.webp",
+                "pathName": "teo_yami.webp",
                 "artist": {
                     "name": "Yami0204",
                     "link": "https://www.deviantart.com/yami0204/art/fly-beyond-the-sky-73304533"
@@ -1952,7 +2257,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "teo_3.webp",
+                "pathName": "teo_robin.webp",
                 "artist": {
                     "name": "Robin Har",
                     "link": "https://www.instagram.com/saboteur/?hl=en"
@@ -1965,7 +2270,7 @@
         "character": "The Boulder",
         "images": [
             {
-                "pathName": "boulder_1.webp",
+                "pathName": "boulder_mattierial.webp",
                 "artist": {
                     "name": "Mattierial",
                     "link": "https://www.deviantart.com/mattierial/art/Avatar-THE-BOULDER-167877701"
@@ -1973,7 +2278,7 @@
                 "epithet": "i spy..."
             },
             {
-                "pathName": "boulder_2.webp",
+                "pathName": "boulder_thanh.webp",
                 "artist": {
                     "name": "Thanh Tuan",
                     "link": "https://www.artstation.com/artwork/eRnBy6"
@@ -1986,7 +2291,7 @@
         "character": "The Duke",
         "images": [
             {
-                "pathName": "theduke_1.webp",
+                "pathName": "theduke_vistarya.webp",
                 "artist": {
                     "name": "vistarya",
                     "link": "https://www.tumblr.com/vistarya/625547600003760128/i-think-we-as-a-society-do-not-talk-about-this"
@@ -1996,23 +2301,10 @@
         ]
     },
     {
-        "character": "Tarrlok",
-        "images": [
-            {
-                "pathName": "tarrlok_1.webp",
-                "artist": {
-                    "name": "Freestarisis",
-                    "link": "https://www.deviantart.com/freestarisis/art/Councilman-Tarrlok-329047700"
-                },
-                "epithet": ""
-            }
-        ]
-    },
-    {
         "character": "Tonraq",
         "images": [
             {
-                "pathName": "tonraq_1.webp",
+                "pathName": "tonraq_polapaz.webp",
                 "artist": {
                     "name": "Polapaz321",
                     "link": "https://polapaz321.tumblr.com/post/99121584854/hot-daddy"
@@ -2033,7 +2325,7 @@
         "character": "Toph Beifong",
         "images": [
             {
-                "pathName": "toph_1.webp",
+                "pathName": "toph_nesiandot.webp",
                 "artist": {
                     "name": "Nesiandot",
                     "link": "https://x.com/nesiandot/status/1865048048604451302"
@@ -2041,15 +2333,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "toph_2.webp",
-                "artist": {
-                    "name": "AireensColor",
-                    "link": "https://www.deviantart.com/aireenscolor/art/Toph-Beifong-849547298"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "toph_3.webp",
+                "pathName": "toph_solkorra.webp",
                 "artist": {
                     "name": "SolKorra",
                     "link": "https://www.deviantart.com/solkorra/art/Toph-635256597"
@@ -2057,7 +2341,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "toph_4.webp",
+                "pathName": "toph_pm611a.webp",
                 "artist": {
                     "name": "Pm611a",
                     "link": "https://x.com/PM_611a/status/1885293806624661592"
@@ -2065,7 +2349,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "toph_5.webp",
+                "pathName": "toph_hannisen.webp",
                 "artist": {
                     "name": "Hannisen",
                     "link": "https://hannisen.tumblr.com/image/92652724610"
@@ -2073,7 +2357,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "toph_6.webp",
+                "pathName": "toph_tkg.webp",
                 "artist": {
                     "name": "ＴＫＧ@7/13西2ソ22b",
                     "link": "https://www.pixiv.net/en/artworks/56497628"
@@ -2081,31 +2365,15 @@
                 "epithet": ""
             },
             {
-                "pathName": "toph_7.webp",
-                "artist": {
-                    "name": "Rudiindra4",
-                    "link": "https://www.deviantart.com/rudiindra4/art/Toph-the-runaway-71163093"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "toph_8.webp",
+                "pathName": "toph_lynashii.webp",
                 "artist": {
                     "name": "Lynashii",
                     "link": "https://www.instagram.com/p/CBkt3_MAy2p/?img_index=1"
                 },
-                "epithet": "blind & tiny"
+                "epithet": ""
             },
             {
-                "pathName": "toph_9.webp",
-                "artist": {
-                    "name": "Avatar Legends RPG",
-                    "link": "https://www.reddit.com/r/TheLastAirbender/comments/tzdt34/new_official_art_of_various_characters_from/#lightbox"
-                },
-                "epithet": "champion"
-            },
-            {
-                "pathName": "toph_10.webp",
+                "pathName": "toph_brian.webp",
                 "artist": {
                     "name": "Brian  Yuen",
                     "link": "https://www.artstation.com/artwork/K3D5ZW"
@@ -2113,7 +2381,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "toph_11.webp",
+                "pathName": "toph_yoraii.webp",
                 "artist": {
                     "name": "Yoraii",
                     "link": "https://illlustrationyoraii.framer.website/"
@@ -2121,7 +2389,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "toph_12.webp",
+                "pathName": "toph_cophee.webp",
                 "artist": {
                     "name": "Cophee",
                     "link": "https://www.instagram.com/p/CA3skpZFO7u/?img_index=1"
@@ -2129,7 +2397,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "toph_13.webp",
+                "pathName": "toph_byghost.webp",
                 "artist": {
                     "name": "Byghostface",
                     "link": "https://www.instagram.com/p/B__pxl6Afig/?img_index=1"
@@ -2137,7 +2405,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "toph_14.webp",
+                "pathName": "toph_pauline.webp",
                 "artist": {
                     "name": "Pauline  Voss",
                     "link": "https://www.instagram.com/p/DROTLRViESP/?hl=en&img_index=1"
@@ -2145,7 +2413,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "toph_15.webp",
+                "pathName": "toph_densukii.webp",
                 "artist": {
                     "name": "Densukii",
                     "link": "https://www.pixiv.net/en/artworks/76563269"
@@ -2153,10 +2421,34 @@
                 "epithet": ""
             },
             {
-                "pathName": "toph_16.png",
+                "pathName": "toph_reveriesky.webp",
                 "artist": {
-                    "name": "hrlshnv",
-                    "link": "https://www.instagram.com/p/CtWoDRMKSAo/?img_index=1"
+                    "name": "Sora Medina",
+                    "link": "https://www.reveriesky.com/"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "toph_chasefox.webp",
+                "artist": {
+                    "name": "ChaseFoxArt",
+                    "link": "https://chasefoxart.tumblr.com/"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "toph_raidesart.webp",
+                "artist": {
+                    "name": "raidesart",
+                    "link": "https://www.tumblr.com/raidesart/627713827384016897/sketch-vs-final-piece-cant-wait-to-hear-what"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "toph_fefox.webp",
+                "artist": {
+                    "name": "Fefox",
+                    "link": "https://www.pinterest.com/pin/779333910552259237/"
                 },
                 "epithet": ""
             }
@@ -2166,7 +2458,7 @@
         "character": "Ty Lee",
         "images": [
             {
-                "pathName": "tylee_1.webp",
+                "pathName": "tylee_avatar.webp",
                 "artist": {
                     "name": "Avatar Studios",
                     "link": "https://www.avatarstudiosofficial.com/"
@@ -2174,7 +2466,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "tylee_2.webp",
+                "pathName": "tylee_bluejay.webp",
                 "artist": {
                     "name": "BlujayArt",
                     "link": " https://www.reddit.com/r/TheLastAirbender/comments/hl5mfj/ty_lee_fanart_bc_we_stan_repost_with_a/"
@@ -2182,7 +2474,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "tylee_3.webp",
+                "pathName": "tylee_riinar.webp",
                 "artist": {
                     "name": "Riinariinart",
                     "link": "https://riinariinart.tumblr.com/post/710239434683170816/ty-lee-bc-her-face-n-hair-are-really-fun-to-draw"
@@ -2190,7 +2482,7 @@
                 "epithet": "matched set"
             },
             {
-                "pathName": "tylee_4.webp",
+                "pathName": "tylee_bear.webp",
                 "artist": {
                     "name": "Bearcat05",
                     "link": "https://www.tumblr.com/bearcat05/791405564973481984/hunny-bunch-sugar-plum-pumpy-umpy-umpkin"
@@ -2198,7 +2490,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "tylee_5.webp",
+                "pathName": "tylee_rose.webp",
                 "artist": {
                     "name": "Rose Benjamin",
                     "link": "https://www.artstation.com/artwork/AZbr0m"
@@ -2206,7 +2498,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "tylee_6.webp",
+                "pathName": "tylee_gemi.webp",
                 "artist": {
                     "name": "Gemi",
                     "link": "https://www.instagram.com/gemi333/"
@@ -2214,7 +2506,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "tylee_7.webp",
+                "pathName": "tylee_olidraws.webp",
                 "artist": {
                     "name": "olidraws",
                     "link": "https://www.instagram.com/p/C4gg9I9KF12/?img_index=4"
@@ -2227,7 +2519,7 @@
         "character": "Unalaq",
         "images": [
             {
-                "pathName": "unalaq_1.webp",
+                "pathName": "unalaq_polapaz.webp",
                 "artist": {
                     "name": "Polapaz321",
                     "link": "https://polapaz321.tumblr.com/post/38469179822/northern-water-tribe-chief-unalaq"
@@ -2235,7 +2527,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "unalaq_2.webp",
+                "pathName": "unalaq_isis.webp",
                 "artist": {
                     "name": "IsisT",
                     "link": "https://www.zerochan.net/2455243?lang=ru&utm_medium=organic&utm_source=yandexsmartcamera"
@@ -2248,7 +2540,7 @@
         "character": "Ursa",
         "images": [
             {
-                "pathName": "ursa_1.webp",
+                "pathName": "ursa_tadpole.webp",
                 "artist": {
                     "name": "Tadpole-art",
                     "link": "https://www.tumblr.com/tadpole-art/744435461667323904/little-turtle-duck"
@@ -2256,7 +2548,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "ursa_2.webp",
+                "pathName": "ursa_inkwash.webp",
                 "artist": {
                     "name": "inkwashart",
                     "link": "https://www.tumblr.com/inkwashhhart/805468262607601664"
@@ -2269,10 +2561,26 @@
         "character": "Varrick",
         "images": [
             {
-                "pathName": "varrick_1.webp",
+                "pathName": "varrick_lab.webp",
                 "artist": {
                     "name": "lab-gr0wn-lambs",
                     "link": "https://www.tumblr.com/lab-gr0wn-lambs/639237725215686656"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "varrick_stop.webp",
+                "artist": {
+                    "name": "stopaskingmetowearthatwig",
+                    "link": "https://www.tumblr.com/stopaskingmetowearthatwig/693753213887922177"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "varrick_dr.webp",
+                "artist": {
+                    "name": "dr-zeddy",
+                    "link": "https://www.tumblr.com/dr-zeddy/647844912152428544/i-always-had-a-feeling-i-might-end-up-here"
                 },
                 "epithet": ""
             }
@@ -2282,7 +2590,7 @@
         "character": "Wan Shi Tong",
         "images": [
             {
-                "pathName": "wanshitong_1.webp",
+                "pathName": "wanshitong_christian.webp",
                 "artist": {
                     "name": "ChristianSamurai",
                     "link": "https://www.deviantart.com/christiansamurai/art/Wan-Shi-Tong-842523054"
@@ -2290,7 +2598,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "wanshitong_2.webp",
+                "pathName": "wanshitong_pablo.webp",
                 "artist": {
                     "name": "PabloNotPicasso",
                     "link": "https://pablonotpicasso.tumblr.com/post/172636722109/some-travel-posters-inspired-by-avatar-the-last"
@@ -2298,10 +2606,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "wanshitong_3.webp",
+                "pathName": "wanshitong_andrea.webp",
                 "artist": {
                     "name": "Andrea  Piparo",
                     "link": "https://www.instagram.com/p/DQrGwVsjWH_/?hl=en&img_index=1"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "wanshitong_bratos.webp",
+                "artist": {
+                    "name": "Brad Lloyd Jones",
+                    "link": "https://www.deviantart.com/bratos/art/Avatar-Last-Airbender-Wan-Shi-Tong-Book-II-404234904"
                 },
                 "epithet": ""
             }
@@ -2311,7 +2627,7 @@
         "character": "Wan",
         "images": [
             {
-                "pathName": "wan_1.webp",
+                "pathName": "wan_moptop.webp",
                 "artist": {
                     "name": "Moptop4000",
                     "link": "https://www.deviantart.com/moptop4000/art/Avatar-Wan-Strength-994921118"
@@ -2319,7 +2635,7 @@
                 "epithet": "Strength"
             },
             {
-                "pathName": "wan_2.webp",
+                "pathName": "wan_pinaco.webp",
                 "artist": {
                     "name": "pinacoladamatata",
                     "link": "https://www.tumblr.com/pinacoladamatata/764315836027650048/waava-week-memorial"
@@ -2327,10 +2643,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "wan_3.webp",
+                "pathName": "wan_rokurookajima.webp",
                 "artist": {
-                    "name": "avatarnoah",
-                    "link": "https://aminoapps.com/c/avatar/page/blog/fan-art-of-avatar-wan/JxaN_vqUduavGG8GJ32kPm5xQmGNEdQ5Y"
+                    "name": "rokurookajima",
+                    "link": "https://www.tumblr.com/rokurookajima/789636721196318720/future-historians-may-say-they-were-not-in-love"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "wan_rokurookajima2.webp",
+                "artist": {
+                    "name": "rokurookajima",
+                    "link": "https://www.tumblr.com/rokurookajima/790988297567600640/im-sorry-raava-there-wasnt-enough-time-what"
                 },
                 "epithet": ""
             }
@@ -2340,7 +2664,7 @@
         "character": "Xin Fu",
         "images": [
             {
-                "pathName": "xin_1.webp",
+                "pathName": "xin_duckeminence.webp",
                 "artist": {
                     "name": "Theduckeminence",
                     "link": "https://www.tumblr.com/theduckeminence/750241164228280320/click-for-better-quality-id-in-alt-text-for"
@@ -2353,7 +2677,7 @@
         "character": "Yakone",
         "images": [
             {
-                "pathName": "yakone_1.webp",
+                "pathName": "yakone_little.webp",
                 "artist": {
                     "name": "Little-Mongolian",
                     "link": "https://www.deviantart.com/little-mongolian/art/Blood-Father-Yakone-335453951"
@@ -2366,31 +2690,7 @@
         "character": "Yangchen",
         "images": [
             {
-                "pathName": "yangchen_1.webp",
-                "artist": {
-                    "name": "JungShan",
-                    "link": "https://www.instagram.com/jungshan/?hl=en"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "yangchen_2.webp",
-                "artist": {
-                    "name": "ChaseFoxArt",
-                    "link": "https://chasefoxart.tumblr.com/"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "yangchen_3.webp",
-                "artist": {
-                    "name": "TheDanielHD",
-                    "link": "https://lovethedanielhd.tumblr.com/post/625535911940308992/avatar-yangchen"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "yangchen_4.webp",
+                "pathName": "yangchen_joseph2.webp",
                 "artist": {
                     "name": "Joseph Chan",
                     "link": "https://www.artstation.com/artwork/3EGvA2"
@@ -2398,7 +2698,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "yangchen_5.webp",
+                "pathName": "yangchen_joseph.webp",
                 "artist": {
                     "name": "Joseph Chan",
                     "link": "https://www.artstation.com/artwork/0l9qly"
@@ -2406,10 +2706,34 @@
                 "epithet": ""
             },
             {
-                "pathName": "yangchen_6.webp",
+                "pathName": "yangchen_olidraws.webp",
                 "artist": {
                     "name": "olidraws",
                     "link": "https://www.instagram.com/p/C4v-NiKqqjz/?img_index=2"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "yangchen_mmonzart.webp",
+                "artist": {
+                    "name": "mmonzart",
+                    "link": "https://www.instagram.com/p/CfDDNZuvfCv/?img_index=2"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "yangchen_thyinum.webp",
+                "artist": {
+                    "name": "Thyinum",
+                    "link": "https://www.tumblr.com/thyinum/744417695245713408/powerful-woman"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "yangchen_thyinum2.webp",
+                "artist": {
+                    "name": "Thyinum",
+                    "link": "https://www.tumblr.com/thyinum/733259687210942464/my-artwork-of-avatar-yangchen-for-the-ukrainian"
                 },
                 "epithet": ""
             }
@@ -2419,7 +2743,7 @@
         "character": "Yue",
         "images": [
             {
-                "pathName": "yue_1.jpg",
+                "pathName": "yue_zetallis.jpg",
                 "artist": {
                     "name": "Zetallis",
                     "link": "https://www.zetallis.com/"
@@ -2427,7 +2751,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "yue_2.webp",
+                "pathName": "yue_spiderscrawling.webp",
                 "artist": {
                     "name": "Spiderscrawling",
                     "link": "https://www.reddit.com/user/spiderscrawling/"
@@ -2435,7 +2759,7 @@
                 "epithet": "Dreamworks"
             },
             {
-                "pathName": "yue_3.webp",
+                "pathName": "yue_tadpole.webp",
                 "artist": {
                     "name": "Tadpole-art",
                     "link": "https://www.tumblr.com/tadpole-art/642959774789632000/yues-sacrifice"
@@ -2443,7 +2767,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "yue_4.webp",
+                "pathName": "yue_yuumei.webp",
                 "artist": {
                     "name": "Yuumei",
                     "link": "https://www.yuumeiart.com/"
@@ -2451,10 +2775,18 @@
                 "epithet": ""
             },
             {
-                "pathName": "yue_5.webp",
+                "pathName": "yue_hrlshnv.webp",
                 "artist": {
                     "name": "hrlshnv",
                     "link": "https://www.instagram.com/p/C6QSMBWIAeN/?img_index=2"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "yue_mmonzart.webp",
+                "artist": {
+                    "name": "mmonzart",
+                    "link": "https://www.instagram.com/p/Cmjx-UIP4Ue/"
                 },
                 "epithet": ""
             }
@@ -2464,7 +2796,7 @@
         "character": "Zaheer",
         "images": [
             {
-                "pathName": "zaheer_1.webp",
+                "pathName": "zaheer_ctreuse.webp",
                 "artist": {
                     "name": "Ctreuse109",
                     "link": "https://www.deviantart.com/ctreuse109/art/The-Red-Lotus-500465896"
@@ -2472,12 +2804,20 @@
                 "epithet": ""
             },
             {
-                "pathName": "zaheer_2.webp",
+                "pathName": "zaheer_freestarisis.webp",
                 "artist": {
-                    "name": "Swadeart",
-                    "link": "https://www.deviantart.com/swadeart/art/Zaheer-Empty-and-Become-Wind-501138633"
+                    "name": "freestarisis",
+                    "link": "https://www.deviantart.com/freestarisis/art/Zaheer-464226102"
                 },
-                "epithet": "Become Wind"
+                "epithet": ""
+            },
+            {
+                "pathName": "zaheer_y33h0ws.webp",
+                "artist": {
+                    "name": "y33h0ws-s",
+                    "link": "https://www.tumblr.com/y33h0ws-s/787611582793400320/enter-the-void"
+                },
+                "epithet": "enter the void"
             }
         ]
     },
@@ -2485,15 +2825,7 @@
         "character": "Zhao",
         "images": [
             {
-                "pathName": "zhao_1.webp",
-                "artist": {
-                    "name": "Freestarisis",
-                    "link": "https://www.deviantart.com/freestarisis/art/Zhao-298983707"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "zhao_2.webp",
+                "pathName": "zhao_alciha.webp",
                 "artist": {
                     "name": "alciha",
                     "link": "https://www.deviantart.com/alciha/art/AtlA-Zhao-s-Winter-Campaign-74995195?q=favby%3Alychi%2F1661670&qo=655"
@@ -2501,15 +2833,7 @@
                 "epithet": "crossing the delaware"
             },
             {
-                "pathName": "zhao_3.webp",
-                "artist": {
-                    "name": "EvgenyMartov",
-                    "link": "https://x.com/EvgenyMartov/status/1906020993232957919"
-                },
-                "epithet": ""
-            },
-            {
-                "pathName": "zhao_4.webp",
+                "pathName": "zhao_leonardo.webp",
                 "artist": {
                     "name": "Leonardo Borazio",
                     "link": "https://www.instagram.com/p/DRP1l4SDJbR/?hl=en&img_index=1"
@@ -2517,12 +2841,20 @@
                 "epithet": ""
             },
             {
-                "pathName": "zhao_5.webp",
+                "pathName": "zhao_yuumei.webp",
                 "artist": {
                     "name": "Yuumei",
                     "link": "https://gatherer.wizards.com/TLA/en-us/252/zhao-ruthless-admiral"
                 },
                 "epithet": ""
+            },
+            {
+                "pathName": "zhao_jpdbea.webp",
+                "artist": {
+                    "name": "jpdbea",
+                    "link": "https://www.tumblr.com/jpdbea/808140330575822848/i-got-this-and-then-i-remembered-another-picture"
+                },
+                "epithet": "biblioclast"
             }
         ]
     },
@@ -2530,7 +2862,7 @@
         "character": "Zhu Li",
         "images": [
             {
-                "pathName": "zhuli_1.webp",
+                "pathName": "zhuli_dalenino.webp",
                 "artist": {
                     "name": "Dalenino-art",
                     "link": "https://www.deviantart.com/dalenino-art/art/Zhu-Li-Fan-Art-928994029"
@@ -2543,7 +2875,7 @@
         "character": "Zuko",
         "images": [
             {
-                "pathName": "zuko_1.webp",
+                "pathName": "zuko_dizzy.webp",
                 "artist": {
                     "name": "Dizzyclown",
                     "link": "https://www.deviantart.com/dizzyclown/art/Avatar-Blue-Spirit-68865513"
@@ -2551,7 +2883,7 @@
                 "epithet": "Blue Spirit"
             },
             {
-                "pathName": "zuko_2.webp",
+                "pathName": "zuko_avatar.webp",
                 "artist": {
                     "name": "Avatar Studios",
                     "link": "https://www.instagram.com/p/Clbt3UXpLOI/?hl=en&img_index=2"
@@ -2559,7 +2891,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "zuko_3.webp",
+                "pathName": "zuko_hammling.webp",
                 "artist": {
                     "name": "Hammling",
                     "link": "https://www.deviantart.com/hammling/art/Hey-Zuko-here-856206879"
@@ -2567,7 +2899,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "zuko_4.webp",
+                "pathName": "zuko_pascual.webp",
                 "artist": {
                     "name": "PascualProductions",
                     "link": "https://www.deviantart.com/pascualproductions/art/Dragon-Dance-Zuko-845275019"
@@ -2575,7 +2907,7 @@
                 "epithet": "dancing dragon"
             },
             {
-                "pathName": "zuko_5.webp",
+                "pathName": "zuko_mimulishizi.webp",
                 "artist": {
                     "name": "Mimulishizi",
                     "link": "https://x.com/mimulishizi/status/1671824574617624577/photo/1"
@@ -2583,23 +2915,15 @@
                 "epithet": "alone"
             },
             {
-                "pathName": "zuko_6.webp",
+                "pathName": "zuko_living.webp",
                 "artist": {
                     "name": "LivingAliveCreator",
                     "link": "https://www.deviantart.com/livingalivecreator/art/Lee-from-the-Tea-Shop-852492128"
                 },
-                "epithet": "tea"
+                "epithet": ""
             },
             {
-                "pathName": "zuko_7.webp",
-                "artist": {
-                    "name": "Squidwithelbows",
-                    "link": "https://squidwithelbows.tumblr.com/image/118452331960"
-                },
-                "epithet": "heir to the throne"
-            },
-            {
-                "pathName": "zuko_8.webp",
+                "pathName": "zuko_toni.webp",
                 "artist": {
                     "name": "Toni Infante",
                     "link": "https://x.com/toni_infante/status/1991601936420991420/photo/1"
@@ -2607,7 +2931,7 @@
                 "epithet": ""
             },
             {
-                "pathName": "zuko_9.webp",
+                "pathName": "zuko_aztriel.webp",
                 "artist": {
                     "name": "Aztriel",
                     "link": "https://www.reddit.com/r/TheLastAirbender/comments/1chpctv/my_zuko_fanart/"
@@ -2615,10 +2939,66 @@
                 "epithet": ""
             },
             {
-                "pathName": "zuko_10.png",
+                "pathName": "zuko_reveriesky.webp",
                 "artist": {
-                    "name": "Kirikidu",
-                    "link": "https://x.com/kirikidu/status/1764025191263334714/photo/1"
+                    "name": "Sora Medina",
+                    "link": "https://www.reveriesky.com/"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "zuko_miamitu.webp",
+                "artist": {
+                    "name": "miamitu-illust",
+                    "link": "https://www.tumblr.com/miamitu-illust/623378904758026240/just-wondering-how-zuko-and-druk-might-have-met"
+                },
+                "epithet": "druk"
+            },
+            {
+                "pathName": "zuko_zaionic.webp",
+                "artist": {
+                    "name": "zaionic",
+                    "link": "https://www.deviantart.com/zaionic/art/Avatar-Zuko-135514704"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "zuko_shibue.webp",
+                "artist": {
+                    "name": "Shibue Ichikyu",
+                    "link": "https://www.deviantart.com/shibue/art/Zuko-again-185553732"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "zuko_postblank.webp",
+                "artist": {
+                    "name": "PostBlank",
+                    "link": "https://www.reddit.com/r/ATLA/comments/ym9bdx/the_blue_spirit_fanart_oc/"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "zuko_pukukummitus.webp",
+                "artist": {
+                    "name": "pukukummitus",
+                    "link": "https://www.deviantart.com/pukukummitus"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "zuko_chasefox.webp",
+                "artist": {
+                    "name": "ChaseFoxArt",
+                    "link": "https://linktr.ee/chasefoxart"
+                },
+                "epithet": ""
+            },
+            {
+                "pathName": "zuko_konietzko.webp",
+                "artist": {
+                    "name": "Bryan Konietzko",
+                    "link": "https://www.tumblr.com/bryankonietzko/175730053922/messed-around-with-that-old-unused-zuko-promo"
                 },
                 "epithet": ""
             }

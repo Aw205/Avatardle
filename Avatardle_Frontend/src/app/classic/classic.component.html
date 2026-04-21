@@ -52,7 +52,10 @@
         {{fanArt.character}}
         <div style="font: 1rem avatar2; color: gray; text-align: center;">{{img.epithet}}</div>
     </div>
-    <img [src]="`${environment.R2Url}/fanart/${img.pathName}`" [alt]="`${fanArt.character} fanart`">
+
+    <img [src]="`${environment.R2Url}/fanart/${img.pathName}`" [alt]="`${fanArt.character} fanart`"
+        class="fanart-image">
+
     <div id="fanart-description">
         <p><span style="color: goldenrod;">{{'artist' | translate}}</span> <a class="artist-name"
                 [href]="img.artist.link" target="_blank">{{img.artist.name}}</a></p>

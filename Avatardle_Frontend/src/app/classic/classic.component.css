@@ -1,4 +1,4 @@
-:root{
+:root {
 
     --font-size-base: 16px;
 }
@@ -109,7 +109,6 @@
     margin-top: 5rem;
     margin-bottom: 5rem;
 
-
     &>#fanart-title {
 
         font: 2rem avatar2;
@@ -118,20 +117,20 @@
         margin-bottom: 1rem;
         border: 1px outset black;
         outline: 2px solid black;
-        border-radius: 1rem;
+        border-radius: 10px;
         background-color: rgb(15, 15, 15);
+
+        width: 100%;
 
     }
 
-    &>img {
-
+    & .fanart-image {
         width: 100%;
         user-select: none;
         border: 1px outset black;
         outline: 2px solid black;
-        border-radius: 1rem;
+        border-radius: 16px;
         pointer-events: none;
-
     }
 
     &>#fanart-description {
@@ -141,10 +140,11 @@
         color: beige;
         border: 1px outset black;
         outline: 2px solid black;
-        border-radius: 1rem;
+        border-radius: 10px;
         background-color: rgb(15, 15, 15);
         margin-top: 1rem;
         text-indent: 1rem;
+        width: 100%;
     }
 
     &>#share-leaderboard {
@@ -154,32 +154,34 @@
         color: darkgoldenrod;
         border: 1px outset black;
         outline: 2px solid black;
-        border-radius: 1rem;
+        border-radius: 32px;
         background-color: rgb(15, 15, 15);
         margin-top: 1rem;
         display: flex;
         align-items: center;
         flex-direction: column;
         gap: 1rem;
-        padding: 1rem;
+        padding-block: 1rem;
+        width: 100%;
 
-        &>input{
+        &>input {
 
-            background-color: rgb(20,20,20);
+            background-color: rgb(20, 20, 20);
+            text-align: center;
             border-radius: 10px;
             font: 1rem avatar2;
             color: darkgoldenrod;
             border: 1px inset gray;
             outline: 1px solid black;
 
-            &:disabled{
+            &:disabled {
                 color: green;
                 text-align: center;
             }
         }
 
-        &>button{
-        
+        &>button {
+
             background-color: rgb(20, 20, 20);
             border: 1px outset black;
             outline: 2px solid black;
@@ -189,8 +191,8 @@
             color: gray;
             font: 1rem avatar2;
 
-            &:disabled{
-                border: 1px solid transparent; 
+            &:disabled {
+                border: 1px solid transparent;
                 outline: none;
                 color: dimgray;
                 cursor: default;
@@ -203,6 +205,7 @@
 .fade-in {
     opacity: 1;
     transition: opacity 0.5s;
+
     @starting-style {
         opacity: 0;
     }
@@ -220,7 +223,7 @@
 
     #search-container {
         width: 90%;
-        height:2rem;
+        height: 2rem;
 
         &>input {
             width: 90%;
