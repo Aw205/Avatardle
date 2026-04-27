@@ -177,7 +177,7 @@ export class ClassicMode {
 
     setData() {
 
-        this.rand = new Rand(this.ls.progress().date! + "classic");
+        this.rand = new Rand(this.ls.progress().date! + "classic" + this.ls.progress().classic.series);
         this.tileArray.set(this.ls.progress().classic.guesses);
         this.guessAttempts = this.tileArray().length / 6;
         this.characterData = this.ds.getClassicCharacterData(this.ls.progress().classic.series);
