@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, Inject, inject, PLATFORM_ID, Signal, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, Inject, inject, model, PLATFORM_ID, Signal, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand, { PRNG } from 'rand-seed';
 import { TileComponent, tileData } from '../tile/tile.component';
@@ -15,12 +15,15 @@ import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
 import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
+// import {MatDatepickerModule} from '@angular/material/datepicker';
+// import {provideNativeDateAdapter} from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../environments/environment';
 
 @Component({
     selector: 'classic',
-    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent],
+    // providers:[provideNativeDateAdapter()],
+    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent,],
     templateUrl: './classic.component.html',
     styleUrl: './classic.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -59,6 +62,9 @@ export class ClassicMode {
 
     usernameInput: WritableSignal<string> = signal('');
     colorTrigger: WritableSignal<string> = signal('');
+    // minDate: Date = new Date(2025,3,14);
+    // maxDate: Date = new Date();
+    // selectedDate = model<Date | null>(null);
 
     constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
@@ -113,7 +119,7 @@ export class ClassicMode {
                     case "affiliations":
                         tileData.affiliations = this.shuffleArray([...val]).slice(0, 3);
                         let count = tileData.affiliations!.reduce((acc, curr) => acc + targetVal.includes(curr) | 0, 0);
-                        tileData.isCorrect = (count == 0) ? false : (count == tileData.affiliations!.length) ? true : undefined;
+                        tileData.isCorrect = (count == 0) ? false : (count == targetVal.length) ? true : undefined;
                         break;
 
                     case "firstAppearance":
