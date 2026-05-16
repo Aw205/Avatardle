@@ -18,7 +18,7 @@ const pool = new Pool({
 });
 const allowedOrigins = [
     "http://localhost:4200",
-    "https://avatardle.com/"
+    "https://avatardle.com"
 ];
 
 app.use(express.json());
