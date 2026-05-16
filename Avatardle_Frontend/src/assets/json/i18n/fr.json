@@ -156,6 +156,37 @@
     "languageSettings": {
         "title": "Choisissez votre langue"
     },
+    "username": "Nom d'utilisateur",
+    "usernamePlaceholder": "Entrez votre nom d'utilisateur",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "signUp": "S'inscrire",
+    "login": "Connexion",
+    "createAccount": "Créer un compte",
+    "haveAccount?": "Vous avez déjà un compte ?",
+    "noAccount?": "Vous n'avez pas encore de compte ?",
+    "logIn": "Connexion",
+    "or": "Ou",
+    "viewProfile": "Voir le profil",
+    "logOut": "Se déconnecter",
+    "inputErrors": {
+        "usernameRequired": "Le nom d'utilisateur est obligatoire",
+        "usernameMinLength": "Le nom d'utilisateur doit comporter au moins 3 caractères",
+        "usernameMaxLength": "Le nom d'utilisateur doit comporter 20 caractères maximum",
+        "usernamePattern": "Uniquement des lettres, des chiffres, des traits de soulignement et des tirets",
+        "usernameTaken": "Ce nom d'utilisateur est déjà pris",
+        "invalidCredentials": "Le nom d'utilisateur ou le mot de passe est incorrect",
+        "passwordRequired": "Un mot de passe est requis",
+        "passwordMinLength": "Le mot de passe doit comporter au moins 8 caractères",
+        "passwordMaxLength": "Le mot de passe doit comporter 72 caractères maximum"
+    },
+    "profile": {
+        "editProfile": "Modifier le profil",
+        "favCharacters": "Personnages préférés",
+        "favShip": "Mon couple préféré",
+        "discoveredChars": "Personnages découverts",
+        "message": "Message"
+    },
     "Water": "Eau",
     "Earth": "Terre",
     "Air": "Air",

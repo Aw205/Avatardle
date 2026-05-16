@@ -26,6 +26,14 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender
   },
   {
+    path: 'profile',
+    renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'users/:username',
+    renderMode: RenderMode.Client
+  },
+  {
     path: '**',
     renderMode: RenderMode.Prerender
   }

@@ -1,9 +1,10 @@
 
 import confetti from 'canvas-confetti';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { interval, Observable, shareReplay, startWith, Subject, switchMap, timer } from 'rxjs';
+import { catchError, interval, Observable, shareReplay, startWith, Subject, switchMap, timer } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { AuthService } from './auth.service';
 
 export interface Episode {
   [key: string]: number;
@@ -46,6 +47,7 @@ export interface LeaderboardRecord {
   username: string,
   guesses: string[],
   time: string,
+  element: string
 }
 
 export interface FanArt {
@@ -71,6 +73,8 @@ export interface Ost {
 })
 
 export class DataService {
+
+  as: AuthService = inject(AuthService);
 
   characterData!: Character[];
   characterFilter!: CharacterFilter;
@@ -149,9 +153,53 @@ export class DataService {
     this.http.patch(`${environment.statsApiUrl}/updateStats`, { type: "daily", mode: mode }).subscribe(data => { });
   }
 
-  updateLeaderboard(username: string, guesses: string[], time: string) {
+  getDiscoveredCharacters() {
+    return this.http.get(`${environment.statsApiUrl}/discovered-characters`, { withCredentials: true });
+  }
 
-    return this.http.patch(`${environment.statsApiUrl}/updateLeaderboard`, { username: username, guesses: guesses, time: time });
+  getDiscoveredCharactersCount(username: string) {
+    return this.http.get(`${environment.statsApiUrl}/users/${username}/discovered-characters`);
+  }
+
+  updateDiscoveredCharacters(name: string) {
+
+    this.http.get(`${environment.statsApiUrl}/getCharacters`).subscribe((arr: any) => {
+      let record = (arr as any[]).find((e: any) => {
+        return e.name == name;
+      })
+      this.http.patch(`${environment.statsApiUrl}/discovered-characters`, { character_id: record.character_id }, { withCredentials: true }).subscribe(data => { });
+    });
+  }
+
+  updateLeaderboard(username: string, guesses: string[]) {
+
+    return this.as.getMe().pipe(
+      switchMap((data) => {
+        return this.http.patch(`${environment.statsApiUrl}/updateLeaderboard`, {
+          username: username,
+          guesses: guesses,
+          element: data.element
+        });
+      }),
+      catchError(() => {
+        return this.http.patch(`${environment.statsApiUrl}/updateLeaderboard`, {
+          username: username,
+          guesses: guesses,
+          element: null
+        });
+      })
+    );
+  }
+
+  updateProfile(bio: string, element: string, favorite_characters: string[], favorite_ship: string[]) {
+
+    return this.http.patch(`${environment.statsApiUrl}/updateProfile`, { bio, element, favorite_characters, favorite_ship }, { withCredentials: true }).subscribe((data) => {
+
+    });
+  }
+
+  getUserProfile(username: string) {
+    return this.http.get<any>(`${environment.statsApiUrl}/users/${username}`);
   }
 
   getCountdownConfig() {

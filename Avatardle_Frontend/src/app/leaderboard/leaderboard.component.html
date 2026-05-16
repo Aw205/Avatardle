@@ -29,15 +29,24 @@
     @for(item of list(); track item.username){
     <div style="border-bottom: 1px solid rgba(105, 105, 105, 0.2);">
         <div class="leaderboard-record">
-            <span class="username">{{item.username}}</span>
+            <div style="display: flex; gap: 0.2rem; align-items: center;">
+                @if(item.element){
+                <img [src]="`images/elements/${item.element.toLowerCase()}.svg`" style="height: 1.5rem;">
+                <a class="username" [routerLink]="['/users',item.username]">{{item.username}}</a>
+                }
+                @else{
+                    <span class="username">{{item.username}}</span>
+                }
+                
+            </div>
             <span class="time"> {{getTimeAgo(item.time)}}</span>
         </div>
         <!-- <div style="position: relative; display: flex; min-width: 0;width: 100%; justify-content: center;"> -->
         <div class="guess-container">
             @for(char of item.guesses; let i = $index; track i;){
-                @let c = char | hyphenate;
-            <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{char | hyphenate}}" [alt]="char" matTooltip="{{char}}"
-                matTooltipPosition="below" (error)="onImageError($event)">
+            @let c = char | hyphenate;
+            <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{char | hyphenate}}" [alt]="char"
+                matTooltip="{{char}}" matTooltipPosition="below" (error)="onImageError($event)">
             }
             <!-- <div style="position: absolute; top:3rem; width: 100%; border: 1px solid green;"></div> -->
         </div>

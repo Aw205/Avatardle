@@ -39,10 +39,10 @@
     height: fit-content;
     color: darkgoldenrod;
 
-    &>.username {
+    & .username {
+        color: darkgoldenrod;
         display: flex;
         align-items: top;
-        flex: 0 0 11rem;
     }
 
     &>.time {

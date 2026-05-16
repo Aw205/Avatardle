@@ -1,0 +1,72 @@
+<h1 mat-dialog-title style="font: 2rem Georgia;">{{'profile.editProfile' | translate}}
+    <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
+</h1>
+<mat-dialog-content
+    style="color:beige; font-family: Georgia; display: flex; gap: 1rem;">
+
+    <div style="display: flex; flex-direction: column; align-items: center; width: 40rem;">
+        <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)" autocomplete="off"
+            style="display: flex; flex-direction: column; gap: 1rem; width: 100%; ">
+
+            <mat-form-field style="background-color: rgb(15,15,15);" subscriptSizing="dynamic">
+                <mat-label>{{'profile.favCharacters' | translate}}</mat-label>
+                <mat-chip-grid #chipGrid2 name="favoriteChars" ngModel matChipInputAddOnBlur="true">
+                    @for (char of favoriteCharacters(); track char) {
+                    <mat-chip-row style="font-size: 0.8rem;" (removed)="remove(char,favoriteCharacters)"
+                        [style.backgroundColor]="getColor(char)">{{char}} <button
+                            matChipRemove>ⓧ</button></mat-chip-row>
+                    }
+                </mat-chip-grid>
+                <input [matChipInputFor]="chipGrid2" [(ngModel)]="favCharVal" placeholder="{{'searchPlaceholder' | translate}}"
+                    style="color: goldenrod" name="char input" (focus)="onFocus(favoriteCharacters)" />
+
+            </mat-form-field>
+
+            <mat-form-field style=" background-color: rgb(15,15,15);" subscriptSizing="dynamic">
+                <mat-label>{{'profile.favShip' | translate}}</mat-label>
+                <mat-chip-grid #chipGrid name="favoriteShip" ngModel>
+                    @for (char of favoriteShip(); track char) {
+                    <mat-chip-row style="font-size: 0.8rem;" (removed)="remove(char,favoriteShip)"
+                        [style.backgroundColor]="getColor(char)">{{char}} <button
+                            matChipRemove>ⓧ</button></mat-chip-row>
+                    }
+                </mat-chip-grid>
+                <input [matChipInputFor]="chipGrid" [(ngModel)]="favShipVal" placeholder="{{'searchPlaceholder' | translate}}"
+                    style="color: goldenrod" name="ship input" (focus)="onFocus(favoriteShip)" />
+
+            </mat-form-field>
+
+            <mat-chip-listbox class="element-listbox" name="element" ngModel>
+                @for(e of elements; track e){
+                <mat-chip-option>
+                    <img matChipAvatar src="images/elements/{{e().name.toLowerCase()}}.svg" />{{e().name | translate}}
+                </mat-chip-option>
+                }
+            </mat-chip-listbox>
+
+            <mat-form-field style="width: 100%; background-color: rgb(15,15,15);" subscriptSizing="dynamic">
+                <mat-label>{{'profile.message' | translate}}</mat-label>
+                <textarea matInput placeholder="Write a short message..." maxlength="150" name="message"
+                    [(ngModel)]="message"></textarea>
+            </mat-form-field>
+
+            <button type="submit" class="save-button">{{'save' | translate}}</button>
+
+        </form>
+
+    </div>
+
+    <div style="display: flex; flex-direction: column; background-color: rgb(15,15,15); height: 30rem;">
+        <div class="char-search-input">
+            @for (char of charList(); track char){
+            <li (mousedown)="addChar(char)">
+                <img src="images/characters/{{char | hyphenate}}.webp" style="width: 3rem; padding-right: 1rem;">
+                {{char}}
+            </li>
+            }
+        </div>
+    </div>
+
+
+
+</mat-dialog-content>

@@ -37,6 +37,17 @@
         height: 80vh;
     }
 
+    .signup-dialog {
+        width: 50vw;
+        max-width: none !important;
+    }
+
+    .profile-edit-dialog {
+
+        width: 40rem;
+        max-width: none !important;
+    }
+
     .particles-dialog {
 
         width: 30vw;
@@ -56,7 +67,7 @@
         max-width: none !important;
     }
 
-    .classic-settings-dialog{
+    .classic-settings-dialog {
 
         width: 50vw;
         max-width: none !important;
@@ -80,6 +91,21 @@
     @include mat.badge-overrides((background-color: red,
             small-size-container-overlap-offset: -9px,
             container-shape: 50%));
+
+    @include mat.datepicker-overrides((calendar-body-label-text-color: orange,
+    calendar-date-text-color: darkgoldenrod,
+    calendar-date-disabled-state-text-color: dimgray,
+    calendar-header-text-color:gray,
+    calendar-period-button-text-color: darkgoldenrod,
+    calendar-period-button-icon-color:gray,
+    calendar-date-selected-state-background-color:darkgoldenrod
+   ));
+   @include mat.chips-overrides((
+   
+    outline-color: transparent,
+    focus-outline-color: transparent,
+    with-avatar-avatar-shape-radius: 0
+  ));
 }
 
 .share-menu {
@@ -166,7 +192,7 @@ a {
 }
 
 .search-dropdown {
-
+   
     padding: 0;
     margin: 0;
     position: absolute;
@@ -248,6 +274,10 @@ a {
         width: 100vw !important;
     }
 
+    .signup-dialog {
+        width: 95vw !important;
+    }
+
     .particles-dialog {
         width: 95vw !important;
     }
@@ -260,7 +290,7 @@ a {
         width: 90vw !important;
     }
 
-    .classic-settings-dialog{
+    .classic-settings-dialog {
 
         width: 90vw !important;
     }

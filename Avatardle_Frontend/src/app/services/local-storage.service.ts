@@ -23,7 +23,7 @@ export interface AvatardleProgress {
 })
 export class LocalStorageService {
 
-  VERSION: string = "1.8";
+  VERSION: string = "2.0";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
   progress: WritableSignal<AvatardleProgress>;
   default: AvatardleProgress = {

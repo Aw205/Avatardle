@@ -1,0 +1,12 @@
+<mat-dialog-content style="display: flex; justify-content: left; position: relative;">
+    <mat-tab-group [(selectedIndex)]="activeTabIndex"
+        style="margin: 0.5rem;"
+        animationDuration="0ms">
+        <mat-tab label="{{'signUp' | translate}}">
+            <app-signup [parentIndexSignal]="activeTabIndex"></app-signup>
+        </mat-tab>
+        <mat-tab label="{{'login' | translate}}">
+            <app-login [parentIndexSignal]="activeTabIndex"></app-login>
+        </mat-tab>
+    </mat-tab-group>
+</mat-dialog-content>

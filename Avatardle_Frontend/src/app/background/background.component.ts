@@ -15,10 +15,13 @@ import { LanguageSettingsComponent } from '../language-settings/language-setting
 import { LocalStorageService } from '../services/local-storage.service';
 import { NotesDialogComponent } from '../notes-dialog/notes-dialog.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { AuthService } from '../services/auth.service';
+import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'background',
-  imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent, MatMenuModule, MatBadgeModule],
+  imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent, MatMenuModule, MatBadgeModule, TranslatePipe],
   templateUrl: './background.component.html',
   styleUrl: './background.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -29,6 +32,7 @@ export class Background {
   readonly dialog = inject(MatDialog);
   readonly ds = inject(DataService);
   readonly ls = inject(LocalStorageService);
+  readonly auth = inject(AuthService);
 
   showParticles: WritableSignal<boolean> = signal(true);
   cycleElement!: string;
@@ -73,6 +77,9 @@ export class Background {
     }
     else if (name == "help") {
       this.dialog.open(HelpDialogComponent, { panelClass: "help-dialog", autoFocus: false });
+    }
+    else if (name == "signup") {
+      this.dialog.open(AuthDialogComponent, { panelClass: "signup-dialog", autoFocus: false });
     }
     else if (name == "comment") {
       this.dialog.open(CommentDialogComponent, { panelClass: "comment-dialog", autoFocus: false });

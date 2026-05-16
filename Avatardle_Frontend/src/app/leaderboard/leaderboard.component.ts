@@ -8,10 +8,11 @@ import { LocalStorageService } from '../services/local-storage.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Meta, Title } from '@angular/platform-browser';
 import { environment } from '../../environments/environment';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'leaderboard',
-  imports: [HyphenatePipe, TranslatePipe, CountdownComponent, MatMenuModule, MatTooltipModule],
+  imports: [HyphenatePipe, TranslatePipe, CountdownComponent, MatMenuModule, MatTooltipModule,RouterLink],
   templateUrl: './leaderboard.component.html',
   styleUrl: './leaderboard.component.css'
 })

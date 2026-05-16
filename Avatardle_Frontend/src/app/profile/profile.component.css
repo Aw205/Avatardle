@@ -1,0 +1,60 @@
+.profile-container {
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 70%;
+    background-color: rgba(20, 20, 20, 0.5);
+    padding: 2rem;
+    padding-top: 1rem;
+    position: relative;
+    border-radius: 10px;
+    font: 1rem Georgia;
+    margin-top: 4rem;
+    gap: 1rem;
+
+}
+
+.nameplate {
+
+    color: goldenrod;
+    backdrop-filter: blur(2px);
+    border-radius: 10px;
+    border-bottom: 1px solid gray;
+    width: fit-content;
+    padding-block: 0.5rem;
+    font: 2rem avatar2;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-inline: 1rem;
+
+}
+
+.edit-profile {
+
+    font: 1rem Georgia;
+    background-color: rgb(15, 15, 15);
+    border: 1px outset black;
+    outline: 2px solid black;
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: beige;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.profile-data {
+    position: relative;
+    color: beige;
+    font: 1rem Georgia;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(2px);
+    width: fit-content;
+    padding-inline: 0.5rem;
+    border-radius: 5px;
+    border-bottom: 1px solid darkgoldenrod;
+    padding-bottom: 0.2rem;
+}

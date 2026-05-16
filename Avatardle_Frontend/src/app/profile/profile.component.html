@@ -1,0 +1,56 @@
+<div class="profile-container">
+
+    <div class="nameplate"> <img src="images/elements/{{element()}}.svg" style="height: 3rem;"> {{username()}} </div>
+
+    <p style="font:italic 1rem Georgia; color: gray; margin: 0; text-indent: 2rem;">
+        {{message()}}
+    </p>
+    @if(isSelf()){
+    <div class="edit-profile" (click)="openEdit()">{{'profile.editProfile' | translate}}</div>
+    }
+
+    <div style="display: flex; flex-direction: column; gap:1rem;">
+
+        <div class="profile-data">
+            <img src="images/favorite.svg" style="width: 2rem;">{{'profile.favCharacters' | translate}}
+            <div style="position: absolute; left:100%; display: flex; align-items: center;">
+                @for(char of favoriteChars(); track char){
+                @let c = char | hyphenate;
+                <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{c}}" style="scale:0.8;">
+                }
+            </div>
+
+        </div>
+
+        <div class="profile-data" style="border-bottom: 1px solid rgb(197, 82, 101);">
+            <img src="images/affiliationIcons/romance.webp" style="width: 2rem;">{{'profile.favShip' | translate}}
+            <div style="position: absolute; left:100%; display: flex; align-items: center;">
+                @for(char of favoriteShip(); track char){
+                @let c = char | hyphenate;
+                <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{c}}" style="scale:0.8;">
+                }
+            </div>
+        </div>
+
+        <div class="profile-data"><img src="images/scroll.svg" style="width: 2rem; ">{{'profile.discoveredChars' |
+            translate}} <span style="color: goldenrod;">
+                {{discoveredCharactersCount()}}/{{characters.length}}</span></div>
+
+        @if(isSelf()){
+
+        <div style="position: relative; display: flex; align-items: center; flex-wrap: wrap;">
+            @for(char of characters; let i = $index; track i;){
+            @let c = char | hyphenate;
+
+            @if(discoveredCharacters().includes(i+1)){
+            <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{c}}">
+            }
+            @else{
+            <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{c}}" style="filter: brightness(0);">
+            }
+            }
+        </div>
+        }
+    </div>
+
+</div>

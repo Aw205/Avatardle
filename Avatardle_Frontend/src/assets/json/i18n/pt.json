@@ -157,6 +157,37 @@
     "languageSettings": {
         "title": "Selecione seu idioma"
     },
+    "username": "Nome de usuário",
+    "usernamePlaceholder": "Digite o nome de usuário",
+    "password": "Senha",
+    "passwordPlaceholder": "Digite a senha",
+    "signUp": "Inscreva-se",
+    "login": "Entrar",
+    "createAccount": "Criar conta",
+    "haveAccount?": "Já tem uma conta?",
+    "noAccount?": "Ainda não tem uma conta?",
+    "logIn": "Entrar",
+    "or": "Or",
+    "viewProfile": "Ver perfil",
+    "logOut": "Sair",
+    "inputErrors": {
+        "usernameRequired": "É necessário inserir o nome de usuário",
+        "usernameMinLength": "O nome de usuário deve ter pelo menos 3 caracteres",
+        "usernameMaxLength": "O nome de usuário deve ter no máximo 20 caracteres",
+        "usernamePattern": "Apenas letras, números, sublinhados e hífens",
+        "usernameTaken": "O nome de usuário já existe",
+        "invalidCredentials": "O nome de usuário ou a senha estão incorretos",
+        "passwordRequired": "É necessário inserir a senha",
+        "passwordMinLength": "A senha deve ter pelo menos 8 caracteres",
+        "passwordMaxLength": "A senha deve ter no máximo 72 caracteres"
+    },
+    "profile": {
+        "editProfile": "Editar perfil",
+        "favCharacters": "Personagens favoritos",
+        "favShip": "Par romântico favorito",
+        "discoveredChars": "Personagens descobertos",
+        "message": "Mensagem"
+    },
     "Water": "Água",
     "Earth": "Terra",
     "Air": "Ar",

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
    { path: '', component: HomeComponent},
@@ -22,6 +23,15 @@ export const routes: Routes = [
    {
       path: 'leaderboard',
       loadComponent: () => import('./leaderboard/leaderboard.component').then(module => module.LeaderboardComponent)
+   },
+   {
+      path: 'profile',
+      loadComponent: () => import('./profile/profile.component').then(module => module.ProfileComponent),
+      canActivate: [authGuard]
+   },
+   {
+      path: 'users/:username',
+      loadComponent: () => import('./profile/profile.component').then(module => module.ProfileComponent)
    },
    { path: '**', loadComponent: () => import('./not-found/not-found.component').then(module => module.NotFoundComponent) }
 ];

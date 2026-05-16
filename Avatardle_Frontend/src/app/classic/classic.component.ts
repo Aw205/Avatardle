@@ -19,6 +19,7 @@ import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.c
 // import {provideNativeDateAdapter} from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../environments/environment';
+import { AuthService } from '../services/auth.service';
 
 @Component({
     selector: 'classic',
@@ -34,6 +35,7 @@ export class ClassicMode {
 
     snackBar = inject(MatSnackBar);
     submittedToLeaderboard: WritableSignal<boolean> = signal(false);
+    inputDisabled: WritableSignal<boolean> = signal(false);
     usernameError: WritableSignal<boolean> = signal(false);
 
     searchVal: WritableSignal<string> = signal('');
@@ -59,6 +61,7 @@ export class ClassicMode {
     meta = inject(Meta);
     ds = inject(DataService);
     dialog = inject(MatDialog);
+    as = inject(AuthService);
 
     usernameInput: WritableSignal<string> = signal('');
     colorTrigger: WritableSignal<string> = signal('');
@@ -77,6 +80,10 @@ export class ClassicMode {
 
         if (isPlatformBrowser(this.platformId)) {
             this.setData();
+            this.as.getMe().subscribe((data) => {
+                this.usernameInput.set(data.username);
+                this.inputDisabled.set(true);
+            })
         }
     }
 
@@ -119,7 +126,7 @@ export class ClassicMode {
                     case "affiliations":
                         tileData.affiliations = this.shuffleArray([...val]).slice(0, 3);
                         let count = tileData.affiliations!.reduce((acc, curr) => acc + targetVal.includes(curr) | 0, 0);
-                        let targetLength = Math.min(targetVal.length,3);
+                        let targetLength = Math.min(targetVal.length, 3);
                         tileData.isCorrect = (count == 0) ? false : (count == targetLength) ? true : undefined;
                         break;
 
@@ -150,8 +157,8 @@ export class ClassicMode {
     checkGuess(numCorrect: number) {
 
         if (numCorrect == 6) {
-
             this.ds.updateStats("classic");
+            this.ds.updateDiscoveredCharacters(this.targetChar.name);
             this.ds.throwConfetti(this.ls.progress().classic.guesses.length);
             this.searchVal.set(this.targetChar.name);
 
@@ -241,12 +248,8 @@ export class ClassicMode {
         for (let i = this.tileArray().length - 6; i > -1; i -= 6) {
             charNames.push(this.tileArray()[i]?.name!);
         }
-        const now = new Date();
-        const hours = now.getUTCHours();
-        const minutes = now.getUTCMinutes();
-        let time = `${hours}:${minutes}`;
 
-        this.ds.updateLeaderboard(this.usernameInput().trim(), charNames, time).subscribe({
+        this.ds.updateLeaderboard(this.usernameInput().trim(), charNames).subscribe({
             error: (err) => {
                 this.usernameError.set(true);
             },

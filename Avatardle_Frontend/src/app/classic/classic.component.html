@@ -69,7 +69,7 @@
     <div id="share-leaderboard">
         {{'postLeaderboard' | translate}}
         <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput"
-            [disabled]="submittedToLeaderboard()">
+            [disabled]="submittedToLeaderboard() || inputDisabled()">
         @if(!submittedToLeaderboard()){
         @if(usernameError()){
         <div style="color:indianred;">{{'usernameTaken' | translate}}</div>
@@ -78,5 +78,11 @@
             translate}}</button>
         }
     </div>
+
+    <!-- <div id="archive">
+        <p style="color: goldenrod;">Archive</p>
+        <mat-calendar [minDate]="minDate" [maxDate]="maxDate" [(selected)]="selectedDate"></mat-calendar>
+    </div> -->
+
 </div>
 }

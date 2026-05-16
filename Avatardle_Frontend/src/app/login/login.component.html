@@ -1,0 +1,53 @@
+<div style="color:beige; font-family: Georgia; display: flex; flex-direction: column; align-items: center;">
+
+    <div style="width: 80%;">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: column; gap: 1rem;">
+            <mat-form-field>
+                <mat-label>{{'username' | translate}}</mat-label>
+                <input matInput spellcheck="false" formControlName="username"
+                    placeholder="{{'usernamePlaceholder' | translate}}" autocomplete="username"
+                    style=" color: goldenrod; width: 100%; ">
+                @if (loginForm.get('username')?.hasError('required')) {
+                <mat-error>{{'inputErrors.usernameRequired' | translate}}</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>{{'password' | translate}}</mat-label>
+                <input matInput class="password-input" formControlName="password"
+                    placeholder="{{'passwordPlaceholder' | translate}}" autocomplete="current-password"
+                    [type]="hidePassword ? 'password' : 'text'" style="color: goldenrod">
+                <span matSuffix class="material-symbols-outlined"
+                    style="cursor: pointer; user-select: none; padding-right: 1rem;"
+                    (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</span>
+                @if (loginForm.get('password')?.hasError('required')) {
+                <mat-error>{{'inputErrors.passwordRequired' | translate}}</mat-error>
+                }
+                @else if (loginForm.get('password')?.hasError('invalidCredentials')){
+                <mat-error>{{'inputErrors.invalidCredentials' | translate}}</mat-error>
+                }
+
+            </mat-form-field>
+
+            <button type="submit" style="font:1rem Georgia; background-color: rgb(15,15,15); border: 1px outset black;
+                outline: 2px solid black;  border-radius: 5px; padding: 0.5rem; color: beige; cursor: pointer;">
+                {{'logIn' | translate}}</button>
+
+            <div class="separator">Or</div>
+
+            <div
+                style="font:1rem Georgia; border-radius: 5px; padding: 0.5rem; color: beige;background-color: #5668a7; outline: 2px solid #3e54a2; border: 1px outset #3e54a2; text-align: center; cursor: pointer; opacity: 0.2;">
+                <img src="images/discord.svg" alt="Join Avatardle discord" style="height: 1rem; padding:0.2rem;
+                    vertical-align: middle;" /><span style="text-decoration: line-through;">Log in w/
+                    Discord</span>(coming later)
+            </div>
+
+            <p style="color: beige; font: 1rem Georgia;">{{'noAccount?' | translate}} <span
+                    style="color: darkgoldenrod; text-decoration: underline; cursor: pointer;"
+                    (click)="parentIndexSignal().set(0)">{{'signUp' | translate}}</span></p>
+        </form>
+
+    </div>
+
+
+</div>
