@@ -45,6 +45,16 @@
         align-items: top;
     }
 
+    & .username-with-profile {
+        color: goldenrod;
+        display: flex;
+        align-items: top;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
     &>.time {
         display: flex;
         align-items: top;

@@ -1,7 +1,7 @@
 export const environment = {
 
     production: true,
-    statsApiUrl: "https://avatardle.onrender.com",
-    R2Url: "https://assets.avatardle.com"
+    apiUrl: "https://avatardle.onrender.com",
+    r2AssetUrl: "https://assets.avatardle.com"
 
 };

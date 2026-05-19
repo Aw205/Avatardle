@@ -20,11 +20,13 @@ import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.c
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../environments/environment';
 import { AuthService } from '../services/auth.service';
+import { LeaderboardService } from '../services/leaderboard.service';
+import { getSurrenderText } from '../game-mode-utils';
 
 @Component({
     selector: 'classic',
     // providers:[provideNativeDateAdapter()],
-    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent,],
+    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent],
     templateUrl: './classic.component.html',
     styleUrl: './classic.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -56,6 +58,7 @@ export class ClassicMode {
     characterData: Character[] = [];
     tileArray: WritableSignal<tileData[]> = signal([]);
 
+    private leaderboardService = inject(LeaderboardService);
     ls = inject(LocalStorageService);
     title = inject(Title);
     meta = inject(Meta);
@@ -157,13 +160,13 @@ export class ClassicMode {
     checkGuess(numCorrect: number) {
 
         if (numCorrect == 6) {
-            this.ds.updateStats("classic");
             this.ds.updateDiscoveredCharacters(this.targetChar.name);
-            this.ds.throwConfetti(this.ls.progress().classic.guesses.length);
             this.searchVal.set(this.targetChar.name);
 
-            this.ls.patch(['classic', 'complete'], true);
             this.isComplete.set(true);
+            this.ls.patch(['classic', 'complete'], true);
+            this.ds.throwConfetti(this.ls.progress().classic.guesses.length);
+            this.ds.updateStats("classic");
 
             setTimeout(() => {
                 window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })
@@ -226,20 +229,11 @@ export class ClassicMode {
     }
 
     isSurrenderDisabled() {
-
         return this.isComplete() || this.guessAttempts < 6;
     }
 
     getSurrenderText(): string {
-
-        let diff = 6 - this.guessAttempts;
-        if (diff <= 0 || this.isComplete()) {
-            return "Reveal answer";
-        }
-        else if (diff == 1) {
-            return "Reveal answer in 1 more guess";
-        }
-        return `Reveal answer in ${diff} more guesses`;
+       return getSurrenderText(this.isComplete(),this.guessAttempts,6);
     }
 
     submitToLeaderboard() {
@@ -249,7 +243,7 @@ export class ClassicMode {
             charNames.push(this.tileArray()[i]?.name!);
         }
 
-        this.ds.updateLeaderboard(this.usernameInput().trim(), charNames).subscribe({
+        this.leaderboardService.updateLeaderboard(this.usernameInput().trim(), charNames).subscribe({
             error: (err) => {
                 this.usernameError.set(true);
             },

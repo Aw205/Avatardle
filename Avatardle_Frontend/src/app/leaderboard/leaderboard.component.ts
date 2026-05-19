@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, inject, signal, WritableSignal } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
-import { DataService, LeaderboardRecord } from '../services/data.service';
+import { LeaderboardRecord } from '../services/leaderboard.service';
 import { CountdownComponent } from 'ngx-countdown';
 import { MatMenuModule } from '@angular/material/menu';
 import { LocalStorageService } from '../services/local-storage.service';
@@ -9,16 +9,19 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { Meta, Title } from '@angular/platform-browser';
 import { environment } from '../../environments/environment';
 import { RouterLink } from '@angular/router';
+import { LeaderboardService } from '../services/leaderboard.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'leaderboard',
-  imports: [HyphenatePipe, TranslatePipe, CountdownComponent, MatMenuModule, MatTooltipModule,RouterLink],
+  imports: [HyphenatePipe, TranslatePipe, CountdownComponent, MatMenuModule, MatTooltipModule, RouterLink],
   templateUrl: './leaderboard.component.html',
   styleUrl: './leaderboard.component.css'
 })
 export class LeaderboardComponent {
 
   ds = inject(DataService);
+  leaderboardService = inject(LeaderboardService)
   ls = inject(LocalStorageService);
   title = inject(Title);
   meta = inject(Meta);
@@ -29,9 +32,10 @@ export class LeaderboardComponent {
 
   ngOnInit() {
 
-    this.ds.leaderboard$.subscribe((data)=>{
+    this.leaderboardService.getLeaderboard().subscribe(data => {
       this.list.set(data);
-    });
+    })
+
     this.title.setTitle("Leaderboard | Avatardle");
     this.meta.updateTag({
       name: "description",
@@ -59,7 +63,7 @@ export class LeaderboardComponent {
   onImageError(event: Event) {
 
     const img = event.target as HTMLImageElement;
-    img.src = `${this.env.R2Url}/headshots/silhouette.webp`;
+    img.src = `${this.env.r2AssetUrl}/headshots/silhouette.webp`;
     img.classList = "aang";
     this.cdr.detectChanges();
 

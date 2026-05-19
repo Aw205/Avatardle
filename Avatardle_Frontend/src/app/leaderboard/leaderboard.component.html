@@ -32,7 +32,7 @@
             <div style="display: flex; gap: 0.2rem; align-items: center;">
                 @if(item.element){
                 <img [src]="`images/elements/${item.element.toLowerCase()}.svg`" style="height: 1.5rem;">
-                <a class="username" [routerLink]="['/users',item.username]">{{item.username}}</a>
+                <a class="username-with-profile" [routerLink]="['/users',item.username]">{{item.username}}</a>
                 }
                 @else{
                     <span class="username">{{item.username}}</span>
@@ -45,7 +45,7 @@
         <div class="guess-container">
             @for(char of item.guesses; let i = $index; track i;){
             @let c = char | hyphenate;
-            <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{char | hyphenate}}" [alt]="char"
+            <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{char | hyphenate}}" [alt]="char"
                 matTooltip="{{char}}" matTooltipPosition="below" (error)="onImageError($event)">
             }
             <!-- <div style="position: absolute; top:3rem; width: 100%; border: 1px solid green;"></div> -->

@@ -29,18 +29,14 @@
 
             </mat-form-field>
 
-            <button type="submit" style="font:1rem Georgia; background-color: rgb(15,15,15); border: 1px outset black;
-                outline: 2px solid black;  border-radius: 5px; padding: 0.5rem; color: beige; cursor: pointer;">
+            <button type="submit">
                 {{'logIn' | translate}}</button>
 
-            <div class="separator">Or</div>
+            <div class="separator">{{'or' | translate}}</div>
 
-            <div
-                style="font:1rem Georgia; border-radius: 5px; padding: 0.5rem; color: beige;background-color: #5668a7; outline: 2px solid #3e54a2; border: 1px outset #3e54a2; text-align: center; cursor: pointer; opacity: 0.2;">
-                <img src="images/discord.svg" alt="Join Avatardle discord" style="height: 1rem; padding:0.2rem;
-                    vertical-align: middle;" /><span style="text-decoration: line-through;">Log in w/
-                    Discord</span>(coming later)
-            </div>
+            <a [href]="`${env.apiUrl}/auth/discord`">
+                <img src="images/discord.svg" style="height: 1rem; padding:0.2rem; vertical-align: middle;" /> {{'discordLogin' | translate}}
+            </a>
 
             <p style="color: beige; font: 1rem Georgia;">{{'noAccount?' | translate}} <span
                     style="color: darkgoldenrod; text-decoration: underline; cursor: pointer;"

@@ -83,7 +83,7 @@ export class MusicMode {
         let selectedOSTs = [this.targetOST.name];
 
         let audioName = encodeURIComponent(this.targetOST.audio);
-        this.audio = new Audio(`${environment.R2Url}/osts/${audioName}`);
+        this.audio = new Audio(`${environment.r2AssetUrl}/osts/${audioName}`);
         this.audio.addEventListener('loadedmetadata', () => {
           this.timeOffset = Math.floor(this.rand.next() * (this.audio!.duration - 30));
           this.audio!.currentTime = this.timeOffset;
@@ -101,13 +101,13 @@ export class MusicMode {
             selectedOSTs.push(randomOST.name);
             let numScenes = String(Math.floor(this.rand.next() * randomOST.numScenes) + 1).padStart(3, "0");
             let name = encodeURIComponent(randomOST.name).replace(/'/g, "%27");
-            let frame = `${environment.R2Url}/scenes/${name}/scene_${numScenes}.webp`;
+            let frame = `${environment.r2AssetUrl}/scenes/${name}/scene_${numScenes}.webp`;
             this.images().push(frame);
           }
         }
         let targetName = encodeURIComponent(this.targetOST.name);
         let targetNumScenes = String(Math.floor(this.rand.next() * this.targetOST.numScenes) + 1).padStart(3, "0");
-        this.targetScene = `${environment.R2Url}/scenes/${targetName}/scene_${targetNumScenes}.webp`;
+        this.targetScene = `${environment.r2AssetUrl}/scenes/${targetName}/scene_${targetNumScenes}.webp`;
         this.images().splice(this.rand.next() * 8, 0, this.targetScene);
         this.images.set([...this.images()]);
       });

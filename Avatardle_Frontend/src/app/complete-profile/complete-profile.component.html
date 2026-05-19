@@ -1,0 +1,41 @@
+<div style="color:beige; font-family: Georgia; display: flex; flex-direction: column; align-items: center; background-color: rgba(0,0,0,0.5); width: 30rem; margin: auto; margin-top: 10rem;
+padding:1rem; position: relative; border-radius: 10px;">
+    <div
+        style="display: flex; gap: 0.5rem; align-items: center; border-radius: 10px; padding: 0.5rem; padding-right: 1rem;width: fit-content; position: absolute; left:1rem; top:1rem;">
+        <img [src]="discordAvatar()" style="border-radius: 50%; height: 2rem; user-select: none; pointer-events: none;">
+        <span>{{discordUsername()}}</span>
+    </div>
+
+    <p style="color: darkgoldenrod; font-size: 1.5rem; margin-top: 4rem;">{{'finishProfile' | translate}}</p>
+
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()"
+        style="display: flex; flex-direction: column; gap: 2rem; width: 70%;">
+        <mat-form-field>
+            <mat-label>{{'username' | translate}}</mat-label>
+            <input matInput spellcheck="false" formControlName="username"
+                placeholder="{{'usernamePlaceholder' | translate}}" type="text" style=" color: goldenrod; ">
+            @if (signUpForm.get('username')?.hasError('required')) {
+            <mat-error>{{'inputErrors.usernameRequired' | translate}}</mat-error>
+            }
+            @else if (signUpForm.get('username')?.hasError('minlength')) {
+            <mat-error>{{'inputErrors.usernameMinLength' | translate}}</mat-error>
+            }
+            @else if (signUpForm.get('username')?.hasError('maxlength')) {
+            <mat-error>{{'inputErrors.usernameMaxLength' | translate}}</mat-error>
+            }
+            @else if(signUpForm.get('username')?.hasError('pattern')) {
+            <mat-error>{{'inputErrors.usernamePattern' | translate}}</mat-error>
+            }
+            @else if(signUpForm.get('username')?.hasError('usernameTaken')) {
+            <mat-error>{{'inputErrors.usernameTaken' | translate}}</mat-error>
+            }
+            @else if(signUpForm.get('username')?.hasError('discordIdTaken')) {
+            <mat-error>{{'inputErrors.discordIdTaken' | translate}}</mat-error>
+            }
+        </mat-form-field>
+
+        <button type="submit"
+            style="font:1rem Georgia; background-color: rgb(15,15,15); border: 1px outset black;
+                outline: 2px solid black;  border-radius: 5px; padding: 0.5rem; color: beige; cursor: pointer; width: fit-content; margin: auto; margin-bottom: 4rem;">{{'logIn' | translate}}</button>
+    </form>
+</div>

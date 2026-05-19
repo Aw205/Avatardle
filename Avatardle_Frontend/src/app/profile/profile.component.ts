@@ -10,7 +10,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
-  imports: [HyphenatePipe,TranslatePipe],
+  imports: [HyphenatePipe, TranslatePipe],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css', '../leaderboard/leaderboard.component.css']
 })
@@ -19,7 +19,7 @@ export class ProfileComponent {
   env = environment;
   ds: DataService = inject(DataService);
   as: AuthService = inject(AuthService);
-  readonly dialog = inject(MatDialog);
+  dialog: MatDialog = inject(MatDialog);
 
   characters: string[] = [];
   isEditing: WritableSignal<boolean> = signal(false);
@@ -35,7 +35,7 @@ export class ProfileComponent {
   username = signal<string | null>('');
   isSelf = signal<boolean>(true);
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -44,12 +44,12 @@ export class ProfileComponent {
       if (this.username() != null) {
         this.isSelf.set(false);
         this.ds.getUserProfile(this.username()!).subscribe((data) => {
-  
+
           this.element.set(data.element.toLowerCase());
           this.favoriteChars.set(data.favorite_characters);
           this.favoriteShip.set(data.favorite_ship);
           this.message.set(data.bio);
-  
+
           this.ds.getDiscoveredCharactersCount(this.username()!).subscribe((data: any) => {
             this.discoveredCharactersCount.set(data.count);
           });
@@ -63,7 +63,7 @@ export class ProfileComponent {
           this.favoriteShip.set(data.favorite_ship);
           this.message.set(data.bio);
         });
-  
+
         this.ds.getDiscoveredCharacters().subscribe(data => {
           const names = (data as any[]).map(char => char.character_id);
           this.discoveredCharacters.set(names);
@@ -73,7 +73,7 @@ export class ProfileComponent {
     });
 
     this.characters = this.ds.characterFilter.classic['ATLA-title'].concat(this.ds.characterFilter.classic['TLOK-title']);
-    
+
   }
 
   openEdit() {

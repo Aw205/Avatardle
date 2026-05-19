@@ -14,40 +14,39 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-
   initialize() {
-
     this.getMe().subscribe({
       next: (data) => {
-        console.log("here in next")
-        if (data) {
-          this.isLoggedIn.set(true);
-          this.user = data.username;
-        }
+        this.isLoggedIn.set(true);
+        this.user = data.username;
       },
       error: (err) => {
-        console.log("here in error")
+        
       }
     });
   }
 
   signup(username: string, password: string) {
-    return this.http.post(`${environment.statsApiUrl}/signup`, { username: username, password: password });
+    return this.http.post(`${environment.apiUrl}/auth/signup`, { username: username, password: password });
+  }
+
+  discordSignup(username: string, discord_id: string) {
+    return this.http.post(`${environment.apiUrl}/auth/discord/signup`, { username, discord_id });
   }
 
   login(username: string, password: string) {
-    return this.http.post(`${environment.statsApiUrl}/login`, { username, password }, { withCredentials: true });
+    return this.http.post(`${environment.apiUrl}/auth/login`, { username, password }, { withCredentials: true });
   }
 
   logout() {
-    this.http.post(`${environment.statsApiUrl}/logout`, {}, { withCredentials: true }).subscribe((data) => {
+    this.http.post(`${environment.apiUrl}/auth/logout`, {}, { withCredentials: true }).subscribe((data) => {
       this.isLoggedIn.set(false);
       this.router.navigateByUrl('/');
     });
   }
 
   getMe() {
-    return this.http.get<any>(`${environment.statsApiUrl}/me`, { withCredentials: true });
+    return this.http.get<any>(`${environment.apiUrl}/auth/me`, { withCredentials: true });
   }
 
 }

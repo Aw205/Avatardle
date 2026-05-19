@@ -42,14 +42,6 @@ export interface DailyStats {
   music_completion: number
 }
 
-export interface LeaderboardRecord {
-
-  username: string,
-  guesses: string[],
-  time: string,
-  element: string
-}
-
 export interface FanArt {
 
   character: string,
@@ -90,7 +82,7 @@ export class DataService {
   con$!: Observable<any>;
   transcript$!: Observable<Transcript[]>;
   osts$!: Observable<Ost[]>;
-  leaderboard$!: Observable<LeaderboardRecord[]>;
+
   pageNotFound$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private http: HttpClient) { }
@@ -101,7 +93,7 @@ export class DataService {
     if (environment.production) {
       this.stats$ = interval(120000).pipe(
         startWith(0),
-        switchMap(() => this.http.get<DailyStats>(`${environment.statsApiUrl}/getStats`))
+        switchMap(() => this.http.get<DailyStats>(`${environment.apiUrl}/stats`))
       );
     }
 
@@ -126,10 +118,7 @@ export class DataService {
     this.pictureData$ = this.http.get<Episode>('json/episodes.json').pipe(shareReplay(1));
     this.con$ = this.http.get<any>('json/particleConfigs.json').pipe(shareReplay(1));
     this.osts$ = this.http.get<Ost[]>('json/osts.json').pipe(shareReplay(1));
-    this.leaderboard$ = timer(0, 50000).pipe(
-      switchMap(() => this.http.get<LeaderboardRecord[]>(`${environment.statsApiUrl}/getLeaderboard`)),
-      shareReplay({ bufferSize: 1, refCount: true })
-    );
+    
     return ob;
   }
 
@@ -149,57 +138,36 @@ export class DataService {
   }
 
   updateStats(mode: string) {
-
-    this.http.patch(`${environment.statsApiUrl}/updateStats`, { type: "daily", mode: mode }).subscribe(data => { });
+    this.http.patch(`${environment.apiUrl}/stats`, { type: "daily", mode: mode }).subscribe(data => { });
   }
 
   getDiscoveredCharacters() {
-    return this.http.get(`${environment.statsApiUrl}/discovered-characters`, { withCredentials: true });
+    return this.http.get(`${environment.apiUrl}/discovered-characters`, { withCredentials: true });
   }
 
   getDiscoveredCharactersCount(username: string) {
-    return this.http.get(`${environment.statsApiUrl}/users/${username}/discovered-characters`);
+    return this.http.get(`${environment.apiUrl}/users/${username}/discovered-characters`);
   }
 
   updateDiscoveredCharacters(name: string) {
 
-    this.http.get(`${environment.statsApiUrl}/getCharacters`).subscribe((arr: any) => {
+    this.http.get(`${environment.apiUrl}/getCharacters`).subscribe((arr: any) => {
       let record = (arr as any[]).find((e: any) => {
         return e.name == name;
       })
-      this.http.patch(`${environment.statsApiUrl}/discovered-characters`, { character_id: record.character_id }, { withCredentials: true }).subscribe(data => { });
+      this.http.patch(`${environment.apiUrl}/discovered-characters`, { character_id: record.character_id }, { withCredentials: true }).subscribe(data => { });
     });
-  }
-
-  updateLeaderboard(username: string, guesses: string[]) {
-
-    return this.as.getMe().pipe(
-      switchMap((data) => {
-        return this.http.patch(`${environment.statsApiUrl}/updateLeaderboard`, {
-          username: username,
-          guesses: guesses,
-          element: data.element
-        });
-      }),
-      catchError(() => {
-        return this.http.patch(`${environment.statsApiUrl}/updateLeaderboard`, {
-          username: username,
-          guesses: guesses,
-          element: null
-        });
-      })
-    );
   }
 
   updateProfile(bio: string, element: string, favorite_characters: string[], favorite_ship: string[]) {
 
-    return this.http.patch(`${environment.statsApiUrl}/updateProfile`, { bio, element, favorite_characters, favorite_ship }, { withCredentials: true }).subscribe((data) => {
+    return this.http.patch(`${environment.apiUrl}/updateProfile`, { bio, element, favorite_characters, favorite_ship }, { withCredentials: true }).subscribe((data) => {
 
     });
   }
 
   getUserProfile(username: string) {
-    return this.http.get<any>(`${environment.statsApiUrl}/users/${username}`);
+    return this.http.get<any>(`${environment.apiUrl}/users/${username}`);
   }
 
   getCountdownConfig() {

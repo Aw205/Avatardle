@@ -1,24 +1,51 @@
+mat-error {
+  color: indianred;
+  font: 0.8rem Georgia;
+  text-align: center;
+  padding-block: 0.2rem;
+}
 
+button {
+  font: 1rem Georgia;
+  background-color: rgb(15, 15, 15);
+  border: 1px outset black;
+  outline: 2px solid black;
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: beige;
+  cursor: pointer;
 
-mat-error{
-    color: indianred;
-    font: 0.8rem Georgia;
-    text-align: center;
-    padding-block: 0.2rem;
+  &:hover {
+    background-color: color-mix(in oklab, #0f0f0f, white 3%);
+  }
 }
 
 .separator {
-    display: flex;
-    align-items: center;
-    color: dimgray;
-    gap: 0.5rem;
-    padding-block: 1rem;
+  display: flex;
+  align-items: center;
+  color: dimgray;
+  gap: 0.5rem;
+  padding-block: 1rem;
+}
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid dimgray;
+}
+
+a {
+  font: 1rem Georgia;
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: beige;
+  background-color: #5668a7;
+  outline: 2px solid #3e54a2;
+  border: 1px outset #3e54a2;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: color-mix(in oklab, #5668a7, black 10%);
   }
-  
-  .separator::before,
-  .separator::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid dimgray; 
-  }
-  
+}

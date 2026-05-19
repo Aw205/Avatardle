@@ -14,6 +14,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
 import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
+import { getSurrenderText,isSurrenderDisabled,getHintTooltip } from '../game-mode-utils';
 
 @Component({
     selector: 'quote',
@@ -86,6 +87,7 @@ export class QuoteMode {
         if (select == this.target()) {
 
             this.searchVal.set("-" + this.target());
+
             this.isComplete.set(true);
             this.ls.patch(['quote'], { complete: true, guesses: this.guesses });
             this.ds.throwConfetti(this.guesses.length);
@@ -106,12 +108,6 @@ export class QuoteMode {
         return this.isComplete() || this.guesses.length >= 2 + hintId;
     }
 
-    isSurrenderDisabled() {
-
-        return this.isComplete() || this.guesses.length < 5;
-    }
-
-
     showHint(hintId: number) {
 
         this.dialog.open(HintDialogComponent, {
@@ -123,29 +119,14 @@ export class QuoteMode {
     }
 
     getTooltipText(hintId: number): string {
-
-        let diff = hintId + 2 - this.guesses.length;
-        if (diff <= 0 || this.isComplete()) {
-            return "Hint available!";
-        }
-        else if (diff == 1) {
-            return "Hint in 1 more guess";
-        }
-        return `Hint in ${diff} more guesses`;
+        return getHintTooltip(this.isComplete(),this.guesses.length,2,hintId);
     }
-
     getSurrenderText(): string {
-
-        let diff = 5 - this.guesses.length;
-        if (diff <= 0 || this.isComplete()) {
-            return "Reveal answer";
-        }
-        else if (diff == 1) {
-            return "Reveal answer in 1 more guess";
-        }
-        return `Reveal answer in ${diff} more guesses`;
+        return getSurrenderText(this.isComplete(),this.guesses.length,5);
     }
-
+    isSurrenderDisabled() {
+        return this.isComplete() || this.guesses.length < 5;
+    }
     openDialog(name: string) {
         if (name == "surrender") {
             this.dialog.open(SurrenderDialogComponent, { width: '30vw', maxWidth: 'none', autoFocus: false }).afterClosed().subscribe((res) => {

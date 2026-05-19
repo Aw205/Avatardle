@@ -13,6 +13,7 @@ import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.c
 import Rand from 'rand-seed';
 import { environment } from '../../environments/environment';
 import { ExpandImageDialogComponent } from '../expand-image-dialog/expand-image-dialog.component';
+import { getHintTooltip, getSurrenderText } from '../game-mode-utils';
 
 
 @Component({
@@ -87,9 +88,9 @@ export class PictureMode {
       let nextIdx = String(frameIdx + 1).padStart(3, '0');
       let frameStr = String(frameIdx).padStart(3, '0');
 
-      this.targetFrame.set(`${environment.R2Url}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${frameStr}.webp`);
-      this.prevFrame = `${environment.R2Url}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${prevIdx}.webp`.replace(/'/g, "%27");;
-      this.nextFrame = `${environment.R2Url}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${nextIdx}.webp`.replace(/'/g, "%27");;
+      this.targetFrame.set(`${environment.r2AssetUrl}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${frameStr}.webp`);
+      this.prevFrame = `${environment.r2AssetUrl}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${prevIdx}.webp`.replace(/'/g, "%27");;
+      this.nextFrame = `${environment.r2AssetUrl}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${nextIdx}.webp`.replace(/'/g, "%27");;
 
       this.englishEpisodeData = [...this.ds.episodes].slice(0, 61);
       this.episodeData = [...this.ds.episodes].slice(0, 61);
@@ -138,9 +139,7 @@ export class PictureMode {
       this.grayscaleRatio.set(0);
 
       this.isComplete.set(true);
-
       this.ls.patch(['picture'], { complete: true, numGuesses: this.ls.progress().picture.numGuesses + 1 });
-
       this.ds.throwConfetti(this.ls.progress().picture.numGuesses);
       this.ds.updateStats("picture");
     }
@@ -171,18 +170,14 @@ export class PictureMode {
   isSurrenderDisabled() {
     return this.isComplete() || this.ls.progress().picture.numGuesses < 6;
   }
-
-
   getSurrenderText(): string {
-
-    let diff = 6 - this.ls.progress().picture.numGuesses;
-    if (diff <= 0 || this.isComplete()) {
-      return "Reveal answer";
-    }
-    else if (diff == 1) {
-      return "Reveal answer in 1 more guess";
-    }
-    return `Reveal answer in ${diff} more guesses`;
+    return getSurrenderText(this.isComplete(), this.ls.progress().picture.numGuesses, 6);
+  }
+  getTooltipText(hintId: number): string {
+    return getHintTooltip(this.isComplete(), this.ls.progress().picture.numGuesses, 2, hintId);
+  }
+  isEnabled(hintId: number) {
+    return this.isComplete() || this.ls.progress().picture.numGuesses >= 2 + hintId;
   }
 
   openDialog(name: string) {
@@ -207,21 +202,6 @@ export class PictureMode {
     });
   }
 
-  getTooltipText(hintId: number): string {
-
-    let diff = hintId + 2 - this.ls.progress().picture.numGuesses;
-    if (diff <= 0 || this.isComplete()) {
-      return "Hint available!";
-    }
-    else if (diff == 1) {
-      return "Hint in 1 more guess";
-    }
-    return `Hint in ${diff} more guesses`;
-  }
-
-  isEnabled(hintId: number) {
-
-    return this.isComplete() || this.ls.progress().picture.numGuesses >= 2 + hintId;
-  }
+ 
 
 }

@@ -16,7 +16,7 @@
             <div style="position: absolute; left:100%; display: flex; align-items: center;">
                 @for(char of favoriteChars(); track char){
                 @let c = char | hyphenate;
-                <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{c}}" style="scale:0.8;">
+                <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}" style="scale:0.8;">
                 }
             </div>
 
@@ -27,7 +27,7 @@
             <div style="position: absolute; left:100%; display: flex; align-items: center;">
                 @for(char of favoriteShip(); track char){
                 @let c = char | hyphenate;
-                <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{c}}" style="scale:0.8;">
+                <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}" style="scale:0.8;">
                 }
             </div>
         </div>
@@ -43,10 +43,10 @@
             @let c = char | hyphenate;
 
             @if(discoveredCharacters().includes(i+1)){
-            <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{c}}">
+            <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}">
             }
             @else{
-            <img [src]="`${env.R2Url}/headshots/${c}.webp`" class="{{c}}" style="filter: brightness(0);">
+            <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}" style="filter: brightness(0);">
             }
             }
         </div>
