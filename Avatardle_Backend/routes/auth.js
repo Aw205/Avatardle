@@ -145,7 +145,7 @@ router.get('/discord/callback', async (req, res) => {
 
     const query = {
         text: 'SELECT * FROM users WHERE discord_id = $1',
-        values: [discordUser.discord_id],
+        values: [discordUser.id],
     };
     db.query(query, async (err, queryRes) => {
         if (err) {

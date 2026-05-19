@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   discordSignup(username: string, discord_id: string) {
-    return this.http.post(`${environment.apiUrl}/auth/discord/signup`, { username, discord_id });
+    return this.http.post(`${environment.apiUrl}/auth/discord/signup`, { username, discord_id }, { withCredentials: true });
   }
 
   login(username: string, password: string) {

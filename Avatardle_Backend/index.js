@@ -75,7 +75,7 @@ app.listen(port, () => {
 cron.schedule('0 0 * * *', async () => {
 
     let query = `SELECT * FROM stats WHERE type='daily'`;
-    pool.query(query, (err, queryRes) => {
+    db.query(query, (err, queryRes) => {
 
         if (err) {
             return console.error(err.message);
@@ -109,7 +109,7 @@ cron.schedule('0 0 * * *', async () => {
             console.error("Discord webhook fetch error:", error);
         });
         let sql = `UPDATE stats SET classic_completion = 0, quote_completion = 0, picture_completion = 0, music_completion = 0 WHERE type='daily'; TRUNCATE TABLE leaderboard RESTART IDENTITY;`;
-        pool.query(sql);
+        db.query(sql);
     });
 
 });
