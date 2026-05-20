@@ -121,12 +121,8 @@ export class ProfileEditDialogComponent {
     if (!form.value.element) {
       form.value.element = this.element();
     }
-
     this.ds.updateProfile(form.value.message, form.value.element, form.value.favoriteChars, form.value.favoriteShip);
-
     this.dialogRef.close(form.value);
   }
-
-
 
 }

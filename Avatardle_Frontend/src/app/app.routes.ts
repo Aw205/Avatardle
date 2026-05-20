@@ -37,5 +37,9 @@ export const routes: Routes = [
       path: 'users/:username',
       loadComponent: () => import('./profile/profile.component').then(module => module.ProfileComponent)
    },
+   {
+      path: 'privacy',
+      loadComponent: () => import('./privacy-policy/privacy-policy.component').then(module => module.PrivacyPolicyComponent)
+   },
    { path: '**', loadComponent: () => import('./not-found/not-found.component').then(module => module.NotFoundComponent) }
 ];

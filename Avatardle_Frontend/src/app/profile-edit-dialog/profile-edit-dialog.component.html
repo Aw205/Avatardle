@@ -38,7 +38,7 @@
 
             <mat-chip-listbox class="element-listbox" name="element" ngModel>
                 @for(e of elements; track e){
-                <mat-chip-option>
+                <mat-chip-option value="{{e().name}}">
                     <img matChipAvatar src="images/elements/{{e().name.toLowerCase()}}.svg" />{{e().name | translate}}
                 </mat-chip-option>
                 }

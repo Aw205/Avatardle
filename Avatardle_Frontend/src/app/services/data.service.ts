@@ -2,7 +2,7 @@
 import confetti from 'canvas-confetti';
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, interval, Observable, shareReplay, startWith, Subject, switchMap, timer } from 'rxjs';
+import { interval, Observable, shareReplay, startWith, Subject, switchMap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { AuthService } from './auth.service';
 

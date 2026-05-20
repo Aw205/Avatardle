@@ -1,0 +1,57 @@
+h1 {
+    color: darkgoldenrod;
+    font-size: 2rem;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    color: darkgoldenrod;
+    margin-top: 2em;
+    font-size: 1.4rem;
+    border-bottom: 1px solid dimgray;
+    padding-bottom: 4px;
+}
+
+h3 {
+    margin-top: 1.2em;
+    font-size: 1.1rem;
+}
+
+p {
+    margin: 0.6em 0;
+}
+
+ul {
+    margin: 0.5em 0 1em 1.2em;
+}
+
+.summary {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0;
+
+    &>strong {
+        display: block;
+        margin-bottom: 8px;
+    }
+}
+
+.main-container {
+    margin: auto;
+    width: 50%;
+    font: 1rem Georgia;
+    color: beige;
+    margin-top: 5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+@media only screen and (max-width:768px) {
+
+    .main-container {
+        width: 90%;
+    }
+}
