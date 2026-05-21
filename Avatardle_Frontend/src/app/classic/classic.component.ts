@@ -128,9 +128,10 @@ export class ClassicMode {
                         break;
                     case "affiliations":
                         tileData.affiliations = this.shuffleArray([...val]).slice(0, 3);
+                        let currAffiliationLen = tileData.affiliations.length;
                         let count = tileData.affiliations!.reduce((acc, curr) => acc + targetVal.includes(curr) | 0, 0);
                         let targetLength = Math.min(targetVal.length, 3);
-                        tileData.isCorrect = (count == 0) ? false : (count == targetLength) ? true : undefined;
+                        tileData.isCorrect = (count == 0) ? false : (count == targetLength && count === currAffiliationLen ) ? true : undefined;
                         break;
 
                     case "firstAppearance":

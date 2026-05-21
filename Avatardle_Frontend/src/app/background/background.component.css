@@ -23,7 +23,7 @@
         cursor: pointer;
         font: 6rem avatar;
         transition: transform 0.5s;
-    
+
         &:hover {
             transform: scale(1.1);
         }
@@ -43,7 +43,7 @@
     right: 1rem;
     top: 5rem;
     padding: 0.5rem;
-  
+
 
     &>button {
         cursor: pointer;
@@ -52,6 +52,7 @@
         border: none;
         padding: 0;
         font-size: 2rem;
+
         &:hover {
             opacity: 0.6;
         }
@@ -75,6 +76,12 @@ ngx-particles {
     z-index: -1;
 }
 
+.privacy-link {
+    color: gray;
+    cursor: pointer;
+    padding-left: 1rem;
+}
+
 #iroh-figure {
 
     position: fixed;
@@ -85,7 +92,7 @@ ngx-particles {
     user-select: none;
 }
 
-#cabbage-404{
+#cabbage-404 {
 
     position: fixed;
     width: 16rem;
@@ -104,15 +111,21 @@ ngx-particles {
             left: -15%;
             width: 130%;
         }
+
         &>a {
             font: 3rem avatar;
         }
     }
 
+    .privacy-link{
+        display: none;
+    }
+
     .button-container {
         display: none;
     }
-    .menu-button{
+
+    .menu-button {
         display: block;
     }
 

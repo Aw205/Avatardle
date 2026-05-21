@@ -7,10 +7,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-profile',
-  imports: [HyphenatePipe, TranslatePipe],
+  imports: [HyphenatePipe, TranslatePipe, MatTooltipModule],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css', '../leaderboard/leaderboard.component.css']
 })

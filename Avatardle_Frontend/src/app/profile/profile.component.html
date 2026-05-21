@@ -43,7 +43,7 @@
             @let c = char | hyphenate;
 
             @if(discoveredCharacters().includes(i+1)){
-            <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}">
+            <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}" matTooltip="{{c}}" matTooltipPosition="below">
             }
             @else{
             <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}" style="filter: brightness(0);">

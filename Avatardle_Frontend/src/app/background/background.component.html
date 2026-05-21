@@ -34,7 +34,9 @@
             Translate</button>
         <button mat-menu-item (click)="openDialog('about')"> <span class="material-symbols-outlined">info</span>
             About</button>
+            <!-- <a class="privacy-link" routerLink="/privacy">Privacy</a> -->
     </mat-menu>
+   
 
 </div>
 
@@ -76,6 +78,8 @@
     <button id="about-button" class="material-symbols-outlined" (click)="openDialog('about')"
         style="position: fixed; right: 1rem; bottom: 1rem;">info</button>
 </div>
+
+<!-- <a style="position: fixed; right: 3.2rem; bottom: 1.5rem; color: bisque; font-size: 0.8rem; cursor: pointer;" class="privacy-link" routerLink="/privacy">Privacy</a> -->
 
 @if(pageNotFound){
 <img id="cabbage-404" src="images/cabbage_404.webp" alt="">
