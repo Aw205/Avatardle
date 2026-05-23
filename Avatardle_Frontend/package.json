@@ -7,8 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:avatardle": "node dist/avatardle/server/server.mjs",
-    "postinstall": "patch-package"
+    "serve:ssr:avatardle": "node dist/avatardle/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -32,7 +31,6 @@
     "express": "^5.1.0",
     "ngx-countdown": "^20.0.0",
     "ngx-digit-flow": "^0.0.11",
-    "patch-package": "^8.0.0",
     "rand-seed": "^3.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
