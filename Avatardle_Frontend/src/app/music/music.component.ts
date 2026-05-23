@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { DataService, Ost } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
-import { TmNgOdometerModule } from 'odometer-ngx';
 import { AsyncPipe } from '@angular/common';
 import { CountdownComponent } from 'ngx-countdown';
 import Rand from 'rand-seed';
@@ -14,10 +13,11 @@ import { ExpandImageDialogComponent } from '../expand-image-dialog/expand-image-
 import { environment } from '../../environments/environment';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
+import { DigitFlowComponent } from 'ngx-digit-flow';
 
 @Component({
   selector: 'music',
-  imports: [DatePipe, TranslatePipe, FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, CountdownComponent,ShareResultsComponent],
+  imports: [DatePipe, TranslatePipe, FormsModule, MatTooltipModule, DigitFlowComponent, AsyncPipe, CountdownComponent,ShareResultsComponent],
   templateUrl: './music.component.html',
   styleUrl: './music.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

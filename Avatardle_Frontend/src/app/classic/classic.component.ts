@@ -4,7 +4,6 @@ import Rand, { PRNG } from 'rand-seed';
 import { TileComponent, tileData } from '../tile/tile.component';
 import { Character, DataService, FanArt } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { TmNgOdometerModule } from 'odometer-ngx';
 import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,11 +21,12 @@ import { environment } from '../../environments/environment';
 import { AuthService } from '../services/auth.service';
 import { LeaderboardService } from '../services/leaderboard.service';
 import { getSurrenderText } from '../game-mode-utils';
+import { DigitFlowComponent } from 'ngx-digit-flow';
 
 @Component({
     selector: 'classic',
     // providers:[provideNativeDateAdapter()],
-    imports: [FormsModule, TileComponent, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent],
+    imports: [FormsModule, TileComponent, MatTooltipModule, DigitFlowComponent, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent],
     templateUrl: './classic.component.html',
     styleUrl: './classic.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush

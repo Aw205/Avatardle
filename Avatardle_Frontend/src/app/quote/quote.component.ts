@@ -5,7 +5,6 @@ import { DataService } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
 import { HintDialogComponent } from '../hint-dialog/hint-dialog.component';
-import { TmNgOdometerModule } from 'odometer-ngx';
 import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { CountdownComponent } from 'ngx-countdown';
@@ -15,10 +14,11 @@ import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
 import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
 import { getSurrenderText,isSurrenderDisabled,getHintTooltip } from '../game-mode-utils';
+import { DigitFlowComponent } from 'ngx-digit-flow';
 
 @Component({
     selector: 'quote',
-    imports: [FormsModule, MatTooltipModule, TmNgOdometerModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent],
+    imports: [FormsModule, MatTooltipModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent, DigitFlowComponent],
     templateUrl: './quote.component.html',
     styleUrl: './quote.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush

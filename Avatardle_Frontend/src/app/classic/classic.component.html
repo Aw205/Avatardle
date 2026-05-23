@@ -18,8 +18,7 @@
 
 <div
     style="font: 1rem avatar2; color: gray; background-color: rgb(0,0,0,0.3); width: fit-content; margin: auto; padding: 0.5rem; border-radius: 5px; margin-block: 0.5rem;">
-    <tm-ng-odometer [number]="(ds.stats$ | async)?.classic_completion ?? 0" theme="minimal"
-        style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
+    <ngx-digit-flow [value]="(ds.stats$ | async)?.classic_completion ?? 0" [continuous]="true" spinEasing="default" style="color:darkgoldenrod;" [duration]="1500"/> {{'odometer' | translate}}
     <button [disabled]="isSurrenderDisabled()" (click)="openDialog('surrender')" class="surrender-button">
         <span class="material-symbols-outlined" [matTooltip]="getSurrenderText()" matTooltipPosition="right"
             [matTooltipDisabled]="isComplete()">flag</span>

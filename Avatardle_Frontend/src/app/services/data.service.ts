@@ -1,10 +1,11 @@
 
 import confetti from 'canvas-confetti';
-import { inject, Injectable } from '@angular/core';
+import { Inject, inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { interval, Observable, shareReplay, startWith, Subject, switchMap } from 'rxjs';
+import { interval, Observable, of, shareReplay, startWith, Subject, switchMap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { AuthService } from './auth.service';
+import { isPlatformBrowser } from '@angular/common';
 
 export interface Episode {
   [key: string]: number;
@@ -78,23 +79,27 @@ export class DataService {
 
   episodes!: string[];
   pictureData$!: Observable<Episode>;
-  stats$!: Observable<DailyStats>;
+  stats$!: Observable<DailyStats | null>;
   con$!: Observable<any>;
   transcript$!: Observable<Transcript[]>;
   osts$!: Observable<Ost[]>;
 
   pageNotFound$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: object) { }
 
 
   initialize(): Observable<Character[]> {
 
     if (environment.production) {
-      this.stats$ = interval(120000).pipe(
-        startWith(0),
-        switchMap(() => this.http.get<DailyStats>(`${environment.apiUrl}/stats`))
-      );
+      if (isPlatformBrowser(this.platformId)) {
+        this.stats$ = interval(120000).pipe(
+          startWith(0),
+          switchMap(() => this.http.get<DailyStats>(`${environment.apiUrl}/stats`))
+        );
+      } else {
+        this.stats$ = of(null);
+      }
     }
 
     let ob = this.http.get<Character[]>('json/characters.json');
@@ -118,7 +123,7 @@ export class DataService {
     this.pictureData$ = this.http.get<Episode>('json/episodes.json').pipe(shareReplay(1));
     this.con$ = this.http.get<any>('json/particleConfigs.json').pipe(shareReplay(1));
     this.osts$ = this.http.get<Ost[]>('json/osts.json').pipe(shareReplay(1));
-    
+
     return ob;
   }
 

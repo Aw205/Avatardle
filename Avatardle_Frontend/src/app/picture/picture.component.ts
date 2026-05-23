@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DataService, Episode } from '../services/data.service';
-import { TmNgOdometerModule } from 'odometer-ngx';
 import { Subscription } from 'rxjs';
 import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -14,11 +13,12 @@ import Rand from 'rand-seed';
 import { environment } from '../../environments/environment';
 import { ExpandImageDialogComponent } from '../expand-image-dialog/expand-image-dialog.component';
 import { getHintTooltip, getSurrenderText } from '../game-mode-utils';
+import { DigitFlowComponent } from 'ngx-digit-flow';
 
 
 @Component({
   selector: 'picture',
-  imports: [FormsModule, TmNgOdometerModule, AsyncPipe, TranslatePipe, MatTooltipModule],
+  imports: [FormsModule, DigitFlowComponent, AsyncPipe, TranslatePipe, MatTooltipModule],
   templateUrl: './picture.component.html',
   styleUrl: './picture.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -31,7 +31,7 @@
     "canvas-confetti": "^1.9.3",
     "express": "^5.1.0",
     "ngx-countdown": "^20.0.0",
-    "odometer-ngx": "^1.1.0",
+    "ngx-digit-flow": "^0.0.11",
     "patch-package": "^8.0.0",
     "rand-seed": "^3.0.0",
     "rxjs": "~7.8.0",

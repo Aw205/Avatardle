@@ -1,8 +1,9 @@
-
 <div style="max-width: fit-content; position:relative; font: 1rem avatar2; color: gray; margin:auto; margin-top: 5rem; z-index: 1; padding: 0.5rem;background-color: rgb(0,0,0,0.3);
     border-radius: 5px;">
-    <tm-ng-odometer [number]="(ds.stats$ | async)?.music_completion ?? 0" theme="minimal"
-        style="color:darkgoldenrod;"></tm-ng-odometer> {{'odometer' | translate}}
+
+    <ngx-digit-flow [value]="(ds.stats$ | async)?.music_completion ?? 0" [continuous]="true" spinEasing="default"
+        style="color:darkgoldenrod;" [duration]="1500" /> {{'odometer' | translate}}
+
 </div>
 
 
@@ -12,15 +13,18 @@
     <div style="display: flex; width: 100%;">
         <div style="display: flex; flex-direction: column; position: relative; align-items: center; z-index: 99;">
             <div style="position: absolute; height: 80%; border: 5px double dimgray; right: 0.4rem; "></div>
-            <div class="band-container">          
-                    <img src="images/tsungi_horn.svg" style="width: 2.5rem; position: relative; right: 0.2rem; bottom:0.2rem; user-select: none;" [class.instrument-sway]="!isPaused()">
+            <div class="band-container">
+                <img src="images/tsungi_horn.svg"
+                    style="width: 2.5rem; position: relative; right: 0.2rem; bottom:0.2rem; user-select: none;"
+                    [class.instrument-sway]="!isPaused()">
             </div>
 
             @for(h of hints?.(); track h; let i = $index){
 
             <div class="clue-container">
                 <div>
-                    <img src="images/lotus.svg" alt="" [class.disable-hint]="isEnabled(i)" style="width: 80%; user-select: none;">
+                    <img src="images/lotus.svg" alt="" [class.disable-hint]="isEnabled(i)"
+                        style="width: 80%; user-select: none;">
                     <div class="hint-content">{{h.title | translate}}<span>{{h.body}}</span>
                         <button aria-label="Hint" class="spoiler" [disabled]="!isEnabled(i)"
                             [matTooltip]="getTooltipText(i)" matTooltipPosition="right" (click)="revealHint(i)"
