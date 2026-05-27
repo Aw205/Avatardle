@@ -2,7 +2,7 @@
 import confetti from 'canvas-confetti';
 import { Inject, inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { interval, Observable, of, shareReplay, startWith, Subject, switchMap } from 'rxjs';
+import { Observable, of, shareReplay, Subject, switchMap, timer } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { AuthService } from './auth.service';
 import { isPlatformBrowser } from '@angular/common';
@@ -93,9 +93,9 @@ export class DataService {
 
     if (environment.production) {
       if (isPlatformBrowser(this.platformId)) {
-        this.stats$ = interval(120000).pipe(
-          startWith(0),
-          switchMap(() => this.http.get<DailyStats>(`${environment.apiUrl}/stats`))
+        this.stats$ = timer(0, 60000).pipe(
+          switchMap(() => this.http.get<DailyStats>(`${environment.apiUrl}/stats`)),
+          shareReplay({ bufferSize: 1, refCount: true })
         );
       } else {
         this.stats$ = of(null);

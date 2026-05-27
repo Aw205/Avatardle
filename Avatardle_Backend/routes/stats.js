@@ -16,9 +16,21 @@ router.get('/', (req, res) => {
 
 router.patch('/', (req, res) => {
 
-    const query = `UPDATE stats SET ${req.body.mode}_completion = ${req.body.mode}_completion + 1 `;
-    db.query(query);
-    return res.status(200);
+    const allowedModes = new Set(['classic', 'quote', 'picture', 'music']);
+    const { mode } = req.body;
+
+    if (!allowedModes.has(mode)) {
+        return res.sendStatus(400);
+    }
+
+    const query = `UPDATE stats SET ${mode}_completion = ${mode}_completion + 1 WHERE type='daily'`;
+    db.query(query, (err) => {
+        if (err) {
+            console.error(err.message);
+            return res.status(500).json({ error: 'Failed to update stats' });
+        }
+        return res.sendStatus(204);
+    });
 });
 
 module.exports = router;
