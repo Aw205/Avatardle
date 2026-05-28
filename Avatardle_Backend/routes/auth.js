@@ -67,7 +67,7 @@ router.post("/login", async (req, res) => {
             return res.sendStatus(401);
         }
         const token = jwt.sign({ username: user.username, user_id: user.user_id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "none", maxAge: 604800000 });
+        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 604800000 });
         return res.json({ username: username });
     });
 });
@@ -76,7 +76,7 @@ router.post("/logout", (req, res) => {
     res.clearCookie("token", {
         httpOnly: true,
         secure: true,
-        sameSite: "none"
+        sameSite: "lax"
     });
     return res.sendStatus(204);
 });
@@ -94,7 +94,7 @@ router.get('/discord', (req, res) => {
 
     const params = new URLSearchParams({
         client_id: process.env.DISCORD_CLIENT_ID,
-        redirect_uri: "https://avatardle.onrender.com/auth/discord/callback",
+        redirect_uri: "https://api.avatardle.com/auth/discord/callback",
         response_type: 'code',
         scope: 'identify',
         state,
@@ -120,7 +120,7 @@ router.get('/discord/callback', async (req, res) => {
             client_secret: process.env.DISCORD_CLIENT_SECRET,
             grant_type: 'authorization_code',
             code: code,
-            redirect_uri: "https://avatardle.onrender.com/auth/discord/callback",
+            redirect_uri: "https://api.avatardle.com/auth/discord/callback",
         }),
     });
 
@@ -159,7 +159,7 @@ router.get('/discord/callback', async (req, res) => {
             return res.status(401);
         }
         const token = jwt.sign({ username: user.username, user_id: user.user_id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "none", maxAge: 604800000 });
+        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 604800000 });
         return res.redirect('https://avatardle.com');
     });
 });
@@ -180,7 +180,7 @@ router.post('/discord/signup', async (req, res) => {
         await client.query('COMMIT');
 
         const token = jwt.sign({ username: username, user_id: user_id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "none", maxAge: 604800000 });
+        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 604800000 });
         return res.json({ username: username });
 
     } catch (e) {
