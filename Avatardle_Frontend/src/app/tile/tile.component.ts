@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, PLATFORM_ID, signal, WritableSignal, Inject, inject, input, effect } from '@angular/core';
+import { Component, Input, PLATFORM_ID, signal, WritableSignal, Inject, inject, input, effect } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LocalStorageService } from '../services/local-storage.service';
@@ -24,8 +24,7 @@ export interface tileData {
   selector: 'tile',
   imports: [MatTooltipModule, TranslatePipe],
   templateUrl: './tile.component.html',
-  styleUrl: './tile.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './tile.component.css'
 })
 export class TileComponent {
 

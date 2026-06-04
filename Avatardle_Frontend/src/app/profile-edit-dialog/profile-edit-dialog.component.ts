@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, Inject, inject, linkedSignal, model, Signal, signal, WritableSignal } from '@angular/core';
+import {  Component, computed, Inject, inject, linkedSignal, model, Signal, signal, WritableSignal } from '@angular/core';
 import {
   MatDialogTitle,
   MatDialogContent,
@@ -22,7 +22,6 @@ import { HyphenatePipe } from '../pipes/hyphenate.pipe';
   imports: [MatDialogTitle, MatDialogContent, MatInputModule, MatFormFieldModule, FormsModule, TranslatePipe, MatChipsModule, HyphenatePipe],
   templateUrl: './profile-edit-dialog.component.html',
   styleUrl: './profile-edit-dialog.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfileEditDialogComponent {
 

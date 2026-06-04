@@ -1,11 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { inject, Service, signal, WritableSignal } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class AuthService {
 
   private router = inject(Router);
@@ -21,7 +19,7 @@ export class AuthService {
         this.user = data.username;
       },
       error: (err) => {
-        
+
       }
     });
   }

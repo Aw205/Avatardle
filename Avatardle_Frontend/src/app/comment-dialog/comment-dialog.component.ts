@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   MatDialogTitle,
   MatDialogContent,
@@ -16,8 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   selector: 'app-comment-dialog',
   imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatInputModule, MatFormFieldModule, FormsModule, TranslatePipe],
   templateUrl: './comment-dialog.component.html',
-  styleUrl: './comment-dialog.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './comment-dialog.component.css'
 })
 export class CommentDialogComponent {
 

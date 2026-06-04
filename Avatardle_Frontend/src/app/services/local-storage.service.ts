@@ -1,4 +1,4 @@
-import { effect, inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { effect, inject, Service, signal, WritableSignal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { tileData } from '../tile/tile.component';
 
@@ -18,9 +18,7 @@ export interface AvatardleProgress {
   notesNotif: boolean
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class LocalStorageService {
 
   VERSION: string = "2.0";

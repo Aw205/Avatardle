@@ -1,5 +1,5 @@
-import { inject, Injectable } from '@angular/core';
-import { catchError, switchMap, timer } from 'rxjs';
+import { inject, Service } from '@angular/core';
+import { catchError, switchMap } from 'rxjs';
 import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
@@ -11,9 +11,7 @@ export interface LeaderboardRecord {
   element: string
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class LeaderboardService {
 
   private as: AuthService = inject(AuthService);

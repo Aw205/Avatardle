@@ -1,6 +1,6 @@
 
 import confetti from 'canvas-confetti';
-import { Inject, inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Inject, inject, PLATFORM_ID, Service } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, shareReplay, Subject, switchMap, timer } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -61,10 +61,8 @@ export interface Ost {
   timestamps: string[]
 }
 
-@Injectable({
-  providedIn: 'root'
-})
 
+@Service()
 export class DataService {
 
   as: AuthService = inject(AuthService);

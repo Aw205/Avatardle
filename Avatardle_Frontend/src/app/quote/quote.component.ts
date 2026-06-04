@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, Inject, inject, PLATFORM_ID, Signal, signal, WritableSignal } from '@angular/core';
+import { Component, computed, Inject, inject, PLATFORM_ID, Signal, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand from 'rand-seed';
 import { DataService } from '../services/data.service';
@@ -20,8 +20,7 @@ import { DigitFlowComponent } from 'ngx-digit-flow';
     selector: 'quote',
     imports: [FormsModule, MatTooltipModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent, DigitFlowComponent],
     templateUrl: './quote.component.html',
-    styleUrl: './quote.component.css',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrl: './quote.component.css'
 })
 
 export class QuoteMode {

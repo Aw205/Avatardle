@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, inject, input, model, output, Output, signal, WritableSignal } from '@angular/core';
+import { Component, inject, input, WritableSignal } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -11,8 +11,7 @@ import { AuthService } from '../services/auth.service';
   selector: 'app-signup',
   imports: [MatInputModule, MatFormFieldModule, FormsModule, TranslatePipe, ReactiveFormsModule],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './signup.component.css'
 })
 export class SignupComponent {
 

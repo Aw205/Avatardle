@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Background } from './background/background.component';
 
@@ -6,7 +6,6 @@ import { Background } from './background/background.component';
   selector: 'app-root',
   imports: [RouterOutlet, Background],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './app.component.css'
 })
 export class AppComponent {}

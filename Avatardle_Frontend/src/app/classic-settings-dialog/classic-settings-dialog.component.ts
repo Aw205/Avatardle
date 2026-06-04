@@ -85,7 +85,7 @@ export class ClassicSettingsDialogComponent {
 
     let series = this.list.filter((item) => item.selected == true).map((item) => item.name);
 
-    if(this.colorMode() == "custom"){
+    if (this.colorMode() == "custom") {
       this.incorrectColor.set(this.colorForm.get('incorrectColor')?.value!);
       this.correctColor.set(this.colorForm.get('correctColor')?.value!);
     }

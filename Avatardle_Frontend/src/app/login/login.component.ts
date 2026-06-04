@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, input, WritableSignal } from '@angular/core';
+import { Component, inject, input, WritableSignal } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +14,6 @@ import { environment } from '../../environments/environment';
   imports: [MatInputModule, MatFormFieldModule, FormsModule, TranslatePipe, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: '../signup/signup.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
 

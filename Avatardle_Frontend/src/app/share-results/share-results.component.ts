@@ -10,19 +10,45 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ShareResultsComponent {
 
-
   @Input() numGuesses: number = 0;
+  @Input() tileData: any[] = [];
   @Input() mode!: "classic" | "quote" | "picture" | "music";
   messages: any;
   private snackBar = inject(MatSnackBar);
 
   ngOnInit() {
 
+    let guess = ""
+    if (this.tileData.length > 0) {
+      for (let i of this.tileData) {
+        if (i.name !== undefined) {
+          guess += "\n";
+          continue;
+        }
+        if (i.isCorrect) {
+          guess += "🟩";
+        }
+        else if (i.isCorrect === false) {
+          guess += "🟥";
+        }
+        else {
+          guess += "🟨";
+        }
+      }
+    }
+    else {
+      guess = `\n${this.mode} - `;
+      for (let i = 0; i < this.numGuesses - 1; i++) {
+        guess += '🟥';
+      }
+      guess += '🟩';
+    }
+
     this.messages = {
-      classic: encodeURIComponent(`I guessed today's character in ${this.numGuesses} tries! ༄ Check out Avatardle.com :)`),
-      quote: encodeURIComponent(`I guessed today's quote in ${this.numGuesses} tries! 💬 Check out Avatardle.com :)`),
-      picture: encodeURIComponent(`I guessed today's scene in ${this.numGuesses} tries! 🏞️ Check out Avatardle.com :)`),
-      music: encodeURIComponent(`I guessed today's music in ${this.numGuesses} tries! 🎵 Check out Avatardle.com :)`)
+      classic: encodeURIComponent(`Avatardle.com - ${new Date().toLocaleDateString()} ${guess} \nhttps://avatardle.com/`),
+      quote: encodeURIComponent(`Avatardle.com - ${new Date().toLocaleDateString()} ${guess} \nhttps://avatardle.com/`),
+      picture: encodeURIComponent(`Avatardle.com - ${new Date().toLocaleDateString()} ${guess} \nhttps://avatardle.com/`),
+      music: encodeURIComponent(`Avatardle.com - ${new Date().toLocaleDateString()} ${guess} \nhttps://avatardle.com/`)
     }
   }
 

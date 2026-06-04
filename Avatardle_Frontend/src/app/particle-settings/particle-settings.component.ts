@@ -1,4 +1,4 @@
-import { afterNextRender, ChangeDetectionStrategy, Component, inject, Inject, signal, WritableSignal } from '@angular/core';
+import { afterNextRender, Component, inject, Inject, signal, WritableSignal } from '@angular/core';
 import { MatDialogTitle, MatDialogContent, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from "@ngx-translate/core";
@@ -8,8 +8,7 @@ import { LocalStorageService } from '../services/local-storage.service';
   selector: 'particle-settings',
   imports: [MatDialogContent, MatDialogTitle, FormsModule, TranslatePipe],
   templateUrl: './particle-settings.component.html',
-  styleUrl: './particle-settings.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './particle-settings.component.css'
 })
 export class ParticleSettingsComponent {
 

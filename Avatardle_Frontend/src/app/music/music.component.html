@@ -68,7 +68,7 @@
     <div class="title">{{targetOST?.name}}</div>
     <img [src]="targetScene">
     <div class="complete-container">
-        <p>{{'artist' | translate}} <span style="color: beige;"><a class="artist-name" [href]="targetOST?.link"
+        <p>{{'artist' | translate}} <span style="color: beige;"><a class="artist-name" [href]="$safeNavigationMigration(targetOST?.link)"
                     target="_blank">Jeremy
                     Zuckerman</a></span> </p>
         <p>{{'attempts' | translate}}<span style="color: beige;">{{ls.progress().music.numGuesses}}</span></p>

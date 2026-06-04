@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Inject, inject, PLATFORM_ID, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Component, ElementRef, Inject, inject, PLATFORM_ID, signal, ViewChild, WritableSignal } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { DatePipe, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -19,8 +19,7 @@ import { DigitFlowComponent } from 'ngx-digit-flow';
   selector: 'music',
   imports: [DatePipe, TranslatePipe, FormsModule, MatTooltipModule, DigitFlowComponent, AsyncPipe, CountdownComponent,ShareResultsComponent],
   templateUrl: './music.component.html',
-  styleUrl: './music.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './music.component.css'
 })
 export class MusicMode {
 

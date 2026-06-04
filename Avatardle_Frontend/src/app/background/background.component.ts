@@ -1,4 +1,4 @@
-import { Component, inject, signal, WritableSignal, PLATFORM_ID, Inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, WritableSignal, PLATFORM_ID, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
@@ -23,8 +23,7 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'background',
   imports: [RouterLink, RouterLinkActive, NgxParticlesModule, AsyncPipe, LanguageSettingsComponent, MatMenuModule, MatBadgeModule, TranslatePipe],
   templateUrl: './background.component.html',
-  styleUrl: './background.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './background.component.css'
 })
 
 export class Background {

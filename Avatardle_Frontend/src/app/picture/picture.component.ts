@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
+import { Component, Inject, inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DataService, Episode } from '../services/data.service';
 import { Subscription } from 'rxjs';
@@ -20,8 +20,7 @@ import { DigitFlowComponent } from 'ngx-digit-flow';
   selector: 'picture',
   imports: [FormsModule, DigitFlowComponent, AsyncPipe, TranslatePipe, MatTooltipModule],
   templateUrl: './picture.component.html',
-  styleUrl: './picture.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './picture.component.css'
 })
 export class PictureMode {
 

@@ -1,5 +1,5 @@
 
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import {MatDialogContent, MatDialogActions, MatDialogRef } from '@angular/material/dialog';
 import { TranslatePipe } from '@ngx-translate/core';
 @Component({

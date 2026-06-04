@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { SignupComponent } from '../signup/signup.component';
 import { LoginComponent } from '../login/login.component';

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, Inject, inject, model, PLATFORM_ID, Signal, signal, WritableSignal } from '@angular/core';
+import { Component, computed, Inject, inject, PLATFORM_ID, Signal, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand, { PRNG } from 'rand-seed';
 import { TileComponent, tileData } from '../tile/tile.component';
@@ -28,8 +28,7 @@ import { DigitFlowComponent } from 'ngx-digit-flow';
     // providers:[provideNativeDateAdapter()],
     imports: [FormsModule, TileComponent, MatTooltipModule, DigitFlowComponent, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent],
     templateUrl: './classic.component.html',
-    styleUrl: './classic.component.css',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    styleUrl: './classic.component.css'
 })
 export class ClassicMode {
 
