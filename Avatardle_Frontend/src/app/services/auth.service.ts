@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   private router = inject(Router);
+  private http = inject(HttpClient);
   isLoggedIn: WritableSignal<boolean> = signal(false);
   user: string = "";
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   initialize() {
     this.getMe().subscribe({

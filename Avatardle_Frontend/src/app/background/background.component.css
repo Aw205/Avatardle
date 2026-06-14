@@ -76,12 +76,6 @@ ngx-particles {
     z-index: -1;
 }
 
-.privacy-link {
-    color: gray;
-    cursor: pointer;
-    padding-left: 1rem;
-}
-
 #iroh-figure {
 
     position: fixed;
@@ -115,10 +109,6 @@ ngx-particles {
         &>a {
             font: 3rem avatar;
         }
-    }
-
-    .privacy-link{
-        display: none;
     }
 
     .button-container {

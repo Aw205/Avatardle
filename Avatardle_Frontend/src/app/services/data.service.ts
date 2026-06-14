@@ -66,6 +66,8 @@ export interface Ost {
 export class DataService {
 
   as: AuthService = inject(AuthService);
+  private http = inject(HttpClient);
+  private platformId = inject(PLATFORM_ID);
 
   characterData!: Character[];
   characterFilter!: CharacterFilter;
@@ -84,7 +86,7 @@ export class DataService {
 
   pageNotFound$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: object) { }
+  constructor() { }
 
 
   initialize(): Observable<Character[]> {

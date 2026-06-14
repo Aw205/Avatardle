@@ -67,7 +67,7 @@ router.post("/login", async (req, res) => {
             return res.sendStatus(401);
         }
         const token = jwt.sign({ username: user.username, user_id: user.user_id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 604800000 });
+        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 30 * 24 * 60 * 60 * 1000 });
         return res.json({ username: username });
     });
 });
@@ -159,7 +159,7 @@ router.get('/discord/callback', async (req, res) => {
             return res.status(401);
         }
         const token = jwt.sign({ username: user.username, user_id: user.user_id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 604800000 });
+        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 30 * 24 * 60 * 60 * 1000 });
         return res.redirect('https://avatardle.com');
     });
 });
@@ -180,7 +180,7 @@ router.post('/discord/signup', async (req, res) => {
         await client.query('COMMIT');
 
         const token = jwt.sign({ username: username, user_id: user_id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 604800000 });
+        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 30 * 24 * 60 * 60 * 1000 });
         return res.json({ username: username });
 
     } catch (e) {

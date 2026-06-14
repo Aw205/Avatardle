@@ -15,7 +15,9 @@ export interface LeaderboardRecord {
 export class LeaderboardService {
 
   private as: AuthService = inject(AuthService);
-  constructor(private http: HttpClient) { }
+  private http: HttpClient = inject(HttpClient);
+  
+  constructor() { }
 
   getLeaderboard() {
 

@@ -1,0 +1,24 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    font-size: 0.85rem;
+    text-align: center;
+    padding-bottom: 1.5rem;
+
+    &>a {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        color: gray;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        padding-inline: 0.5rem;
+    }
+
+    &>a:not(:last-child) {
+        border-right: 1px ridge dimgray;
+    }
+}
