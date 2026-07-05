@@ -192,6 +192,11 @@
         "discoveredChars": "Personagens descobertos",
         "message": "Mensagem"
     },
+    "footer": {
+        "privacy": "Privacidade",
+        "terms": "Termos",
+        "discord": "Junte-se ao nosso Discord"
+    },
     "Water": "Água",
     "Earth": "Terra",
     "Air": "Ar",

@@ -190,6 +190,11 @@
         "discoveredChars": "Discovered characters:",
         "message": "Message"
     },
+    "footer": {
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "discord": "Join our Discord"
+    },
     "Water": "Water",
     "Earth": "Earth",
     "Air": "Air",

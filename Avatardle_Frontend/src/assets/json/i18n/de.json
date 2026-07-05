@@ -191,6 +191,11 @@
         "discoveredChars": "Entdeckte Figuren",
         "message": "Nachricht"
     },
+    "footer": {
+        "privacy": "Datenschutz",
+        "terms": "Begriffe",
+        "discord": "Tritt unserem Discord bei"
+    },
     "Water": "Wasser",
     "Earth": "Erde",
     "Air": "Luft",
