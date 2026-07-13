@@ -105,6 +105,7 @@ export class QuoteMode {
     onEnter(select: string | undefined) {
 
         if (!select) return;
+        this.guesses.unshift(select);
         if (select == this.target()) {
             this.searchVal.set(this.target());
             this.isComplete.set(true);
@@ -113,7 +114,6 @@ export class QuoteMode {
             this.ds.updateStats("quote");
             return;
         }
-        this.guesses.unshift(select);
         this.searchVal.set('');
         this.characterData.splice(this.characterData.indexOf(select), 1);
         this.ls.patch(['quote', 'guesses'], this.guesses);
