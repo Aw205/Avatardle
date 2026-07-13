@@ -2,14 +2,19 @@
     "water": [
         {
             "particles": {
-                "color": {
-                    "value": [
-                        "#c6fbff",
-                        "#abf0ff",
-                        "#99c4ce",
-                        "#73999a",
-                        "#628485"
-                    ]
+                "paint": {
+                    "stroke": {
+                        "width": 1,
+                        "color": {
+                            "value": [
+                                "#c6fbff",
+                                "#abf0ff",
+                                "#99c4ce",
+                                "#73999a",
+                                "#628485"
+                            ]
+                        }
+                    }
                 },
                 "move": {
                     "direction": "bottom",
@@ -20,12 +25,16 @@
                         "max": 20
                     }
                 },
+                "rotate": {
+                    "value": 90,          
+                    "path": false
+                  },
                 "number": {
                     "density": {
                         "enable": true,
                         "area": 800
                     },
-                    "value": 140
+                    "value": 240
                 },
                 "opacity": {
                     "value": {
@@ -34,13 +43,8 @@
                     }
                 },
                 "shape": {
-                    "type": "char",
-                    "options": {
-                        "char": {
-                            "value": "|",
-                            "font": "Verdana"
-                        }
-                    }
+                    "type": "line",
+                    "close": false
                 },
                 "size": {
                     "value": {
@@ -55,13 +59,17 @@
     "fire": [
         {
             "particles": {
-                "color": {
-                    "value": [
-                        "#ff4500",
-                        "#ff8c00",
-                        "#ffa500",
-                        "#FDDA0D"
-                    ]
+                "paint": {
+                    "fill": {
+                        "color": {
+                            "value": [
+                                "#ff4500",
+                                "#ff8c00",
+                                "#ffa500",
+                                "#FDDA0D"
+                            ]
+                        }
+                    }
                 },
                 "move": {
                     "direction": "top",
@@ -91,10 +99,19 @@
                         "sync": false
                     }
                 },
-                "shadow": {
-                    "enable": true,
-                    "color": "#ff4500",
-                    "blur": 10
+                "effect": {
+                    "type": "shadow",
+                    "options": {
+                        "shadow": {
+                            "enable": true,
+                            "color": "#ff4500",
+                            "blur": 10,
+                            "offset": {
+                                "x": 0,
+                                "y": 0
+                            }
+                        }
+                    }
                 },
                 "opacity": {
                     "value": {
@@ -123,14 +140,18 @@
                         "area": 800
                     }
                 },
-                "color": {
-                    "value": [
-                        "#042408",
-                        "#22421a",
-                        "#286f29",
-                        "#368d33",
-                        "#56b24e"
-                    ]
+                "paint": {
+                    "fill": {
+                        "color": {
+                            "value": [
+                                "#042408",
+                                "#22421a",
+                                "#286f29",
+                                "#368d33",
+                                "#56b24e"
+                            ]
+                        }
+                    }
                 },
                 "shape": {
                     "type": "image",
@@ -197,12 +218,16 @@
         {
             "fpsLimit": 20,
             "particles": {
-                "color": {
-                    "value": [
-                        "#c0ffe7",
-                        "#82e7c0",
-                        "#57d7a5"
-                    ]
+                "paint": {
+                    "fill": {
+                        "color": {
+                            "value": [
+                                "#c0ffe7",
+                                "#82e7c0",
+                                "#57d7a5"
+                            ]
+                        }
+                    }
                 },
                 "move": {
                     "direction": "none",
@@ -248,10 +273,15 @@
                     },
                     "random": true
                 },
-                "shadow": {
-                    "enable": true,
-                    "color": "#0BDA51",
-                    "blur": 20
+                "effect": {
+                    "type": "shadow",
+                    "options": {
+                        "shadow": {
+                            "enable": true,
+                            "color": "#0BDA51",
+                            "blur": 20
+                        }
+                    }
                 },
                 "opacity": {
                     "value": {
@@ -283,11 +313,15 @@
         },
         {
             "particles": {
-                "color": {
-                    "value": [
-                        "#00a1ae",
-                        "#68c7ca"
-                    ]
+                "paint": {
+                    "fill": {
+                        "color": {
+                            "value": [
+                                "#00a1ae",
+                                "#68c7ca"
+                            ]
+                        }
+                    }
                 },
                 "move": {
                     "direction": "none",

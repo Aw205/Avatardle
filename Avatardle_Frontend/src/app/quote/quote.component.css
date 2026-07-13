@@ -1,3 +1,72 @@
+#search-container {
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 30rem;
+    height: 2.75rem;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+
+    background-color: var(--search-bar-background-color);
+    border-radius: 0 10px 10px 0;
+
+    z-index: 99;
+
+    &>input {
+
+        background-color: var(--search-bar-background-color);
+        width: 90%;
+        font: 2rem avatar2;
+        color: beige;
+        border-radius: 0 10px 10px 0;
+        border: none;
+
+        &.quote-complete {
+            text-align: center;
+            color: green !important;
+        }
+    }
+
+}
+
+.mode-container {
+    background-color: rgb(0, 0, 0, 0.3);
+    display: flex;
+    width: fit-content;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 3rem;
+    color: dimgray;
+    user-select: none;
+    font: 1rem avatar2;
+
+    &>div {
+
+        flex: 1;
+        border-radius: 5px;
+        padding: 0.2rem;
+        align-items: center;
+        display: flex;
+        cursor: pointer;
+        padding-inline: 1rem;
+
+        &:hover {
+            color: gray;
+        }
+
+        &.selected {
+
+            background-color: black;
+            color: darkgoldenrod;
+
+        }
+
+    }
+}
+
 .guess-container {
 
     display: flex;
@@ -89,14 +158,100 @@
     }
 }
 
-.quote-search-bar {
+.blitz-result-container {
 
-    background-color: rgb(30, 30, 30);
-    width: 100%;
-    font: 2rem avatar2;
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
     color: goldenrod;
+    width: 20rem;
+    border-radius: 16px;
+    font: 1rem avatar2;
+
+    &>.complete-container {
+
+        position: relative;
+        border: 1px outset black;
+        outline: 2px solid black;
+        border-radius: 1rem;
+        background-color: rgb(15, 15, 15);
+        text-indent: 1rem;
+        margin-top: 1rem;
+
+        &>.blitz-guesses {
+
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 2.5rem);
+            place-content: center;
+
+            &>img {
+                width: 2rem;
+                height: auto;
+                border-radius: 5px;
+                cursor: pointer;
+                user-select: none;
+            }
+
+        }
+
+        &>.blitz-score {
+            font: 4rem avatar2;
+            color: darkgoldenrod;
+            text-align: center;
+            /* margin-bottom: 1rem; */
+        }
+    }
+}
+
+.blitz-play {
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #78C0A8;
+    font-size: 3rem;
+    cursor: pointer;
+    background-color: transparent;
     border: none;
-    border-right: 0.5rem solid gray;
+    transform-origin: top left;
+    transition: scale 0.2s ease-in-out;
+
+    &:hover {
+        filter: brightness(1.1);
+        scale: 1.2;
+    }
+
+}
+
+.strike{
+    scale: 2;
+    transition: scale 0.3s ease;
+    @starting-style{
+        scale: 1;
+    }
+}
+
+.blitz-restart {
+
+    position: absolute;
+    right: 0;
+    top: 0.5em;
+    transform: translate(-50%, -50%);
+    color: #78C0A8;
+    font-size: 3rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transform-origin: top left;
+    transition: scale 0.2s ease-in-out;
+
+    &:hover {
+        filter: brightness(1.1);
+        scale: 1.2;
+    }
+
 }
 
 .quote-container {
@@ -116,7 +271,8 @@
         color: beige;
         line-height: 4rem;
         box-shadow: 0px 0px 1rem 40px #00000082;
-
+        transition: color 0.3s ease;
+    
         &::before {
 
             font-family: Georgia;
@@ -126,6 +282,10 @@
             position: relative;
             top: 0;
             left: -1rem;
+        }
+
+        &.hi{
+            color: rgba(245, 245, 220,0.3);
         }
     }
 
@@ -165,24 +325,14 @@
             }
         }
     }
-
-    &>.search-container {
-
-        position: absolute;
-        display: flex;
-        justify-content: right;
-        top: 100%;
-        right: 0;
-        width: 30%;
-    }
-}
-
-.quote-complete {
-    text-align: center;
-    color: darkgoldenrod;
 }
 
 @media only screen and (max-width: 768px) {
+
+    .blitz-restart{
+        font-size: 2rem;
+        top: 1.5rem;
+    }
 
     .quote-container {
         width: 70%;
@@ -209,7 +359,7 @@
         width: 15rem;
     }
 
-    .clue-container {   
+    .clue-container {
         &>button {
             &>img {
                 width: 1.5rem !important;

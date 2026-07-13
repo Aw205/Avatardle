@@ -14,8 +14,8 @@ import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
 import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
-// import {MatDatepickerModule} from '@angular/material/datepicker';
-// import {provideNativeDateAdapter} from '@angular/material/core';
+import { MatDatepickerInputEvent, MatDatepickerModule } from '@angular/material/datepicker';
+import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../environments/environment';
 import { AuthService } from '../services/auth.service';
@@ -25,8 +25,8 @@ import { DigitFlowComponent } from 'ngx-digit-flow';
 
 @Component({
     selector: 'classic',
-    // providers:[provideNativeDateAdapter()],
-    imports: [FormsModule, TileComponent, MatTooltipModule, DigitFlowComponent, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent],
+    providers: [provideNativeDateAdapter()],
+    imports: [FormsModule, TileComponent, MatTooltipModule, DigitFlowComponent, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent, MatDatepickerModule],
     templateUrl: './classic.component.html',
     styleUrl: './classic.component.css'
 })
@@ -67,9 +67,10 @@ export class ClassicMode {
 
     usernameInput: WritableSignal<string> = signal('');
     colorTrigger: WritableSignal<string> = signal('');
-    // minDate: Date = new Date(2025,3,14);
-    // maxDate: Date = new Date();
-    // selectedDate = model<Date | null>(null);
+    maxDate: Date = new Date();
+    minDate: Date = new Date();
+    
+    selectedDate: string = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
 
     constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
@@ -81,11 +82,12 @@ export class ClassicMode {
         });
 
         if (isPlatformBrowser(this.platformId)) {
+            this.minDate.setDate(this.maxDate.getDate() - 31);
             this.setData();
             this.as.getMe().subscribe((data) => {
                 this.usernameInput.set(data.username);
                 this.inputDisabled.set(true);
-            })
+            });
         }
     }
 
@@ -130,7 +132,7 @@ export class ClassicMode {
                         let currAffiliationLen = tileData.affiliations.length;
                         let count = tileData.affiliations!.reduce((acc, curr) => acc + targetVal.includes(curr) | 0, 0);
                         let targetLength = Math.min(targetVal.length, 3);
-                        tileData.isCorrect = (count == 0) ? false : (count == targetLength && count === currAffiliationLen ) ? true : undefined;
+                        tileData.isCorrect = (count == 0) ? false : (count == targetLength && count === currAffiliationLen) ? true : undefined;
                         break;
 
                     case "firstAppearance":
@@ -160,14 +162,14 @@ export class ClassicMode {
     checkGuess(numCorrect: number) {
 
         if (numCorrect == 6) {
-            this.ds.updateDiscoveredCharacters(this.targetChar.name);
             this.searchVal.set(this.targetChar.name);
-
             this.isComplete.set(true);
-            this.ls.patch(['classic', 'complete'], true);
             this.ds.throwConfetti(this.ls.progress().classic.guesses.length);
-            this.ds.updateStats("classic");
-
+            if(this.selectedDate === this.ls.currentDate){
+                this.ds.updateDiscoveredCharacters(this.targetChar.name);
+                this.ls.patch(['classic', 'complete'], true);
+                this.ds.updateStats("classic");
+            }
             setTimeout(() => {
                 window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })
             }, 1000);
@@ -218,6 +220,20 @@ export class ClassicMode {
         this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
     }
 
+    setArchiveData() {
+
+        this.rand = new Rand(this.selectedDate + "classic" + this.ls.progress().classic.series);
+        this.isComplete.set(false);
+        this.tileArray.set([]);
+        this.guessAttempts = 0;
+        this.searchVal.set("");
+        this.characterData = this.ds.getClassicCharacterData(this.ls.progress().classic.series);
+        this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
+        this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
+        this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
+
+    }
+
     shuffleArray(array: any[]) {
 
         let rand = new Rand(this.ls.progress().date! + "classic_shuffle");
@@ -233,7 +249,7 @@ export class ClassicMode {
     }
 
     getSurrenderText(): string {
-       return getSurrenderText(this.isComplete(),this.guessAttempts,6);
+        return getSurrenderText(this.isComplete(), this.guessAttempts, 6);
     }
 
     submitToLeaderboard() {
@@ -243,7 +259,7 @@ export class ClassicMode {
             charNames.push(this.tileArray()[i]?.name!);
         }
 
-        this.leaderboardService.updateLeaderboard(this.usernameInput().trim(), charNames).subscribe({
+        this.leaderboardService.updateLeaderboard(this.usernameInput().trim(), "classic", charNames).subscribe({
             error: (err) => {
                 this.usernameError.set(true);
             },
@@ -254,5 +270,14 @@ export class ClassicMode {
             },
         });
     }
+
+    onDateSelect(event: MatDatepickerInputEvent<Date>) {
+   
+        this.selectedDate = event.value?.toLocaleDateString("en-US", { timeZone: "UTC" })!;
+        if(event.value?.toDateString() === this.maxDate.toDateString()){
+            return this.setData();
+        }
+        this.setArchiveData();
+      }
 
 }

@@ -1,0 +1,68 @@
+<div id="search-container">
+    <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250" class="search-symbol">
+    <input type="text" placeholder="{{'searchPlaceholder' | translate}}" spellcheck="false" autocomplete="off"
+        (focusout)="isVisible.set(false)" (focusin)="isVisible.set(true)" (keydown.enter)="onEnter(charList()[0])"
+        [(ngModel)]="searchVal" />
+    <ul class="search-dropdown" [style.display]="isVisible() ? 'block' : 'none'">
+        @for (char of charList(); track char){
+        <li (mousedown)="onEnter(char)">
+            <img src="images/characters/{{char | hyphenate}}.webp" style="width: 3rem; padding-right: 1rem;">
+            {{char}}
+        </li>
+        }
+    </ul>
+</div>
+
+<div
+    style="width: 60%; position:relative; font: 1rem avatar2; color: gray; margin:auto; margin-top: 1rem; z-index: 1; padding-bottom: 0.5rem; display: flex; justify-content: space-between; user-select: none;">
+    <span>Score: <ngx-digit-flow [value]="score()" [continuous]="true" spinEasing="default" style="color:darkgoldenrod;"
+            [duration]="500" /> </span>
+    <div style="color: indianred; display: flex; gap: 1rem; font-size: 1rem;">
+        @for (num of [].constructor(strikes()); track $index){
+        <span class="strike">&times;</span>
+        }
+
+    </div>
+    <countdown #cd [config]="{leftTime: 120, demand: true,format: 'mm:ss'}" style="color:darkgoldenrod; width: 2.5rem;"
+        (event)="handleCountdownEvent($event)" />
+</div>
+
+<div class="quote-container">
+    <blockquote [class.hi]="isComplete()">{{quote()}}</blockquote>
+    <button class="blitz-play" (click)="startBlitz()" [style.display]="quote()==' ' ? 'block' : 'none'">▶</button>
+    @if(isComplete()){
+    <button class="blitz-restart" (click)="startBlitz()">↻</button>
+    }
+</div>
+
+@if(isComplete()){
+<div class="blitz-result-container fade-in">
+    <div class="complete-container">
+        <p style="margin-bottom: 0;">Score:</p>
+        <div class="blitz-score"> {{score()}} </div>
+        <div class="blitz-guesses">
+            @for(e of guesses; track $index){
+            <img src="images/characters/{{e.char | hyphenate}}.webp" width="333" height="250" draggable="false" alt="">
+            }
+        </div>
+
+        <p>Longest Streak: <span style="color: beige;">{{streak()}}</span></p>
+    </div>
+    <div class="share-leaderboard">
+
+        @if(!auth.isLoggedIn()){
+        <p>Log in to post your score</p>
+        }
+        @else{
+        {{'postLeaderboard' | translate}}
+        <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput">
+        @if(!submittedToLeaderboard()){
+        <button (click)="submitToLeaderboard()"
+            [disabled]="usernameInput().trim().length == 0">{{'submit' |
+            translate}}</button>
+        }
+        }
+    </div>
+</div>
+
+}

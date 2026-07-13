@@ -4,6 +4,7 @@
     font-size: 0.85rem;
     text-align: center;
     padding-bottom: 1.5rem;
+    user-select: none;
 
     &>a {
         display: inline-flex;

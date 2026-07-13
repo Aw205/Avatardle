@@ -5,9 +5,9 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { AboutDialogComponent } from '../about-dialog/about-dialog.component';
 import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
 import { CommentDialogComponent } from '../comment-dialog/comment-dialog.component';
-import { NgxParticlesModule } from "@tsparticles/angular";
-import { tsParticles } from '@tsparticles/engine';
+import { NgParticlesService, NgxParticlesModule } from "@tsparticles/angular";
 import { loadFull } from "tsparticles";
+import { loadShadowEffect } from '@tsparticles/effect-shadow'; 
 import { DataService } from '../services/data.service';
 import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { ParticleSettingsComponent } from '../particle-settings/particle-settings.component';
@@ -32,6 +32,7 @@ export class Background {
   readonly ds = inject(DataService);
   readonly ls = inject(LocalStorageService);
   readonly auth = inject(AuthService);
+  private readonly ngParticlesService = inject(NgParticlesService);
 
   showParticles: WritableSignal<boolean> = signal(true);
   cycleElement!: string;
@@ -43,6 +44,12 @@ export class Background {
   constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
   ngOnInit() {
+
+    this.ngParticlesService.init(async (engine) => {
+      await loadShadowEffect(engine);
+      await loadFull(engine); 
+      
+    });
 
     if (isPlatformBrowser(this.platformId)) {
       this.showParticles.set(this.ls.progress().particleSettings.enable);
@@ -58,14 +65,6 @@ export class Background {
     this.ds.pageNotFound$.subscribe((val) => {
       this.pageNotFound = val;
     });
-
-  }
-
-  async particlesInit(): Promise<void> {
-
-    if (isPlatformBrowser(this.platformId)) {
-      await loadFull(tsParticles);
-    }
 
   }
 

@@ -13,23 +13,29 @@ import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
 import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
-import { getSurrenderText,isSurrenderDisabled,getHintTooltip } from '../game-mode-utils';
+import { getSurrenderText, isSurrenderDisabled, getHintTooltip } from '../game-mode-utils';
+import { QuoteBlitzComponent } from '../quote-blitz/quote-blitz.component';
 import { DigitFlowComponent } from 'ngx-digit-flow';
+import { LeaderboardService } from '../services/leaderboard.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../services/auth.service';
 
 @Component({
     selector: 'quote',
-    imports: [FormsModule, MatTooltipModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent, DigitFlowComponent],
+    imports: [FormsModule, MatTooltipModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent, DigitFlowComponent,QuoteBlitzComponent],
     templateUrl: './quote.component.html',
     styleUrl: './quote.component.css'
 })
 
 export class QuoteMode {
 
+    mode: WritableSignal<string> = signal('daily');
     quote: WritableSignal<string> = signal('');
     target: WritableSignal<string> = signal('');
     isComplete: WritableSignal<boolean> = signal(false);
-    isVisible: WritableSignal<boolean> = signal(true);
+    isVisible: WritableSignal<boolean> = signal(false);
     searchVal: WritableSignal<string> = signal('');
+    transcript: any[] = [];
 
     charList: Signal<string[]> = computed(() => {
         let val = this.searchVal().toLowerCase();
@@ -38,14 +44,21 @@ export class QuoteMode {
     characterData: string[] = [];
     hints: { title: string, quote: string }[] = [];
     guesses: string[] = [];
-
+    usernameInput: WritableSignal<string> = signal('');
+    inputDisabled: WritableSignal<boolean> = signal(false);
+    
     ls = inject(LocalStorageService);
     title = inject(Title);
     meta = inject(Meta);
     ds = inject(DataService);
+    as = inject(AuthService);
     dialog = inject(MatDialog);
+    private leaderboardService = inject(LeaderboardService);
+    snackBar = inject(MatSnackBar);
+    submittedToLeaderboard: WritableSignal<boolean> = signal(false);
+    usernameError: WritableSignal<boolean> = signal(false);
 
-    constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+    constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
     ngOnInit() {
         this.title.setTitle("Quote | Avatardle");
@@ -64,8 +77,14 @@ export class QuoteMode {
 
             this.isComplete.set(this.ls.progress().quote.complete);
 
+            this.as.getMe().subscribe((data) => {
+                this.usernameInput.set(data.username);
+                this.inputDisabled.set(true);
+            });
+
             this.ds.transcript$.subscribe((data) => {
 
+                this.transcript = data;
                 this.target.set(data[idx].Character);
                 this.quote.set(data[idx].script);
                 this.hints = [
@@ -75,7 +94,9 @@ export class QuoteMode {
                 ];
 
                 if (this.ls.progress().quote.complete) {
-                    this.searchVal.set("-" + this.target());
+                    this.searchVal.set(this.target());
+                    this.submittedToLeaderboard.set(this.ls.progress().quote.leaderboardUsername != undefined);
+                    this.usernameInput.set(this.ls.progress().quote.leaderboardUsername || '');
                 }
             });
         }
@@ -83,23 +104,19 @@ export class QuoteMode {
 
     onEnter(select: string | undefined) {
 
+        if (!select) return;
         if (select == this.target()) {
-
-            this.searchVal.set("-" + this.target());
-
+            this.searchVal.set(this.target());
             this.isComplete.set(true);
             this.ls.patch(['quote'], { complete: true, guesses: this.guesses });
             this.ds.throwConfetti(this.guesses.length);
             this.ds.updateStats("quote");
-
+            return;
         }
-        else if (select != undefined) {
-
-            this.guesses.unshift(select);
-            this.searchVal.set('');
-            this.characterData.splice(this.characterData.indexOf(select), 1);
-            this.ls.patch(['quote', 'guesses'], this.guesses);
-        }
+        this.guesses.unshift(select);
+        this.searchVal.set('');
+        this.characterData.splice(this.characterData.indexOf(select), 1);
+        this.ls.patch(['quote', 'guesses'], this.guesses);
     }
 
     isEnabled(hintId: number) {
@@ -118,10 +135,10 @@ export class QuoteMode {
     }
 
     getTooltipText(hintId: number): string {
-        return getHintTooltip(this.isComplete(),this.guesses.length,2,hintId);
+        return getHintTooltip(this.isComplete(), this.guesses.length, 2, hintId);
     }
     getSurrenderText(): string {
-        return getSurrenderText(this.isComplete(),this.guesses.length,5);
+        return getSurrenderText(this.isComplete(), this.guesses.length, 5);
     }
     isSurrenderDisabled() {
         return this.isComplete() || this.guesses.length < 5;
@@ -135,6 +152,28 @@ export class QuoteMode {
             });
         }
     }
+
+    setMode(mode: string) {
+        if(this.isComplete()){
+            this.mode.set(mode);
+        }
+    }
+
+    submitToLeaderboard() {
+
+        this.leaderboardService.updateLeaderboard(this.usernameInput().trim(),"quote", this.guesses).subscribe({
+            error: (err) => {
+                this.usernameError.set(true);
+            },
+            complete: () => {
+                this.snackBar.open("Submitted!", undefined, { panelClass: "snack-bar", duration: 4000 });
+                this.submittedToLeaderboard.set(true);
+                this.ls.patch(['quote', 'leaderboardUsername'], this.usernameInput());
+            },
+        });
+    }
+
+
 }
 
 

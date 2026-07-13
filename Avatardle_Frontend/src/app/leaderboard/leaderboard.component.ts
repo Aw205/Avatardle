@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, inject, signal, WritableSignal } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
-import { LeaderboardRecord } from '../services/leaderboard.service';
+import { BlitzLeaderboardRecord, LeaderboardRecord } from '../services/leaderboard.service';
 import { CountdownComponent } from 'ngx-countdown';
 import { MatMenuModule } from '@angular/material/menu';
 import { LocalStorageService } from '../services/local-storage.service';
@@ -27,13 +27,18 @@ export class LeaderboardComponent {
   meta = inject(Meta);
   cdr = inject(ChangeDetectorRef);
   list: WritableSignal<LeaderboardRecord[]> = signal([]);
-  modes: string[] = ["classic"];
+  blitzRecords: WritableSignal<BlitzLeaderboardRecord[]> = signal([]);
+  modes: string[] = ["classic", "quote"];
+  selectedMode: WritableSignal<string> = signal("Classic");
   env = environment;
 
   ngOnInit() {
 
-    this.leaderboardService.getLeaderboard().subscribe(data => {
+    this.leaderboardService.getLeaderboard("classic").subscribe(data => {
       this.list.set(data);
+    });
+    this.leaderboardService.getBlitzLeaderboard("quote").subscribe(data => {
+      this.blitzRecords.set(data);
     })
 
     this.title.setTitle("Leaderboard | Avatardle");
@@ -58,6 +63,14 @@ export class LeaderboardComponent {
 
   sortTable() {
     this.list.set([...this.list()].reverse());
+  }
+
+  setMode(mode: string) {
+    this.selectedMode.set(mode.charAt(0).toUpperCase() + mode.slice(1));
+    this.leaderboardService.getLeaderboard(mode).subscribe(data => {
+      this.list.set(data);
+    })
+
   }
 
   onImageError(event: Event) {

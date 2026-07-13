@@ -13,17 +13,32 @@
         </li>
         }
     </ul>
-
 </div>
 
 <div
     style="font: 1rem avatar2; color: gray; background-color: rgb(0,0,0,0.3); width: fit-content; margin: auto; padding: 0.5rem; border-radius: 5px; margin-block: 0.5rem;">
-    <ngx-digit-flow [value]="(ds.stats$ | async)?.classic_completion ?? 0" [continuous]="true" spinEasing="default" style="color:darkgoldenrod;" [duration]="1500"/> {{'odometer' | translate}}
+    <ngx-digit-flow [value]="(ds.stats$ | async)?.classic_completion ?? 0" [continuous]="true" spinEasing="default"
+        style="color:darkgoldenrod;" [duration]="1500" /> {{'odometer' | translate}}
     <button [disabled]="isSurrenderDisabled()" (click)="openDialog('surrender')" class="surrender-button">
         <span class="material-symbols-outlined" [matTooltip]="getSurrenderText()" matTooltipPosition="right"
             [matTooltipDisabled]="isComplete()">flag</span>
     </button>
 </div>
+
+<div
+    style="font: 1rem avatar2; color: gray; background-color: rgb(0,0,0,0.3); width: 6rem; margin: auto; border-radius: 5px; margin-block: 0.5rem; display: flex; padding: 0.5rem; padding-right: 1rem;" >
+    <input matInput [matDatepicker]="picker" [value]="maxDate"
+        style="background-color: transparent; border: none; color: gray; font: 1rem avatar2; pointer-events: none;width: 100%;"
+        [min]="minDate" [max]="maxDate" (dateChange)="onDateSelect($event)"
+        [disabled]="!ls.progress().classic.complete">
+    <mat-datepicker-toggle [for]="picker" style="cursor: pointer;" matTooltip="Complete daily to unlock" matTooltipPosition="right"
+    [matTooltipDisabled]="ls.progress().classic.complete">
+        <span class="material-symbols-outlined" matDatepickerToggleIcon>{{(ls.progress().classic.complete) ? 'calendar_today' : 'lock'}}</span>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</div>
+
+
 
 <div class="categories-container">
     <div class="category">{{'classic.character' | translate}}</div>
@@ -65,7 +80,8 @@
         <share-results [numGuesses]="guessAttempts" [mode]="'classic'" [tileData]="tileArray()"></share-results>
     </div>
 
-    <div id="share-leaderboard">
+    @if(selectedDate == ls.currentDate){
+    <div class="share-leaderboard">
         {{'postLeaderboard' | translate}}
         <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput"
             [disabled]="submittedToLeaderboard() || inputDisabled()">
@@ -77,11 +93,6 @@
             translate}}</button>
         }
     </div>
-
-    <!-- <div id="archive">
-        <p style="color: goldenrod;">Archive</p>
-        <mat-calendar [minDate]="minDate" [maxDate]="maxDate" [(selected)]="selectedDate"></mat-calendar>
-    </div> -->
-
+    }
 </div>
 }

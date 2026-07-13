@@ -1,9 +1,9 @@
 @defer( on idle){
 @if(showParticles()){
 @if(ds.con$ | async; as opt){
-<ngx-particles id="id1" [options]="opt[currElement][0]" [particlesInit]="particlesInit"></ngx-particles>
+<ngx-particles id="id1" [options]="opt[currElement][0]"></ngx-particles>
 @if(opt[currElement].length == 2){
-<ngx-particles id="id2" [options]="opt[currElement][1]" [particlesInit]="particlesInit"></ngx-particles>
+<ngx-particles id="id2" [options]="opt[currElement][1]"></ngx-particles>
 }
 }
 }
@@ -34,7 +34,6 @@
             Translate</button>
         <button mat-menu-item (click)="openDialog('about')"> <span class="material-symbols-outlined">info</span>
             About</button>
-            <!-- <a class="privacy-link" routerLink="/privacy">Privacy</a> -->
     </mat-menu>
    
 
@@ -62,6 +61,7 @@
         border: none;
         padding: 0;
         font-size: 2rem;
+        user-select: none;
     ">account_circle</button>
     }
 </div>

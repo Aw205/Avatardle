@@ -10,7 +10,7 @@ export interface AvatardleProgress {
     colors: { mode: string, incorrectColor: string, correctColor: string }
     leaderboardUsername: string | undefined
   },
-  quote: { complete: boolean, guesses: string[] },
+  quote: { complete: boolean, guesses: string[], leaderboardUsername: string | undefined },
   picture: { complete: boolean, numGuesses: number },
   music: { complete: boolean, numGuesses: number },
   particleSettings: { enable: boolean },
@@ -21,14 +21,14 @@ export interface AvatardleProgress {
 @Service()
 export class LocalStorageService {
 
-  VERSION: string = "2.0";
+  VERSION: string = "2.1";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
   progress: WritableSignal<AvatardleProgress>;
   default: AvatardleProgress = {
     date: this.currentDate,
     version: this.VERSION,
     classic: { complete: false, guesses: [], series: ["ATLA-title"], colors: { mode: "#bf2c23+#295e11", incorrectColor: "#bf2c23", correctColor: "#295e11" }, leaderboardUsername: undefined },
-    quote: { complete: false, guesses: [] },
+    quote: { complete: false, guesses: [], leaderboardUsername: undefined },
     picture: { complete: false, numGuesses: 0 },
     music: { complete: false, numGuesses: 0 },
     particleSettings: {
