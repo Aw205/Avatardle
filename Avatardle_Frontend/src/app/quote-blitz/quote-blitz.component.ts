@@ -53,15 +53,15 @@ export class QuoteBlitzComponent {
     });
     this.auth.getMe().subscribe((data) => {
       this.usernameInput.set(data.username);
-  });
+    });
 
   }
 
   onEnter(select: string | undefined) {
 
     if (!select) return;
-
-    if (select == this.target()) {
+  
+    if (!this.isComplete() && select == this.target()) {
       this.searchVal.set('');
       this.score.update((val) => val + 1);
       this.streak.update((val) => val + 1);
@@ -92,7 +92,6 @@ export class QuoteBlitzComponent {
           }
         }
         this.streak.set(longestStreak);
-
         return;
       }
       this.setNextQuote();
@@ -146,14 +145,14 @@ export class QuoteBlitzComponent {
 
   submitToLeaderboard() {
 
-    this.leaderboardService.updateBlitzLeaderboard(this.usernameInput().trim(),"quote",this.score(),this.streak()).subscribe({
-        error: (err) => {
-           console.log("Error submitting to blitz leaderboard");
-        },
-        complete: () => {
-            this.snackBar.open("Submitted!", undefined, { panelClass: "snack-bar", duration: 4000 });
-            this.submittedToLeaderboard.set(true);
-        },
+    this.leaderboardService.updateBlitzLeaderboard(this.usernameInput().trim(), "quote", this.score(), this.streak()).subscribe({
+      error: (err) => {
+        console.log("Error submitting to blitz leaderboard");
+      },
+      complete: () => {
+        this.snackBar.open("Submitted!", undefined, { panelClass: "snack-bar", duration: 4000 });
+        this.submittedToLeaderboard.set(true);
+      },
     });
   }
 
