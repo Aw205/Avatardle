@@ -35,7 +35,6 @@
         <button mat-menu-item (click)="openDialog('about')"> <span class="material-symbols-outlined">info</span>
             About</button>
     </mat-menu>
-   
 
 </div>
 
@@ -47,24 +46,25 @@
     <button mat-menu-item (click)="auth.logout()">{{'logOut' | translate}}</button>
 </mat-menu>
 
-<div class="button-container">
-
+<div class="account-button-container">
     @if(auth.isLoggedIn()){
     <button style="font: 1rem avatar2; color: darkgoldenrod; cursor: pointer; background: none; border: none;"
         [matMenuTriggerFor]="accountMenu">{{auth.user}}</button>
     }
     @else{
-    <button class="material-symbols-outlined" (click)="openDialog('signup')">account_circle</button>
+    <button class="material-symbols-outlined sidebar-button" (click)="openDialog('signup')">account_circle</button>
     }
+</div>
 
-    <button class="material-symbols-outlined" (click)="openDialog('help')">help</button>
-    <button class="material-symbols-outlined" (click)="openDialog('comment')">comment</button>
-    <button class="material-symbols-outlined" (click)="openDialog('particle-setting')">grain</button>
-    <button class="material-symbols-outlined" routerLink="/leaderboard">trophy</button>
-    <button class="material-symbols-outlined" (click)="openDialog('notes')" matBadge="1" matBadgeSize="small"
-        [matBadgeHidden]="!notesNotif()">article</button>
-    <button class="material-symbols-outlined" [matMenuTriggerFor]="submenu">translate</button>
-    <button class="material-symbols-outlined" (click)="openDialog('about')">info</button>
+<div class="button-container">
+    <button class="material-symbols-outlined sidebar-button" (click)="openDialog('help')">help</button>
+    <button class="material-symbols-outlined sidebar-button" (click)="openDialog('comment')">comment</button>
+    <button class="material-symbols-outlined sidebar-button" (click)="openDialog('particle-setting')">grain</button>
+    <button class="material-symbols-outlined sidebar-button" routerLink="/leaderboard">trophy</button>
+    <button class="material-symbols-outlined sidebar-button" (click)="openDialog('notes')" matBadge="1"
+        matBadgeSize="small" [matBadgeHidden]="!notesNotif()">article</button>
+    <button class="material-symbols-outlined sidebar-button" [matMenuTriggerFor]="submenu">translate</button>
+    <button class="material-symbols-outlined sidebar-button" (click)="openDialog('about')">info</button>
 </div>
 
 @if(pageNotFound){
