@@ -47,26 +47,15 @@
     <button mat-menu-item (click)="auth.logout()">{{'logOut' | translate}}</button>
 </mat-menu>
 
-<div
-    style="background-color: rgba(0, 0, 0, 0.2); padding: 0.5rem; right: 1rem;top: 1rem; position: fixed; border-radius: 5px;">
+<div class="button-container">
+
     @if(auth.isLoggedIn()){
     <button style="font: 1rem avatar2; color: darkgoldenrod; cursor: pointer; background: none; border: none;"
         [matMenuTriggerFor]="accountMenu">{{auth.user}}</button>
     }
     @else{
-    <button class="material-symbols-outlined" (click)="openDialog('signup')" style="
-        cursor: pointer;
-        color: bisque;
-        background-color: transparent;
-        border: none;
-        padding: 0;
-        font-size: 2rem;
-        user-select: none;
-    ">account_circle</button>
+    <button class="material-symbols-outlined" (click)="openDialog('signup')">account_circle</button>
     }
-</div>
-
-<div class="button-container">
 
     <button class="material-symbols-outlined" (click)="openDialog('help')">help</button>
     <button class="material-symbols-outlined" (click)="openDialog('comment')">comment</button>
@@ -75,8 +64,7 @@
     <button class="material-symbols-outlined" (click)="openDialog('notes')" matBadge="1" matBadgeSize="small"
         [matBadgeHidden]="!notesNotif()">article</button>
     <button class="material-symbols-outlined" [matMenuTriggerFor]="submenu">translate</button>
-    <button id="about-button" class="material-symbols-outlined" (click)="openDialog('about')"
-        style="position: fixed; right: 1rem; bottom: 1rem;">info</button>
+    <button class="material-symbols-outlined" (click)="openDialog('about')">info</button>
 </div>
 
 @if(pageNotFound){
