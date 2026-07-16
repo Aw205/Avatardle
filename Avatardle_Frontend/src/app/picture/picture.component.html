@@ -1,3 +1,14 @@
+<div class="mode-container">
+    <div (click)="setMode('daily')" [class.selected]="mode()=='daily'">
+        <span class="material-symbols-outlined">calendar_today</span>Daily
+    </div>
+    <div (click)="setMode('infinite')" [class.selected]="mode()=='infinite'">
+        Infinite
+    </div>
+</div>
+
+@if(mode()==='daily'){
+
 <div class="search-bar-container">
     <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250">
     <input type="text" placeholder="{{'searchPlaceholder' | translate }}" spellcheck="false" autocomplete="off"
@@ -15,7 +26,8 @@
 
 
 <div style="position:relative; width: fit-content; margin:auto; font: 1rem avatar2; color: gray; z-index: 1;">
-    <ngx-digit-flow [value]="(ds.stats$ | async)?.picture_completion ?? 0" [continuous]="true" spinEasing="default" style="color:darkgoldenrod;" [duration]="1500"/> {{'odometer' | translate}}
+    <ngx-digit-flow [value]="(ds.stats$ | async)?.picture_completion ?? 0" [continuous]="true" spinEasing="default"
+        style="color:darkgoldenrod;" [duration]="1500" /> {{'odometer' | translate}}
     <button [disabled]="isSurrenderDisabled()" (click)="openDialog('surrender')" class="surrender-button">
         <span class="material-symbols-outlined" [matTooltip]="getSurrenderText()" matTooltipPosition="right"
             [matTooltipDisabled]="isComplete()">flag</span>
@@ -43,4 +55,9 @@
 @for (ans of incorrectAnswers; track ans){
 @let name = 'episodes.' + ans | translate;
 <div class="incorrect-picture-guess"><span>{{ans.substring(0,7)}}</span>{{name}}</div>
+}
+
+}
+@else {
+<picture-infinite></picture-infinite>
 }
