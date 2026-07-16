@@ -47,6 +47,11 @@
         &:hover {
             background-color: rgb(35, 35, 35);
         }
+
+        &.highlighted {
+            background-color: rgb(35, 35, 35);
+            color: darkgoldenrod;
+        }
     }
 }
 
@@ -151,15 +156,6 @@
     &:hover {
         filter: brightness(1.1);
         scale: 1.2;
-    }
-}
-
-.search-dropdown {
-    &>li {
-        &.highlighted {
-            background-color: rgb(35, 35, 35);
-            color: darkgoldenrod;
-        }
     }
 }
 

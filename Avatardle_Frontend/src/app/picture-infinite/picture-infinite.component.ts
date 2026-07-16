@@ -59,12 +59,13 @@ export class PictureInfiniteComponent implements OnInit {
     const frameIdx = Math.floor(Math.random() * frameCount);
     const frameStr = String(frameIdx).padStart(3, '0');
 
-    this.targetFrame.set(`${environment.r2AssetUrl}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${frameStr}.webp`);
+    this.targetFrame.set(`${environment.r2AssetUrl}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${frameStr}.webp`.replace(/'/g, "%27"));
 
     this.episodeData = [...episodes];
     this.searchVal = "";
     this.episodeList = [];
     this.selected = "";
+    this.highlightedIndex.set(-1);
   }
 
   onInput(event: Event) {
