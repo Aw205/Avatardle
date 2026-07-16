@@ -46,7 +46,7 @@
 <div class="image-container">
     <div class="image-wrapper">
         <img [src]="targetFrame()" alt="A frame from an episode of Avatar: The Last Airbender" width="1440"
-            height="1080" />
+            height="1080" (error)="onImageError()" />
     </div>
 </div>
 }

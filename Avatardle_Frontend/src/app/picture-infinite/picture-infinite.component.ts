@@ -112,6 +112,11 @@ export class PictureInfiniteComponent implements OnInit {
     }
   }
 
+  onImageError() {
+    console.warn('Frame failed to load, re-rolling:', this.targetFrame());
+    this.setNextFrame();
+  }
+
   restart() {
     this.startGame();
   }
