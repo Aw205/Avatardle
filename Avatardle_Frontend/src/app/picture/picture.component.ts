@@ -14,11 +14,12 @@ import { environment } from '../../environments/environment';
 import { ExpandImageDialogComponent } from '../expand-image-dialog/expand-image-dialog.component';
 import { getHintTooltip, getSurrenderText } from '../game-mode-utils';
 import { DigitFlowComponent } from 'ngx-digit-flow';
+import { PictureInfiniteComponent } from '../picture-infinite/picture-infinite.component';
 
 
 @Component({
   selector: 'picture',
-  imports: [FormsModule, DigitFlowComponent, AsyncPipe, TranslatePipe, MatTooltipModule],
+  imports: [FormsModule, DigitFlowComponent, AsyncPipe, TranslatePipe, MatTooltipModule, PictureInfiniteComponent],
   templateUrl: './picture.component.html',
   styleUrl: './picture.component.css'
 })
@@ -29,6 +30,7 @@ export class PictureMode {
   nextFrame: string = "";
   isVisible: WritableSignal<boolean> = signal(true);
   isComplete: WritableSignal<boolean> = signal(false);
+  mode: WritableSignal<string> = signal('daily');
 
   targetEpisode: string = "";
   epiNum: string = "";
@@ -189,6 +191,10 @@ export class PictureMode {
     }
   }
 
+  setMode(mode: string) {
+    this.mode.set(mode);
+  }
+
   expandImage(imgURL: string, title: string) {
 
     this.dialog.open(ExpandImageDialogComponent, {
@@ -201,6 +207,6 @@ export class PictureMode {
     });
   }
 
- 
+
 
 }

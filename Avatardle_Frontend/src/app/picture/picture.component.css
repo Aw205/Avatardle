@@ -137,3 +137,35 @@
     }
 
 }
+
+.mode-container {
+    background-color: rgb(0, 0, 0, 0.3);
+    display: flex;
+    width: fit-content;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 3rem;
+    color: dimgray;
+    user-select: none;
+    font: 1rem avatar2;
+
+    &>div {
+        flex: 1;
+        border-radius: 5px;
+        padding: 0.2rem;
+        align-items: center;
+        display: flex;
+        cursor: pointer;
+        padding-inline: 1rem;
+
+        &:hover {
+            color: gray;
+        }
+
+        &.selected {
+            background-color: black;
+            color: darkgoldenrod;
+        }
+    }
+}
