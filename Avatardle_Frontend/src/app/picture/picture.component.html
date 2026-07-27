@@ -2,8 +2,9 @@
     <div (click)="setMode('daily')" [class.selected]="mode()=='daily'">
         <span class="material-symbols-outlined">calendar_today</span>Daily
     </div>
-    <div (click)="setMode('infinite')" [class.selected]="mode()=='infinite'">
-        Infinite
+    <div (click)="setMode('infinite')" [class.selected]="mode()=='infinite'" style="position: relative;"
+        matTooltip="Complete daily to unlock" matTooltipPosition="right" [matTooltipDisabled]="isComplete()">
+        <span class="material-symbols-outlined">{{isComplete() ? 'sync' : 'lock'}}</span>Infinite
     </div>
 </div>
 

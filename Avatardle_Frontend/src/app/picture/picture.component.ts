@@ -192,7 +192,9 @@ export class PictureMode {
   }
 
   setMode(mode: string) {
-    this.mode.set(mode);
+    if (this.isComplete()) {
+      this.mode.set(mode);
+    }
   }
 
   expandImage(imgURL: string, title: string) {
