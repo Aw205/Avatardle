@@ -21,11 +21,15 @@ export class PictureInfiniteComponent implements OnInit {
   private searchInput = viewChild<ElementRef<HTMLInputElement>>('searchInput');
 
   private hoverLeaveTimeout: ReturnType<typeof setTimeout> | null = null;
+  private preloadedUrls: Set<string> = new Set();
+  private frameQueue: { episode: string, url: string }[] = [];
+  private readonly QUEUE_TARGET_SIZE = 5;
 
   pictureData: Episode | null = null;
 
   targetFrame: WritableSignal<string> = signal("");
   targetEpisode: string = "";
+  frameLoaded: WritableSignal<boolean> = signal(false);
 
   score: WritableSignal<number> = signal(0);
   scorePopped: WritableSignal<boolean> = signal(false);
@@ -66,6 +70,7 @@ export class PictureInfiniteComponent implements OnInit {
     this.timedOut.set(false);
     this.roundStarted.set(false);
     this.guesses = [];
+    this.frameQueue = [];
     this.countdownConfig = { leftTime: this.selectedTime(), demand: true, format: 'mm:ss' };
     this.setNextFrame();
   }
@@ -135,23 +140,53 @@ export class PictureInfiniteComponent implements OnInit {
     }
   }
 
+  buildFrameUrl(episode: string, frameIdx: number): string {
+    const frameStr = String(frameIdx).padStart(3, '0');
+    return `${environment.r2AssetUrl}/frames/${encodeURIComponent(episode)}/frame_${frameStr}.webp`.replace(/'/g, "%27");
+  }
+
+  preloadFrame(url: string) {
+    if (this.preloadedUrls.has(url)) return;
+    const img = new Image();
+    img.src = url;
+    this.preloadedUrls.add(url);
+  }
+
+  fillFrameQueue() {
+    if (!this.pictureData) return;
+    const episodes = this.ds.episodes.slice(0, 61);
+
+    while (this.frameQueue.length < this.QUEUE_TARGET_SIZE) {
+      const ep = episodes[Math.floor(Math.random() * episodes.length)];
+      const frameCount = this.pictureData[ep];
+      const idx = Math.floor(Math.random() * frameCount);
+      const url = this.buildFrameUrl(ep, idx);
+
+      this.frameQueue.push({ episode: ep, url });
+      this.preloadFrame(url);
+    }
+  }
+
   setNextFrame() {
     if (!this.pictureData) return;
 
-    const episodes = this.ds.episodes.slice(0, 61);
-    this.targetEpisode = episodes[Math.floor(Math.random() * episodes.length)];
+    if (this.frameQueue.length == 0) {
+      this.fillFrameQueue();
+    }
 
-    const frameCount = this.pictureData[this.targetEpisode];
-    const frameIdx = Math.floor(Math.random() * frameCount);
-    const frameStr = String(frameIdx).padStart(3, '0');
+    const next = this.frameQueue.shift()!;
+    this.targetEpisode = next.episode;
 
-    this.targetFrame.set(`${environment.r2AssetUrl}/frames/${encodeURIComponent(this.targetEpisode)}/frame_${frameStr}.webp`.replace(/'/g, "%27"));
+    this.frameLoaded.set(false);
+    this.targetFrame.set(next.url);
 
-    this.episodeData = [...episodes];
+    this.episodeData = [...this.ds.episodes.slice(0, 61)];
     this.searchVal = "";
     this.episodeList = [];
     this.selected = "";
     this.highlightedIndex.set(-1);
+
+    this.fillFrameQueue();
   }
 
   onInput(event: Event) {
@@ -198,6 +233,10 @@ export class PictureInfiniteComponent implements OnInit {
       this.roundStarted.set(false);
       this.countdown()?.stop();
     }
+  }
+
+  onImageLoad() {
+    this.frameLoaded.set(true);
   }
 
   onImageError() {

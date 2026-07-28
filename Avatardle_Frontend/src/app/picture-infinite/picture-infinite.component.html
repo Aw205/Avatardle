@@ -50,7 +50,7 @@
 <div class="image-container">
     <div class="image-wrapper">
         <img [src]="targetFrame()" alt="A frame from an episode of Avatar: The Last Airbender" width="1440"
-            height="1080" (error)="onImageError()" />
+            height="1080" [class.frame-loaded]="frameLoaded()" (load)="onImageLoad()" (error)="onImageError()" />
 
         @if (!roundStarted()) {
         <div class="frame-overlay">
