@@ -3,11 +3,11 @@
     display: flex;
     justify-content: center;
     position: relative;
-
+  
     width: 50rem;
     height: 3rem;
     margin: auto;
-    margin-top: 1rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
 
     &>img {
@@ -24,6 +24,7 @@
         border-radius: 0 10px 10px 0;
         border: none;
     }
+
 }
 
 .search-dropdown {

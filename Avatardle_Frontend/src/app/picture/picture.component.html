@@ -4,9 +4,10 @@
     </div>
     <div (click)="setMode('infinite')" [class.selected]="mode()=='infinite'" style="position: relative;"
         matTooltip="Complete daily to unlock" matTooltipPosition="right" [matTooltipDisabled]="isComplete()">
-        <span class="material-symbols-outlined">{{isComplete() ? 'sync' : 'lock'}}</span>Infinite
+        <span class="material-symbols-outlined">{{isComplete() ? 'electric_bolt' : 'lock'}}</span>Blitz
     </div>
 </div>
+
 
 @if(mode()==='daily'){
 
