@@ -1,17 +1,21 @@
-@if (!hasStarted()) {
-<button class="infinite-play" (click)="startGame()">▶</button>
-} @else {
-<div style="
-      position: relative;
-      width: fit-content;
-      margin: auto;
-      font: 1.5rem avatar2;
-      color: gray;
-      z-index: 1;
-    ">
-    Score:
-    <ngx-digit-flow [value]="score()" [continuous]="true" spinEasing="default"
-        style="color: darkgoldenrod; font-size: 1.5rem" [duration]="500" />
+<div class="score-timer-row">
+    <span class="score-display" [class.score-pop]="scorePopped()">Score:
+        <ngx-digit-flow [value]="score()" [continuous]="true" spinEasing="default"
+            style="color: darkgoldenrod; font-size: 1.5rem" [duration]="500" />
+    </span>
+
+    <div class="timer-wrapper" (mouseenter)="onTimerHover(true)" (mouseleave)="onTimerHover(false)">
+        <countdown #cd [config]="countdownConfig" style="color: darkgoldenrod;"
+            (event)="handleCountdownEvent($event)" />
+
+        @if (timeDropdownOpen()) {
+        <ul class="time-dropdown" (mouseenter)="onTimerHover(true)" (mouseleave)="onTimerHover(false)">
+            @for (opt of timeOptions; track opt.value) {
+            <li [class.selected]="opt.value === selectedTime()" (click)="selectTime(opt.value)">{{ opt.label }}</li>
+            }
+        </ul>
+        }
+    </div>
 </div>
 
 @if (!isComplete()) {
@@ -35,7 +39,7 @@
 </div>
 } @else {
 <div class="infinite-result fade-in">
-    <div class="title">Game Over</div>
+    <div class="title">{{ timedOut() ? "Time's Up" : 'Game Over' }}</div>
     <div class="answer-reveal">
         The correct answer was: {{ targetEpisode }}
     </div>
@@ -47,6 +51,12 @@
     <div class="image-wrapper">
         <img [src]="targetFrame()" alt="A frame from an episode of Avatar: The Last Airbender" width="1440"
             height="1080" (error)="onImageError()" />
+
+        @if (!roundStarted()) {
+        <div class="frame-overlay">
+            <button class="frame-play-button" (mousedown)="$event.preventDefault()"
+                (click)="onPlayButtonClick()">▶</button>
+        </div>
+        }
     </div>
 </div>
-}
