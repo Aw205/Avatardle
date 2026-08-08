@@ -1,0 +1,205 @@
+:host {
+    display: block;
+    color: beige;
+    font-family: Georgia;
+}
+
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+}
+
+.notes-header h1,
+.notes-header p {
+    margin: 0;
+}
+
+.notes-header h1 {
+    color: beige;
+    font-family: Georgia, serif;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.notes-dialog-content {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(11rem, 15rem) minmax(0, 1fr);
+    overflow: hidden;
+}
+
+.notes-sidebar {
+
+    padding-top: 1rem;
+    border-right: 1px solid rgba(184, 135, 11, 0.503);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    overflow-y: auto;
+    padding-right: 0.75rem;
+    scrollbar-color: rgb(60, 60, 60) rgb(30, 30, 30);
+    scrollbar-width: thin;
+
+    height: 30rem;
+
+}
+
+.date-button {
+    background-color: rgb(20, 20, 20);
+    border: none;
+    border-radius: 5px;
+    color: beige;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    text-align: left;
+
+    &>.date {
+        color: darkgoldenrod;
+        font: 0.8rem Georgia;
+    }
+
+    &>.date-title {
+        font: 1rem Georgia;
+    }
+
+    &.active {
+        color: plum;
+    }
+
+    &:hover {
+        background-color: rgb(25, 25, 25);
+    }
+}
+
+.note-panel {
+
+    overflow-y: scroll;
+    scrollbar-color: rgb(60, 60, 60) rgb(30, 30, 30);
+    scrollbar-width: thin;
+    height: 30rem;
+
+    &>h2 {
+        color: beige;
+        font-size: 1.5rem;
+    }
+}
+
+.note-meta {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.55rem;
+}
+
+.note-date {
+    color: darkgoldenrod;
+    font-size: 0.9rem;
+}
+
+.note-count {
+    color: gray;
+    font-size: 0.8rem;
+}
+
+
+.summary {
+    color: rgb(210, 202, 176);
+    margin: 0 0 1rem;
+}
+
+.note-section {
+    border-top: 1px solid rgba(245, 245, 220, 0.1);
+
+    background-color: rgb(25, 25, 25);
+    padding: 0.5rem;
+    color: beige;
+}
+
+.note-section+.note-section {
+    margin-top: 0.85rem;
+}
+
+.note-section {
+
+    h3 {
+        color: plum;
+        font-size: 1.05rem;
+        margin: 0 0 0.45rem;
+    }
+
+    p {
+        color: beige;
+        line-height: 1.55;
+        margin: 0 0 0.6rem;
+    }
+
+    ul {
+        line-height: 1.45;
+        margin: 0.3rem 0 0;
+        padding-left: 1.25rem;
+    }
+
+    li+li {
+        margin-top: 0.3rem;
+    }
+
+}
+
+.note-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+}
+
+.note-links {
+
+    a {
+        border: 1px solid rgba(221, 160, 221, 0.45);
+        border-radius: 999px;
+        color: plum;
+        padding: 0.35rem 0.65rem;
+        text-decoration: none;
+
+        &:hover {
+            background-color: rgba(221, 160, 221, 0.14);
+            text-decoration: underline;
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .notes-header {
+        padding: 1rem 1rem 0.8rem;
+    }
+
+    .notes-dialog-content {
+        display: flex;
+        flex-direction: column;
+        max-height: 70vh;
+        padding: 0.85rem 1rem 1rem;
+    }
+
+    .notes-sidebar {
+        border-bottom: 1px solid rgba(184, 134, 11, 0.26);
+        border-right: 0;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0 0 0.75rem;
+        max-height: 6rem;
+    }
+
+    .date-button {
+        flex: 0 0 10rem;
+    }
+
+    .note-panel {
+        min-height: 22rem;
+    }
+}

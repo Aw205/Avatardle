@@ -1,106 +1,57 @@
-<h1 mat-dialog-title style="font: 2rem Georgia;"> {{'notesDialog.title' | translate}}
+<header mat-dialog-title class="notes-header">
+    <div>
+        <h1>{{'notesDialog.title' | translate}}</h1>
+    </div>
     <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
-</h1>
-<mat-dialog-content style="color:beige; font-family: Georgia; scrollbar-color: rgb(60, 60, 60) rgb(30, 30, 30); scrollbar-width: thin;">
+</header>
 
-    <p style="color: darkgoldenrod;">07/12/26</p>
-    <p><span style="color:plum;">Classic Archive</span></p>
-    <p>Once you complete the daily, you will be able to access an archive up to 30 days of past puzzles. </p>
-    <ul>
-        
-        <li>Puzzles completed from the archive will not count toward profile progress</li>
-        <li>Progress in archived puzzles is not saved...for now.</li>
-    </ul>
-    <p><span style="color:plum;">Blitz Mode - Quote</span></p>
-    <ul>
-        <li>Guess rapid-fire quotes and score as many points as you can before you get 3 strikes or time runs out! </li>
-        <li>Attempt as many times as you want. </li>
-        <li>Post your scores to a blitz leaderboard (must be logged in).</li>
-    </ul>
 
-    <p><span style="color:plum;">Next up...</span></p>
-    <ul>
-        <li>Blitz for picture mode</li>
-        <li>Leaderboard improvements (more filters, UI, etc)</li>
-        <li>Additional polish to archives and existing features</li>
-        <li>More character icons</li>
-    </ul>
+<mat-dialog-content class="notes-dialog-content">
+    <aside class="notes-sidebar">
+        @for(note of notes; track note){
+        <button class="date-button" type="button" [class.active]="selectedNote === note" (click)="selectNote(note)">
+            <span class="date">{{ note.date }}</span>
+            <span class="date-title">{{ note.title }}</span>
+        </button>
+        }
+    </aside>
 
-    <p style="color: darkgoldenrod;">05/15/26</p>
-    <p><span style="color:plum;">Custom profiles!</span></p>
-    <p>To get started, click the account icon, select Sign Up, and enter your details to create your profile.</p>
-    <ul>
-        
-        <li>Rep your favorite element and characters by editing your profile.</li>
-        <li>View other people's profiles through the leaderboard.</li>
-    </ul>
-    <p><span style="color:plum;">Discovered characters</span></p>
-    <ul>
-        <li>View the characters that you have guessed correctly through your profile.</li>
-    </ul>
+    <article class="note-panel">
+        <div class="note-meta">
+            <span class="note-date">{{ selectedNote.date }}</span>
+            <span class="note-count">{{ notes.indexOf(selectedNote) + 1 }} / {{ notes.length }}</span>
+        </div>
 
-    <p><span style="color:plum;">What's next?</span></p>
-    <ul>
-        <li><span style="color:goldenrod">Archive/Unlimited Mode </span>is coming, eventually...</li>
-        <li>More social features, stats, character variants, and maybe achievements.</li>
-    </ul>
+        <h2>{{ selectedNote.title }}</h2>
+        <p class="summary">{{ selectedNote.summary }}</p>
 
-    <p style="color: darkgoldenrod;">04/03/26</p>
-    <p><span style="color:plum;">Colorblind mode</span></p>
-    <p>Adjust the color of the shadows in classic mode. Go to classic -> settings -> colorblind mode.</p>
-    <p><span style="color:plum;">New Character</span></p>
-    <ul>
-        <li>Lo and Li</li>
-    </ul>
-    <p><span style="color:plum;">Classic mode changes</span></p>
-    <ul>
-        <li>Bending element is no longer marked as incorrect if there is an overlap between 'All' and the other element. </li>
-        <li>Added and adjusted some character affiliations (Zhao, Freedom Fighters, etc).</li>
-    </ul>
+        @for(section of selectedNote.sections;track section){
 
-    <p>For a more detailed log of changes, check out the  <a style="color: plum; text-decoration: underline;" href="https://discord.gg/RxFqZJsSUq" target="_blank">discord</a>. If you're interested in hearing back on suggestions, discord is the best way to reach me!</p>
-   
+        <section class="note-section">
+            <h3>{{ section.heading }}</h3>
 
-    <p style="color: darkgoldenrod;">02/23/26</p>
-    <p>Appreciate all the suggestions so far! </p>
-    <p>Classic mode - <span style="color:plum;">New Characters</span></p>
-    <ul>
-        <li>Aunt Wu</li>
-        <li>Meng</li>  
-        <li>Jee</li>
-        <li>The Duke</li>
-        <li>Pipsqueak</li>
-        <li>Ursa</li>
-    </ul>
-    <p>Picture mode - <span style="color:plum;">Added Hints</span></p>
+            @for(par of section.paragraphs; track par){
+            <p>{{ par }}</p>
+            }
 
-    <p>I'm planning on incorporating even more characters perhaps with the option to customize how obscure you want the characters to be. See y'all soon ~</p>
+            @if(section.items?.length){
+            <ul>
+                @for(item of section.items; track item){
+                <li>{{ item }}</li>
+                }
+            </ul>
 
-    <p style="color: darkgoldenrod;">01/17/26</p>
-    <p>Lots of new changes! </p>
-        
-    <p> <span style="color:plum">Updated leaderboard UI</span>, with all new art (more to come...). </p>
-    <p>Classic mode - <span style="color:plum;">New Characters</span></p>
-    <ul>
-        <li>Kanna (Gran-Gran)</li>
-        <li>Mechanist</li>  
-        <li>Professor Zei</li>
-    </ul>
-    <p> <span style="color:plum;">Quote mode improvements!</span> Quotes are now much more likely to be from different characters each day. Expect to guess from a much wider range of characters. Should be more challenging! </p>
-   
-    <p style="color: darkgoldenrod;">12/30/25</p>
-    <p> <span style="color:plum;">Daily Leaderboards!</span> This is limited to classic mode, but it should be fun to see what everyone's guesses are like.</p>
-    <p>Picture mode got a slight revamp. It now features more than 2x the number of images along with better resolution. Hints are coming soon as well.</p>
-    <p>Hope everyone enjoyed their holidays! 🎄</p>
-
-    <p style="color: darkgoldenrod;">12/16/25</p>
-    <p>Hey y'all, I'll ocassionally be posting updates in here. We recently made a
-        <a style="color: plum; text-decoration: underline;" href="https://discord.gg/RxFqZJsSUq"
-            target="_blank">discord</a>
-        and a <a style="color: plum; text-decoration: underline;" href="https://www.reddit.com/r/avatardle/"
-            target="_blank">subreddit</a>. If you want to discuss or are just interested about this site in any way,
-        please take a look :)
-    </p>
-    <p>There will likely be an additional update near the end of the month, so I'll keep y'all posted then!</p>
-
+            }
+            @if(section.links?.length){
+            <div class="note-links">
+                @for(link of section.links; track link){
+                <a [href]="link.href" target="_blank">
+                    {{ link.label }}
+                </a>
+                }
+            </div>
+            }
+        </section>
+        }
+    </article>
 </mat-dialog-content>
