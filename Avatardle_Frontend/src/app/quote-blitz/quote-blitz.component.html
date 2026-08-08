@@ -1,17 +1,5 @@
-<div id="search-container">
-    <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250" class="search-symbol">
-    <input type="text" placeholder="{{'searchPlaceholder' | translate}}" spellcheck="false" autocomplete="off"
-        (focusout)="isVisible.set(false)" (focusin)="isVisible.set(true)" (keydown.enter)="onEnter(charList()[0])"
-        [(ngModel)]="searchVal" />
-    <ul class="search-dropdown" [style.display]="isVisible() ? 'block' : 'none'">
-        @for (char of charList(); track char){
-        <li (mousedown)="onEnter(char)">
-            <img src="images/characters/{{char | hyphenate}}.webp" style="width: 3rem; padding-right: 1rem;">
-            {{char}}
-        </li>
-        }
-    </ul>
-</div>
+<search-select [mode]="'quote'" [options]="characterData" [disabled]="isComplete()"
+    (optionSelect)="onEnter($event)"></search-select>
 
 <div
     style="width: 60%; position:relative; font: 1rem avatar2; color: gray; margin:auto; margin-top: 1rem; z-index: 1; padding-bottom: 0.5rem; display: flex; justify-content: space-between; user-select: none;">
@@ -42,9 +30,21 @@
         <div class="blitz-score"> {{score()}} </div>
         <div class="blitz-guesses">
             @for(e of guesses; track $index){
-            <img src="images/characters/{{e.char | hyphenate}}.webp" width="333" height="250" draggable="false" alt="">
+
+            <button class="blitz-guess" [class.incorrect-blitz]="!e.isCorrect"
+                [class.revealed-blitz]="revealedGuessIndex() === $index" (click)="toggleRevealedQuote($index)"
+                [attr.aria-label]="'Reveal quote for ' + e.char">
+                <img src="images/characters/{{e.char | hyphenate}}.webp" width="333" height="250" draggable="false"
+                    alt="">
+            </button>
+
             }
         </div>
+        @if(revealedGuessIndex() !== null){
+        <blockquote class="blitz-revealed-quote">
+            {{guesses[revealedGuessIndex()!].quote}}
+        </blockquote>
+        }
 
         <p>Longest Streak: <span style="color: beige;">{{streak()}}</span></p>
     </div>
@@ -57,8 +57,7 @@
         {{'postLeaderboard' | translate}}
         <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput">
         @if(!submittedToLeaderboard()){
-        <button (click)="submitToLeaderboard()"
-            [disabled]="usernameInput().trim().length == 0">{{'submit' |
+        <button (click)="submitToLeaderboard()" [disabled]="usernameInput().trim().length == 0">{{'submit' |
             translate}}</button>
         }
         }

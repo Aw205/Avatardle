@@ -42,32 +42,6 @@
     }
 }
 
-#search-container {
-
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 30rem;
-    height: 2.75rem;
-    margin: auto;
-    margin-top: 2.75rem;
-    margin-bottom: 0.5rem;
-
-    background-color: var(--search-bar-background-color);
-    border-radius: 0 10px 10px 0;
-
-    &>input {
-
-        background-color: var(--search-bar-background-color);
-        width: 90%;
-        font: 2rem avatar2;
-        color: beige;
-        border-radius: 0 10px 10px 0;
-        border: none;
-    }
-
-}
-
 #mobile-help-text {
 
     font: 1rem avatar2;
@@ -75,24 +49,6 @@
     text-align: center;
     display: none;
 }
-
-.settings-icon {
-
-    display: inline-flex;
-    justify-content: center;
-    color: dimgray;
-    font-size: 2rem;
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-    transition: transform 300ms;
-    user-select: none;
-
-    &:hover {
-        transform: rotate(70deg);
-    }
-}
-
 
 .artist-name {
     text-decoration: underline 1px;

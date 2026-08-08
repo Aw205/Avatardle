@@ -1,5 +1,4 @@
 import { Component, Inject, inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { DataService, Episode } from '../services/data.service';
 import { Subscription } from 'rxjs';
 import { AsyncPipe, isPlatformBrowser } from '@angular/common';
@@ -14,12 +13,13 @@ import { environment } from '../../environments/environment';
 import { ExpandImageDialogComponent } from '../expand-image-dialog/expand-image-dialog.component';
 import { getHintTooltip, getSurrenderText } from '../game-mode-utils';
 import { DigitFlowComponent } from 'ngx-digit-flow';
-import { PictureInfiniteComponent } from '../picture-infinite/picture-infinite.component';
+import { PictureBlitzComponent } from '../picture-blitz/picture-blitz.component';
+import { SearchSelectComponent } from '../search-select/search-select.component';
 
 
 @Component({
   selector: 'picture',
-  imports: [FormsModule, DigitFlowComponent, AsyncPipe, TranslatePipe, MatTooltipModule, PictureInfiniteComponent],
+  imports: [DigitFlowComponent, AsyncPipe, TranslatePipe, MatTooltipModule, PictureBlitzComponent, SearchSelectComponent],
   templateUrl: './picture.component.html',
   styleUrl: './picture.component.css'
 })
@@ -28,24 +28,19 @@ export class PictureMode {
   targetFrame: WritableSignal<string> = signal("");
   prevFrame: string = "";
   nextFrame: string = "";
-  isVisible: WritableSignal<boolean> = signal(true);
   isComplete: WritableSignal<boolean> = signal(false);
   mode: WritableSignal<string> = signal('daily');
 
   targetEpisode: string = "";
   epiNum: string = "";
-  searchVal: string = "";
-  selected: string = "";
 
   incorrectAnswers: string[] = [];
-  episodeList: string[] = [];
   episodeData: string[] = [];
   englishEpisodeData: string[] = [];
 
 
   scaleRatio: WritableSignal<number> = signal(2);
   grayscaleRatio: WritableSignal<number> = signal(1);
-  modelKey: string | null = null;
   addt: WritableSignal<boolean> = signal(false);
 
   translationSub!: Subscription;
@@ -99,7 +94,6 @@ export class PictureMode {
 
       if (this.ls.progress().picture.complete) {
         this.isComplete.set(true);
-        this.modelKey = this.modelKey = "episodes." + this.targetEpisode;
       }
 
       this.setRatios(this.ls.progress().picture.numGuesses);
@@ -115,26 +109,12 @@ export class PictureMode {
     this.translationSub.unsubscribe();
   }
 
-  onInput(event: Event) {
+  onEnter(select: string | undefined) {
+    if (!select) return;
 
-    this.searchVal = (event.target as HTMLInputElement).value;
-    this.episodeList = this.episodeData.filter(epi => epi.toLowerCase().includes(this.searchVal.toLowerCase()) && this.searchVal != "");
-    this.selected = this.episodeList.length == 0 ? "" : this.episodeList[0];
-  }
+    const selectedEpisode = this.toEnglishEpisode(select);
 
-  onEnter(select: string = "") {
-
-    if (select != "") {
-      this.selected = select;
-    }
-    if (this.selected != "") {
-      let id = this.selected.substring(0, 6);
-      this.selected = this.englishEpisodeData.find((name) => name.includes(id))!;
-    }
-
-    if (this.selected == this.targetEpisode) {
-
-      this.modelKey = "episodes." + this.targetEpisode;
+    if (selectedEpisode == this.targetEpisode) {
 
       this.scaleRatio.set(1);
       this.grayscaleRatio.set(0);
@@ -144,13 +124,10 @@ export class PictureMode {
       this.ds.throwConfetti(this.ls.progress().picture.numGuesses);
       this.ds.updateStats("picture");
     }
-    else if (this.selected != "") {
+    else {
 
-      this.incorrectAnswers.unshift(this.selected!);
-      this.searchVal = "";
-      this.episodeList = [];
-      this.episodeData.splice(this.episodeData.indexOf(this.selected), 1);
-      this.selected = "";
+      this.incorrectAnswers.unshift(selectedEpisode);
+      this.removeEpisodeOption(selectedEpisode);
 
       this.ls.patch(['picture', 'numGuesses'], this.ls.progress().picture.numGuesses + 1);
       this.setRatios(this.ls.progress().picture.numGuesses);
@@ -181,6 +158,19 @@ export class PictureMode {
     return this.isComplete() || this.ls.progress().picture.numGuesses >= 2 + hintId;
   }
 
+  private toEnglishEpisode(option: string): string {
+    const id = option.substring(0, 6);
+    return this.englishEpisodeData.find((name) => name.includes(id))!;
+  }
+
+  private removeEpisodeOption(episode: string) {
+    const id = episode.substring(0, 6);
+    const optionIndex = this.episodeData.findIndex((name) => name.includes(id));
+    if (optionIndex >= 0) {
+      this.episodeData.splice(optionIndex, 1);
+    }
+  }
+
   openDialog(name: string) {
     if (name == "surrender") {
       this.dialog.open(SurrenderDialogComponent, { width: '30vw', maxWidth: 'none', autoFocus: false }).afterClosed().subscribe((res) => {
@@ -208,7 +198,5 @@ export class PictureMode {
       }
     });
   }
-
-
 
 }

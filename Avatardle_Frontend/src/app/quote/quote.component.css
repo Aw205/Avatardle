@@ -1,36 +1,3 @@
-#search-container {
-
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 30rem;
-    height: 2.75rem;
-    margin: auto;
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
-
-    background-color: var(--search-bar-background-color);
-    border-radius: 0 10px 10px 0;
-
-    z-index: 99;
-
-    &>input {
-
-        background-color: var(--search-bar-background-color);
-        width: 90%;
-        font: 2rem avatar2;
-        color: beige;
-        border-radius: 0 10px 10px 0;
-        border: none;
-
-        &.quote-complete {
-            text-align: center;
-            color: green !important;
-        }
-    }
-
-}
-
 .mode-container {
     background-color: rgb(0, 0, 0, 0.3);
     display: flex;
@@ -184,13 +151,39 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, 2.5rem);
             place-content: center;
+            gap: 0.15rem;
+            text-indent: 0;
 
-            &>img {
-                width: 2rem;
-                height: auto;
+            &>.blitz-guess {
+                position: relative;
+                display: inline-block;
+                width: 2.5rem;
+                aspect-ratio: 4 / 3;
+                padding: 0;
+                border: 1px solid transparent;
                 border-radius: 5px;
+                background: transparent;
                 cursor: pointer;
                 user-select: none;
+                overflow: hidden;
+
+                &:hover,
+                &:focus-visible,
+                &.revealed-blitz {
+                    border-color: #78C0A8;
+                }
+
+                &:focus-visible {
+                    outline: 2px solid darkgoldenrod;
+                    outline-offset: 2px;
+                }
+
+                &>img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
 
         }
@@ -199,7 +192,17 @@
             font: 4rem avatar2;
             color: darkgoldenrod;
             text-align: center;
-            /* margin-bottom: 1rem; */
+        }
+
+        &>.blitz-revealed-quote {
+            margin: 0 1rem 1rem;
+            padding: 0.6rem;
+            border-left: 0.25rem solid #78C0A8;
+            background-color: rgb(30, 30, 30);
+            color: beige;
+            font: 1rem Georgia;
+            line-height: 1.4rem;
+            text-indent: 0;
         }
     }
 }
@@ -225,10 +228,11 @@
 
 }
 
-.strike{
+.strike {
     scale: 2;
     transition: scale 0.3s ease;
-    @starting-style{
+
+    @starting-style {
         scale: 1;
     }
 }
@@ -254,6 +258,36 @@
 
 }
 
+.incorrect-blitz {
+
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    border-color: indianred !important;
+    box-shadow: inset 0 0 0 2px rgba(205, 92, 92, 0.85);
+
+    &>img {
+        filter: saturate(0.65) brightness(0.85);
+    }
+
+    &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0.95rem;
+        height: 0.95rem;
+        display: grid;
+        place-items: center;
+        border-radius: 5px 0 0 0;
+        background-color: rgba(205, 92, 92, 0.92);
+        font: 0.85rem avatar2;
+        content: "\00d7";
+        color: black;
+        pointer-events: none;
+    }
+
+}
+
 .quote-container {
 
     position: relative;
@@ -272,7 +306,7 @@
         line-height: 4rem;
         box-shadow: 0px 0px 1rem 40px #00000082;
         transition: color 0.3s ease;
-    
+
         &::before {
 
             font-family: Georgia;
@@ -284,8 +318,8 @@
             left: -1rem;
         }
 
-        &.hi{
-            color: rgba(245, 245, 220,0.3);
+        &.hi {
+            color: rgba(245, 245, 220, 0.3);
         }
     }
 
@@ -329,7 +363,7 @@
 
 @media only screen and (max-width: 768px) {
 
-    .blitz-restart{
+    .blitz-restart {
         font-size: 2rem;
         top: 1.5rem;
     }

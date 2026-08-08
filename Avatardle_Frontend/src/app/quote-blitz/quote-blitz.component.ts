@@ -1,4 +1,4 @@
-import { Component, computed, inject, Signal, signal, viewChild, WritableSignal } from '@angular/core';
+import { Component, inject, signal, viewChild, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CountdownComponent, CountdownEvent } from 'ngx-countdown';
 import { DataService } from '../services/data.service';
@@ -8,10 +8,11 @@ import { DigitFlowComponent } from 'ngx-digit-flow';
 import { AuthService } from '../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LeaderboardService } from '../services/leaderboard.service';
+import { SearchSelectComponent } from '../search-select/search-select.component';
 
 @Component({
   selector: 'quote-blitz',
-  imports: [FormsModule, HyphenatePipe, CountdownComponent, TranslatePipe, DigitFlowComponent],
+  imports: [FormsModule, HyphenatePipe, CountdownComponent, TranslatePipe, DigitFlowComponent, SearchSelectComponent],
   templateUrl: './quote-blitz.component.html',
   styleUrl: '../quote/quote.component.css',
 })
@@ -19,24 +20,18 @@ export class QuoteBlitzComponent {
 
   quote: WritableSignal<string> = signal(' ');
 
-  isVisible: WritableSignal<boolean> = signal(false);
-
   private countdown = viewChild<CountdownComponent>('cd');
   score: WritableSignal<number> = signal(0);
   target: WritableSignal<string> = signal('');
   strikes: WritableSignal<number> = signal(0);
   streak: WritableSignal<number> = signal(0);
   isComplete: WritableSignal<boolean> = signal(false);
-  guesses: { char: string, isCorrect: boolean }[] = [];
+  guesses: { char: string, isCorrect: boolean, quote: string }[] = [];
+  revealedGuessIndex: WritableSignal<number | null> = signal(null);
   isTimerRunning: WritableSignal<boolean> = signal(false);
 
-  searchVal: WritableSignal<string> = signal('');
   transcript: any[] = [];
 
-  charList: Signal<string[]> = computed(() => {
-    let val = this.searchVal().toLowerCase();
-    return this.characterData.filter(char => val != '' && char.toLowerCase().includes(val));
-  });
   characterData: string[] = [];
   ds = inject(DataService);
   auth = inject(AuthService);
@@ -60,19 +55,18 @@ export class QuoteBlitzComponent {
   onEnter(select: string | undefined) {
 
     if (!select) return;
-  
+    const guessedQuote = this.quote();
+
     if (!this.isComplete() && select == this.target()) {
-      this.searchVal.set('');
       this.score.update((val) => val + 1);
       this.streak.update((val) => val + 1);
       this.setNextQuote();
-      this.guesses.push({ char: select, isCorrect: true });
+      this.guesses.push({ char: select, isCorrect: true, quote: guessedQuote });
       return;
     }
-    this.searchVal.set('');
     if (this.isTimerRunning()) {
       this.strikes.update((val) => val + 1);
-      this.guesses.push({ char: select, isCorrect: false });
+      this.guesses.push({ char: this.target(), isCorrect: false, quote: guessedQuote });
       if (this.strikes() === 3) {
         this.isComplete.set(true);
         this.countdown()?.stop();
@@ -115,7 +109,12 @@ export class QuoteBlitzComponent {
     this.countdown()?.restart();
     this.countdown()?.begin();
     this.guesses = [];
+    this.revealedGuessIndex.set(null);
     this.submittedToLeaderboard.set(false);
+  }
+
+  toggleRevealedQuote(index: number) {
+    this.revealedGuessIndex.update((current) => current === index ? null : index);
   }
 
   handleCountdownEvent(event: CountdownEvent) {

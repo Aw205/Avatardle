@@ -8,30 +8,19 @@
     </div>
 </div>
 
-
 @if(mode()==='daily'){
+<search-select [options]="episodeData" [mode]="'picture'" [disabled]="isComplete()"
+    [displayValue]="isComplete() ? epiNum + ('episodes.' + targetEpisode | translate) : ''"
+    (optionSelect)="onEnter($event)"></search-select>
 
-<div style="position:relative; width: fit-content; margin:auto; font: 1rem avatar2; color: gray; z-index: 1; margin-top: 1rem;">
+<div
+    style="position:relative; width: fit-content; margin:auto; font: 1rem avatar2; color: gray; z-index: 1; margin-top: 1rem;">
     <ngx-digit-flow [value]="(ds.stats$ | async)?.picture_completion ?? 0" [continuous]="true" spinEasing="default"
         style="color:darkgoldenrod;" [duration]="1500" /> {{'odometer' | translate}}
     <button [disabled]="isSurrenderDisabled()" (click)="openDialog('surrender')" class="surrender-button">
         <span class="material-symbols-outlined" [matTooltip]="getSurrenderText()" matTooltipPosition="right"
             [matTooltipDisabled]="isComplete()">flag</span>
     </button>
-</div>
-
-<div class="search-bar-container">
-    <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250">
-    <input type="text" placeholder="{{'searchPlaceholder' | translate }}" spellcheck="false" autocomplete="off"
-        (input)="onInput($event)" (focusout)="isVisible.set(false)" (focusin)="isVisible.set(true)"
-        (keydown.enter)="onEnter()" [ngModel]="modelKey ? epiNum + (modelKey | translate) : searchVal"
-        [disabled]="isComplete()" [class.search-complete]="isComplete()" />
-    <ul class="search-dropdown" style="z-index: 2;" [style.display]="isVisible() ? 'block' : 'none'">
-        @for (episode of episodeList; track episode){
-        <li style="white-space: pre;" (mousedown)="onEnter(episode)"><span
-                style="color:goldenrod;">{{episode.substring(0,7)}}</span>{{episode.substring(7)}}</li>
-        }
-    </ul>
 </div>
 
 <div class="image-container">
@@ -59,5 +48,5 @@
 
 }
 @else {
-<picture-infinite></picture-infinite>
+<picture-blitz></picture-blitz>
 }

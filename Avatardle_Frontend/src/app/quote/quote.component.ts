@@ -1,4 +1,4 @@
-import { Component, computed, Inject, inject, PLATFORM_ID, Signal, signal, WritableSignal } from '@angular/core';
+import { Component, Inject, inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand from 'rand-seed';
 import { DataService } from '../services/data.service';
@@ -19,10 +19,11 @@ import { DigitFlowComponent } from 'ngx-digit-flow';
 import { LeaderboardService } from '../services/leaderboard.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../services/auth.service';
+import { SearchSelectComponent } from '../search-select/search-select.component';
 
 @Component({
     selector: 'quote',
-    imports: [FormsModule, MatTooltipModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent, DigitFlowComponent,QuoteBlitzComponent],
+    imports: [FormsModule, MatTooltipModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent, DigitFlowComponent, QuoteBlitzComponent, SearchSelectComponent],
     templateUrl: './quote.component.html',
     styleUrl: './quote.component.css'
 })
@@ -33,14 +34,8 @@ export class QuoteMode {
     quote: WritableSignal<string> = signal('');
     target: WritableSignal<string> = signal('');
     isComplete: WritableSignal<boolean> = signal(false);
-    isVisible: WritableSignal<boolean> = signal(false);
-    searchVal: WritableSignal<string> = signal('');
     transcript: any[] = [];
 
-    charList: Signal<string[]> = computed(() => {
-        let val = this.searchVal().toLowerCase();
-        return this.characterData.filter(char => val != '' && char.toLowerCase().includes(val));
-    });
     characterData: string[] = [];
     hints: { title: string, quote: string }[] = [];
     guesses: string[] = [];
@@ -94,7 +89,6 @@ export class QuoteMode {
                 ];
 
                 if (this.ls.progress().quote.complete) {
-                    this.searchVal.set(this.target());
                     this.submittedToLeaderboard.set(this.ls.progress().quote.leaderboardUsername != undefined);
                     this.usernameInput.set(this.ls.progress().quote.leaderboardUsername || '');
                 }
@@ -107,14 +101,12 @@ export class QuoteMode {
         if (!select) return;
         this.guesses.unshift(select);
         if (select == this.target()) {
-            this.searchVal.set(this.target());
             this.isComplete.set(true);
             this.ls.patch(['quote'], { complete: true, guesses: this.guesses });
             this.ds.throwConfetti(this.guesses.length);
             this.ds.updateStats("quote");
             return;
         }
-        this.searchVal.set('');
         this.characterData.splice(this.characterData.indexOf(select), 1);
         this.ls.patch(['quote', 'guesses'], this.guesses);
     }
@@ -175,5 +167,4 @@ export class QuoteMode {
 
 
 }
-
 

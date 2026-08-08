@@ -1,0 +1,112 @@
+#search-container {
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 30rem;
+    height: 2.75rem;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+
+    background-color: var(--search-bar-background-color);
+    border-radius: 0 10px 10px 0;
+    z-index: 99;
+
+    &>input {
+
+        background-color: var(--search-bar-background-color);
+        width: 90%;
+        font: 2rem avatar2;
+        color: beige;
+        border-radius: 0 10px 10px 0;
+        border: none;
+        outline: none;
+    }
+
+}
+
+.search-symbol {
+    width: auto;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+    user-select: none;
+}
+
+
+.settings-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: dimgray;
+    font-size: 2rem;
+    width: 2.5rem;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 300ms ease;
+    user-select: none;
+
+    &:hover{
+        transform: rotate(70deg);
+    }
+}
+
+.search-dropdown {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+    max-height: 50vh;
+    overflow-y: auto;
+    scrollbar-color: rgb(60, 60, 60) rgb(30, 30, 30);
+    scrollbar-width: thin;
+    width: 100%;
+    min-width: 100%;
+    margin-top: 0.35rem;
+    overflow: hidden auto;
+    background-color: rgb(15,15,15);
+    border-radius: 0 0 8px 8px;
+    box-shadow:
+        0 0.75rem 1.5rem rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.search-dropdown li {
+    position: relative;
+    gap: 0.75rem;
+    min-height: 3.25rem;
+    border-bottom: 1px solid rgba(245, 245, 220, 0.06);
+
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    font: 1rem avatar2;
+    color: beige;
+    cursor: pointer;
+
+    &:hover{
+        background-color: rgb(25,25,25);
+
+    }
+}
+
+.search-dropdown li:last-child {
+    border-bottom: none;
+}
+
+.highlight {
+    background-color: rgb(25,25,25);
+}
+
+@media only screen and (max-width: 768px) {
+    .search-dropdown {
+        margin-top: 0.25rem;
+    }
+
+    .search-dropdown li {
+        min-height: 3rem;
+        padding-block: 0.6rem;
+    }
+}

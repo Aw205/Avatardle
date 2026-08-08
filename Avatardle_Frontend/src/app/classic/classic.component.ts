@@ -1,6 +1,6 @@
-import { Component, computed, Inject, inject, PLATFORM_ID, Signal, signal, WritableSignal } from '@angular/core';
+import { Component, Inject, inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import Rand, { PRNG } from 'rand-seed';
+import Rand from 'rand-seed';
 import { TileComponent, tileData } from '../tile/tile.component';
 import { Character, DataService, FanArt } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -22,11 +22,12 @@ import { AuthService } from '../services/auth.service';
 import { LeaderboardService } from '../services/leaderboard.service';
 import { getSurrenderText } from '../game-mode-utils';
 import { DigitFlowComponent } from 'ngx-digit-flow';
+import { SearchSelectComponent } from '../search-select/search-select.component';
 
 @Component({
     selector: 'classic',
     providers: [provideNativeDateAdapter()],
-    imports: [FormsModule, TileComponent, MatTooltipModule, DigitFlowComponent, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent, MatDatepickerModule],
+    imports: [FormsModule, TileComponent, MatTooltipModule, DigitFlowComponent, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent, MatDatepickerModule, SearchSelectComponent],
     templateUrl: './classic.component.html',
     styleUrl: './classic.component.css'
 })
@@ -39,9 +40,7 @@ export class ClassicMode {
     inputDisabled: WritableSignal<boolean> = signal(false);
     usernameError: WritableSignal<boolean> = signal(false);
 
-    searchVal: WritableSignal<string> = signal('');
     isComplete: WritableSignal<boolean> = signal(false);
-    isVisible: WritableSignal<boolean> = signal(false);
     guessAttempts: number = 0;
 
     targetChar!: Character;
@@ -50,10 +49,6 @@ export class ClassicMode {
     fanArt!: FanArt;
     img!: { pathName: string, artist: { name: string, link: string }, epithet: string };
 
-    charList: Signal<Character[]> = computed(() => {
-        let val = this.searchVal().toLowerCase();
-        return this.characterData.filter(char => val != '' && char.name.toLowerCase().includes(val));
-    });
     characterData: Character[] = [];
     tileArray: WritableSignal<tileData[]> = signal([]);
 
@@ -69,7 +64,7 @@ export class ClassicMode {
     colorTrigger: WritableSignal<string> = signal('');
     maxDate: Date = new Date();
     minDate: Date = new Date();
-    
+
     selectedDate: string = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
 
     constructor(@Inject(PLATFORM_ID) private platformId: object) { }
@@ -91,7 +86,9 @@ export class ClassicMode {
         }
     }
 
-    onEnter(char: Character | undefined) {
+    onEnter(charName: string | undefined) {
+
+        let char = this.characterData.find((e) => e.name === charName);
 
         if (char) {
             this.guessAttempts++;
@@ -156,16 +153,14 @@ export class ClassicMode {
                 return { ...t, hasTransition: false, delay: 0 }
             }));
         }
-        this.searchVal.set('');
     }
 
     checkGuess(numCorrect: number) {
 
         if (numCorrect == 6) {
-            this.searchVal.set(this.targetChar.name);
             this.isComplete.set(true);
             this.ds.throwConfetti(this.ls.progress().classic.guesses.length);
-            if(this.selectedDate === this.ls.currentDate){
+            if (this.selectedDate === this.ls.currentDate) {
                 this.ds.updateDiscoveredCharacters(this.targetChar.name);
                 this.ls.patch(['classic', 'complete'], true);
                 this.ds.updateStats("classic");
@@ -188,7 +183,7 @@ export class ClassicMode {
         else if (name == "surrender") {
             this.dialog.open(SurrenderDialogComponent, { width: '30vw', maxWidth: 'none', autoFocus: false }).afterClosed().subscribe((res) => {
                 if (res == true) {
-                    this.onEnter(this.targetChar);
+                    this.onEnter(this.targetChar.name);
                 }
             });
         }
@@ -214,7 +209,6 @@ export class ClassicMode {
             this.isComplete.set(true);
             this.submittedToLeaderboard.set(this.ls.progress().classic.leaderboardUsername != undefined);
             this.usernameInput.set(this.ls.progress().classic.leaderboardUsername || '');
-            this.searchVal.set(this.tileArray()[0].name!);
             this.fanArt = this.ds.fanArt.find(e => e.character == this.tileArray()[0].name!)!;
         }
         this.img = this.fanArt.images[Math.floor(this.rand.next() * this.fanArt.images.length)];
@@ -226,7 +220,6 @@ export class ClassicMode {
         this.isComplete.set(false);
         this.tileArray.set([]);
         this.guessAttempts = 0;
-        this.searchVal.set("");
         this.characterData = this.ds.getClassicCharacterData(this.ls.progress().classic.series);
         this.targetChar = this.characterData[Math.floor(this.rand.next() * this.characterData.length)];
         this.fanArt = this.ds.fanArt.find(e => e.character == this.targetChar.name)!;
@@ -272,12 +265,12 @@ export class ClassicMode {
     }
 
     onDateSelect(event: MatDatepickerInputEvent<Date>) {
-   
+
         this.selectedDate = event.value?.toLocaleDateString("en-US", { timeZone: "UTC" })!;
-        if(event.value?.toDateString() === this.maxDate.toDateString()){
+        if (event.value?.toDateString() === this.maxDate.toDateString()) {
             return this.setData();
         }
         this.setArchiveData();
-      }
+    }
 
 }

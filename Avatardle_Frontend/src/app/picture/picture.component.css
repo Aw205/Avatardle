@@ -82,35 +82,6 @@
     }
 }
 
-.search-bar-container {
-
-    display: flex;
-    justify-content: center;
-    position: relative;
-  
-    width: 50rem;
-    height: 3rem;
-    margin: auto;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-
-    &>img {
-        width: auto;
-        height: 100%;
-        border-radius: 10px 0 0 10px;
-    }
-
-    &>input {
-        background-color: var(--search-bar-background-color);
-        width: 90%;
-        font: 1.75rem avatar2;
-        color: beige;
-        border-radius: 0 10px 10px 0;
-        border: none;
-    }
-
-}
-
 @media only screen and (max-width: 768px) {
 
     .search-bar-container {

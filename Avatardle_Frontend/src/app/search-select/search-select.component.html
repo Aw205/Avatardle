@@ -1,0 +1,24 @@
+<div id="search-container">
+    <img src="images/sokka_eyeglass.webp" alt="" width="333" height="250" class="search-symbol">
+    <input #searchInput type="text" placeholder="{{'searchPlaceholder' | translate}}" spellcheck="false" autocomplete="off"
+        (focusout)="isOpen.set(false)" (focusin)="isOpen.set(true)" (keydown)="onKeyDown($event)"
+        (input)="onInput($event)" [value]="searchVal()" [disabled]="disabled()" [class.search-complete]="disabled()" />
+    @if(showSettings()){
+    <span class="material-symbols-outlined settings-icon" (click)="settingsClick.emit()">settings</span>
+    }
+    <ul class="search-dropdown" [style.display]="isOpen() ? 'block' : 'none'">
+        @for (opt of filteredOptions(); track opt){
+        <li #optionEle (mousedown)="selectOption(opt)" [class.highlight]="activeIndex() === $index">
+            @if(mode() === "classic" || mode() === "quote"){
+            <img src="images/characters/{{opt | hyphenate}}.webp" style="width: 3rem; border-radius: 6px;">
+            {{opt}}
+            }
+            @else if(mode() === "picture"){
+                <div style="white-space: pre;">
+                    <span style="color:goldenrod;">{{opt.substring(0,7)}}</span> {{opt.substring(7)}}
+                </div>
+            }
+        </li>
+        }
+    </ul>
+</div>
