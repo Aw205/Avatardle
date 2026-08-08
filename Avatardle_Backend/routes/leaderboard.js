@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
 router.get('/blitz', (req, res) => {
 
     const query = {
-        text: "SELECT *, TO_CHAR(created_at, 'HH24:MI') AS time FROM blitz_leaderboard WHERE mode = $1 ORDER BY score DESC",
+        text: "SELECT *, TO_CHAR(created_at, 'YYYY-MM-DD') AS time FROM blitz_leaderboard WHERE mode = $1 ORDER BY score DESC",
         values: [req.query.mode]
     };
     db.query(query, (err, queryRes) => {
@@ -49,7 +49,10 @@ router.post('/blitz', (req, res) => {
 
     const query = {
         text: `INSERT INTO blitz_leaderboard (username, mode, score, streak, element) VALUES ($1, $2, $3, $4, $5)
-               ON CONFLICT (username) DO UPDATE SET score = EXCLUDED.score, streak = EXCLUDED.streak`,
+               ON CONFLICT (username, mode) 
+               DO UPDATE SET 
+               score = EXCLUDED.score, streak = EXCLUDED.streak, element = EXCLUDED.element, created_at = NOW()
+               WHERE EXCLUDED.score > blitz_leaderboard.score`,
         values: [req.body.username, req.body.mode, req.body.score, req.body.streak, req.body.element],
     };
     db.query(query, (err) => {

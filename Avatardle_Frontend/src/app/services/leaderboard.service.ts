@@ -14,7 +14,7 @@ export interface LeaderboardRecord {
 export interface BlitzLeaderboardRecord{
   username: string,
   score: number,
-  streak: number,
+  streak: number | string,
   time: string,
   element: string
 }
