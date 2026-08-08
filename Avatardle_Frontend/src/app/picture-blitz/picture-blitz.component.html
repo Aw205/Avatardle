@@ -1,0 +1,49 @@
+@if (!isComplete()) {
+<search-select [options]="episodeData" [mode]="'picture'" (optionSelect)="onEnter($event)"></search-select>
+} @else {
+
+<div class="blitz-answer"><span
+        style="color:goldenrod;">{{targetEpisode.substring(0,7)}}</span>{{targetEpisode.substring(7)}}</div>
+}
+
+<div class="image-container">
+    <div
+        style="width: 100%; position:relative; font: 1rem avatar2; color: gray; margin:auto; z-index: 1; padding-bottom: 0.5rem; display: flex; justify-content: space-between; user-select: none;">
+        <span>Score: <ngx-digit-flow [value]="score()" [continuous]="true" spinEasing="default"
+                style="color:darkgoldenrod;" [duration]="500" /> </span>
+
+        <countdown #cd [config]="{leftTime: 120, demand: true,format: 'mm:ss'}"
+            style="color:darkgoldenrod; width: 2.5rem;" (event)="handleCountdownEvent($event)" />
+    </div>
+    <div class="image-wrapper">
+        <img [src]="targetFrame()" alt="A frame from an episode of Avatar: The Last Airbender" width="1440"
+            height="1080" [class.hi]="isComplete()" [class.bye]="!isTimerRunning()" (error)="onImageError()" />
+
+        @if(isComplete()){
+        <button class="blitz-play" (click)="startBlitz()">↻</button>
+        }
+        @else{
+        <button class="blitz-play" (click)="startBlitz()"
+            [style.display]="isTimerRunning() ? 'none' : 'block'">▶</button>
+        }
+    </div>
+</div>
+
+@if(isComplete()){
+<div class="blitz-result-container fade-in">
+    <div class="share-leaderboard">
+        @if(!auth.isLoggedIn()){
+        <p>Log in to post your score</p>
+        }
+        @else{
+        {{'postLeaderboard' | translate}}
+        <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput">
+        @if(!submittedToLeaderboard()){
+        <button (click)="submitToLeaderboard()" [disabled]="usernameInput().trim().length == 0">{{'submit' |
+            translate}}</button>
+        }
+        }
+    </div>
+</div>
+
+}

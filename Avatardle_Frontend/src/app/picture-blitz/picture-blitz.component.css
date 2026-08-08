@@ -1,0 +1,120 @@
+:host {
+    --picture-infinite-width: clamp(40rem, 40vw, 50vw);
+}
+
+.image-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-top: 0.5rem;
+    width: var(--picture-infinite-width);
+    position: relative;
+
+    &>.image-wrapper {
+        overflow: hidden;
+        box-shadow: 0px 0px 1rem 40px #00000082;
+        width: 100%;
+        position: relative;
+
+        &>img.hi {
+            filter: saturate(0) brightness(0.5);
+        }
+
+        &>img.bye {
+            background-color: rgb(0, 0, 0, 0.2);
+        }
+
+        &>img {
+            display: block;
+            width: 100%;
+            pointer-events: none;
+            height: auto;
+            aspect-ratio: 4/3;
+            transition: filter 1s ease;
+        }
+    }
+}
+
+.blitz-play {
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #78C0A8;
+    font-size: 5rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transform-origin: top left;
+    transition: scale 0.2s ease-in-out;
+
+    &:hover {
+        filter: brightness(1.1);
+        scale: 1.2;
+    }
+}
+
+
+.blitz-answer {
+
+    color:#78C0A8;
+    background-color: var(--search-bar-background-color);
+    padding: 0.5rem;
+    padding-inline: 1rem;
+    border-radius: 5px;
+    width: fit-content;
+    font: 1.5rem avatar2;
+    height: 2rem;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+}
+
+.blitz-result-container {
+
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    color: goldenrod;
+    width: 20rem;
+    border-radius: 16px;
+    font: 1rem avatar2;
+
+    &>.complete-container {
+
+        position: relative;
+        border: 1px outset black;
+        outline: 2px solid black;
+        border-radius: 1rem;
+        background-color: rgb(15, 15, 15);
+        text-indent: 1rem;
+        margin-top: 1rem;
+
+        &>.blitz-score {
+            font: 4rem avatar2;
+            color: darkgoldenrod;
+            text-align: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .score-timer-row,
+    .search-bar-container,
+    .image-container {
+        width: 95%;
+    }
+
+    .search-bar-container {
+        height: 2rem;
+
+        &>input {
+            font: 1rem avatar2;
+        }
+    }
+}
