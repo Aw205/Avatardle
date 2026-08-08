@@ -55,7 +55,7 @@
         }
         @else{
         {{'postLeaderboard' | translate}}
-        <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput">
+        <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput" disabled>
         @if(!submittedToLeaderboard()){
         <button (click)="submitToLeaderboard()" [disabled]="usernameInput().trim().length == 0">{{'submit' |
             translate}}</button>
