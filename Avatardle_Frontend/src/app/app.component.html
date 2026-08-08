@@ -1,20 +1,19 @@
 <background></background>
 
-<div style="flex: 1;">
+<main class="app-content">
     <router-outlet></router-outlet>
-</div>
+</main>
 
-<div class="footer">
+<footer class="footer">
     <a routerLink="/privacy"> {{'footer.privacy' | translate}}</a>
     <a routerLink="/terms"> {{'footer.terms' | translate}}</a>
     <a href="https://discord.gg/RxFqZJsSUq" target="_blank">
-        <div style="display: flex; align-items: center; gap: 0.2rem;">
-            <div
-                style="display: inline-flex; align-items: center; padding: 0.2rem; background-color: #5668a7; border-radius: 20%; ">
-                <img src="images/discord.svg" alt="Join Avatardle discord" style="height: 1rem;" />
+        <div class="footer-discord">
+            <div class="footer-discord-icon">
+                <img src="images/discord.svg" alt="Join Avatardle discord" />
             </div>
             {{'footer.discord' | translate}}
         </div>
     </a>
 
-</div>
+</footer>
