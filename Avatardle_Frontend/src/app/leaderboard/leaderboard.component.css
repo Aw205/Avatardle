@@ -29,10 +29,80 @@
     margin-top: 4rem;
 }
 
+.leaderboard-title {
+    
+    display: flex;
+    align-items: baseline;
+    font: 1.5rem Georgia;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: beige;
+}
+
+.leaderboard-switcher,
+.mode-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    border-right: 1px ridge rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    backdrop-filter: blur(2px);
+}
+
+.leaderboard-switcher button,
+.mode-tabs button {
+    align-items: center;
+    background-color: transparent;
+    height: 2rem;
+    border: none;
+    color: dimgray;
+    cursor: pointer;
+    display: inline-flex;
+    font: 1rem Georgia;
+    transition: color 0.2s;
+}
+
+.leaderboard-switcher button.selected,
+.mode-tabs button.selected {
+   
+    color: darkgoldenrod;
+}
+
+.leaderboard-switcher .material-symbols-outlined {
+    font-size: 1.2rem;
+}
+
+.mode-tabs {
+    margin-bottom: 1.5rem;
+}
+
+.mode-tabs button {
+    padding: 0.35rem 0.65rem;
+}
+
+.record-shell {
+    border-bottom: 1px solid rgba(105, 105, 105, 0.2);
+}
+
+.player-name {
+    align-items: center;
+    display: flex;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.element-icon {
+    height: 1.5rem;
+}
+
 .leaderboard-record {
 
     margin-top: 1rem;
-
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -50,7 +120,7 @@
         display: flex;
         align-items: top;
 
-        &:hover{
+        &:hover {
             text-decoration: underline;
         }
     }
@@ -61,6 +131,44 @@
         justify-content: right;
         flex: 0 0 9rem;
     }
+}
+
+.blitz-leaderboard-record {
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) 1fr 1fr 1fr;
+    width: 100%;
+    height: fit-content;
+    color: darkgoldenrod;
+    align-items: center;
+    padding-block: 1rem;
+
+    & .username {
+        color: goldenrod;
+        flex: 1.5;
+
+        &:hover {
+        text-decoration: underline;
+        }
+    }
+
+    &>.time {
+        display: flex;
+        align-items: top;
+        justify-content: right;
+    }
+}
+
+.blitz-player-name {
+    color: goldenrod;
+}
+
+.blitz-leaderboard-record>span {
+    text-align: center;
+}
+
+.blitz-leaderboard-record>.time {
+    text-align: right;
 }
 
 .guess-container {
@@ -109,6 +217,27 @@ img {
     }
 }
 
+.blitz-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) 1fr 1fr 1fr;
+}
+
+.blitz-header>span {
+    text-align: center;
+}
+
+.blitz-header>span:first-child {
+    text-align: left;
+}
+
+.blitz-header>div {
+    text-align: right;
+}
+
+.empty-message {
+    color: gray;
+}
+
 .Amon {
     width: var(--large-chibi-width);
     top: var(--small-offset-chibi);
@@ -124,7 +253,7 @@ img {
     top: var(--small-plus-offset-chibi);
 }
 
-.Aunt_Wu{
+.Aunt_Wu {
 
     width: var(--large-chibi-width);
 }
@@ -273,15 +402,15 @@ img {
 }
 
 .Mako {
-   width: var(--small-plus-chibi-width);
-   bottom: var(--small-offset-chibi);
+    width: var(--small-plus-chibi-width);
+    bottom: var(--small-offset-chibi);
 }
 
 .Mechanist {
     width: var(--xlarge-chibi-width);
 }
 
-.Meng{
+.Meng {
     width: var(--xlarge-chibi-width);
 }
 
@@ -303,7 +432,7 @@ img {
     bottom: var(--small-offset-chibi);
 }
 
-.Tarrlok{
+.Tarrlok {
     top: var(--base-plus-offset-chibi);
 }
 
@@ -338,7 +467,7 @@ img {
     top: var(--small-plus-offset-chibi);
 }
 
-.P\'Li{
+.P\'Li {
     width: var(--small-plus-chibi-width);
     top: var(--small-plus-offset-chibi);
 }
@@ -387,7 +516,7 @@ img {
     width: var(--large-chibi-width);
 }
 
-.Wan{
+.Wan {
     width: var(--large-chibi-width);
 }
 
@@ -408,7 +537,7 @@ img {
     bottom: var(--small-offset-chibi);
 }
 
-.Zhu_Li{
+.Zhu_Li {
     width: var(--small-plus-chibi-width);
 }
 
@@ -425,5 +554,10 @@ img {
 
     .leaderboard-container {
         width: 90%;
+    }
+
+    .blitz-leaderboard-record,
+    .blitz-header {
+        grid-template-columns: minmax(0, 1.3fr) 0.7fr 0.7fr 1fr;
     }
 }

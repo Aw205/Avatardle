@@ -3,7 +3,6 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { BlitzLeaderboardRecord, LeaderboardRecord } from '../services/leaderboard.service';
 import { CountdownComponent } from 'ngx-countdown';
-import { MatMenuModule } from '@angular/material/menu';
 import { LocalStorageService } from '../services/local-storage.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Meta, Title } from '@angular/platform-browser';
@@ -14,7 +13,7 @@ import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'leaderboard',
-  imports: [HyphenatePipe, TranslatePipe, CountdownComponent, MatMenuModule, MatTooltipModule, RouterLink],
+  imports: [HyphenatePipe, TranslatePipe, CountdownComponent, MatTooltipModule, RouterLink],
   templateUrl: './leaderboard.component.html',
   styleUrl: './leaderboard.component.css'
 })
@@ -28,18 +27,18 @@ export class LeaderboardComponent {
   cdr = inject(ChangeDetectorRef);
   list: WritableSignal<LeaderboardRecord[]> = signal([]);
   blitzRecords: WritableSignal<BlitzLeaderboardRecord[]> = signal([]);
-  modes: string[] = ["classic", "quote"];
-  selectedMode: WritableSignal<string> = signal("Classic");
+  boardTypes = ["daily", "blitz"] as const;
+  dailyModes = ["classic", "quote"] as const;
+  blitzModes = ["quote", "picture"] as const;
+  selectedBoardType: WritableSignal<"daily" | "blitz"> = signal("daily");
+  selectedDailyMode: WritableSignal<string> = signal("classic");
+  selectedBlitzMode: WritableSignal<string> = signal("quote");
   env = environment;
 
   ngOnInit() {
 
-    this.leaderboardService.getLeaderboard("classic").subscribe(data => {
-      this.list.set(data);
-    });
-    this.leaderboardService.getBlitzLeaderboard("quote").subscribe(data => {
-      this.blitzRecords.set(data);
-    })
+    this.loadDailyLeaderboard(this.selectedDailyMode());
+    this.loadBlitzLeaderboard(this.selectedBlitzMode());
 
     this.title.setTitle("Leaderboard | Avatardle");
     this.meta.updateTag({
@@ -47,30 +46,59 @@ export class LeaderboardComponent {
       content: "Share scores and view other people's guesses in the Avatardle leaderboard!"
     });
 
-    // let chars = this.ds.characterFilter.classic["ATLA-title"];
-    // let arr: LeaderboardRecord[] = [];
-    // let gus: string[] = [];
-    // for (let i = 0; i < 10; i++) {
-    //   let str = Math.round(Math.random() * 10000).toString().substring(0, 5);
-    //   for (let j = 0; j < 10; j++) {
-    //     gus.push(chars[Math.floor(Math.random() * chars.length)]);
-    //   }
-    //   arr.push({ username: str, guesses: gus, time: "08:55" });
-    //   gus = [];
-    // }
-    // this.list.set(arr);
+    //this.loadSampleData();
+  }
+
+  /**
+    * Only used in local to test
+  */
+  loadSampleData() {
+
+    let chars = this.ds.characterFilter.classic["ATLA-title"];
+    let arr: LeaderboardRecord[] = [];
+    let blitzArr: BlitzLeaderboardRecord[] = [];
+    let gus: string[] = [];
+    for (let i = 0; i < 10; i++) {
+      let str = Math.round(Math.random() * 10000).toString().substring(0, 5);
+      for (let j = 0; j < 10; j++) {
+        gus.push(chars[Math.floor(Math.random() * chars.length)]);
+      }
+      arr.push({ username: str, guesses: gus, time: "08:55", element: "fire" });
+      blitzArr.push({username: str, score: Math.floor(Math.random()*20), streak:"--", time: "08:55", element: "air"})
+      gus = [];
+    }
+    this.blitzRecords.set(blitzArr);
+    this.list.set(arr);
   }
 
   sortTable() {
     this.list.set([...this.list()].reverse());
   }
 
-  setMode(mode: string) {
-    this.selectedMode.set(mode.charAt(0).toUpperCase() + mode.slice(1));
+  setBoardType(boardType: "daily" | "blitz") {
+    this.selectedBoardType.set(boardType);
+  }
+
+  setDailyMode(mode: string) {
+    this.selectedDailyMode.set(mode);
+    this.loadDailyLeaderboard(mode);
+  }
+
+  setBlitzMode(mode: string) {
+    this.selectedBlitzMode.set(mode);
+    this.loadBlitzLeaderboard(mode);
+  }
+
+  loadDailyLeaderboard(mode: string) {
     this.leaderboardService.getLeaderboard(mode).subscribe(data => {
       this.list.set(data);
     })
+  }
 
+  loadBlitzLeaderboard(mode: string) {
+    this.leaderboardService.getBlitzLeaderboard(mode).subscribe(data => {
+      this.blitzRecords.set(data);
+    })
   }
 
   onImageError(event: Event) {
@@ -80,6 +108,11 @@ export class LeaderboardComponent {
     img.classList = "aang";
     this.cdr.detectChanges();
 
+  }
+
+  getDate(time: string) {
+
+    return time;
   }
 
   getTimeAgo(time: string) {
@@ -108,5 +141,3 @@ export class LeaderboardComponent {
     return;
   }
 }
-
-
