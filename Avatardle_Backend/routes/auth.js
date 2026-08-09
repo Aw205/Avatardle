@@ -6,14 +6,45 @@ const jwt = require('jsonwebtoken');
 const verifyToken = require('../middleware/verifyToken');
 const db = require('../db');
 
-router.get("/me", verifyToken, (req, res) => {
-    const query = {
-        text: `SELECT * FROM user_profiles WHERE user_id = $1`,
-        values: [req.user.user_id]
+const AUTH_COOKIE_OPTIONS = {
+    httpOnly: true,
+    secure: true,
+    sameSite: "lax",
+    maxAge: 30 * 24 * 60 * 60 * 1000
+};
+const DEFAULT_ELEMENTS = ["Fire", "Air", "Water", "Earth"];
+
+function getRandomElement() {
+    return DEFAULT_ELEMENTS[Math.floor(Math.random() * DEFAULT_ELEMENTS.length)];
+}
+
+function issueAuthCookie(res, user) {
+    const token = jwt.sign({ username: user.username, user_id: user.user_id }, process.env.JWT_SECRET, { expiresIn: "7d" });
+    res.cookie("token", token, AUTH_COOKIE_OPTIONS);
+}
+
+async function createUserWithProfile(client, userQuery, userValues) {
+    const userRes = await client.query(userQuery, userValues);
+    const user_id = userRes.rows[0].user_id;
+
+    await client.query('INSERT INTO user_profiles (user_id, element) VALUES ($1, $2);', [user_id, getRandomElement()]);
+
+    return { user_id, username: userValues[0] };
+}
+
+router.get("/me", verifyToken, async (req, res) => {
+    try {
+        const queryRes = await db.query({
+            text: `SELECT * FROM user_profiles WHERE user_id = $1`,
+            values: [req.user.user_id]
+        });
+        if (queryRes.rows.length === 0) {
+            return res.sendStatus(404);
+        }
+        return res.json({ ...queryRes.rows[0], username: req.user.username });
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
     }
-    db.query(query, (err, queryRes) => {
-        res.json({ ...queryRes.rows[0], username: req.user.username });
-    });
 });
 
 router.post("/signup", async (req, res) => {
@@ -26,13 +57,7 @@ router.post("/signup", async (req, res) => {
     const hashed = await bcrypt.hash(password, 10);
     try {
         await client.query('BEGIN');
-        const query1 = 'INSERT INTO users (username, password_hash) VALUES ($1, $2) RETURNING user_id;';
-        const userRes = await client.query(query1, [username, hashed]);
-        const user_id = userRes.rows[0].user_id;
-        const query2 = 'INSERT INTO user_profiles (user_id, element) VALUES ($1, $2);';
-        const elements = ["Fire", "Air", "Water", "Earth"]
-        const randElement = elements[Math.floor(Math.random() * elements.length)];
-        await client.query(query2, [user_id, randElement]);
+        await createUserWithProfile(client, 'INSERT INTO users (username, password_hash) VALUES ($1, $2) RETURNING user_id;', [username, hashed]);
         await client.query('COMMIT');
         res.sendStatus(204);
     } catch (e) {
@@ -47,29 +72,33 @@ router.post("/signup", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-
     const { username, password } = req.body;
-    const query = {
-        text: "SELECT * FROM users WHERE username = $1",
-        values: [username],
-    };
-    db.query(query, async (err, queryRes) => {
-        if (err) {
-            console.error(err.message);
-            return res.status(500).json({ error: err.message });
-        }
+
+    if (!username || !password) {
+        return res.status(400).json({ error: "Missing fields" });
+    }
+
+    try {
+        const queryRes = await db.query({
+            text: "SELECT * FROM users WHERE username = $1",
+            values: [username],
+        });
         const user = queryRes.rows[0];
-        if (!user) {
-            return res.status(401);
+        if (!user || !user.password_hash) {
+            return res.sendStatus(401);
         }
+
         const valid = await bcrypt.compare(password, user.password_hash);
         if (!valid) {
             return res.sendStatus(401);
         }
-        const token = jwt.sign({ username: user.username, user_id: user.user_id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 30 * 24 * 60 * 60 * 1000 });
+
+        issueAuthCookie(res, user);
         return res.json({ username: username });
-    });
+    } catch (err) {
+        console.error(err.message);
+        return res.status(500).json({ error: err.message });
+    }
 });
 
 router.post("/logout", (req, res) => {
@@ -156,10 +185,9 @@ router.get('/discord/callback', async (req, res) => {
         }
         const user = queryRes.rows[0];
         if (!user) {
-            return res.status(401);
+            return res.sendStatus(401);
         }
-        const token = jwt.sign({ username: user.username, user_id: user.user_id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 30 * 24 * 60 * 60 * 1000 });
+        issueAuthCookie(res, user);
         return res.redirect('https://avatardle.com');
     });
 });
@@ -170,23 +198,16 @@ router.post('/discord/signup', async (req, res) => {
     const client = await db.connect();
     try {
         await client.query('BEGIN');
-        const query1 = 'INSERT INTO users (username, discord_id) VALUES ($1, $2) RETURNING user_id;';
-        const userRes = await client.query(query1, [username, discord_id]);
-        const user_id = userRes.rows[0].user_id;
-        const query2 = 'INSERT INTO user_profiles (user_id, element) VALUES ($1, $2);';
-        const elements = ["Fire", "Air", "Water", "Earth"]
-        const randElement = elements[Math.floor(Math.random() * elements.length)];
-        await client.query(query2, [user_id, randElement]);
+        const user = await createUserWithProfile(client, 'INSERT INTO users (username, discord_id) VALUES ($1, $2) RETURNING user_id;', [username, discord_id]);
         await client.query('COMMIT');
 
-        const token = jwt.sign({ username: username, user_id: user_id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-        res.cookie("token", token, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 30 * 24 * 60 * 60 * 1000 });
+        issueAuthCookie(res, user);
         return res.json({ username: username });
 
     } catch (e) {
         await client.query('ROLLBACK');
         if (e.code === '23505') {
-            return res.status(409).json({constraint: e.constraint});
+            return res.status(409).json({ constraint: e.constraint });
         }
         res.status(500).json({ error: "Internal Server Error" });
     } finally {
