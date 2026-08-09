@@ -1,6 +1,7 @@
 {
     "ATLA-title": "Avatar: The Last Airbender",
     "TLOK-title": "The Legend of Korra",
+    "AATLA-title": "Avatar Aang: The Last Airbender",
     "searchPlaceholder": "search...",
     "save": "Save",
     "submit": "Submit",
@@ -9,6 +10,8 @@
     "artist": "Artist: ",
     "attempts": "Attempts: ",
     "postLeaderboard": "Post to leaderboard",
+    "loginToPostScore": "Log in to post your score",
+    "unlockDaily": "Complete daily to unlock",
     "All": "All",
     "Unknown": "Unknown",
     "None": "None",
@@ -73,6 +76,7 @@
             "mentor": "Mentor",
             "metal-bending": "Metal Bending",
             "metal-clan": "Metal Clan",
+            "mount-baihu":"Mount Baihu",
             "muscular": "Muscular",
             "musician": "Musician",
             "nobility": "Nobility",
@@ -124,8 +128,14 @@
     },
     "leaderboardDialog": {
         "title": "Daily Leaderboard",
+        "blitzTitle": "Blitz Leaderboard",
+        "daily": "Daily",
+        "blitz": "Blitz",
         "name": "Name",
         "guesses": "Guesses",
+        "score": "Score",
+        "streak": "Streak",
+        "longestStreak": "Longest Streak",
         "time": "Time",
         "noData": "It's too quiet . . . be the first!"
     },
@@ -157,6 +167,7 @@
     },
     "username": "Username",
     "usernamePlaceholder": "Enter username",
+    "leaderboardUsernamePlaceholder": "enter username...",
     "password": "Password",
     "passwordPlaceholder": "Enter password",
     "signUp": "Sign Up",
@@ -195,6 +206,7 @@
         "terms": "Terms",
         "discord": "Join our Discord"
     },
+    "Energy": "Energy",
     "Water": "Water",
     "Earth": "Earth",
     "Air": "Air",
@@ -312,6 +324,7 @@
         "S04E10 Operation Beifong": "Operation Beifong",
         "S04E11 Kuvira's Gambit": "Kuvira's Gambit",
         "S04E12 Day of the Colossus": "Day of the Colossus",
-        "S04E13 The Last Stand": "The Last Stand"
+        "S04E13 The Last Stand": "The Last Stand",
+        "Avatar Aang: The Last Airbender": "Avatar Aang: The Last Airbender"
     }
 }

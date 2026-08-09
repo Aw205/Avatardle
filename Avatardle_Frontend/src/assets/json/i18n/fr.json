@@ -1,6 +1,7 @@
 {
     "ATLA-title": "Avatar, le dernier maître de l'air",
     "TLOK-title": "La légende de Korra",
+    "AATLA-title": "Avatar Aang: The Last Airbender",
     "searchPlaceholder": "rechercher...",
     "save": "Enregistrer",
     "submit":"Soumettre",
@@ -9,6 +10,8 @@
     "artist": "Artiste: ",
     "attempts": "Tentatives : ",
     "postLeaderboard": "Publier au classement",
+    "loginToPostScore": "Connectez-vous pour publier votre score",
+    "unlockDaily": "Terminez le mode quotidien pour déverrouiller",
     "All": "Tout",
     "Unknown": "Inconnu",
     "None": "Aucun",
@@ -73,6 +76,7 @@
             "mentor": "Mentor",
             "metal-bending": "Maîtrise du Métal",
             "metal-clan": "Clan du Métal",
+            "mount-baihu":"Mount Baihu",
             "muscular": "Musculaire",
             "musician": "Musicien",
             "nobility": "Noblesse",
@@ -124,8 +128,14 @@
     },
     "leaderboardDialog": {
         "title": "Classement quotidien",
+        "blitzTitle": "Classement Blitz",
+        "daily": "Quotidien",
+        "blitz": "Blitz",
         "name": "Nom",
         "guesses": "Suppositions",
+        "score": "Score",
+        "streak": "Série",
+        "longestStreak": "Plus longue série",
         "time": "Temps",
         "noData": "C'est trop calme... Soyez le premier !"
         
@@ -158,6 +168,7 @@
     },
     "username": "Nom d'utilisateur",
     "usernamePlaceholder": "Entrez votre nom d'utilisateur",
+    "leaderboardUsernamePlaceholder": "entrez votre nom d'utilisateur...",
     "password": "Mot de passe",
     "passwordPlaceholder": "Entrez votre mot de passe",
     "signUp": "S'inscrire",
@@ -196,6 +207,7 @@
         "terms": "Conditions d'utilisation",
         "discord": "Rejoignez notre Discord"
     },
+    "Energy": "Énergie",
     "Water": "Eau",
     "Earth": "Terre",
     "Air": "Air",
@@ -313,6 +325,7 @@
         "S04E10 Operation Beifong": "Opération Beifong",
         "S04E11 Kuvira's Gambit": "La tactique de Kuvira",
         "S04E12 Day of the Colossus": "Le jour du colosse",
-        "S04E13 The Last Stand": "Le dernier combat"
+        "S04E13 The Last Stand": "Le dernier combat",
+        "Avatar Aang: The Last Airbender": "Avatar Aang: The Last Airbender"
     }
 }

@@ -19,7 +19,8 @@ export class ClassicSettingsDialogComponent {
   ls: LocalStorageService = inject(LocalStorageService);
   list: { name: string, icon: string, selected: boolean }[] = [
     { name: 'ATLA-title', icon: "images/characters/Aang.webp", selected: false },
-    { name: 'TLOK-title', icon: "images/characters/Korra.webp", selected: false }
+    { name: 'TLOK-title', icon: "images/characters/Korra.webp", selected: false },
+    { name: 'AATLA-title', icon: "images/AATLA_thumbnail.webp", selected: false }
   ];
   selectedCount: WritableSignal<number> = signal(0);
   correctColor: WritableSignal<string> = signal("#000000");

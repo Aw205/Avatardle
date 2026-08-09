@@ -1,6 +1,6 @@
 <div class="leaderboard-container">
     <div class="leaderboard-title">
-        <span>{{selectedBoardType() === 'daily' ? ('leaderboardDialog.title' | translate) : 'Blitz Leaderboard'}}</span>
+        <span>{{selectedBoardType() === 'daily' ? ('leaderboardDialog.title' | translate) : ('leaderboardDialog.blitzTitle' | translate)}}</span>
         @if(selectedBoardType() === 'daily'){
         -<countdown [config]="ds.getCountdownConfig()" style="font-size: 1rem;" />
         }
@@ -10,7 +10,7 @@
         @for(type of boardTypes; track type){
         <button type="button" role="tab" [class.selected]="selectedBoardType() === type" (click)="setBoardType(type)">
             <span class="material-symbols-outlined">{{type === 'daily' ? 'calendar_today' : 'electric_bolt'}}</span>
-            {{type === 'daily' ? 'Daily' : 'Blitz'}}
+            {{(type === 'daily' ? 'leaderboardDialog.daily' : 'leaderboardDialog.blitz') | translate}}
         </button>
         }
     </div>
@@ -74,8 +74,8 @@
 
     <div class="table-header blitz-header">
         <span>{{'leaderboardDialog.name' | translate}}</span>
-        <span>Score</span>
-        <span>Streak</span>
+        <span>{{'leaderboardDialog.score' | translate}}</span>
+        <span>{{'leaderboardDialog.streak' | translate}}</span>
         <div>
             <span>{{'leaderboardDialog.time' | translate}}</span>
         </div>

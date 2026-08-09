@@ -1,6 +1,7 @@
 {
     "ATLA-title": "Avatar – Der Herr der Elemente",
     "TLOK-title": "Die Legende von Korra",
+    "AATLA-title": "Avatar Aang: The Last Airbender",
     "searchPlaceholder": "suchen...",
     "save": "Speichern",
     "submit":"Einreichen",
@@ -9,6 +10,8 @@
     "artist": "Künstler: ",
     "attempts": "Versuche: ",
     "postLeaderboard": "Auf Rangliste posten",
+    "loginToPostScore": "Melde dich an, um deine Punktzahl zu posten",
+    "unlockDaily": "Schließe den Tagesmodus ab, um freizuschalten",
     "All": "Alle",
     "Unknown": "Unbekannt",
     "None": "Keiner",
@@ -73,6 +76,7 @@
             "mentor": "Mentor",
             "metal-bending": "Metallbändigen",
             "metal-clan": "Metall-Clan",
+            "mount-baihu":"Mount Baihu",
             "muscular": "Muskulös",
             "musician": "Musiker",
             "nobility": "Adel",
@@ -124,8 +128,14 @@
     },
     "leaderboardDialog": {
         "title": "Tägliche Bestenliste",
+        "blitzTitle": "Blitz-Bestenliste",
+        "daily": "Täglich",
+        "blitz": "Blitz",
         "name": "Name",
         "guesses": "Schätzungen",
+        "score": "Punkte",
+        "streak": "Serie",
+        "longestStreak": "Längste Serie",
         "time": "Zeit",
         "noData": "Es ist zu still ... sei der Erste!"
     },
@@ -158,6 +168,7 @@
     },
     "username": "Benutzername",
     "usernamePlaceholder": "Benutzername eingeben",
+    "leaderboardUsernamePlaceholder": "Benutzername eingeben...",
     "password": "Passwort",
     "passwordPlaceholder": "Passwort eingeben",
     "signUp": "Anmelden",
@@ -196,6 +207,7 @@
         "terms": "Begriffe",
         "discord": "Tritt unserem Discord bei"
     },
+    "Energy": "Energie",
     "Water": "Wasser",
     "Earth": "Erde",
     "Air": "Luft",
@@ -313,6 +325,7 @@
         "S04E10 Operation Beifong": "Operation Beifong",
         "S04E11 Kuvira's Gambit": "Kuviras Schachzug",
         "S04E12 Day of the Colossus": "Der Tag des Giganten",
-        "S04E13 The Last Stand": "Das letzte Gefecht"
+        "S04E13 The Last Stand": "Das letzte Gefecht",
+        "Avatar Aang: The Last Airbender": "Avatar Aang: The Last Airbender"
     }
 }

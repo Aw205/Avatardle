@@ -3,7 +3,7 @@
 
 <div
     style="width: 60%; position:relative; font: 1rem avatar2; color: gray; margin:auto; margin-top: 1rem; z-index: 1; padding-bottom: 0.5rem; display: flex; justify-content: space-between; user-select: none;">
-    <span>Score: <ngx-digit-flow [value]="score()" [continuous]="true" spinEasing="default" style="color:darkgoldenrod;"
+    <span>{{'leaderboardDialog.score' | translate}}: <ngx-digit-flow [value]="score()" [continuous]="true" spinEasing="default" style="color:darkgoldenrod;"
             [duration]="500" /> </span>
     <div style="color: indianred; display: flex; gap: 1rem; font-size: 1rem;">
         @for (num of [].constructor(strikes()); track $index){
@@ -26,7 +26,7 @@
 @if(isComplete()){
 <div class="blitz-result-container fade-in">
     <div class="complete-container">
-        <p style="margin-bottom: 0;">Score:</p>
+        <p style="margin-bottom: 0;">{{'leaderboardDialog.score' | translate}}:</p>
         <div class="blitz-score"> {{score()}} </div>
         <div class="blitz-guesses">
             @for(e of guesses; track $index){
@@ -46,16 +46,16 @@
         </blockquote>
         }
 
-        <p>Longest Streak: <span style="color: beige;">{{streak()}}</span></p>
+        <p>{{'leaderboardDialog.longestStreak' | translate}}: <span style="color: beige;">{{streak()}}</span></p>
     </div>
     <div class="share-leaderboard">
 
         @if(!auth.isLoggedIn()){
-        <p>Log in to post your score</p>
+        <p>{{'loginToPostScore' | translate}}</p>
         }
         @else{
         {{'postLeaderboard' | translate}}
-        <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput" disabled>
+        <input maxlength="16" placeholder="{{'leaderboardUsernamePlaceholder' | translate}}" spellcheck="false" [(ngModel)]="usernameInput" disabled>
         @if(!submittedToLeaderboard()){
         <button (click)="submitToLeaderboard()" [disabled]="usernameInput().trim().length == 0">{{'submit' |
             translate}}</button>

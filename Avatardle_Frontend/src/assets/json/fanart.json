@@ -2093,6 +2093,19 @@
         ]
     },
     {
+        "character": "Sonam",
+        "images": [
+            {
+                "pathName": "sonam_quattt.webp",
+                "artist": {
+                    "name": "Quat",
+                    "link": "https://www.tumblr.com/quattt-art/814678548709326848/avatar-sonam-fan-art"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
         "character": "Sozin",
         "images": [
             {
@@ -2206,6 +2219,19 @@
                 "artist": {
                     "name": "synne.i",
                     "link": "https://www.instagram.com/p/CZQB-VPg60A/?img_index=1"
+                },
+                "epithet": ""
+            }
+        ]
+    },
+    {
+        "character": "Tagah",
+        "images": [
+            {
+                "pathName": "tagah_kihyun.webp",
+                "artist": {
+                    "name": "Kihyun Ryu",
+                    "link": "https://www.instagram.com/p/DbUyzmDFAQ1/?img_index=5"
                 },
                 "epithet": ""
             }

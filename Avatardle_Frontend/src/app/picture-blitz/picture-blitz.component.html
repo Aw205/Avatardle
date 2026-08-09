@@ -9,7 +9,7 @@
 <div class="image-container">
     <div
         style="width: 100%; position:relative; font: 1rem avatar2; color: gray; margin:auto; z-index: 1; padding-bottom: 0.5rem; display: flex; justify-content: space-between; user-select: none;">
-        <span>Score: <ngx-digit-flow [value]="score()" [continuous]="true" spinEasing="default"
+        <span>{{'leaderboardDialog.score' | translate}}: <ngx-digit-flow [value]="score()" [continuous]="true" spinEasing="default"
                 style="color:darkgoldenrod;" [duration]="500" /> </span>
 
         <countdown #cd [config]="{leftTime: 120, demand: true,format: 'mm:ss'}"
@@ -33,11 +33,11 @@
 <div class="blitz-result-container fade-in">
     <div class="share-leaderboard">
         @if(!auth.isLoggedIn()){
-        <p>Log in to post your score</p>
+        <p>{{'loginToPostScore' | translate}}</p>
         }
         @else{
         {{'postLeaderboard' | translate}}
-        <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput" disabled>
+        <input maxlength="16" placeholder="{{'leaderboardUsernamePlaceholder' | translate}}" spellcheck="false" [(ngModel)]="usernameInput" disabled>
         @if(!submittedToLeaderboard()){
         <button (click)="submitToLeaderboard()" [disabled]="usernameInput().trim().length == 0">{{'submit' |
             translate}}</button>

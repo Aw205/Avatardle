@@ -1,6 +1,7 @@
 {
     "ATLA-title": "Avatar: A Lenda de Aang",
     "TLOK-title": "A Lenda de Korra",
+    "AATLA-title": "Avatar Aang: The Last Airbender",
     "searchPlaceholder": "pesquisar...",
     "save": "Salvar",
     "submit":"Enviar",
@@ -9,6 +10,8 @@
     "artist": "Artista: ",
     "attempts": "Tentativos: ",
     "postLeaderboard": "Publicar no quadro de líderes",
+    "loginToPostScore": "Entre para publicar sua pontuação",
+    "unlockDaily": "Complete o modo diário para desbloquear",
     "All": "Todos",
     "Unknown": "Desconhecido",
     "None": "Nenhum",
@@ -73,6 +76,7 @@
             "mentor": "Mentor",
             "metal-bending": "Dobra de Metal",
             "metal-clan": "Clã do Metal",
+            "mount-baihu":"Mount Baihu",
             "muscular": "Muscular",
             "musician": "Músico",
             "nobility": "Nobreza",
@@ -124,8 +128,14 @@
     },
     "leaderboardDialog": {
         "title": "Classificação diária",
+        "blitzTitle": "Classificação Blitz",
+        "daily": "Diário",
+        "blitz": "Blitz",
         "name": "Nome",
         "guesses": "Suposições",
+        "score": "Pontuação",
+        "streak": "Sequência",
+        "longestStreak": "Maior sequência",
         "time": "Tempo",
         "noData": "Está muito silencioso... seja o primeiro!"
         
@@ -159,6 +169,7 @@
     },
     "username": "Nome de usuário",
     "usernamePlaceholder": "Digite o nome de usuário",
+    "leaderboardUsernamePlaceholder": "digite o nome de usuário...",
     "password": "Senha",
     "passwordPlaceholder": "Digite a senha",
     "signUp": "Inscreva-se",
@@ -197,6 +208,7 @@
         "terms": "Termos",
         "discord": "Junte-se ao nosso Discord"
     },
+    "Energy": "Energia",
     "Water": "Água",
     "Earth": "Terra",
     "Air": "Ar",
@@ -314,6 +326,7 @@
         "S04E10 Operation Beifong": "Operação Beifong",
         "S04E11 Kuvira's Gambit": "A Manobra de Kuvira",
         "S04E12 Day of the Colossus": "Dia do Colosso",
-        "S04E13 The Last Stand": "O Confronto Final"
+        "S04E13 The Last Stand": "O Confronto Final",
+        "Avatar Aang: The Last Airbender": "Avatar Aang: The Last Airbender"
     }
 }

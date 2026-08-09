@@ -1,10 +1,10 @@
 <div class="mode-container">
     <div (click)="setMode('daily')" [class.selected]="mode()=='daily'">
-        <span class="material-symbols-outlined">calendar_today</span>Daily
+        <span class="material-symbols-outlined">calendar_today</span>{{'leaderboardDialog.daily' | translate}}
     </div>
     <div (click)="setMode('blitz')" [class.selected]="mode()=='blitz'" style="position: relative;"
-        matTooltip="Complete daily to unlock" matTooltipPosition="right" [matTooltipDisabled]="isComplete()">
-        <span class="material-symbols-outlined">{{isComplete() ? 'electric_bolt' : 'lock'}}</span>Blitz
+        [matTooltip]="'unlockDaily' | translate" matTooltipPosition="right" [matTooltipDisabled]="isComplete()">
+        <span class="material-symbols-outlined">{{isComplete() ? 'electric_bolt' : 'lock'}}</span>{{'leaderboardDialog.blitz' | translate}}
     </div>
 </div>
 
@@ -48,7 +48,7 @@
     </div>
     <div class="share-leaderboard">
         {{'postLeaderboard' | translate}}
-        <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput"
+        <input maxlength="16" placeholder="{{'leaderboardUsernamePlaceholder' | translate}}" spellcheck="false" [(ngModel)]="usernameInput"
             [disabled]="submittedToLeaderboard() || inputDisabled()">
         @if(!submittedToLeaderboard()){
         @if(usernameError()){

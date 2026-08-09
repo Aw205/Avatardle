@@ -19,7 +19,7 @@
         style="background-color: transparent; border: none; color: gray; font: 1rem avatar2; pointer-events: none;width: 100%;"
         [min]="minDate" [max]="maxDate" (dateChange)="onDateSelect($event)"
         [disabled]="!ls.progress().classic.complete">
-    <mat-datepicker-toggle [for]="picker" style="cursor: pointer;" matTooltip="Complete daily to unlock"
+    <mat-datepicker-toggle [for]="picker" style="cursor: pointer;" [matTooltip]="'unlockDaily' | translate"
         matTooltipPosition="right" [matTooltipDisabled]="ls.progress().classic.complete">
         <span class="material-symbols-outlined" matDatepickerToggleIcon>{{(ls.progress().classic.complete) ?
             'calendar_today' : 'lock'}}</span>
@@ -72,7 +72,7 @@
     @if(selectedDate == ls.currentDate){
     <div class="share-leaderboard">
         {{'postLeaderboard' | translate}}
-        <input maxlength="16" placeholder="enter username..." spellcheck="false" [(ngModel)]="usernameInput"
+        <input maxlength="16" placeholder="{{'leaderboardUsernamePlaceholder' | translate}}" spellcheck="false" [(ngModel)]="usernameInput"
             [disabled]="submittedToLeaderboard() || inputDisabled()">
         @if(!submittedToLeaderboard()){
         @if(usernameError()){

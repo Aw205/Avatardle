@@ -172,7 +172,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "Earth",
-		"affiliations": ["Council of Five"],
+		"affiliations": [],
 		"firstAppearance": "S02E18 The Earth King"
 	},
 	{
@@ -180,7 +180,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "Earth",
-		"affiliations": ["Council of Five"],
+		"affiliations": [],
 		"firstAppearance": "S02E13 The Drill"
 	},
 	{
@@ -556,7 +556,7 @@
 		"gender": "Female",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": ["Animal"],
+		"affiliations": [],
 		"firstAppearance": "S01E13 The Blue Spirit"
 	},
 	{
@@ -596,7 +596,7 @@
 		"gender": "Male",
 		"nationality": "Earth Kingdom",
 		"bendingElement": "None",
-		"affiliations": ["Leader"],
+		"affiliations": [],
 		"firstAppearance": "S01E04 The Warriors of Kyoshi"
 	},
 	{
@@ -688,6 +688,14 @@
 		"firstAppearance": "S01E01 The Boy in the Iceberg"
 	},
 	{
+		"name": "Sonam",
+		"gender": "Female",
+		"nationality": "Jharana",
+		"bendingElement": "All",
+		"affiliations": ["Spirit World","Weapon Wielder","Mount Baihu"],
+		"firstAppearance": "Avatar Aang: The Last Airbender"
+	},
+	{
 		"name": "Song",
 		"gender": "Female",
 		"nationality": "Earth Kingdom",
@@ -695,7 +703,6 @@
 		"affiliations": [],
 		"firstAppearance": "S01E01 The Boy in the Iceberg"
 	},
-	
 	{
 		"name": "Sozin",
 		"gender": "Male",
@@ -719,6 +726,14 @@
 		"bendingElement": "Earth",
 		"affiliations": ["Metal Bending","Metal Clan"],
 		"firstAppearance": "S03E05 The Metal Clan"
+	},
+	{
+		"name": "Tagah",
+		"gender": "Male",
+		"nationality": "Jharana",
+		"bendingElement": "Air",
+		"affiliations": ["Mount Baihu"],
+		"firstAppearance": "Avatar Aang: The Last Airbender"
 	},
 	{
 		"name": "Tarrlok",
@@ -837,7 +852,7 @@
 		"gender": "Male",
 		"nationality": "Fire Nation",
 		"bendingElement": "None",
-		"affiliations": ["Leader"],
+		"affiliations": [],
 		"firstAppearance": "S03E14 The Boiling Rock, Part 1"
 	},
 	{
