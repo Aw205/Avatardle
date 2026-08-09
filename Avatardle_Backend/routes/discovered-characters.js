@@ -20,14 +20,30 @@ router.get('/', verifyToken, (req, res) => {
 
 router.patch('/', verifyToken, (req, res) => {
 
+    const name = req.body.name;
+    if (!name) {
+        return res.status(400).json({ error: 'Missing character name' });
+    }
+
     const query = {
-        text: 'INSERT INTO discovered_characters (user_id, character_id) VALUES ($1, $2) ON CONFLICT (user_id, character_id) DO UPDATE SET guess_count = discovered_characters.guess_count + 1',
-        values: [req.user.user_id, req.body.character_id],
+        text: `
+            INSERT INTO discovered_characters (user_id, character_id)
+            SELECT $1, character_id
+            FROM characters
+            WHERE name = $2
+            ON CONFLICT (user_id, character_id)
+            DO UPDATE SET guess_count = discovered_characters.guess_count + 1
+            RETURNING character_id
+        `,
+        values: [req.user.user_id, name],
     };
 
-    db.query(query, (err) => {
+    db.query(query, (err, queryRes) => {
         if (err) {
             return res.status(500).json({ error: err.message });
+        }
+        if (queryRes.rows.length === 0) {
+            return res.status(404).json({ error: 'Character not found' });
         }
         return res.sendStatus(204);
     });

@@ -156,12 +156,7 @@ export class DataService {
 
   updateDiscoveredCharacters(name: string) {
 
-    this.http.get(`${environment.apiUrl}/getCharacters`).subscribe((arr: any) => {
-      let record = (arr as any[]).find((e: any) => {
-        return e.name == name;
-      })
-      this.http.patch(`${environment.apiUrl}/discovered-characters`, { character_id: record.character_id }, { withCredentials: true }).subscribe(data => { });
-    });
+    this.http.patch(`${environment.apiUrl}/discovered-characters`, { name }, { withCredentials: true }).subscribe(data => { });
   }
 
   updateProfile(bio: string, element: string, favorite_characters: string[], favorite_ship: string[]) {
