@@ -21,7 +21,7 @@ export interface AvatardleProgress {
 @Service()
 export class LocalStorageService {
 
-  VERSION: string = "2.2";
+  VERSION: string = "2.3";
   currentDate = new Date().toLocaleDateString("en-US", { timeZone: "UTC" });
   progress: WritableSignal<AvatardleProgress>;
   default: AvatardleProgress = {

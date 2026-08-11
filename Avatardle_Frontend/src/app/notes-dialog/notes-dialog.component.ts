@@ -30,6 +30,32 @@ type NoteEntry = {
 export class NotesDialogComponent {
   notes: NoteEntry[] = [
     {
+      date: '08/10/26',
+      title: 'New characters from the Aang movie',
+      summary: 'Who\'s seen it?',
+      sections: [
+        {
+          heading: 'Big potatoes',
+          paragraphs: ['Enable them through the classic settings icon in the search bar'],
+          items: [
+            'Sonam',
+            "Tagah"
+          ]
+        },
+        {
+          heading: 'Small potatoes',
+          items: [
+            'Updated translations',
+            'Fix for Lion turtle quotes being marked as incorrect'
+          ]
+        },
+        {
+          heading: 'Next up...',
+          paragraphs: ['35+ new tracks for music mode and new features to profiles!']
+        }
+      ]
+    },
+    {
       date: '08/03/26',
       title: 'Picture blitz & QOL',
       summary: ':)',
