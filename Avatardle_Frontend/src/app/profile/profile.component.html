@@ -1,56 +1,229 @@
 <div class="profile-container">
 
-    <div class="nameplate"> <img src="images/elements/{{element()}}.svg" style="height: 3rem;"> {{username()}} </div>
+    <div class="profile-content">
 
-    <p style="font:italic 1rem Georgia; color: gray; margin: 0; text-indent: 2rem;">
-        {{message()}}
-    </p>
-    @if(isSelf()){
-    <div class="edit-profile" (click)="openEdit()">{{'profile.editProfile' | translate}}</div>
-    }
-
-    <div style="display: flex; flex-direction: column; gap:1rem;">
-
-        <div class="profile-data">
-            <img src="images/favorite.svg" style="width: 2rem;">{{'profile.favCharacters' | translate}}
-            <div style="position: absolute; left:100%; display: flex; align-items: center;">
-                @for(char of favoriteChars(); track char){
-                @let c = char | hyphenate;
-                <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}" style="scale:0.8;">
+        <header class="profile-identity">
+            @if(element()){
+            <span class="profile-watermark" aria-hidden="true">
+                <img [src]="'images/elements/' + element() + '.svg'" alt="">
+            </span>
+            }
+            <div class="profile-identity-row">
+                <div class="nameplate">
+                    @if(element()){
+                    <img class="profile-element" [src]="'images/elements/' + element() + '.svg'" [alt]="element()">
+                    }
+                    <div class="profile-heading">
+                        <h1>{{username()}}</h1>
+                        @if(message()){
+                        <p class="profile-quote">{{message()}}</p>
+                        }
+                    </div>
+                </div>
+                @if(isSelf()){
+                <button class="edit-profile" type="button" (click)="openEdit()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="m16 4 4 4M4 20l4-1L20 7a2.8 2.8 0 0 0-4-4L4 15l-1 6 5-2" />
+                    </svg>
+                    {{'profile.editProfile' | translate}}
+                </button>
                 }
             </div>
+        </header>
 
-        </div>
+        <div class="profile-sections">
 
-        <div class="profile-data" style="border-bottom: 1px solid rgb(197, 82, 101);">
-            <img src="images/affiliationIcons/romance.webp" style="width: 2rem;">{{'profile.favShip' | translate}}
-            <div style="position: absolute; left:100%; display: flex; align-items: center;">
-                @for(char of favoriteShip(); track char){
-                @let c = char | hyphenate;
-                <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}" style="scale:0.8;">
-                }
+            <div class="profile-highlights">
+                <div class="favorite-panel">
+                    <div class="profile-data-label">
+                        <svg class="profile-section-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                            <use href="images/profile-keepsakes.svg#characters" />
+                        </svg>
+                        <span>{{'profile.favCharacters' | translate}}</span>
+                    </div>
+                    <div class="profile-character-cluster">
+                        @for(char of favoriteChars(); track char){
+                        @let c = char | hyphenate;
+                        <span class="keepsake-token" matTooltip="{{char}}" matTooltipPosition="below">
+                            <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}">
+                        </span>
+                        }
+                    </div>
+                </div>
+
+                <div class="favorite-panel ship-panel">
+                    <div class="profile-data-label">
+                        <svg class="profile-section-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                            <use href="images/profile-keepsakes.svg#ship" />
+                        </svg>
+                        <span>{{'profile.favShip' | translate}}</span>
+                    </div>
+                    <div class="profile-character-cluster ship-thread">
+                        @for(char of favoriteShip(); track char){
+                        @let c = char | hyphenate;
+                        <span class="keepsake-token ship-token" matTooltip="{{char}}" matTooltipPosition="below">
+                            <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}">
+                        </span>
+                        }
+                    </div>
+                    @if(favoriteShip().length){
+                    <p class="ship-caption">{{favoriteShip().join(' × ')}}</p>
+                    }
+                </div>
             </div>
+
+            <section class="encyclopedia">
+                <div class="encyclopedia-header">
+                    <div>
+                        <h2>{{'profile.encyclopedia' | translate}}</h2>
+                        <p>{{'profile.discoveredChars' | translate}}
+                            <span>{{discoveryCount()}}/{{characters.length}}</span>
+                        </p>
+                    </div>
+                    <span class="discovery-percentage" aria-hidden="true">{{discoveryPercentage()}}%</span>
+                </div>
+
+                <div class="discovery-track" role="progressbar" aria-valuemin="0"
+                    [attr.aria-valuemax]="characters.length" [attr.aria-valuenow]="discoveryCount()"
+                    [attr.aria-label]="'profile.discoveredChars' | translate">
+                    <span [style.width.%]="discoveryProgress()"></span>
+                </div>
+                <ol class="discovery-milestones" [attr.aria-label]="'profile.milestoneLabel' | translate">
+                    @for(milestone of discoveryMilestones(); track milestone.id){
+                    <li [class.earned]="milestone.earned"
+                        [attr.aria-label]="(milestone.label | translate) + ': ' +
+                            ((milestone.earned ? 'profile.milestoneEarned' : 'profile.milestoneGoal') |
+                            translate: {count: milestone.target})">
+                        <svg class="milestone-seal" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                            <use [attr.href]="'images/library-milestones.svg#' + milestone.id" />
+                        </svg>
+                        <span class="milestone-name">{{milestone.label | translate}}</span>
+                        <span class="milestone-value" aria-hidden="true">{{milestone.earned ? '✓' : milestone.target}}</span>
+                    </li>
+                    }
+                </ol>
+                <p class="discovery-next" aria-live="polite">
+                    @if(nextDiscoveryMilestone(); as next){
+                    {{'profile.nextMilestone' | translate: {count: next.remaining, title: (next.label | translate)} }}
+                    } @else if(characters.length){
+                    {{(isSelf() ? 'profile.collectionComplete' : 'profile.collectionCompletePublic') | translate}}
+                    }
+                </p>
+
+                @if(isSelf()){
+                <div class="encyclopedia-layout">
+                    <div class="character-shelf">
+                        @for(char of characters; let i = $index; track i;){
+                        @let characterId = i + 1;
+                        @let c = char | hyphenate;
+                        <button type="button" class="character-token"
+                            [class.discovered]="discoveredCharacters().includes(characterId)"
+                            [class.selected]="selectedCharacterId() === characterId"
+                            [disabled]="!discoveredCharacters().includes(characterId)"
+                            [attr.aria-label]="discoveredCharacters().includes(characterId) ? char : ('profile.discoveredCharacter' | translate)"
+                            [attr.aria-pressed]="selectedCharacterId() === characterId"
+                            (click)="selectCharacter(characterId)"
+                            matTooltip="{{discoveredCharacters().includes(characterId) ? char : ''}}"
+                            matTooltipPosition="below">
+                            <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}" alt="" draggable="false">
+                        </button>
+                        }
+                    </div>
+
+                    @if(selectedCharacterId()){
+
+                    <figure class="scroll-exhibit" aria-labelledby="character-caption" [attr.aria-busy]="pendingPortrait() !== null">
+                        <div class="scroll-container">
+                            <img class="scroll-frame" src="images/character-scroll.svg" alt="" aria-hidden="true">
+
+                            <div class="character-scroll">
+                                @if(pendingPortrait(); as pending){
+                                <img class="portrait-preload" [src]="pending.src" alt="" aria-hidden="true"
+                                    (load)="revealPortrait($event, pending)" (error)="portraitFailed(pending)">
+                                }
+                                @if(previousPortrait(); as previous){
+                                <img class="character-artwork portrait-outgoing" [src]="previous.src"
+                                    alt="" aria-hidden="true"
+                                    (animationend)="clearPreviousPortrait(previous)">
+                                }
+                                @if(artworkUnavailable()){
+                                <p class="artwork-unavailable" role="status">{{'profile.artworkUnavailable' | translate}}</p>
+                                }
+                                @for(portrait of displayedPortraits(); track portrait){
+                                @if(portrait.inscription){
+                                <span class="character-inscription inscription-reveal" lang="zh-Hans"
+                                    [style.filter]="'url(#' + inkMaskPrefix + '-density-' + portrait.revealId + ')'">{{portrait.inscription}}</span>
+                                }
+                                <svg class="character-artwork portrait-reveal" viewBox="0 0 304 456"
+                                    role="img" [attr.aria-label]="portrait.name">
+                                    <defs>
+                                        <!-- Vary pigment density without eroding the calligraphy's strokes. -->
+                                        <filter [attr.id]="inkMaskPrefix + '-density-' + portrait.revealId"
+                                            x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+                                            <feTurbulence type="fractalNoise" baseFrequency=".09 .35" numOctaves="3"
+                                                seed="23" result="ink-grain" />
+                                            <feColorMatrix in="ink-grain" type="matrix" result="ink-density"
+                                                values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .55 0 0 0 .6" />
+                                            <feComposite in="SourceGraphic" in2="ink-density" operator="in" />
+                                        </filter>
+                                        <filter [attr.id]="inkMaskPrefix + '-bleed-' + portrait.revealId"
+                                            x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+                                            <feTurbulence type="fractalNoise" baseFrequency=".035 .09" numOctaves="2"
+                                                [attr.seed]="portrait.revealId * 17 % 97 + 1" result="bleed" />
+                                            <feDisplacementMap in="SourceGraphic" in2="bleed" scale="18"
+                                                xChannelSelector="R" yChannelSelector="G" />
+                                            <feGaussianBlur stdDeviation=".7" result="soft-ink" />
+                                            <feTurbulence type="fractalNoise" baseFrequency=".23 .75" numOctaves="2"
+                                                [attr.seed]="portrait.revealId * 7 % 53 + 1" result="bristles" />
+                                            <feColorMatrix in="bristles" type="matrix" result="pigment"
+                                                values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  .35 0 0 0 .65" />
+                                            <feComposite in="soft-ink" in2="pigment" operator="in" />
+                                        </filter>
+                                        <mask [attr.id]="inkMaskPrefix + '-mask-' + portrait.revealId"
+                                            maskUnits="userSpaceOnUse" x="0" y="0" width="304" height="456" style="mask-type: alpha">
+                                            <g class="ink-strokes" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round"
+                                                [attr.filter]="'url(#' + inkMaskPrefix + '-bleed-' + portrait.revealId + ')'"
+                                                [attr.transform]="portrait.revealId % 2 === 0 ? 'translate(304 0) scale(-1 1)' : null">
+                                                <path class="ink-stroke brush-spine" pathLength="1" stroke-width="112"
+                                                    d="M150-90C190 40 80 160 150 280S155 410 110 535" />
+                                                <path class="ink-stroke brush-left" pathLength="1" stroke-width="170"
+                                                    d="M-110 10C95-10 160 120-60 230" />
+                                                <path class="ink-stroke brush-crown" pathLength="1" stroke-width="180"
+                                                    d="M380-80C315 55 210 100 300 250" />
+                                                <path class="ink-stroke brush-sweep" pathLength="1" stroke-width="170"
+                                                    d="M-115 215C40 170 75 320 220 350S300 440 370 500" />
+                                                <path class="ink-stroke brush-right" pathLength="1" stroke-width="190"
+                                                    d="M420 270C295 230 180 390 285 525" />
+                                                <path class="ink-stroke brush-foot" pathLength="1" stroke-width="200"
+                                                    d="M-105 450C30 390 115 410 185 530" />
+                                            </g>
+                                            <rect class="ink-finish" width="304" height="456" fill="white" />
+                                        </mask>
+                                    </defs>
+                                    <image [attr.href]="portrait.src" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"
+                                        [attr.mask]="'url(#' + inkMaskPrefix + '-mask-' + portrait.revealId + ')'" />
+                                </svg>
+                                <div class="archive-seal seal-reveal" [style]="portrait.seal"></div>
+                                }
+                            </div>
+                        </div>
+                        <figcaption class="scroll-caption" id="character-caption" aria-live="polite" aria-atomic="true">
+                            @for(portrait of displayedPortraits(); track portrait){
+                            <div class="caption-reveal">
+                                <h3>{{portrait.name}}</h3>
+                            </div>
+                            }
+                            @if(artworkUnavailable()){
+                            <h3>{{selectedCharacterName()}}</h3>
+                            }
+                        </figcaption>
+                    </figure>
+                    }
+                </div>
+                }
+            </section>
         </div>
-
-        <div class="profile-data"><img src="images/scroll.svg" style="width: 2rem; ">{{'profile.discoveredChars' |
-            translate}} <span style="color: goldenrod;">
-                {{discoveredCharactersCount()}}/{{characters.length}}</span></div>
-
-        @if(isSelf()){
-
-        <div style="position: relative; display: flex; align-items: center; flex-wrap: wrap;">
-            @for(char of characters; let i = $index; track i;){
-            @let c = char | hyphenate;
-
-            @if(discoveredCharacters().includes(i+1)){
-            <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}" matTooltip="{{c}}" matTooltipPosition="below">
-            }
-            @else{
-            <img [src]="`${env.r2AssetUrl}/headshots/${c}.webp`" class="{{c}}" style="filter: brightness(0);">
-            }
-            }
-        </div>
-        }
     </div>
 
 </div>

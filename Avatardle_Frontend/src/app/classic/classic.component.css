@@ -78,8 +78,6 @@
         color: darkgoldenrod;
         text-align: center;
         margin-bottom: 1rem;
-        border: 1px outset black;
-        outline: 2px solid black;
         border-radius: 10px;
         background-color: rgb(15, 15, 15);
 
@@ -90,8 +88,6 @@
     & .fanart-image {
         width: 100%;
         user-select: none;
-        border: 1px outset black;
-        outline: 2px solid black;
         border-radius: 16px;
         pointer-events: none;
     }
@@ -101,8 +97,6 @@
         position: relative;
         font: 1rem avatar2;
         color: beige;
-        border: 1px outset black;
-        outline: 2px solid black;
         border-radius: 10px;
         background-color: rgb(15, 15, 15);
         margin-top: 1rem;
@@ -114,8 +108,6 @@
 
         position: relative;
         font: 1rem avatar2;
-        border: 1px outset black;
-        outline: 2px solid black;
         border-radius: 10px;
         background-color: rgb(15, 15, 15);
         margin-top: 1rem;

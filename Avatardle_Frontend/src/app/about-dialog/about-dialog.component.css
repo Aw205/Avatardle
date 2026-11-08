@@ -1,0 +1,116 @@
+.about-intro {
+    margin: 0;
+    color: var(--dialog-muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.artwork-credits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin: 0.85rem 0 0;
+}
+
+.artwork-credits > div {
+    padding: 0.8rem 1rem;
+    background: linear-gradient(135deg, rgba(208, 197, 171, 0.035), transparent);
+    border: 1px solid rgba(183, 161, 108, 0.13);
+    border-radius: 5px;
+    box-shadow: inset 0 1px rgba(244, 232, 200, 0.025);
+}
+
+.artwork-credits dt {
+    margin-bottom: 0.3rem;
+    color: var(--dialog-muted);
+    font-size: 0.75rem;
+}
+
+.artwork-credits dd {
+    margin: 0;
+}
+
+.artwork-credits a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 1.5rem;
+    color: var(--dialog-ivory);
+    text-decoration: none;
+}
+
+.artwork-credits .external-arrow {
+    color: var(--dialog-bronze);
+    opacity: 0.7;
+}
+
+.artwork-credits a:hover {
+    color: #d2bf91;
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+}
+
+.community-section p {
+    color: var(--dialog-muted);
+    font-size: 0.9rem;
+}
+
+.community-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+}
+
+.community-links a {
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+}
+
+.community-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 5px;
+}
+
+.community-icon img {
+    width: 1.4rem;
+    height: 1.4rem;
+    object-fit: contain;
+}
+
+.reddit-icon {
+    background-color: #ff4500;
+}
+
+.discord-icon {
+    background-color: #5865f2;
+}
+
+.community-links .external-arrow {
+    margin-left: auto;
+}
+
+.closing-note p {
+    margin: 0;
+    color: var(--dialog-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+@media (max-width: 420px) {
+    .artwork-credits,
+    .community-links {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .community-links a {
+        padding: 0.75rem;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+    }
+}

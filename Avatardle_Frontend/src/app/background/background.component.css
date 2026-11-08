@@ -1,40 +1,107 @@
 :host{
 
-    --sidebar-border-top: 1px solid rgba(255, 255, 255, 0.15);
-    --sidebar-border-bottom: 1px ridge rgba(255, 255, 255, 0.15);
-    --sidebar-background-color: rgba(0, 0, 0, 0.25);
+    --sidebar-border-top: var(--ui-control-border-top);
+    --sidebar-border-bottom: var(--ui-control-border-bottom);
+    --sidebar-background-color: var(--ui-control-background);
 }
 
 
 .title-container {
-
     position: relative;
-    width: fit-content;
-    margin: auto;
-    margin-top: 2rem;
+    display: grid;
+    justify-items: center;
+    gap: 0.875rem;
+    width: min(calc(100% - 2rem), 27rem);
+    margin: 2.25rem auto 0;
     user-select: none;
+}
 
-    &>img {
-        position: absolute;
-        top: -40%;
-        left: -15%;
-        width: 130%;
-        height: auto;
-        user-select: none;
-        pointer-events: none;
+.title-wordmark {
+    position: relative;
+    isolation: isolate;
+    display: block;
+    width: fit-content;
+    color: #e2d5bd;
+    font: clamp(3rem, 8vw, 4.75rem) / 1.05 avatar;
+    text-shadow: 0 2px 2px rgb(0 0 0 / 85%), 0 4px 7px rgb(0 0 0 / 45%);
+    text-decoration: none;
+    cursor: pointer;
+    transition: filter 180ms ease, transform 180ms ease-out;
+}
+
+.title-brush {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 124%;
+    height: 140%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    -webkit-mask: url('../../assets/images/brush_stroke.svg') center / 100% 100% no-repeat;
+    mask: url('../../assets/images/brush_stroke.svg') center / 100% 100% no-repeat;
+    pointer-events: none;
+}
+
+.title-divider {
+    position: relative;
+    width: 5rem;
+    height: 5px;
+    pointer-events: none;
+}
+
+.title-divider::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgb(113 85 55 / 45%), transparent);
+}
+
+.title-divider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    box-sizing: border-box;
+    transform: translateX(-50%);
+    border: 1px solid rgb(113 85 55 / 50%);
+    border-radius: 50%;
+    background: #1b150f;
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 85%);
+}
+
+@media (hover: hover) {
+    .title-wordmark:hover {
+        transform: scale(1.02);
+        filter: brightness(1.08);
+    }
+}
+
+.title-wordmark:focus-visible {
+    outline: 2px solid #a9946b;
+    outline-offset: 6px;
+    border-radius: 0.25rem;
+    filter: brightness(1.08);
+}
+
+.title-wordmark:active {
+    transform: translateY(1px);
+    filter: brightness(0.98);
+    transition-duration: 90ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .title-wordmark {
+        transition: none;
     }
 
-    &>a {
-        position: relative;
-        display: block;
-        color: white;
-        cursor: pointer;
-        font: 6rem avatar;
-        transition: transform 0.5s;
-
-        &:hover {
-            transform: scale(1.1);
-        }
+    .title-wordmark:hover,
+    .title-wordmark:active {
+        transform: none;
     }
 }
 
@@ -65,11 +132,11 @@
     user-select: none;
     gap: 1.25rem;
     
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(var(--ui-control-blur));
+    -webkit-backdrop-filter: blur(var(--ui-control-blur));
     
-    border-radius: 999px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: var(--ui-control-radius);
+    box-shadow: var(--ui-control-shadow);
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
@@ -79,7 +146,7 @@
 
 .sidebar-button {
     cursor: pointer;
-    color: bisque;
+    color: var(--ui-control-text);
     background-color: transparent;
     border: none;
     padding: 0;
@@ -129,15 +196,8 @@ ngx-particles {
 @media only screen and (max-width: 768px) {
 
     .title-container {
-        &>img {
-            top: -40%;
-            left: -15%;
-            width: 130%;
-        }
-
-        &>a {
-            font: 3rem avatar;
-        }
+        /* Clear the fixed menu and account controls on narrow screens. */
+        margin-top: 4.75rem;
     }
 
     .button-container {

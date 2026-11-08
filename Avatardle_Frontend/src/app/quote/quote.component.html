@@ -17,22 +17,53 @@
     <ngx-digit-flow [value]="(ds.stats$ | async)?.quote_completion ?? 0" [continuous]="true" spinEasing="default"
         style="color:darkgoldenrod;" [duration]="1500" /> {{'odometer' | translate}}
 
-    <button [disabled]="isSurrenderDisabled()" (click)="openDialog('surrender')" class="surrender-button">
+    <button [disabled]="isSurrenderDisabled()" (click)="openSurrenderDialog()" class="surrender-button">
         <span class="material-symbols-outlined" [matTooltip]="getSurrenderText()" matTooltipPosition="right"
             [matTooltipDisabled]="isComplete()">flag</span>
     </button>
 </div>
 
 @if(quote()!=''){
-<div class="quote-container">
-    <blockquote>{{quote()}}</blockquote>
-    <div class="clue-container">
-        @for(h of hints; track h; let i = $index){
-        <button aria-label="Quote Hint" [disabled]="!isEnabled(i)" (click)="showHint(i)"
-            [matTooltip]="getTooltipText(i)" matTooltipPosition="right"><img src="images/lotus.svg" alt=""></button>
+<section class="quote-container daily-quote" [attr.aria-label]="'quote.prompt' | translate">
+    <blockquote>
+        <p class="quote-text"><span class="quote-mark quote-hints-mark">&ldquo;<button class="quote-hints-trigger" type="button"
+                [matMenuTriggerFor]="quoteHintMenu"
+                [matTooltip]="('quote.hints' | translate) + ' · ' + ('quoteHints.availableCount' | translate: {count: availableHintCount, total: hints.length})"
+                [attr.aria-label]="('quote.hints' | translate) + ' · ' + ('quoteHints.availableCount' | translate: {count: availableHintCount, total: hints.length})">
+                @if(availableHintCount > 0){
+                @for(version of [hintUnlockVersion()]; track version){
+                <span class="hint-notice" aria-hidden="true">
+                    @for(hint of hints; track hint.kind; let i = $index){
+                    @if(isEnabled(i)){
+                    <span class="hint-dot" [class.hint-unlocked]="version > 0 && i === availableHintCount - 1"></span>
+                    }
+                    }
+                </span>
+                }
+                }
+            </button></span>{{quote()}}</p>
+    </blockquote>
+    <span class="hint-announcement" aria-live="polite" aria-atomic="true">{{'quoteHints.availableCount' | translate:
+        {count: availableHintCount, total: hints.length} }}</span>
+    <mat-menu #quoteHintMenu="matMenu" class="quote-hint-menu" xPosition="after" yPosition="below"
+        [overlapTrigger]="false" [aria-label]="'quote.hints' | translate">
+        @for(h of hints; track h.kind; let i = $index){
+        <button mat-menu-item [disabled]="!isEnabled(i)" (click)="showHint(i)">
+            <span class="hint-menu-row">
+                <span>{{('quoteHints.' + h.kind) | translate}}</span>
+                <span class="hint-menu-status" [class.hint-menu-ready]="isEnabled(i)">
+                    @if(isEnabled(i)){
+                    {{'quoteHints.available' | translate}}
+                    } @else {
+                    {{(remainingHintGuesses(i) === 1 ? 'quoteHints.oneMoreGuess' : 'quoteHints.moreGuesses') |
+                        translate: {count: remainingHintGuesses(i)} }}
+                    }
+                </span>
+            </span>
+        </button>
         }
-    </div>
-</div>
+    </mat-menu>
+</section>
 }
 
 @if(isComplete()){

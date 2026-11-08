@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {
   MatDialogClose,
   MatDialogTitle,
   MatDialogContent,
-  MatDialogRef,
 } from '@angular/material/dialog';
 import { TranslatePipe } from "@ngx-translate/core";
 
@@ -25,17 +24,32 @@ type NoteEntry = {
   selector: 'app-notes-dialog',
   imports: [MatDialogClose, MatDialogTitle, MatDialogContent, TranslatePipe],
   templateUrl: './notes-dialog.component.html',
-  styleUrl: './notes-dialog.component.css'
+  styleUrls: ['../shared/dialog-theme.css', '../shared/dialog-buttons.css', './notes-dialog.component.css']
 })
 export class NotesDialogComponent {
   notes: NoteEntry[] = [
+    {
+      date: '11/08/26',
+      title: 'Profile updates + UI revamp',
+      summary: 'Been a minute',
+      sections: [
+        {
+          heading: 'Profiles',
+          paragraphs: ['Check out the new profiles page, you might find some new art! More to come in the future.']
+        },
+        {
+          heading: 'Coming soon',
+          paragraphs: ['Seven Havens characters!']
+        }
+      ]
+    },
     {
       date: '08/10/26',
       title: 'New characters from the Aang movie',
       summary: 'Who\'s seen it?',
       sections: [
         {
-          heading: 'Big potatoes',
+          heading: 'New additions',
           paragraphs: ['Enable them through the classic settings icon in the search bar'],
           items: [
             'Sonam',
@@ -43,7 +57,7 @@ export class NotesDialogComponent {
           ]
         },
         {
-          heading: 'Small potatoes',
+          heading: 'Minor fixes',
           items: [
             'Updated translations',
             'Fix for Lion turtle quotes being marked as incorrect'
@@ -223,10 +237,13 @@ export class NotesDialogComponent {
 
   selectedNote = this.notes[0];
 
-  constructor(public dialogRef: MatDialogRef<NotesDialogComponent>) {}
+  @ViewChild('notePanel') private notePanel?: ElementRef<HTMLElement>;
 
   selectNote(note: NoteEntry) {
     this.selectedNote = note;
+    if (this.notePanel) {
+      this.notePanel.nativeElement.scrollTop = 0;
+    }
   }
 
 }

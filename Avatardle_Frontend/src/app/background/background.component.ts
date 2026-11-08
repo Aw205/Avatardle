@@ -1,23 +1,28 @@
-import { Component, inject, signal, WritableSignal, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, DestroyRef, inject, signal, WritableSignal, PLATFORM_ID, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { AboutDialogComponent } from '../about-dialog/about-dialog.component';
-import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
-import { CommentDialogComponent } from '../comment-dialog/comment-dialog.component';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgParticlesService, NgxParticlesModule } from "@tsparticles/angular";
 import { loadFull } from "tsparticles";
 import { loadShadowEffect } from '@tsparticles/effect-shadow'; 
 import { DataService } from '../services/data.service';
 import { AsyncPipe, isPlatformBrowser } from '@angular/common';
-import { ParticleSettingsComponent } from '../particle-settings/particle-settings.component';
 import { LanguageSettingsComponent } from '../language-settings/language-settings.component';
 import { LocalStorageService } from '../services/local-storage.service';
-import { NotesDialogComponent } from '../notes-dialog/notes-dialog.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { AuthService } from '../services/auth.service';
-import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 import { TranslatePipe } from '@ngx-translate/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ComponentType } from '@angular/cdk/portal';
+
+type StaticDialog = 'about' | 'help' | 'signup' | 'comment' | 'notes';
+const dialogs: Record<StaticDialog, { load: () => Promise<ComponentType<unknown>>; panelClass: string }> = {
+  about: { load: () => import('../about-dialog/about-dialog.component').then(m => m.AboutDialogComponent), panelClass: 'about-dialog' },
+  help: { load: () => import('../help-dialog/help-dialog.component').then(m => m.HelpDialogComponent), panelClass: 'help-dialog' },
+  signup: { load: () => import('../auth-dialog/auth-dialog.component').then(m => m.AuthDialogComponent), panelClass: 'signup-dialog' },
+  comment: { load: () => import('../comment-dialog/comment-dialog.component').then(m => m.CommentDialogComponent), panelClass: 'comment-dialog' },
+  notes: { load: () => import('../notes-dialog/notes-dialog.component').then(m => m.NotesDialogComponent), panelClass: 'notes-dialog' }
+};
 
 @Component({
   selector: 'background',
@@ -32,6 +37,8 @@ export class Background {
   readonly ds = inject(DataService);
   readonly ls = inject(LocalStorageService);
   readonly auth = inject(AuthService);
+  private readonly destroyRef = inject(DestroyRef);
+  private particleTimer?: ReturnType<typeof setTimeout>;
   private readonly ngParticlesService = inject(NgParticlesService);
 
   showParticles: WritableSignal<boolean> = signal(true);
@@ -45,13 +52,11 @@ export class Background {
 
   ngOnInit() {
 
-    this.ngParticlesService.init(async (engine) => {
-      await loadShadowEffect(engine);
-      await loadFull(engine); 
-      
-    });
-
     if (isPlatformBrowser(this.platformId)) {
+      this.ngParticlesService.init(async engine => {
+        await loadShadowEffect(engine);
+        await loadFull(engine);
+      });
       this.showParticles.set(this.ls.progress().particleSettings.enable);
       this.notesNotif.set(this.ls.progress().notesNotif);
     }
@@ -62,56 +67,54 @@ export class Background {
     this.cycleElement = ["water", "earth", "fire", "air"][daysElapsed % 4];
     this.currElement = this.cycleElement;
 
-    this.ds.pageNotFound$.subscribe((val) => {
+    this.ds.pageNotFound$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((val) => {
       this.pageNotFound = val;
     });
 
   }
 
-  openDialog(name: string) {
-
-    if (name == "about") {
-      this.dialog.open(AboutDialogComponent, { panelClass: "about-dialog", autoFocus: false });
+  async openDialog(name: StaticDialog | 'particle-setting') {
+    if (name === 'particle-setting') {
+      await this.openParticleSettings();
+      return;
     }
-    else if (name == "help") {
-      this.dialog.open(HelpDialogComponent, { panelClass: "help-dialog", autoFocus: false });
-    }
-    else if (name == "signup") {
-      this.dialog.open(AuthDialogComponent, { panelClass: "signup-dialog", autoFocus: false });
-    }
-    else if (name == "comment") {
-      this.dialog.open(CommentDialogComponent, { panelClass: "comment-dialog", autoFocus: false });
-    }
-    else if (name == "notes") {
+    if (name === 'notes') {
       this.notesNotif.set(false);
-      this.ls.patch(["notesNotif"], false);
-      this.dialog.open(NotesDialogComponent, { panelClass: "notes-dialog", autoFocus: false });
+      this.ls.patch(['notesNotif'], false);
     }
-    else if (name == "particle-setting") {
-      let dialogRef = this.dialog.open(ParticleSettingsComponent, {
-        panelClass: "particles-dialog",
-        data: { cycleElement: this.cycleElement, currElement: this.currElement }, autoFocus: false
-      });
+    const { load, panelClass } = dialogs[name];
+    const component = await load();
+    if (!this.destroyRef.destroyed) this.dialog.open(component, { panelClass, autoFocus: false });
+  }
 
-      dialogRef.afterClosed().subscribe((res) => {
+  private async openParticleSettings() {
+    const { ParticleSettingsComponent } = await import('../particle-settings/particle-settings.component');
+    if (this.destroyRef.destroyed) return;
+    const dialogRef = this.dialog.open(ParticleSettingsComponent, {
+      panelClass: 'particles-dialog', autoFocus: false,
+      data: { cycleElement: this.cycleElement, currElement: this.currElement }
+    });
+    dialogRef.afterClosed().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
+      const { selected, enableParticles } = dialogRef.componentInstance;
+      const enabled = enableParticles();
+      clearTimeout(this.particleTimer);
+      this.showParticles.set(enabled);
+      this.ls.patch(['particleSettings', 'enable'], enabled);
+      if (selected === this.currElement) return;
 
-        let ele = dialogRef.componentInstance.selected;
-        this.showParticles.set(dialogRef.componentInstance.enableParticles());
+      if (enabled) {
+        this.showParticles.set(false);
+        this.particleTimer = setTimeout(() => {
+          this.currElement = selected;
+          this.showParticles.set(true);
+        });
+      } else {
+        this.currElement = selected;
+      }
+    });
+  }
 
-        this.ls.patch(['particleSettings', 'enable'], this.showParticles());
-
-        if (this.showParticles() && ele != this.currElement) {
-          this.showParticles.set(false);
-          setTimeout(() => {
-            this.currElement = ele;
-            this.showParticles.set(true);
-          });
-        }
-      });
-    }
-
+  ngOnDestroy() {
+    clearTimeout(this.particleTimer);
   }
 }
-
-
-

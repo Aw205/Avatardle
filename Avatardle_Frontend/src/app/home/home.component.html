@@ -1,23 +1,26 @@
 <nav>
-
-    <a routerLink="/classic" routerLinkActive="active" ariaCurrentWhenActive="page">
-        <div class="paisho-sprite"></div>
-        <span>{{'home.classic' | translate}}</span>
+    @for(mode of modes; track mode.id){
+    <a [routerLink]="'/' + mode.id" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <svg class="mode-artwork" viewBox="0 0 680 248" aria-hidden="true" focusable="false">
+            <defs>
+                <clipPath [attr.id]="'home-' + mode.id + '-slot'">
+                    <circle cx="112" cy="124" r="90" />
+                </clipPath>
+            </defs>
+            <image href="images/paisho_container.svg" width="680" height="248" />
+            <g [attr.clip-path]="'url(#home-' + mode.id + '-slot)'">
+                <g class="paisho-sprite">
+                    <svg x="22" y="34" width="180" height="180" [attr.viewBox]="mode.tileX + ' 0 184 184'" overflow="hidden">
+                        <image href="images/paisho_final.svg" width="1300" height="184" />
+                    </svg>
+                </g>
+            </g>
+        </svg>
+        @if(mode.marker){
+        <span class="groove-marker" [class.groove-marker--left]="mode.marker === 'left'"
+            [class.groove-marker--right]="mode.marker === 'right'" aria-hidden="true"></span>
+        }
+        <span class="mode-label">{{('home.' + mode.id) | translate}}</span>
     </a>
-
-    <a routerLink="/quote" routerLinkActive="active" ariaCurrentWhenActive="page">
-        <div class="paisho-sprite" style="background-position: calc(100%/6) 0;"></div>
-        <span>{{'home.quote' | translate}}</span>
-    </a>
-
-    <a routerLink="/picture" routerLinkActive="active" ariaCurrentWhenActive="page">
-        <div class="paisho-sprite" style="background-position: calc(100%/6 * 2) 0;"></div>
-        <span>{{'home.picture' | translate}}</span>
-    </a>
-
-    <a routerLink="/music" routerLinkActive="active" ariaCurrentWhenActive="page">
-        <div class="paisho-sprite" style="background-position: calc(100%/6 * 6) 0;"></div>
-        <span>{{'home.music' | translate}}</span>
-    </a>
-    
+    }
 </nav>

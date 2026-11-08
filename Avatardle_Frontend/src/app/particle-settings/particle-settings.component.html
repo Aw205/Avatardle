@@ -1,43 +1,52 @@
-<h1 mat-dialog-title style="font: 2rem Georgia;"> {{'particleSettings.title' | translate }}
-    <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
-</h1>
-<mat-dialog-content
-    style="color:beige; font-family: Georgia; background-color: rgb(20,20,20); border-radius: 1rem; margin: 1rem;">
-
-    <div style="display: grid; grid-template-columns: 1fr 1fr; width: 80%; margin: auto; margin-top:10%; position: relative; ">
-        <span class="material-symbols-outlined cycle-button">cycle</span>
-       
-        <div style="border-top-left-radius: 100%;transform-origin:bottom right" class="element-container"
-            [class.water-selected]="selected =='water'">
-            <img src="images/elements/water.svg" style="position:relative;top:30%; left:30%;" class="element"
-                (click)="onClick('water')" [class.selected]="selected =='water'">
-        </div>
-        <div style="border-top-right-radius: 100%;transform-origin:bottom left" class="element-container"
-            [class.earth-selected]="selected =='earth'">
-            <img src="images/elements/earth.svg" style="position:relative;top:30%; left:10%;" class="element"
-                (click)="onClick('earth')" [class.selected]="selected =='earth'">
-        </div>
-        <div style="border-bottom-left-radius: 100%; transform-origin:top right" class="element-container"
-            [class.air-selected]="selected =='air'">
-            <img src="images/elements/air.svg" style="position:relative;top:10%; left:30%;" class="element"
-                (click)="onClick('air')" [class.selected]="selected =='air'">
-        </div>
-        <div style="border-bottom-right-radius: 100%; transform-origin: top left;" class="element-container"
-            [class.fire-selected]="selected=='fire'">
-            <img src="images/elements/fire.svg" style="position:relative;top:5%; left:10%;" class="element"
-                (click)="onClick('fire')" [class.selected]="selected =='fire'">
-        </div>
+<header class="dialog-header">
+    <div class="dialog-heading">
+        <h1 mat-dialog-title>{{'particleSettings.title' | translate}}</h1>
     </div>
+    <button mat-dialog-close class="dialog-close" type="button" [aria-label]="'particleSettings.close' | translate">&times;</button>
+</header>
 
-    <p style="text-align: center;">
-        <span class="material-symbols-outlined" style="color:darkgoldenrod; vertical-align: bottom;">cycle</span>
-        {{'particleSettings.todaysElement' | translate }}<img src="images/elements/{{cycleElement}}.svg"
-            style="height:2rem; vertical-align: bottom;">
-    </p>
+<mat-dialog-content class="dialog-body">
+    <label class="effects-toggle" for="enable-particle">
+        <span class="effects-title">{{'particleSettings.enable' | translate}}</span>
+        <span class="switch-control">
+            <input id="enable-particle" type="checkbox" role="switch" [checked]="enableParticles()"
+                [attr.aria-label]="'particleSettings.enable' | translate"
+                (change)="setEnabled($event)">
+            <span class="switch-track" aria-hidden="true"></span>
+        </span>
+    </label>
 
-    <div style="padding:1rem 0;">
-        <input id="enable-particle" type="checkbox" [(ngModel)]="enableParticles" (change)="onChange($event,'enable')">
-        <label for="enable-particle">{{'particleSettings.enable' | translate}}</label>
-    </div>
-
+    <section class="dialog-section element-section" aria-labelledby="element-heading">
+        <h2 id="element-heading">{{'particleSettings.chooseElement' | translate}}</h2>
+        <div class="element-wheel">
+            @for(element of elements; track element.id){
+            <button class="element-choice" type="button" [attr.data-element]="element.id"
+                [attr.aria-label]="element.label | translate"
+                [class.selected]="selected === element.id" [attr.aria-pressed]="selected === element.id" (click)="selectElement(element.id)">
+                <span class="element-content">
+                    <img [src]="'images/elements/' + element.id + '.svg'" alt="" aria-hidden="true">
+                </span>
+            </button>
+            }
+            <button class="wheel-centre" type="button" (click)="selectElement(cycleElement)"
+                [attr.aria-label]="('particleSettings.useToday' | translate) + ': ' + (cycleElementLabel | translate)"
+                [title]="'particleSettings.useToday' | translate" aria-describedby="daily-element-caption">
+                <svg class="daily-cycle" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M19 8a8 8 0 0 0-13-2L3 9m0-5v5h5m-3 7a8 8 0 0 0 13 2l3-3m0 5v-5h-5" />
+                </svg>
+            </button>
+        </div>
+        <p class="daily-element" id="daily-element-caption">
+            <span>{{'particleSettings.today' | translate}}</span>
+            <span class="daily-element-name">
+                <img [src]="'images/elements/' + cycleElement + '.svg'" alt="" aria-hidden="true">
+                {{cycleElementLabel | translate}}
+            </span>
+        </p>
+    </section>
 </mat-dialog-content>
+
+<footer class="settings-footer">
+    <p>{{'particleSettings.applyOnClose' | translate}}</p>
+    <button mat-dialog-close class="modal-button done-button" type="button">{{'particleSettings.done' | translate}}</button>
+</footer>

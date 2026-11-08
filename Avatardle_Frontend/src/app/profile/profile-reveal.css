@@ -1,0 +1,79 @@
+/* Only the portrait changes; the paper and scroll mounting stay still. */
+.portrait-preload {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.portrait-outgoing {
+    animation: portrait-lift 420ms ease-out both;
+}
+
+/* Draw overlapping gestures at their natural scale instead of enlarging a blot. */
+.ink-stroke {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: brush-pass var(--brush-duration, 680ms) cubic-bezier(0.35, 0.04, 0.2, 1) var(--brush-delay, 0ms) both;
+}
+
+.brush-spine { --brush-duration: 760ms; --brush-delay: 0ms; }
+.brush-left { --brush-duration: 600ms; --brush-delay: 160ms; }
+.brush-crown { --brush-duration: 660ms; --brush-delay: 310ms; }
+.brush-sweep { --brush-duration: 680ms; --brush-delay: 480ms; }
+.brush-right { --brush-duration: 620ms; --brush-delay: 670ms; }
+.brush-foot { --brush-duration: 640ms; --brush-delay: 820ms; }
+
+/* Fill only the residual dry-brush gaps, leaving the final artwork unfiltered. */
+.ink-finish { animation: ink-settles 380ms ease-out 1080ms both; }
+
+.inscription-reveal,
+.caption-reveal {
+    animation: caption-settle 420ms ease-out 180ms both;
+}
+
+.seal-reveal {
+    animation: seal-impression 300ms ease-out 1150ms both;
+}
+
+@keyframes brush-pass {
+    0% { stroke-dashoffset: 1; opacity: 0; }
+    8% { opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@keyframes ink-settles {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes portrait-lift {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes caption-settle {
+    from { opacity: 0; transform: translateY(3px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes seal-impression {
+    from { opacity: 0; transform: rotate(var(--seal-rotation, -2deg)) scale(1.12); }
+    to { opacity: 1; transform: rotate(var(--seal-rotation, -2deg)) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ink-stroke,
+    .ink-finish,
+    .inscription-reveal,
+    .caption-reveal,
+    .seal-reveal {
+        animation: none;
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+
+    /* Keep the completion event so the outgoing layer is released. */
+    .portrait-outgoing { animation-duration: 1ms; }
+}

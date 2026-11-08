@@ -1,11 +1,15 @@
-<h1 mat-dialog-title style="font: 2rem Georgia;"> {{'commentDialog.title' | translate}}
-    <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
-</h1>
-<mat-dialog-content style="color:beige; font-family: Georgia; display: flex; justify-content: center;">
+<header class="dialog-header">
+    <div class="dialog-heading">
+        <h1 mat-dialog-title>{{'commentDialog.title' | translate}}</h1>
+    </div>
+    <button mat-dialog-close class="dialog-close" type="button" [aria-label]="'commentDialog.close' | translate">&times;</button>
+</header>
 
-    <textarea matInput maxlength="10000" placeholder="{{'commentDialog.placeholder' | translate}}" [(ngModel)]="message" ></textarea>
-
+<mat-dialog-content class="dialog-body comment-content">
+    <textarea id="comment-message" maxlength="10000" [placeholder]="'commentDialog.placeholder' | translate"
+        [(ngModel)]="message" [attr.aria-label]="'commentDialog.message' | translate"></textarea>
 </mat-dialog-content>
-<mat-dialog-actions>
-        <button id="comment-button" [disabled]="!message || !message.trim()" (click)="onSubmit()">{{buttonText | translate}}</button>
+
+<mat-dialog-actions class="comment-actions">
+    <button id="comment-button" class="modal-button" type="button" [disabled]="!message.trim()" (click)="onSubmit()">{{'commentDialog.comment' | translate}}</button>
 </mat-dialog-actions>

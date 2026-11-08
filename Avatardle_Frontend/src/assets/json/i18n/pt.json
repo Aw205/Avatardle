@@ -4,7 +4,7 @@
     "AATLA-title": "Avatar Aang: The Last Airbender",
     "searchPlaceholder": "pesquisar...",
     "save": "Salvar",
-    "submit":"Enviar",
+    "submit": "Enviar",
     "usernameTaken": "nome de usuário já existe",
     "odometer": "pessoas completaram hoje!",
     "artist": "Artista: ",
@@ -42,10 +42,13 @@
         "next": "Próximo personagem em: ",
         "settings": {
             "title": "Configurações",
-            "colorblind":"Modo para daltônicos",
-            "off":"Desligado",
-            "red+blue":"Vermelho + Azul",
-            "purple+green":"Roxo + Verde",
+            "close": "Fechar configurações",
+            "incorrect": "Incorreto",
+            "correct": "Correto",
+            "colorblind": "Modo para daltônicos",
+            "off": "Desligado",
+            "red+blue": "Vermelho + Azul",
+            "purple+green": "Roxo + Verde",
             "custom": "Personalizado",
             "series-select": "Selecione a série",
             "progressWarning": "O salvamento redefinirá o progresso atual se estiver incompleto"
@@ -76,12 +79,12 @@
             "mentor": "Mentor",
             "metal-bending": "Dobra de Metal",
             "metal-clan": "Clã do Metal",
-            "mount-baihu":"Mount Baihu",
+            "mount-baihu": "Mount Baihu",
             "muscular": "Muscular",
             "musician": "Músico",
             "nobility": "Nobreza",
             "omashu": "Omashu",
-            "quiet":"Callado",
+            "quiet": "Callado",
             "red-lotus": "Lótus Vermelho",
             "romance": "Romance",
             "royal-fire-academy": "Academia Real da Nação do Fogo",
@@ -97,34 +100,72 @@
         }
     },
     "quote": {
+        "prompt": "Quem disse isso?",
+        "hints": "Dicas da citação",
+        "startBlitz": "Iniciar Blitz",
+        "restartBlitz": "Reiniciar Blitz",
         "next": "Próxima citação em: "
     },
-    "picture":{
+    "quoteHints": {
+        "availableCount": "{{count}}/{{total}} disponíveis",
+        "available": "Disponível",
+        "oneMoreGuess": "Mais 1 tentativa",
+        "moreGuesses": "Mais {{count}} tentativas",
+        "previous": "Fala anterior",
+        "next": "Próxima fala",
+        "episode": "Título do episódio",
+        "close": "Fechar dica"
+    },
+    "picture": {
         "previous": "Quadro anterior",
         "next": "Próximo quadro"
     },
-    "music":{
+    "music": {
+        "play": "Reproduzir música",
+        "pause": "Pausar música",
+        "seek": "Posição de reprodução",
+        "revealCharacterHint": "Revelar dica do personagem",
+        "revealFullMusic": "Revelar música completa",
+        "audioUnavailable": "Não foi possível carregar o áudio. Atualize a página para tentar novamente.",
         "help": "Combine a música com a cena",
         "next": "Próxima música em: ",
         "char-hint": "Personagem relevante:",
-        "music-hint":"Música completa revelada!",
+        "music-hint": "Música completa revelada!",
         "confirm": "Confirmar"
     },
     "commentDialog": {
         "title": "Envie um comentário",
         "placeholder": "Quaisquer comentários, feedback ou sugestões são bem-vindos :)",
-        "comment": "Comentar"
+        "comment": "Comentar",
+        "message": "Sua mensagem",
+        "close": "Fechar comentário"
     },
     "particleSettings": {
         "title": "Configurações de partículas",
         "todaysElement": "- O elemento de hoje é ",
-        "enable": "Ativar efeitos de partículas"
+        "enable": "Ativar efeitos de partículas",
+        "chooseElement": "Escolha seu elemento",
+        "useToday": "Usar o elemento de hoje",
+        "applyOnClose": "As alterações são aplicadas ao fechar esta janela.",
+        "done": "Pronto",
+        "close": "Fechar configurações de partículas",
+        "today": "Elemento de hoje"
     },
     "notesDialog": {
-        "title": "Notas"
+        "title": "Notas",
+        "archive": "O arquivo",
+        "latest": "Recente",
+        "close": "Fechar notas"
     },
     "helpDialog": {
-        "title": "Ajuda"
+        "title": "Ajuda",
+        "close": "Fechar ajuda",
+        "resetsDaily": "Reinicia diariamente às",
+        "classicTitle": "Encontre o personagem",
+        "quoteTitle": "Identifique a voz",
+        "pictureTitle": "Reconheça a cena",
+        "musicTitle": "Associe a música",
+        "musicCaption": "Deixe a música guiar você."
     },
     "leaderboardDialog": {
         "title": "Classificação diária",
@@ -138,7 +179,6 @@
         "longestStreak": "Maior sequência",
         "time": "Tempo",
         "noData": "Está muito silencioso... seja o primeiro!"
-        
     },
     "aboutDialog": {
         "title": "Sobre",
@@ -149,20 +189,21 @@
             "paisho": "Imagem do bloco Pai Sho: ",
             "icons": "Ícones de personagens: "
         },
-        "socials":{
-            "title":"Comunidade",
+        "socials": {
+            "title": "Comunidade",
             "content": "Vamos discutir tudo sobre Avatardle!"
         },
         "other": {
             "title": "Outro",
             "content": "Por favor, me digam quais melhorias eu poderia fazer e quaisquer outros recursos que vocês queiram adicionar! Obrigado a todos que enviaram comentários, eu realmente gosto de lê-los :)"
-        }
+        },
+        "creditsTitle": "Arte e créditos",
+        "close": "Fechar sobre"
     },
-    "surrenderDialog":{
+    "surrenderDialog": {
         "confirmation": "Tem certeza de que deseja revelar a resposta?",
         "yes": "Sim",
         "no": "Não"
-        
     },
     "languageSettings": {
         "title": "Selecione seu idioma"
@@ -198,10 +239,60 @@
     },
     "profile": {
         "editProfile": "Editar perfil",
+        "editor": {
+            "close": "Fechar editor do perfil",
+            "element": "Seu elemento",
+            "elementHint": "Aparece ao lado do seu nome.",
+            "message": "Mensagem do perfil",
+            "messagePlaceholder": "Uma citação favorita, um lema ou algo sobre você…",
+            "favorites": "Favoritos",
+            "characters": "Personagens",
+            "ship": "Casal",
+            "remove": "Remover {{name}}",
+            "choose": "Escolher personagem para a posição {{slot}}",
+            "chooseCharacter": "Adicionar",
+            "selectionFull": "Todos os {{count}} escolhidos. Remova um para escolher outro.",
+            "selectionHint": "Escolha até {{count}}. Selecione novamente para remover.",
+            "search": "Buscar personagens…",
+            "series": "Filtrar por série",
+            "allSeries": "Todas as séries",
+            "availableCharacters": "Personagens disponíveis",
+            "noResults": "Nenhum personagem encontrado. Tente outro nome ou série.",
+            "cancel": "Cancelar",
+            "save": "Salvar alterações",
+            "saving": "Salvando…",
+            "saved": "Perfil salvo!",
+            "saveError": "Não foi possível salvar suas alterações. Tente novamente."
+        },
         "favCharacters": "Personagens favoritos",
         "favShip": "Par romântico favorito",
         "discoveredChars": "Personagens descobertos",
-        "message": "Mensagem"
+        "message": "Mensagem",
+        "encyclopedia": "A Biblioteca",
+        "discoveredCharacter": "Personagem descoberto",
+        "milestoneLabel": "Marcos da coleção",
+        "milestoneEarned": "Selo conquistado",
+        "milestoneGoal": "Meta de descobertas: {{count}}",
+        "nextMilestone": "Próximo selo: {{title}} · Faltam {{count}} para descobrir",
+        "collectionComplete": "Todos os personagens descobertos. Sua biblioteca está completa.",
+        "collectionCompletePublic": "Todos os personagens descobertos. Coleção completa.",
+        "artworkUnavailable": "Ilustração ainda não disponível",
+        "noNation": "Sem afiliação",
+        "milestones": {
+            "first": "Andarilho do deserto",
+            "collector": "Buscador de conheci­mento",
+            "scholar": "Discípulo de Zei",
+            "archivist": "Mestre das dez mil coisas"
+        },
+        "bending": {
+            "Air": "Dobra de ar",
+            "Water": "Dobra de água",
+            "Earth": "Dobra de terra",
+            "Fire": "Dobra de fogo",
+            "Energy": "Dobra de energia",
+            "All": "Os quatro elementos",
+            "None": "Não dobrador"
+        }
     },
     "footer": {
         "privacy": "Privacidade",

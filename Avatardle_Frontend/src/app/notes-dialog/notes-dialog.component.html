@@ -1,57 +1,70 @@
-<header mat-dialog-title class="notes-header">
-    <div>
-        <h1>{{'notesDialog.title' | translate}}</h1>
+<header class="dialog-header">
+    <div class="dialog-heading">
+        <h1 mat-dialog-title>{{'notesDialog.title' | translate}}</h1>
     </div>
-    <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
+    <button mat-dialog-close class="dialog-close" type="button" [aria-label]="'notesDialog.close' | translate">&times;</button>
 </header>
 
-
-<mat-dialog-content class="notes-dialog-content">
+<mat-dialog-content class="dialog-body notes-dialog-content">
     <aside class="notes-sidebar">
-        @for(note of notes; track note){
-        <button class="date-button" type="button" [class.active]="selectedNote === note" (click)="selectNote(note)">
-            <span class="date">{{ note.date }}</span>
-            <span class="date-title">{{ note.title }}</span>
-        </button>
-        }
+        <div class="archive-heading">
+            <h2>{{'notesDialog.archive' | translate}}</h2>
+            <span>{{notes.length}}</span>
+        </div>
+        <nav class="notes-entries" [attr.aria-label]="'notesDialog.archive' | translate">
+            @for(note of notes; track note; let latest = $first){
+            <button class="modal-button date-button" type="button" [class.active]="selectedNote === note"
+                [attr.aria-pressed]="selectedNote === note" aria-controls="selected-note" (click)="selectNote(note)">
+                <span class="entry-meta">
+                    <span class="date">{{note.date}}</span>
+                    @if(latest){
+                    <span class="latest-label">{{'notesDialog.latest' | translate}}</span>
+                    }
+                </span>
+                <span class="date-title">{{note.title}}</span>
+            </button>
+            }
+        </nav>
     </aside>
 
-    <article class="note-panel">
+    <article #notePanel class="note-panel" id="selected-note" tabindex="0" aria-labelledby="note-title">
         <div class="note-meta">
-            <span class="note-date">{{ selectedNote.date }}</span>
-            <span class="note-count">{{ notes.indexOf(selectedNote) + 1 }} / {{ notes.length }}</span>
+            <span class="note-date">{{selectedNote.date}}</span>
+            <span class="note-count">{{notes.indexOf(selectedNote) + 1}} <span aria-hidden="true">/</span> {{notes.length}}</span>
         </div>
 
-        <h2>{{ selectedNote.title }}</h2>
-        <p class="summary">{{ selectedNote.summary }}</p>
+        <h2 id="note-title">{{selectedNote.title}}</h2>
+        <p class="summary">{{selectedNote.summary}}</p>
 
-        @for(section of selectedNote.sections;track section){
-
+        @for(section of selectedNote.sections; track section){
         <section class="note-section">
-            <h3>{{ section.heading }}</h3>
-
-            @for(par of section.paragraphs; track par){
-            <p>{{ par }}</p>
+            @if(section.heading){
+            <h3>{{section.heading}}</h3>
             }
-
+            @for(par of section.paragraphs; track par){
+            <p>{{par}}</p>
+            }
             @if(section.items?.length){
             <ul>
                 @for(item of section.items; track item){
-                <li>{{ item }}</li>
+                <li>{{item}}</li>
                 }
             </ul>
-
             }
             @if(section.links?.length){
             <div class="note-links">
                 @for(link of section.links; track link){
-                <a [href]="link.href" target="_blank">
-                    {{ link.label }}
+                <a class="modal-button" [href]="link.href" target="_blank" rel="noopener noreferrer">
+                    {{link.label}}
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path d="M5 3h8v8M13 3 3 13" />
+                    </svg>
                 </a>
                 }
             </div>
             }
         </section>
         }
+
     </article>
 </mat-dialog-content>

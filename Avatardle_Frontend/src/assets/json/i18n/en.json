@@ -42,6 +42,9 @@
         "next": "Next character in: ",
         "settings": {
             "title": "Settings",
+            "close": "Close settings",
+            "incorrect": "Incorrect",
+            "correct": "Correct",
             "colorblind": "Colorblind mode",
             "off": "Off",
             "red+blue": "Red + Blue",
@@ -76,7 +79,7 @@
             "mentor": "Mentor",
             "metal-bending": "Metal Bending",
             "metal-clan": "Metal Clan",
-            "mount-baihu":"Mount Baihu",
+            "mount-baihu": "Mount Baihu",
             "muscular": "Muscular",
             "musician": "Musician",
             "nobility": "Nobility",
@@ -97,13 +100,33 @@
         }
     },
     "quote": {
+        "prompt": "Who said this?",
+        "hints": "Quote hints",
+        "startBlitz": "Start Blitz",
+        "restartBlitz": "Restart Blitz",
         "next": "Next quote in: "
+    },
+    "quoteHints": {
+        "availableCount": "{{count}}/{{total}} available",
+        "available": "Available",
+        "oneMoreGuess": "1 more guess",
+        "moreGuesses": "{{count}} more guesses",
+        "previous": "Previous Line",
+        "next": "Next Line",
+        "episode": "Episode Name",
+        "close": "Close hint"
     },
     "picture": {
         "previous": "Previous frame",
         "next": "Next frame"
     },
     "music": {
+        "play": "Play music",
+        "pause": "Pause music",
+        "seek": "Seek in music",
+        "revealCharacterHint": "Reveal character hint",
+        "revealFullMusic": "Reveal full music",
+        "audioUnavailable": "This audio could not be loaded. Please refresh to try again.",
         "help": "Match the music to the scene",
         "next": "Next song in: ",
         "char-hint": "Relevant character:",
@@ -113,18 +136,36 @@
     "commentDialog": {
         "title": "Send a comment",
         "placeholder": "Any comments, feedback, or suggestions welcome :)",
-        "comment": "Comment"
+        "comment": "Comment",
+        "message": "Your message",
+        "close": "Close comment"
     },
     "particleSettings": {
         "title": "Particle Settings",
         "todaysElement": "- Today's element is ",
-        "enable": "Enable particle effects"
+        "enable": "Enable particle effects",
+        "chooseElement": "Choose your element",
+        "useToday": "Use today's element",
+        "applyOnClose": "Changes apply when you close this window.",
+        "done": "Done",
+        "close": "Close particle settings",
+        "today": "Today's element"
     },
     "notesDialog": {
-        "title": "Notes"
+        "title": "Notes",
+        "archive": "The archive",
+        "latest": "Latest",
+        "close": "Close notes"
     },
     "helpDialog": {
-        "title": "Help"
+        "title": "Help",
+        "close": "Close help",
+        "resetsDaily": "Resets daily at",
+        "classicTitle": "Find the character",
+        "quoteTitle": "Name the voice",
+        "pictureTitle": "Recognize the scene",
+        "musicTitle": "Match the music",
+        "musicCaption": "Let the music lead the way."
     },
     "leaderboardDialog": {
         "title": "Daily Leaderboard",
@@ -155,7 +196,9 @@
         "other": {
             "title": "Other",
             "content": "Please let me know what improvements I could make and any other features you want added! Thanks to all the people that have sent comments, I really enjoy reading them :)"
-        }
+        },
+        "creditsTitle": "Artwork & credits",
+        "close": "Close about"
     },
     "surrenderDialog": {
         "confirmation": "Are you sure you want to reveal the answer?",
@@ -196,10 +239,60 @@
     },
     "profile": {
         "editProfile": "Edit profile",
+        "editor": {
+            "close": "Close profile editor",
+            "element": "Your element",
+            "elementHint": "Shown beside your name.",
+            "message": "Profile message",
+            "messagePlaceholder": "A favorite quote, a motto, or a little about you…",
+            "favorites": "Favorites",
+            "characters": "Characters",
+            "ship": "Ship",
+            "remove": "Remove {{name}}",
+            "choose": "Choose character for slot {{slot}}",
+            "chooseCharacter": "Add character",
+            "selectionFull": "All {{count}} selected. Remove one to choose another.",
+            "selectionHint": "Choose up to {{count}}. Select a pick again to remove it.",
+            "search": "Search characters…",
+            "series": "Filter by series",
+            "allSeries": "All series",
+            "availableCharacters": "Available characters",
+            "noResults": "No characters found. Try another name or series.",
+            "cancel": "Cancel",
+            "save": "Save changes",
+            "saving": "Saving…",
+            "saved": "Profile saved!",
+            "saveError": "Your changes could not be saved. Please try again."
+        },
         "favCharacters": "Favorite characters:",
         "favShip": "Favorite ship:",
         "discoveredChars": "Discovered characters:",
-        "message": "Message"
+        "message": "Message",
+        "encyclopedia": "The Library",
+        "discoveredCharacter": "Discovered character",
+        "milestoneLabel": "Collection milestones",
+        "milestoneEarned": "Seal earned",
+        "milestoneGoal": "Discovery goal: {{count}}",
+        "nextMilestone": "Next seal: {{title}} · {{count}} left to discover",
+        "collectionComplete": "Every character discovered. Your library is complete.",
+        "collectionCompletePublic": "Every character discovered. Collection complete.",
+        "artworkUnavailable": "Art not yet available",
+        "noNation": "Unaffiliated",
+        "milestones": {
+            "first": "Desert Wanderer",
+            "collector": "Knowledge Seeker",
+            "scholar": "Zei's Disciple",
+            "archivist": "Master of Ten Thousand Things"
+        },
+        "bending": {
+            "Air": "Airbending",
+            "Water": "Waterbending",
+            "Earth": "Earthbending",
+            "Fire": "Firebending",
+            "Energy": "Energybending",
+            "All": "All four elements",
+            "None": "Nonbender"
+        }
     },
     "footer": {
         "privacy": "Privacy",

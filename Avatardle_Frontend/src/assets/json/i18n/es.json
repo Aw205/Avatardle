@@ -4,7 +4,7 @@
     "AATLA-title": "Avatar Aang: The Last Airbender",
     "searchPlaceholder": "buscar...",
     "save": "Guardar",
-    "submit":"Enviar",
+    "submit": "Enviar",
     "usernameTaken": "Nombre de usuario ya en uso",
     "odometer": "personas completadas hoy!",
     "artist": "Artista: ",
@@ -42,10 +42,13 @@
         "next": "Siguiente personaje en: ",
         "settings": {
             "title": "Configuración",
-            "colorblind":"Modo para daltónicos",
-            "off":"Desactivado",
-            "red+blue":"Rojo + Azul",
-            "purple+green":"Morado + Verde",
+            "close": "Cerrar ajustes",
+            "incorrect": "Incorrecto",
+            "correct": "Correcto",
+            "colorblind": "Modo para daltónicos",
+            "off": "Desactivado",
+            "red+blue": "Rojo + Azul",
+            "purple+green": "Morado + Verde",
             "custom": "Personalizado",
             "series-select": "Seleccionar series",
             "progressWarning": "Guardar restablecerá el progreso actual si está incompleto"
@@ -76,12 +79,12 @@
             "mentor": "Mentor",
             "metal-bending": "Metal Control",
             "metal-clan": "Clan de Metal",
-            "mount-baihu":"Mount Baihu",
+            "mount-baihu": "Mount Baihu",
             "muscular": "compañero animal",
             "musician": "Músico",
             "nobility": "compañeros animal",
             "omashu": "Omashu",
-            "quiet":"Callado",
+            "quiet": "Callado",
             "police": "Policía",
             "red-lotus": "Loto Rojo",
             "romance": "Romance",
@@ -98,34 +101,72 @@
         }
     },
     "quote": {
+        "prompt": "¿Quién dijo esto?",
+        "hints": "Pistas de la cita",
+        "startBlitz": "Iniciar Blitz",
+        "restartBlitz": "Reiniciar Blitz",
         "next": "Siguiente cita en: "
     },
-    "picture":{
+    "quoteHints": {
+        "availableCount": "{{count}}/{{total}} disponibles",
+        "available": "Disponible",
+        "oneMoreGuess": "1 intento más",
+        "moreGuesses": "{{count}} intentos más",
+        "previous": "Línea anterior",
+        "next": "Línea siguiente",
+        "episode": "Título del episodio",
+        "close": "Cerrar pista"
+    },
+    "picture": {
         "previous": "Cuadro anterior",
         "next": "Siguiente fotograma"
     },
-    "music":{
+    "music": {
+        "play": "Reproducir música",
+        "pause": "Pausar música",
+        "seek": "Posición de reproducción",
+        "revealCharacterHint": "Revelar pista del personaje",
+        "revealFullMusic": "Revelar música completa",
+        "audioUnavailable": "No se pudo cargar el audio. Actualiza la página para volver a intentarlo.",
         "help": "Acompaña la música a la escena.",
         "next": "Siguiente canción en: ",
         "char-hint": "Personaje relevante:",
-        "music-hint":"¡Música completa revelada!",
+        "music-hint": "¡Música completa revelada!",
         "confirm": "Confirmar"
     },
     "commentDialog": {
         "title": "Enviar un comentario",
         "placeholder": "Cualquier comentario, retroalimentación o sugerencia es bienvenido :)",
-        "comment": "Comentar"
+        "comment": "Comentar",
+        "message": "Tu mensaje",
+        "close": "Cerrar comentario"
     },
     "particleSettings": {
         "title": "Configuración de partículas",
         "todaysElement": "- El elemento de hoy es ",
-        "enable": "Habilitar efectos de partículas"
+        "enable": "Habilitar efectos de partículas",
+        "chooseElement": "Elige tu elemento",
+        "useToday": "Usar el elemento de hoy",
+        "applyOnClose": "Los cambios se aplican al cerrar esta ventana.",
+        "done": "Listo",
+        "close": "Cerrar ajustes de partículas",
+        "today": "Elemento de hoy"
     },
     "notesDialog": {
-        "title": "Notas"
+        "title": "Notas",
+        "archive": "El archivo",
+        "latest": "Reciente",
+        "close": "Cerrar notas"
     },
     "helpDialog": {
-        "title": "Ayuda"
+        "title": "Ayuda",
+        "close": "Cerrar ayuda",
+        "resetsDaily": "Se reinicia cada día a las",
+        "classicTitle": "Encuentra al personaje",
+        "quoteTitle": "Identifica la voz",
+        "pictureTitle": "Reconoce la escena",
+        "musicTitle": "Relaciona la música",
+        "musicCaption": "Deja que la música te guíe."
     },
     "leaderboardDialog": {
         "title": "Clasificación diaria",
@@ -149,20 +190,21 @@
             "paisho": "Imagen de mosaico de Pai Sho: ",
             "icons": "Iconos de personajes: "
         },
-        "socials":{
-            "title":"Comunidad",
+        "socials": {
+            "title": "Comunidad",
             "content": "¡Hablemos de todo lo relacionado con Avatardle!"
         },
         "other": {
             "title": "Otro",
             "content": "¡Por favor, díganme qué mejoras puedo hacer y qué otras funciones les gustaría añadir! Gracias a todos los comentarios; disfruto mucho leyéndolos :)"
-        }
+        },
+        "creditsTitle": "Arte y créditos",
+        "close": "Cerrar información"
     },
-    "surrenderDialog":{
+    "surrenderDialog": {
         "confirmation": "¿Estás seguro de que quieres revelar la respuesta?",
         "yes": "Sí",
         "no": "No"
-        
     },
     "languageSettings": {
         "title": "Selecciona tu idioma"
@@ -198,10 +240,60 @@
     },
     "profile": {
         "editProfile": "Editar perfil",
+        "editor": {
+            "close": "Cerrar editor de perfil",
+            "element": "Tu elemento",
+            "elementHint": "Se muestra junto a tu nombre.",
+            "message": "Mensaje del perfil",
+            "messagePlaceholder": "Una cita favorita, un lema o algo sobre ti…",
+            "favorites": "Favoritos",
+            "characters": "Personajes",
+            "ship": "Pareja",
+            "remove": "Quitar a {{name}}",
+            "choose": "Elegir personaje para el espacio {{slot}}",
+            "chooseCharacter": "Añadir personaje",
+            "selectionFull": "Has elegido los {{count}}. Quita uno para elegir otro.",
+            "selectionHint": "Elige hasta {{count}}. Selecciona uno de nuevo para quitarlo.",
+            "search": "Buscar personajes…",
+            "series": "Filtrar por serie",
+            "allSeries": "Todas las series",
+            "availableCharacters": "Personajes disponibles",
+            "noResults": "No se encontraron personajes. Prueba con otro nombre o serie.",
+            "cancel": "Cancelar",
+            "save": "Guardar cambios",
+            "saving": "Guardando…",
+            "saved": "¡Perfil guardado!",
+            "saveError": "No se pudieron guardar los cambios. Inténtalo de nuevo."
+        },
         "favCharacters": "Personajes favoritos",
         "favShip": "Mi pareja favorita",
         "discoveredChars": "Personajes descubiertos",
-        "message": "Mensaje"
+        "message": "Mensaje",
+        "encyclopedia": "La Biblioteca",
+        "discoveredCharacter": "Personaje descubierto",
+        "milestoneLabel": "Hitos de la colección",
+        "milestoneEarned": "Sello obtenido",
+        "milestoneGoal": "Meta de descubrimientos: {{count}}",
+        "nextMilestone": "Próximo sello: {{title}} · Faltan {{count}} por descubrir",
+        "collectionComplete": "Todos los personajes descubiertos. Tu biblioteca está completa.",
+        "collectionCompletePublic": "Todos los personajes descubiertos. Colección completa.",
+        "artworkUnavailable": "Ilustración aún no disponible",
+        "noNation": "Sin afiliación",
+        "milestones": {
+            "first": "Caminante del desierto",
+            "collector": "Buscador de conoci­miento",
+            "scholar": "Discípulo de Zei",
+            "archivist": "Maestro de las diez mil cosas"
+        },
+        "bending": {
+            "Air": "Aire control",
+            "Water": "Agua control",
+            "Earth": "Tierra control",
+            "Fire": "Fuego control",
+            "Energy": "Energía control",
+            "All": "Los cuatro elementos",
+            "None": "Sin control elemental"
+        }
     },
     "footer": {
         "privacy": "Privacidad",

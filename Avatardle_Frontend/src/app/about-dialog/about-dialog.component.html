@@ -1,48 +1,67 @@
-<h1 mat-dialog-title style="font: 2rem Georgia; background-color: rgb(40,40,40); margin:0;"> {{'aboutDialog.title' |
-    translate}}
-    <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
-</h1>
-<mat-dialog-content style="color:beige; font-family: Georgia; background-color: rgb(40,40,40);">
-    <p style="line-height:1.5em;">{{'aboutDialog.disclaimer' | translate}}</p>
-    <p>
-        {{'aboutDialog.credits.background' | translate}}<a
-            style="color: bisque; font-weight: bold; text-decoration: underline;"
-            href="https://www.deviantart.com/mikkusushi/art/Legacy-508021902" target="_blank">mikkusushi</a> <br>
-        {{'aboutDialog.credits.iroh' | translate}}<a
-            style="color: bisque; font-weight: bold; text-decoration: underline;"
-            href="https://www.deviantart.com/onililyn/art/Iroh-redraw-846093892" target="_blank">Onililyn</a> <br>
-        {{'aboutDialog.credits.paisho' | translate}}
-        <a style="color: bisque; font-weight: bold; text-decoration: underline;"
-            href="https://www.deviantart.com/markusaliasbob/art/Pai-Sho-Tiles-Black-503176594"
-            target="_blank">MarkusAliasBob</a> <br>
-        {{'aboutDialog.credits.icons' | translate}}
-        <a style="color: bisque; font-weight: bold; text-decoration: underline;" href="https://www.brendanratner.com/"
-            target="_blank">Brendan Ratner</a>
-    </p>
-
-    <h2 style="font: 2rem Georgia;">{{'aboutDialog.socials.title' | translate}}</h2>
-    <p>{{'aboutDialog.socials.content' | translate}}</p>
-
-    <div style="display: flex; gap: 1rem;">
-
-        <a style="color: beige; border-radius: 5px; background-color: #ff4400; outline: 2px solid #bb3504; border: 1px outset #bb3504;"
-            href="https://www.reddit.com/r/avatardle/" target="_blank">
-            <div
-                style="display: flex; align-items: center; gap: 0.2rem; padding-inline: 0.2rem; box-sizing: border-box; height: 100%; padding: 0.2rem; ">
-                <img src="images/reddit_logo.svg" alt="View Avatardle subreddit" style="height: 1.5rem;" />
-                Reddit
-            </div>
-        </a>
-
-        <a style="color: beige; border-radius: 5px; background-color: #5668a7; outline: 2px solid #3e54a2; border: 1px outset #3e54a2; display: inline-block;"
-            href="https://discord.gg/RxFqZJsSUq" target="_blank">
-            <div
-                style="display: flex; align-items: center; gap: 0.2rem; padding-inline: 0.2rem; box-sizing: border-box; height: 100%; ">
-                <img src="images/discord.svg" alt="Join Avatardle discord" style="height: 1.5rem;" />Discord
-            </div>
-        </a>
+<header class="dialog-header">
+    <div class="dialog-heading">
+        <h1 mat-dialog-title>{{'aboutDialog.title' | translate}}</h1>
     </div>
+    <button mat-dialog-close class="dialog-close" type="button" [aria-label]="'aboutDialog.close' | translate">&times;</button>
+</header>
 
-    <h2 style="font: 2rem Georgia;">{{'aboutDialog.other.title' | translate}}</h2>
-    <p>{{'aboutDialog.other.content' | translate}}</p>
+<mat-dialog-content class="dialog-body">
+    <p class="about-intro">{{'aboutDialog.disclaimer' | translate}}</p>
+
+    <section class="dialog-section">
+        <h2>{{'aboutDialog.creditsTitle' | translate}}</h2>
+        <dl class="artwork-credits">
+            <div>
+                <dt>{{'aboutDialog.credits.background' | translate}}</dt>
+                <dd><a href="https://www.deviantart.com/mikkusushi/art/Legacy-508021902" target="_blank" rel="noopener noreferrer">
+                    mikkusushi
+                    <svg class="external-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" /></svg>
+                </a></dd>
+            </div>
+            <div>
+                <dt>{{'aboutDialog.credits.iroh' | translate}}</dt>
+                <dd><a href="https://www.deviantart.com/onililyn/art/Iroh-redraw-846093892" target="_blank" rel="noopener noreferrer">
+                    Onililyn
+                    <svg class="external-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" /></svg>
+                </a></dd>
+            </div>
+            <div>
+                <dt>{{'aboutDialog.credits.paisho' | translate}}</dt>
+                <dd><a href="https://www.deviantart.com/markusaliasbob/art/Pai-Sho-Tiles-Black-503176594" target="_blank" rel="noopener noreferrer">
+                    MarkusAliasBob
+                    <svg class="external-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" /></svg>
+                </a></dd>
+            </div>
+            <div>
+                <dt>{{'aboutDialog.credits.icons' | translate}}</dt>
+                <dd><a href="https://www.brendanratner.com/" target="_blank" rel="noopener noreferrer">
+                    Brendan Ratner
+                    <svg class="external-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" /></svg>
+                </a></dd>
+            </div>
+        </dl>
+    </section>
+
+    <section class="dialog-section community-section">
+        <h2>{{'aboutDialog.socials.title' | translate}}</h2>
+        <p>{{'aboutDialog.socials.content' | translate}}</p>
+        <div class="community-links">
+            <a class="modal-button" href="https://www.reddit.com/r/avatardle/" target="_blank" rel="noopener noreferrer">
+                <span class="community-icon reddit-icon" aria-hidden="true"><img src="images/reddit_logo.svg" alt=""></span>
+                <span>Reddit</span>
+                <svg class="external-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" /></svg>
+            </a>
+            <a class="modal-button" href="https://discord.gg/RxFqZJsSUq" target="_blank" rel="noopener noreferrer">
+                <span class="community-icon discord-icon" aria-hidden="true"><img src="images/discord.svg" alt=""></span>
+                <span>Discord</span>
+                <svg class="external-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" /></svg>
+            </a>
+        </div>
+    </section>
+
+    <section class="dialog-section closing-note">
+        <h2>{{'aboutDialog.other.title' | translate}}</h2>
+        <p>{{'aboutDialog.other.content' | translate}}</p>
+    </section>
+
 </mat-dialog-content>

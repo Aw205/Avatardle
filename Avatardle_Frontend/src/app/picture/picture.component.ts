@@ -75,6 +75,8 @@ export class PictureMode {
       content: "Play Picture Mode on Avatardle, the daily Avatar guessing game. Guess episodes from Avatar: The Last Airbender using frames from the show!"
     });
 
+    if (!isPlatformBrowser(this.platformId)) return;
+
     this.ds.pictureData$.subscribe((data: Episode) => {
 
       this.targetEpisode = this.ds.episodes[Math.floor(61 * this.rand.next())];

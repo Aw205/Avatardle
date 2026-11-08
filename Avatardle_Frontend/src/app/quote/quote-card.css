@@ -1,0 +1,85 @@
+.quote-container {
+    position: relative;
+    box-sizing: border-box;
+    width: 60%;
+    margin: 0 auto;
+    color: beige;
+    background-color: rgb(30, 30, 30);
+    border-radius: 0;
+    box-shadow: 0 0 1rem 40px #00000082;
+}
+
+.quote-container > blockquote {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0.5em;
+    border-left: 0.5rem solid gray;
+    color: inherit;
+    font: 3rem / 4rem Georgia, serif;
+    overflow-wrap: anywhere;
+    transition: color 200ms ease;
+}
+
+.quote-text {
+    margin: 0;
+    white-space: pre-line;
+    text-wrap: pretty;
+}
+
+.quote-mark {
+    color: #78C0A8;
+    position: relative;
+    top: 0;
+    left: -1rem;
+    font-family: Georgia, serif;
+    font-size: 6rem;
+    line-height: inherit;
+    pointer-events: none;
+}
+
+.quote-container > blockquote.hi { color: #9a9589; }
+
+.quote-container .blitz-play,
+.quote-container .blitz-restart {
+    padding: 0;
+    color: var(--ui-control-text);
+    scale: 1;
+    font-family: Georgia, serif;
+}
+
+.quote-container .blitz-play {
+    width: 3rem;
+    height: 3rem;
+    min-height: 3rem;
+    font-size: 1.25rem;
+}
+
+.quote-container .blitz-restart {
+    top: 0.85rem;
+    right: 0.85rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    min-height: 2.5rem;
+    transform: none;
+    font-size: 1.5rem;
+}
+
+.quote-container .blitz-play:hover,
+.quote-container .blitz-restart:hover { scale: 1; }
+
+.blitz-quote:has(.blitz-restart) > blockquote { padding-inline-end: 4rem; }
+
+@media (max-width: 768px) {
+    .quote-container { width: 70%; }
+    .quote-container > blockquote { font-size: 1.5rem; line-height: 2rem; border-left-width: 0.3rem; }
+    .quote-mark { font-size: 3rem; left: -0.4rem; top: 0.5rem; }
+}
+
+@media (max-width: 600px) {
+    .blitz-quote:has(.blitz-restart) > blockquote { padding-inline-end: 3.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .quote-container > blockquote { transition: none; }
+}

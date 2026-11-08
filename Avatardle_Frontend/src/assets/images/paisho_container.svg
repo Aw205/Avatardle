@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="680" height="248" viewBox="0 0 680 248" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Dark timber Pai Sho frame</title>
+  <desc id="desc">A recessed circular tile seat joins straight timber rails. Fine wood grain, stepped mouldings, small wooden pegs, and carved geometric corner returns give the dark frame quiet depth. The central label face is left open.</desc>
+  <defs>
+    <!-- One silhouette defines every layer. Slot and label coordinates are unchanged. -->
+    <path id="body" d="M193.664 58H648L654 64V184L648 190H193.664A105 105 0 1 1 193.664 58Z"/>
+    <clipPath id="timber-clip"><use xlink:href="#body"/></clipPath>
+    <linearGradient id="timber-face" x1="0" y1="58" x2="0" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#291E14"/>
+      <stop offset=".18" stop-color="#231A11"/>
+      <stop offset=".62" stop-color="#21190F"/>
+      <stop offset="1" stop-color="#19130D"/>
+    </linearGradient>
+    <linearGradient id="rim-face" x1="44" y1="38" x2="175" y2="211" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#493422"/>
+      <stop offset=".35" stop-color="#302216"/>
+      <stop offset=".75" stop-color="#21180F"/>
+      <stop offset="1" stop-color="#342519"/>
+    </linearGradient>
+    <linearGradient id="bead-light" x1="45" y1="42" x2="178" y2="207" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#81603D" stop-opacity=".55"/>
+      <stop offset=".5" stop-color="#5C432B" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#6B4D30" stop-opacity=".38"/>
+    </linearGradient>
+    <radialGradient id="well-shade" cx=".35" cy=".3" r=".8">
+      <stop stop-color="#080806"/>
+      <stop offset="1" stop-color="#15110C"/>
+    </radialGradient>
+    <linearGradient id="end-grain" x1="625" y1="0" x2="654" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C0906" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0C0906" stop-opacity=".24"/>
+    </linearGradient>
+    <filter id="contact-shadow" x="-8%" y="-8%" width="116%" height="120%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.6"/>
+      <feOffset dy="3" result="offset"/>
+      <feFlood flood-color="#000" flood-opacity=".36"/>
+      <feComposite in2="offset" operator="in"/>
+    </filter>
+    <!-- Upper and lower rail cuts continue into matching squared end returns. -->
+    <path id="rail-grooves" d="M220 70H642V98M220 178H642V150"/>
+    <path id="corner-returns" d="M614 76H636V98M614 172H636V150"/>
+    <!-- Sparse, long fibres; no tiled noise texture or ornamental swirls. -->
+    <g id="wood-fibres" stroke-linecap="round">
+      <path d="M205 84C292 80 358 87 441 83S579 80 650 83"/>
+      <path d="M224 90C310 87 394 93 478 89S582 88 649 89"/>
+      <path d="M206 102C283 97 334 103 390 102M474 101C536 98 590 103 649 100"/>
+      <path d="M216 116C302 112 367 119 454 115S583 112 649 115"/>
+      <path d="M213 130C275 127 328 131 382 130M471 129C530 126 592 131 650 128"/>
+      <path d="M214 143C289 139 362 146 446 142S582 141 650 142"/>
+      <path d="M220 155C298 151 362 157 435 154M487 154C550 150 596 155 650 153"/>
+      <path d="M208 164C296 159 371 167 458 162S579 161 649 164"/>
+    </g>
+  </defs>
+
+  <!-- Contact, lower thickness, and face use the same outline, preserving level rails. -->
+  <use xlink:href="#body" fill="#000" filter="url(#contact-shadow)"/>
+  <use xlink:href="#body" fill="#0A0805" transform="translate(0 2)"/>
+  <use xlink:href="#body" fill="url(#timber-face)" stroke="#100C08" stroke-width="3"/>
+
+  <g clip-path="url(#timber-clip)">
+    <use xlink:href="#wood-fibres" stroke="#8B6845" stroke-opacity=".065" stroke-width=".65"/>
+    <use xlink:href="#wood-fibres" stroke="#080705" stroke-opacity=".16" stroke-width=".6" transform="translate(0 1.2)"/>
+    <path d="M625 59H654V189H625Z" fill="url(#end-grain)"/>
+    <!-- Fine shoulders catch light above the deeper, darker moulding cuts. -->
+    <path d="M214 64H644M214 184H644" stroke="#775636" stroke-opacity=".18" stroke-width="1"/>
+    <path d="M214 66H644M214 182H644" stroke="#080705" stroke-opacity=".34" stroke-width="1"/>
+  </g>
+
+  <!-- Upper illumination stays independent of the other border colors. -->
+  <path d="M194 59H647L653 65" stroke="#59422A" stroke-width="2"/>
+  <path d="M653 66V183L647 189H194" stroke="#0C0906" stroke-width="1.5"/>
+  <path d="M196 188H646" stroke="#61462C" stroke-opacity=".22" stroke-width="1"/>
+
+  <!-- A shaded cut and narrow lower light give the rail grooves physical depth. -->
+  <g stroke-linecap="square" stroke-linejoin="miter">
+    <use xlink:href="#rail-grooves" stroke="#0C0906" stroke-opacity=".8" stroke-width="4.5"/>
+    <use xlink:href="#rail-grooves" stroke="#6D4F31" stroke-opacity=".4" stroke-width="1.25" transform="translate(0 2)"/>
+    <use xlink:href="#rail-grooves" stroke="#130E09" stroke-width="2.5"/>
+    <use xlink:href="#corner-returns" stroke="#0B0906" stroke-opacity=".75" stroke-width="3.5"/>
+    <use xlink:href="#corner-returns" stroke="#705134" stroke-opacity=".48" stroke-width="1.5" transform="translate(0 .8)"/>
+  </g>
+
+  <!-- Short shoulders and flush wooden pegs suggest assembled timber, not metal trim. -->
+  <g stroke="#0B0906" stroke-opacity=".55" stroke-width="1">
+    <path d="M228 60V68M228 180V188M646 104V144"/>
+  </g>
+  <g>
+    <circle cx="636" cy="124" r="3.3" fill="#0E0B07"/>
+    <circle cx="636" cy="124" r="2.25" fill="#342519"/>
+    <path d="M634.6 125.3Q636 126.2 637.4 125.3" stroke="#705034" stroke-opacity=".4" stroke-width=".75"/>
+  </g>
+
+  <!-- Concentric tooling is confined to the narrow rim; the tile remains the focal point. -->
+  <circle cx="112" cy="124" r="101" stroke="#0D0A07" stroke-opacity=".65" stroke-width="1"/>
+  <circle cx="112" cy="124" r="97" fill="url(#rim-face)" stroke="#493521" stroke-width="2.5"/>
+  <circle cx="112" cy="124" r="94" stroke="url(#bead-light)" stroke-width="1.2"/>
+  <circle cx="112" cy="124" r="91.8" stroke="#100D09" stroke-opacity=".6" stroke-width=".8"/>
+  <!-- Slot remains centered at (112,124), with a 180-unit opening. -->
+  <circle cx="112" cy="124" r="90" fill="url(#well-shade)" stroke="#120D08" stroke-width="3"/>
+  <path d="M22 124A90 90 0 0 1 202 124" stroke="#090806" stroke-width="1.5"/>
+  <path d="M22 124A90 90 0 0 0 202 124" stroke="#594029" stroke-opacity=".6" stroke-width="1.5"/>
+</svg>

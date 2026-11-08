@@ -87,8 +87,6 @@
     &>.complete-container {
 
         position: relative;
-        border: 1px outset black;
-        outline: 2px solid black;
         border-radius: 1rem;
         background-color: rgb(15, 15, 15);
         text-indent: 1rem;

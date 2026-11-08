@@ -1,12 +1,10 @@
-import { Component, ElementRef, Inject, inject, PLATFORM_ID, signal, ViewChild, WritableSignal } from '@angular/core';
+import { Component, DestroyRef, Inject, inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { DatePipe, isPlatformBrowser } from '@angular/common';
+import { AsyncPipe, DatePipe, isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
-import { FormsModule } from '@angular/forms';
 import { DataService, Ost } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
-import { AsyncPipe } from '@angular/common';
 import { CountdownComponent } from 'ngx-countdown';
 import Rand from 'rand-seed';
 import { ExpandImageDialogComponent } from '../expand-image-dialog/expand-image-dialog.component';
@@ -14,10 +12,12 @@ import { environment } from '../../environments/environment';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
 import { DigitFlowComponent } from 'ngx-digit-flow';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { getHintTooltip } from '../game-mode-utils';
 
 @Component({
   selector: 'music',
-  imports: [DatePipe, TranslatePipe, FormsModule, MatTooltipModule, DigitFlowComponent, AsyncPipe, CountdownComponent,ShareResultsComponent],
+  imports: [DatePipe, TranslatePipe, MatTooltipModule, DigitFlowComponent, AsyncPipe, CountdownComponent, ShareResultsComponent],
   templateUrl: './music.component.html',
   styleUrl: './music.component.css'
 })
@@ -31,40 +31,28 @@ export class MusicMode {
 
   rand = new Rand(new Date().toLocaleDateString("en-US", { timeZone: "UTC" }) + "music");
   isPaused: WritableSignal<boolean> = signal(true);
+  readonly audioReady = signal(false);
+  readonly audioUnavailable = signal(false);
+  private playbackRequest = 0;
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly audioEvents = new AbortController();
+  private scrollTimer?: ReturnType<typeof setTimeout>;
   isComplete: WritableSignal<boolean> = signal(false);
   selected: WritableSignal<Set<string>> = signal(new Set<string>());
   progress: WritableSignal<number> = signal(0);
   images: WritableSignal<string[]> = signal([]);
-  hints: WritableSignal<{ title: string, body: string, show: boolean }[]> | undefined = signal([]);
-
-
-  pmoveListener: EventListener = this.update.bind(this);
-  pupListener: EventListener = this.onPointerUp.bind(this);
-  isDragging: boolean = false;
+  readonly hints = signal<{ title: string; body: string; show: boolean }[]>([]);
 
   audio: HTMLAudioElement | undefined;
 
-  /**
-   * The current time of the music clip in seconds.
-   * @type {number}
-   */
-  displayCurrTime: WritableSignal<number> = signal(0);
-
-  /**
-   * The duration of the music clip in seconds.
-   * @type {number}
-   */
-  duration: WritableSignal<number> = signal(30);
+  readonly displayCurrTime = signal(0);
+  readonly duration = signal(30);
   animId: number = 0;
   timeOffset: number = 0;
   targetOST: Ost | undefined;
   targetScene: string = "";
 
-  @ViewChild('slider') slider!: ElementRef<HTMLDivElement>;
-
-  constructor(@Inject(PLATFORM_ID) private platformId: object){
-    
-  }
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
   ngOnInit() {
     this.title.setTitle("Music | Avatardle");
@@ -76,116 +64,111 @@ export class MusicMode {
     if (isPlatformBrowser(this.platformId)) {
 
       this.isComplete.set(this.ls.progress().music.complete);
-      this.ds.osts$.subscribe(data => {
+      this.ds.osts$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(data => {
+        if (!data.length) return;
 
         this.targetOST = data[Math.floor(this.rand.next() * data.length)];
-        let selectedOSTs = [this.targetOST.name];
+        const selectedOSTs = [this.targetOST.name];
 
-        let audioName = encodeURIComponent(this.targetOST.audio);
-        this.audio = new Audio(`${environment.r2AssetUrl}/osts/${audioName}`);
-        this.audio.addEventListener('loadedmetadata', () => {
-          this.timeOffset = Math.floor(this.rand.next() * (this.audio!.duration - 30));
-          this.audio!.currentTime = this.timeOffset;
-        });
+        const audioName = encodeURIComponent(this.targetOST.audio);
+        const audio = this.audio = new Audio(`${environment.r2AssetUrl}/osts/${audioName}`);
+        audio.addEventListener('loadedmetadata', () => {
+          if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
+          this.duration.set(Math.min(30, audio.duration));
+          this.timeOffset = Math.floor(this.rand.next() * Math.max(0, audio.duration - this.duration()));
+          audio.currentTime = this.timeOffset;
+          this.audioReady.set(true);
+        }, { signal: this.audioEvents.signal });
+        audio.addEventListener('error', () => {
+          this.audioReady.set(false);
+          this.audioUnavailable.set(true);
+          this.pausePlayback();
+        }, { signal: this.audioEvents.signal });
 
-        this.hints?.set([
+        this.hints.set([
           { title: "music.char-hint", body: this.targetOST.characters[Math.floor(this.rand.next() * this.targetOST.characters.length)], show: false },
           { title: "music.music-hint", body: "", show: false },
         ]);
 
-        while (this.images().length != 8) {
-          let randomOST = data[Math.floor(this.rand.next() * data.length)];
+        const images: string[] = [];
+        while (images.length < 8 && selectedOSTs.length < data.length) {
+          const randomOST = data[Math.floor(this.rand.next() * data.length)];
           if (!selectedOSTs.includes(randomOST.name)) {
 
             selectedOSTs.push(randomOST.name);
-            let numScenes = String(Math.floor(this.rand.next() * randomOST.numScenes) + 1).padStart(3, "0");
-            let name = encodeURIComponent(randomOST.name).replace(/'/g, "%27");
-            let frame = `${environment.r2AssetUrl}/scenes/${name}/scene_${numScenes}.webp`;
-            this.images().push(frame);
+            const numScenes = String(Math.floor(this.rand.next() * randomOST.numScenes) + 1).padStart(3, "0");
+            const name = encodeURIComponent(randomOST.name).replace(/'/g, "%27");
+            const frame = `${environment.r2AssetUrl}/scenes/${name}/scene_${numScenes}.webp`;
+            images.push(frame);
           }
         }
-        let targetName = encodeURIComponent(this.targetOST.name);
-        let targetNumScenes = String(Math.floor(this.rand.next() * this.targetOST.numScenes) + 1).padStart(3, "0");
+        const targetName = encodeURIComponent(this.targetOST.name);
+        const targetNumScenes = String(Math.floor(this.rand.next() * this.targetOST.numScenes) + 1).padStart(3, "0");
         this.targetScene = `${environment.r2AssetUrl}/scenes/${targetName}/scene_${targetNumScenes}.webp`;
-        this.images().splice(this.rand.next() * 8, 0, this.targetScene);
-        this.images.set([...this.images()]);
+        images.splice(Math.floor(this.rand.next() * images.length), 0, this.targetScene);
+        this.images.set(images);
       });
     }
   }
 
   togglePlay() {
-    this.isPaused.set(!this.isPaused());
-    if (this.isPaused()) {
-      this.audio!.pause();
-      cancelAnimationFrame(this.animId);
+    if (!this.audio || !this.audioReady()) {
+      return;
     }
-    else {
-      if (this.displayCurrTime() >= this.duration()) {
-        this.progress.set(0);
-        this.audio!.currentTime = this.timeOffset;
-        this.displayCurrTime.set(0);
-      }
-      this.audio!.play();
-      this.animateThumb();
+    if (!this.isPaused()) {
+      this.pausePlayback();
+      return;
     }
+    if (this.displayCurrTime() >= this.duration()) this.seekTo(0);
+
+    const request = ++this.playbackRequest;
+    this.isPaused.set(false);
+    this.audio.play().then(() => {
+      if (request === this.playbackRequest && !this.isPaused()) this.animateThumb();
+    }).catch(() => {
+      if (request === this.playbackRequest) this.pausePlayback();
+    });
+  }
+
+  private pausePlayback() {
+    this.playbackRequest++;
+    this.isPaused.set(true);
+    this.audio?.pause();
+    if (isPlatformBrowser(this.platformId)) cancelAnimationFrame(this.animId);
   }
 
   isEnabled(hintId: number) {
-
     return this.isComplete() || this.ls.progress().music.numGuesses >= 2 + hintId;
   }
 
   getTooltipText(hintId: number): string {
-
-    let diff = hintId + 2 - this.ls.progress().music.numGuesses;
-    if (diff <= 0 || this.isComplete()) {
-      return "Hint available!";
-    }
-    else if (diff == 1) {
-      return "Hint in 1 more guess";
-    }
-    return `Hint in ${diff} more guesses`;
+    return getHintTooltip(this.isComplete(), this.ls.progress().music.numGuesses, 2, hintId);
   }
 
-  animateThumb() {
+  private readonly animateThumb = () => {
+    if (!this.audio || this.isPaused()) return;
+    const elapsed = Math.max(0, Math.min(this.duration(), this.audio.currentTime - this.timeOffset));
+    this.displayCurrTime.set(elapsed);
+    this.progress.set(elapsed / this.duration());
+    if (elapsed >= this.duration()) {
+      this.pausePlayback();
+      return;
+    }
+    this.animId = requestAnimationFrame(this.animateThumb);
+  };
 
-    if (this.displayCurrTime() >= this.duration()) {
-      return this.togglePlay();
+  seek(event: Event) {
+    if (!this.audio || !this.audioReady()) {
+      return;
     }
-    if (this.isDragging) {
-      return cancelAnimationFrame(this.animId);
-    }
-    else if (this.audio!.duration) {
-      this.progress.set((this.audio!.currentTime - this.timeOffset) / this.duration());
-      this.displayCurrTime.set((this.audio!.currentTime - this.timeOffset));
-    }
-    this.animId = requestAnimationFrame(this.animateThumb.bind(this));
+    this.seekTo(Number((event.target as HTMLInputElement).value) / 100);
   }
 
-  onPointerDown(event: PointerEvent) {
-    this.isDragging = true;
-    this.update(event);
-    addEventListener('pointermove', this.pmoveListener);
-    addEventListener('pointerup', this.pupListener);
-  }
-
-  onPointerUp() {
-    this.isDragging = false;
-    this.audio!.currentTime = this.timeOffset + this.progress() * this.duration();
-    if (!this.isPaused()) {
-      this.animateThumb();
-    }
-    removeEventListener('pointermove', this.pmoveListener);
-    removeEventListener('pointerup', this.pupListener);
-  }
-
-  update(event: Event) {
-
-    let c = event as PointerEvent;
-    let rect = this.slider.nativeElement.getBoundingClientRect();
-    let x = Math.max(0, Math.min(c.clientX - rect.left, rect.width));
-    this.progress.set(x / rect.width);
-    this.displayCurrTime.set(this.duration() * this.progress());
+  private seekTo(value: number) {
+    const progress = Math.max(0, Math.min(1, value));
+    this.progress.set(progress);
+    this.displayCurrTime.set(this.duration() * progress);
+    if (this.audio) this.audio.currentTime = this.timeOffset + this.displayCurrTime();
   }
 
   expandImage(imgURL: string) {
@@ -195,14 +178,14 @@ export class MusicMode {
         isComplete: this.isComplete(),
         imageUrl: imgURL
       }
-    }).afterClosed().subscribe((data) => {
+    }).afterClosed().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((data) => {
       if (data) {
         if (imgURL.includes(encodeURIComponent(this.targetOST!.name))) {
           this.isComplete.set(true);
           this.ls.patch(['music'], { complete: true, numGuesses: this.ls.progress().music.numGuesses + 1 });
           this.ds.throwConfetti(this.ls.progress().music.numGuesses);
           this.ds.updateStats("music");
-          setTimeout(() => {
+          this.scrollTimer = setTimeout(() => {
             window.scrollTo({ behavior: "smooth", top: document.body.scrollHeight })
           }, 1000);
           return;
@@ -214,24 +197,21 @@ export class MusicMode {
   }
 
   revealHint(hintId: number) {
+    const hint = this.hints()[hintId];
+    if (!hint || hint.show || !this.isEnabled(hintId) || (hintId === 1 && !this.audioReady())) return;
 
-    this.hints!()[hintId].show = true;
-    this.hints?.set([...this.hints()]);
-
-    if (hintId == 1) {
-      this.isPaused.set(true);
-      this.audio!.pause();
-      this.duration.set(this.audio!.duration);
-      cancelAnimationFrame(this.animId);
-      this.progress.set(0);
-      this.audio!.currentTime = 0;
+    this.hints.update(hints => hints.map((item, index) => index === hintId ? { ...item, show: true } : item));
+    if (hintId === 1 && this.audio) {
+      this.pausePlayback();
+      this.duration.set(this.audio.duration);
       this.timeOffset = 0;
-      this.displayCurrTime.set(0);
+      this.seekTo(0);
     }
   }
 
-  ngOnDestroy(){
-    this.audio?.pause();
+  ngOnDestroy() {
+    this.audioEvents.abort();
+    this.pausePlayback();
+    clearTimeout(this.scrollTimer);
   }
-
 }

@@ -1,117 +1,159 @@
-<h1 mat-dialog-title style="font: 2rem Georgia;">{{'helpDialog.title' | translate}}
-    <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
-</h1>
-<mat-dialog-content
-    style="background-color: rgb(40,40,40); border-radius: 10px; padding:1rem; margin: 1rem; margin-bottom: 0; font-family: Georgia;">
+<header class="dialog-header">
+    <div class="dialog-heading">
+        <h1 mat-dialog-title>{{'helpDialog.title' | translate}}</h1>
+    </div>
+    <button mat-dialog-close class="dialog-close" type="button" [aria-label]="'helpDialog.close' | translate">&times;</button>
+</header>
 
-    <mat-tab-group style="color: beige;">
-        <mat-tab label="Classic">
-
-            <h2>Objective</h2>
-            <p>Guess the character based on different characteristics! Resets daily at <span
-                    style="color:goldenrod;">12:00 AM UTC</span>.</p>
-
-            <h2>Color Indicators</h2>
-
-            <p>The colors indicate whether the guessed character matches the traits of the target character.</p>
-
-            <div style="display: flex; flex-direction: column;">
-                <div style="color:tomato;">
-                    <div style="box-shadow: 0 0 0.5rem 0 rgba(255, 0, 0)" class="color-indicator">
-                    </div> Incorrect - <span style="color:beige;">when the character traits don't match.</span>
-                </div>
-                <div style="color:orange;">
-                    <div style="box-shadow: 0 0 0.5rem 0 rgba(255, 140, 0)" class="color-indicator">
-                    </div> Partially correct - <span style="color:beige;">only applicable to the affiliations category,
-                        when only some affiliations may match.</span>
-                </div>
-                <div style="color:forestgreen;">
-                    <div style="box-shadow: 0 0 0.5rem 0 rgba(0, 128, 0)" class="color-indicator">
-                    </div> Correct - <span style="color:beige;">when the character traits do match.</span>
-                </div>
-            </div>
-
-            <h2>Categories</h2>
-
-            <div style="margin-left:1rem;">
-                <h3>Gender</h3>
-                <p>A character's gender can be male, female, or none.</p>
-
-                <h3>Nationality</h3>
-                <p>This refers to where a character originates. Sometimes the place of origin may
-                    not be a clearly defined nation (like the spirit world), in that case the nationality would be
-                    marked as none.</p>
-
-                <h3>Bending Element</h3>
-                <p>This only includes the 4 basic bending elements: Water <img src="images/elements/water.svg"
-                        style="height: 1em; vertical-align: sub;">, Earth <img src="images/elements/earth.svg"
-                        style="height: 1em;vertical-align: sub;">, Fire
-                    <img src="images/elements/fire.svg" style="height: 1em;vertical-align: sub;">, and Air <img
-                        src="images/elements/air.svg" style="height: 1em;vertical-align: sub;">.
-                </p>
-
-                <h3>Affiliations</h3>
-                <p>This refers to more specific qualities, traits, and groups related to the character. A maximum of 3
-                    affiliations are shown per character. If a character has
-                    more than 3 affiliations in their pool, affiliations will be chosen at random.
-                </p>
-                <p>Color indicators: 🔴 = <span style="color: indianred">0</span> matching affiliations, 🟠 = <span
-                        style="color: orange">1-2</span> matching affiliations, 🟢 = <span
-                        style="color: forestgreen">3</span> matching affiliations.</p>
-
-                <h3>First Appearance</h3>
-                <p>This refers to the first episode that the character appears in. The arrow symbol indicates whether
-                    the target episode takes place before or after the current episode.
-                </p>
-
-                <div style="display: flex; flex-direction: column; margin-left: 2rem;">
+<mat-dialog-content class="dialog-body help-content">
+    <mat-tab-group class="guide-tabs" animationDuration="0ms">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="mode-tab"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="images/help-guide.svg#classic" /></svg>{{'home.classic' | translate}}</span>
+            </ng-template>
+            <ng-template matTabContent>
+                <div class="mode-intro">
+                    <svg class="mode-emblem" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="images/help-guide.svg#classic" /></svg>
                     <div>
-                        <span style="color:lightblue; font-size: large;">⬆</span> = target episode is <span
-                            style="color: lightskyblue;">after</span> the current episode.
-                    </div>
-                    <div>
-                        <span style="color:lightblue; font-size: large;">⬇</span> = target episode is <span
-                            style="color: lightskyblue;">before</span> the current episode.
+                        <h2>{{'helpDialog.classicTitle' | translate}}</h2>
+                        <p>Guess the character based on their characteristics. Each guess brings you a little closer.</p>
                     </div>
                 </div>
 
-            </div>
+                <section class="guide-section">
+                    <h3>Color indicators</h3>
+                    <p>Each tile shows how your guess compares to the target character.</p>
+                    <ul class="clue-legend">
+                        <li class="clue-incorrect">
+                            <span class="clue-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m7 7 10 10M17 7 7 17" /></svg></span>
+                            <div><h4>Incorrect</h4><p>The traits do not match.</p></div>
+                        </li>
+                        <li class="clue-partial">
+                            <span class="clue-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12h12" /></svg></span>
+                            <div><h4>Partially correct</h4><p>Some affiliations match.</p></div>
+                        </li>
+                        <li class="clue-correct">
+                            <span class="clue-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4L19 6" /></svg></span>
+                            <div><h4>Correct</h4><p>The traits match.</p></div>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="guide-section">
+                    <h3>Reading the categories</h3>
+                    <dl class="category-guide">
+                        <div>
+                            <dt>{{'classic.gender' | translate}}</dt>
+                            <dd>A character's gender can be male, female, or none.</dd>
+                        </div>
+                        <div>
+                            <dt>{{'classic.nationality' | translate}}</dt>
+                            <dd>Where the character originates. Places without a clearly defined nation, such as the Spirit World, are marked as none.</dd>
+                        </div>
+                        <div class="wide-category">
+                            <dt>{{'classic.bendingElement' | translate}}</dt>
+                            <dd>This includes the four basic bending elements.</dd>
+                            <dd class="bending-key">
+                                <span><img src="images/elements/water.svg" alt="" aria-hidden="true">{{'Water' | translate}}</span>
+                                <span><img src="images/elements/earth.svg" alt="" aria-hidden="true">{{'Earth' | translate}}</span>
+                                <span><img src="images/elements/fire.svg" alt="" aria-hidden="true">{{'Fire' | translate}}</span>
+                                <span><img src="images/elements/air.svg" alt="" aria-hidden="true">{{'Air' | translate}}</span>
+                            </dd>
+                        </div>
+                        <div class="wide-category">
+                            <dt>{{'classic.affiliations' | translate}}</dt>
+                            <dd>Qualities, traits, and groups related to the character. Up to three affiliations are shown per guess. If a character has more than three in their pool, a random selection is shown.</dd>
+                            <dd class="affiliation-key">
+                                <span class="clue-incorrect">None match</span>
+                                <span class="clue-partial">Some match</span>
+                                <span class="clue-correct">All match</span>
+                            </dd>
+                        </div>
+                        <div class="wide-category">
+                            <dt>{{'classic.firstAppearance' | translate}}</dt>
+                            <dd>The first episode in which the character appears. Arrows point toward an earlier or later episode than your guess.</dd>
+                            <dd class="episode-directions">
+                                <span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" /></svg><span><strong>Later episode</strong><span>The target appears after your guess.</span></span></span>
+                                <span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14m-6-6 6 6 6-6" /></svg><span><strong>Earlier episode</strong><span>The target appears before your guess.</span></span></span>
+                            </dd>
+                        </div>
+                    </dl>
+                </section>
+
+            </ng-template>
         </mat-tab>
 
-        <mat-tab label="Quote">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="mode-tab"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="images/help-guide.svg#quote" /></svg>{{'home.quote' | translate}}</span>
+            </ng-template>
+            <ng-template matTabContent>
+                <div class="mode-intro">
+                    <svg class="mode-emblem" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="images/help-guide.svg#quote" /></svg>
+                    <div><h2>{{'helpDialog.quoteTitle' | translate}}</h2><p>Guess who said the quote. Look for familiar turns of phrase and clues to the moment.</p></div>
+                </div>
+                <section class="guide-section">
+                    <h3 class="hints-heading">Three ways to find your answer <svg class="hint-dots" viewBox="0 0 5 21" fill="currentColor" aria-hidden="true"><circle cx="2.5" cy="2.5" r="2.5"/><circle cx="2.5" cy="10.5" r="2.5"/><circle cx="2.5" cy="18.5" r="2.5"/></svg></h3>
+                    <p>Three hints unlock as you make more guesses.</p>
+                    <ol class="hint-guide">
+                        <li><span class="hint-number" aria-hidden="true">01</span><div><h4>Next line</h4><p>The line spoken immediately after the quote.</p></div></li>
+                        <li><span class="hint-number" aria-hidden="true">02</span><div><h4>Previous line</h4><p>The line spoken immediately before the quote.</p></div></li>
+                        <li><span class="hint-number" aria-hidden="true">03</span><div><h4>Episode name</h4><p>The episode in which the quote is spoken.</p></div></li>
+                    </ol>
+                </section>
+                <aside class="guide-tip">
+                    <h3>The first or last line?</h3>
+                    <p>If the quote opens or closes an episode, the hints will tell you.</p>
+                </aside>
 
-            <h2>Objective</h2>
-            <p>Guess who said the quote! Resets daily at <span style="color:goldenrod;">12:00 AM UTC</span>.</p>
-
-            <h2>Hints <img src="images/lotus.svg" style="width: 2rem; vertical-align: sub;" alt=""></h2>
-            <p>There are 3 hints in total, each unlocked after a certain number of guesses.</p>
-
-            <div style="margin-left: 3rem; display: flex; flex-direction: column;">
-                <div> <span style="color: #8c78c0;font-weight: bold;">Next Line - </span>the immediate next line that is
-                    spoken.</div>
-                <div><span style="color: #8c78c0;font-weight: bold;">Previous Line - </span>the immediate previous line
-                    that is spoken.</div>
-                <div> <span style="color: #8c78c0;font-weight: bold;">Episode Name - </span>the episode in which the
-                    quote is spoken.</div>
-            </div>
-
-            <h2>What if the quote is the first/last line of an episode?</h2>
-            <p>The hints will state whether the quote is the first or last line.</p>
-
+            </ng-template>
         </mat-tab>
-        <mat-tab label="Picture">
-            <h2>Objective</h2>
-            <p>Guess which episode the scene is from! Resets daily at <span style="color:goldenrod;">12:00 AM
-                    UTC</span>.</p>
 
-            <h2>Image Effects</h2>
-            <p>The image starts off zoomed in and in grayscale. Each guess reduces the effects on the image.</p>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="mode-tab"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="images/help-guide.svg#picture" /></svg>{{'home.picture' | translate}}</span>
+            </ng-template>
+            <ng-template matTabContent>
+                <div class="mode-intro">
+                    <svg class="mode-emblem" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="images/help-guide.svg#picture" /></svg>
+                    <div><h2>{{'helpDialog.pictureTitle' | translate}}</h2><p>Guess which episode the scene is from. Look closely at the details that come into view.</p></div>
+                </div>
+                <section class="guide-section">
+                    <h3>A little clearer with every guess</h3>
+                    <p>The image begins zoomed in and in grayscale. Each guess reduces these effects, revealing more of the scene.</p>
+                    <div class="scene-steps">
+                        <figure><span class="scene-window scene-start"><svg viewBox="0 0 120 76" aria-hidden="true"><use href="images/help-guide.svg#scene" /></svg></span><figcaption>At first</figcaption></figure>
+                        <figure><span class="scene-window scene-middle"><svg viewBox="0 0 120 76" aria-hidden="true"><use href="images/help-guide.svg#scene" /></svg></span><figcaption>With each guess</figcaption></figure>
+                        <figure><span class="scene-window"><svg viewBox="0 0 120 76" aria-hidden="true"><use href="images/help-guide.svg#scene" /></svg></span><figcaption>More of the scene</figcaption></figure>
+                    </div>
+                </section>
+
+            </ng-template>
         </mat-tab>
-        <mat-tab label="Music">
-            <h2>Objective</h2>
-            <p>Match the music to the scene! Resets daily at <span style="color:goldenrod;">12:00 AM
-                    UTC</span>.</p>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="mode-tab"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="images/help-guide.svg#music" /></svg>{{'home.music' | translate}}</span>
+            </ng-template>
+            <ng-template matTabContent>
+                <div class="mode-intro">
+                    <svg class="mode-emblem" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="images/help-guide.svg#music" /></svg>
+                    <div><h2>{{'helpDialog.musicTitle' | translate}}</h2><p>Match the music to the scene. Let the soundtrack bring you back to the moment.</p></div>
+                </div>
+                <div class="listening-card">
+                    <div class="sound-illustration" aria-hidden="true">
+                        <svg class="music-symbol" viewBox="0 0 24 24" fill="none"><use href="images/help-guide.svg#music" /></svg>
+                        <svg class="sound-wave" viewBox="0 0 300 70" fill="none"><path d="M10 33v4m10-9v14m10-18v22m10-29v36m10-27v18m10-34v50m10-44v38m10-27v16m10-26v36m10-49v62m10-44v26m10-18v10m10-20v30m10-25v20m10-15v10m10-7v4m10-12v20m10-26v32m10-42v52m10-38v24m10-29v34m10-44v54m10-36v18m10-12v6m10-21v36m10-26v16m10-12v8m10-8v8m10-6v4" /></svg>
+                    </div>
+                    <p>{{'helpDialog.musicCaption' | translate}}</p>
+                </div>
+
+            </ng-template>
         </mat-tab>
     </mat-tab-group>
-
 </mat-dialog-content>
+
+<footer class="guide-footer">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>
+    <span>{{'helpDialog.resetsDaily' | translate}} <time datetime="00:00Z">12:00 AM UTC</time></span>
+</footer>

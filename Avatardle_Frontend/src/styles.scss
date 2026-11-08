@@ -1,4 +1,5 @@
 @use '@angular/material' as mat;
+@use './app/shared/panel-borders.css';
 
 @font-face {
     font-family: 'avatar';
@@ -15,6 +16,18 @@
     --search-bar-background-color: rgb(20, 20, 20);
     --snack-bar-background-color: rgb(30, 30, 30);
     --dialog-container-color: rgb(30, 30, 30);
+    --ui-control-background: rgba(0, 0, 0, 0.25);
+    --ui-control-border-top: 1px solid rgba(255, 255, 255, 0.15);
+    --ui-control-border-bottom: 1px ridge rgba(255, 255, 255, 0.15);
+    --ui-control-radius: 999px;
+    --modal-control-radius: 4px;
+    --modal-control-border: 1px solid rgba(255, 255, 255, 0.16);
+    --modal-control-border-top-color: rgba(255, 255, 255, 0.26);
+    --modal-control-border-bottom-color: rgba(0, 0, 0, 0.4);
+    --modal-control-shadow: 0 1px 4px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    --ui-control-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --ui-control-blur: 12px;
+    --ui-control-text: bisque;
 
     .custom-panel {
         & span {
@@ -31,52 +44,113 @@
         outline: 1px solid black;
     }
 
-    .help-dialog {
-        width: 70vw;
+    .help-dialog,
+    .particles-dialog,
+    .about-dialog,
+    .notes-dialog,
+    .comment-dialog,
+    .quote-hint-dialog,
+    .profile-edit-dialog,
+    .classic-settings-dialog {
         max-width: none !important;
-        height: 80vh;
+        @include mat.dialog-overrides((container-color: #191919, container-shape: 12px));
+    }
+
+    .help-dialog {
+        width: min(54rem, 92vw);
+        height: min(46rem, 88dvh);
+        @include mat.tabs-overrides((active-indicator-color: rgba(234, 224, 202, 0.22),
+                active-indicator-height: 1px,
+                active-label-text-color: bisque,
+                active-focus-label-text-color: #eae0ca,
+                active-hover-label-text-color: #eae0ca,
+                inactive-label-text-color: #b6b29e,
+                inactive-focus-label-text-color: #eae0ca,
+                inactive-hover-label-text-color: #eae0ca,
+                label-text-font: Georgia,
+                label-text-size: 0.85rem,
+                label-text-weight: 400,
+                divider-color: rgba(183, 161, 108, 0.23)));
+
+        .mat-mdc-tab-header {
+            margin-inline: 1.5rem;
+            background: var(--ui-control-background);
+            border: var(--modal-control-border);
+            border-top-color: var(--modal-control-border-top-color);
+            border-bottom-color: var(--modal-control-border-bottom-color);
+            border-radius: var(--modal-control-radius);
+            box-shadow: var(--modal-control-shadow);
+            backdrop-filter: blur(var(--ui-control-blur));
+            -webkit-backdrop-filter: blur(var(--ui-control-blur));
+        }
+
+        .mat-mdc-tab[aria-selected="true"] {
+            background: rgba(255, 255, 255, 0.055);
+            border-radius: var(--modal-control-radius);
+        }
+
+        .mat-mdc-tab-body-wrapper {
+            flex: 1;
+            min-height: 0;
+            max-height: none;
+        }
+
+        .mat-mdc-tab-body-content {
+            display: block;
+            box-sizing: border-box;
+            padding: 1.25rem 1.5rem 1.5rem;
+            overscroll-behavior: contain;
+            scrollbar-color: #665b43 transparent;
+        }
+
+        .mat-mdc-tab:focus-visible {
+            outline: 2px solid var(--ui-control-text);
+            outline-offset: -3px;
+        }
+
+        .mat-mdc-tab-body-content:focus-visible {
+            outline: 2px solid var(--ui-control-text);
+            outline-offset: -3px;
+        }
     }
 
     .signup-dialog {
-        width: 50vw;
         max-width: none !important;
+        width: 50vw;
     }
 
     .profile-edit-dialog {
-
-        width: 40rem;
-        max-width: none !important;
+        width: min(58rem, 92vw);
     }
 
     .particles-dialog {
 
-        width: 30vw;
-        max-width: none !important;
+        width: min(34rem, 92vw);
     }
 
     .about-dialog {
 
-        width: 50vw;
-        max-width: none !important;
+        width: min(44rem, 92vw);
     }
 
     .notes-dialog {
 
         width: min(58rem, 92vw);
-        max-width: none !important;
+        height: min(44rem, 88dvh);
     }
 
     .comment-dialog {
 
-        width: 30vw;
-        height: 25rem;
-        max-width: none !important;
+        width: min(36rem, 92vw);
+        height: min(32rem, 88dvh);
+    }
+
+    .quote-hint-dialog {
+        width: min(38rem, 92vw);
     }
 
     .classic-settings-dialog {
-
-        width: 50vw;
-        max-width: none !important;
+        width: min(38rem, 92vw);
     }
 
     @include mat.tabs-overrides((divider-color: transparent,
@@ -93,6 +167,28 @@
             item-label-text-color: beige,
             item-label-text-font: Georgia,
             item-hover-state-layer-color: rgb(30, 30, 30)));
+
+    .quote-hint-menu {
+        @include mat.menu-overrides((container-color: #24221f,
+                container-shape: 8px,
+                item-label-text-color: #eae0ca,
+                item-label-text-font: Georgia,
+                item-label-text-size: 0.85rem,
+                item-hover-state-layer-color: rgba(183, 161, 108, 0.07),
+                item-focus-state-layer-color: rgba(183, 161, 108, 0.1)));
+        width: min(22rem, calc(100vw - 2rem));
+        min-width: 0;
+        max-width: none;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.35);
+
+        .mat-mdc-menu-content { padding: 0.4rem; }
+        .mat-mdc-menu-item { min-height: 3.25rem; padding-inline: 0.8rem; border-radius: 4px; }
+        .mat-mdc-menu-item-text { width: 100%; white-space: normal; }
+        .mat-mdc-menu-item[disabled] { opacity: 0.7; }
+        .hint-menu-row { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+        .hint-menu-status { color: #b6b29e; font-size: 0.75rem; text-align: end; }
+        .hint-menu-ready { color: #c4ad7e; }
+    }
 
     @include mat.badge-overrides((background-color: red,
             small-size-container-overlap-offset: -9px,
@@ -243,8 +339,6 @@ a {
     position: relative;
     font: 1rem avatar2;
     color: darkgoldenrod;
-    border: 1px outset black;
-    outline: 2px solid black;
     border-radius: 32px;
     background-color: rgb(15, 15, 15);
     margin-top: 1rem;
@@ -262,8 +356,9 @@ a {
         border-radius: 10px;
         font: 1rem avatar2;
         color: darkgoldenrod;
-        border: 1px inset gray;
-        outline: 1px solid black;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-top-color: rgba(0, 0, 0, 0.5);
+        border-bottom-color: rgba(255, 255, 255, 0.22);
 
         &:disabled {
             color: green;
@@ -274,8 +369,6 @@ a {
     &>button {
 
         background-color: rgb(20, 20, 20);
-        border: 1px outset black;
-        outline: 2px solid black;
         border-radius: 0.5rem;
         cursor: pointer;
         padding: 0.5rem;
@@ -284,7 +377,7 @@ a {
 
         &:disabled {
             border: 1px solid transparent;
-            outline: none;
+            box-shadow: none;
             color: dimgray;
             cursor: default;
         }
@@ -293,23 +386,22 @@ a {
 
 @media only screen and (max-width: 768px) {
 
-    .comment-dialog {
-        width: 95vw !important;
-    }
+    :root .help-dialog {
+        .mat-mdc-tab-header {
+            margin-inline: 1rem;
+        }
 
-    .about-dialog {
-        width: 95vw !important;
-    }
+        .mat-mdc-tab-body-content {
+            padding: 1rem;
+        }
 
-    .help-dialog {
-        width: 100vw !important;
+        .mat-mdc-tab {
+            min-width: 0;
+            padding-inline: 0.65rem;
+        }
     }
 
     .signup-dialog {
-        width: 95vw !important;
-    }
-
-    .particles-dialog {
         width: 95vw !important;
     }
 
@@ -321,8 +413,4 @@ a {
         width: 90vw !important;
     }
 
-    .classic-settings-dialog {
-
-        width: 90vw !important;
-    }
 }

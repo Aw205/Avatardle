@@ -13,10 +13,13 @@
     <div class="edge" style="transform: translateZ(-9px)"></div>
     }
 
-    <div class="flip-card-back" [style.box-shadow]="color()">
+    <div class="flip-card-back" [style.box-shadow]="color()" [class.episode-tile]="!!data.episodeName"
+        [matTooltip]="data.episodeName ? getEpisodeTooltip(data.episodeName) : ''"
+        [matTooltipDisabled]="!data.episodeName || !flipTile()" matTooltipPosition="above"
+        [attr.tabindex]="data.episodeName && flipTile() ? 0 : null">
         @if(data.episodeName){
         @if(data.arrowDir){
-        <img [src]="data.imageUrl" alt="" class="episode-arrow" [style.transform]="data.arrowDir">
+        <img [src]="data.imageUrl" alt="" class="episode-arrow" [style.transform]="data.arrowDir" draggable="false">
         }
         @let episodeName = 'episodes.' + data.episodeName;
         {{ episodeName | translate }}

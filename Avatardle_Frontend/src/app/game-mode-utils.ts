@@ -19,13 +19,3 @@ export function getHintTooltip(isComplete: boolean, guessAttempts: number, requi
     }
     return diff === 1 ? 'Hint in 1 more guess' : `Hint in ${diff} more guesses`;
 }
-
-
-// function onModeComplete(): void{
-
-//     this.isComplete.set(true);
-//     this.ls.patch(['classic', 'complete'], true);
-//     this.ds.throwConfetti(this.ls.progress().classic.guesses.length);
-//     this.ds.updateStats("classic");
-
-// }

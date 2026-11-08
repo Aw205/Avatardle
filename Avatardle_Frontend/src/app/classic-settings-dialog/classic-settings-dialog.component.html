@@ -1,51 +1,50 @@
-<h1 mat-dialog-title style="font: 2rem Georgia;"> {{'classic.settings.title' | translate }}
-    <button (click)="dialogRef.close()" class="exit-button">&times;</button>
-</h1>
-<mat-dialog-content
-    style="color:beige; font-family: Georgia; background-color: rgb(40, 40, 40); margin: 1rem; border-radius: 10px; padding: 1rem; padding-left: 2rem;">
+<header class="dialog-header">
+    <div class="dialog-heading">
+        <h1 mat-dialog-title>{{'classic.settings.title' | translate}}</h1>
+    </div>
+    <button mat-dialog-close class="dialog-close" type="button"
+        [aria-label]="'classic.settings.close' | translate">&times;</button>
+</header>
 
-
-    <div style="font:1.5rem Georgia; padding-bottom: 1rem;">{{'classic.settings.series-select' | translate }}</div>
-
-    <div style="display: flex; flex-direction: column; align-items: center;">
-        <div style="display: flex; flex-direction: column; gap:1rem; width: fit-content; gap: 0.5rem; ">
+<mat-dialog-content class="dialog-body">
+    <section class="series-section" aria-labelledby="series-heading">
+        <h2 id="series-heading">{{'classic.settings.series-select' | translate}}</h2>
+        <div class="series-options" role="group" aria-labelledby="series-heading" aria-describedby="series-warning">
             @for(item of list; track item.name){
-            <label for="{{item.name}}" class="item-label">
-                <img [src]="item.icon" [class.selected]="item.selected">
-                <input type="checkbox" id="{{item.name}}" value="atla" [(ngModel)]="item.selected"
-                    (ngModelChange)="updateCount()">
-                {{item.name | translate}}
+            <label class="series-option" [class.selected]="item.selected" [for]="item.name">
+                <img [src]="item.icon" alt="" draggable="false">
+                <span>{{item.name | translate}}</span>
+                <input type="checkbox" [id]="item.name" [(ngModel)]="item.selected">
             </label>
             }
-            <div style="font-size:small; color: gray; text-align: center;">{{'classic.settings.progressWarning' |
-                translate }}</div>
         </div>
-    </div>
+        <p class="progress-warning" id="series-warning">{{'classic.settings.progressWarning' | translate}}</p>
+    </section>
 
-    <div style="display: flex; width: fit-content; flex-direction: row;  align-items: center; gap:0.5rem;">
+    <section class="dialog-section color-section" aria-labelledby="color-heading">
+        <h2 id="color-heading">{{'classic.settings.colorblind' | translate}}</h2>
+        <select class="modal-button color-mode" aria-labelledby="color-heading" [ngModel]="colorMode()"
+            (ngModelChange)="setColor($event)">
+            <option value="#bf2c23+#295e11">{{'classic.settings.off' | translate}}</option>
+            <option value="#bf2c23+#2f67b1">{{'classic.settings.red+blue' | translate}}</option>
+            <option value="#58094f+#295e11">{{'classic.settings.purple+green' | translate}}</option>
+            <option value="custom">{{'classic.settings.custom' | translate}}</option>
+        </select>
 
-        <mat-form-field>
-            <mat-label style="font: 1rem Georgia;">{{'classic.settings.colorblind' | translate }}</mat-label>
-            <mat-select style="font: 1rem Georgia; color: beige;" [(ngModel)]="colorMode"
-                (selectionChange)="setColor($event)">
-                <mat-option style="font: 1rem Georgia; color: beige; background-color: rgb(50,50,50);"
-                    value="#bf2c23+#295e11">{{'classic.settings.off' | translate }}</mat-option>
-                <mat-option style="font: 1rem Georgia; color: beige; background-color: rgb(50,50,50);"
-                    value="#bf2c23+#2f67b1">{{'classic.settings.red+blue' | translate }}</mat-option>
-                <mat-option style="font: 1rem Georgia; color: beige; background-color: rgb(50,50,50);"
-                    value="#58094f+#295e11">{{'classic.settings.purple+green' | translate }}</mat-option>
-                <mat-option style="font: 1rem Georgia; color: beige; background-color: rgb(50,50,50);"
-                    value="custom">{{'classic.settings.custom' | translate }}</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <div style="display: inline-flex; flex-direction: column; width: fit-content;" [formGroup]="colorForm">
-            <input type="color" formControlName="incorrectColor">
-            <input type="color" formControlName="correctColor">
+        <div class="color-swatches" [formGroup]="colorForm">
+            <label class="color-swatch" for="incorrect-color">
+                <span>{{'classic.settings.incorrect' | translate}}</span>
+                <input id="incorrect-color" type="color" formControlName="incorrectColor">
+            </label>
+            <label class="color-swatch" for="correct-color">
+                <span>{{'classic.settings.correct' | translate}}</span>
+                <input id="correct-color" type="color" formControlName="correctColor">
+            </label>
         </div>
-    </div>
-
+    </section>
 </mat-dialog-content>
-<mat-dialog-actions>
-    <button class="save-button" (click)="onSave()" [disabled]="selectedCount() == 0">{{'save' | translate}}</button>
-</mat-dialog-actions>
+
+<footer class="settings-footer">
+    <button class="modal-button save-button" type="button" (click)="onSave()"
+        [disabled]="selectedCount === 0">{{'save' | translate}}</button>
+</footer>

@@ -1,94 +1,176 @@
+:host {
+    display: block;
+    padding: 2rem 1rem 2rem;
+}
 
 nav {
+    --mode-gap: 0.5rem;
+    --slot-center-x: 16.470588%; /* x=112 in the 680-unit frame. */
+    container-type: inline-size;
+    display: grid;
+    gap: var(--mode-gap);
+    width: min(100%, 25rem);
+    margin-inline: auto;
     user-select: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+}
+
+nav > a {
     position: relative;
-    top: 5.5rem;
-    width: fit-content;
-    margin: auto;
+    isolation: isolate;
+    display: block;
+    width: 100%;
+    aspect-ratio: 680 / 248;
+    color: #d8ccb5;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-    &>a {
+/* Four quiet board grooves join the slots, masked by the frame artwork.
+   Each segment stops at the next socket; none extends beyond the first or last. */
+nav > a:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: var(--slot-center-x);
+    top: 50%;
+    width: 26px;
+    height: calc(100% + var(--mode-gap));
+    transform: translateX(-50%);
+    background: linear-gradient(to right,
+        rgb(0 0 0 / 45%) 0 1px,
+        rgb(113 85 55 / 20%) 1px 2px,
+        transparent 2px);
+    background-size: 8px 100%;
+    background-repeat: repeat-x;
+    pointer-events: none;
+}
 
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        width: 100%;
+/* One recessed marker marks each gap, aligned to one of the two inner grooves. */
+nav > a:not(:last-child)::before {
+    content: "";
+}
 
-        &:hover>div {
-            transform: rotate(45deg);
-        }
+nav > a:not(:last-child)::before,
+.groove-marker {
+    position: absolute;
+    z-index: 1;
+    left: var(--slot-center-x);
+    margin-left: -4px;
+    top: calc(100% + var(--mode-gap) / 2);
+    width: 5px;
+    height: 5px;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgb(113 85 55 / 50%);
+    border-radius: 50%;
+    background: #1b150f;
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 85%), 0 0.5px 0 rgb(137 100 58 / 20%);
+    pointer-events: none;
+}
 
-        &>span {
+/* Groove centers sit at -12, -4, +4, +12px relative to the socket center. */
+nav > a:nth-child(2)::before {
+    margin-left: 4px;
+}
 
-            margin-left: -20px;
-            padding-left: 20px;
-            border-radius: 10px;
-            background-color: rgb(30, 30, 30);
-            border: 3px outset rgb(83, 46, 40);
-            outline: 2px solid black;
-            flex-grow: 1;
-            font: 3rem avatar2;
-            color: seashell;
-            padding-right: 0.5rem;
-            position: relative;
-            z-index: -1;
+/* Fixed, irregular placements add variety while staying on the outer board lines. */
+.groove-marker--left {
+    margin-left: -12px;
+    margin-top: -6px;
+}
 
-            background-color: rgb(10, 10, 10);
+.groove-marker--right {
+    margin-left: 12px;
+    margin-top: 5px;
+}
 
-            &::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: url('../../assets/images/wood_texture.webp');
-                background-size: cover;
-                background-position: center;
-                opacity: 0.1;
-                /* background-position: 75% 40%; */
-               
-            }
-
-        }
-
-    }
+/* Frame and tile share one viewport, so resizing cannot shift the socket alignment. */
+.mode-artwork {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: filter 180ms ease, transform 90ms ease-out;
+    pointer-events: none;
 }
 
 .paisho-sprite {
-    width: 7.5rem;
-    height: 7.5rem;
+    transform-origin: 112px 124px;
     filter: brightness(70%);
-    background-image: url('../../assets/images/paisho_final.svg');
-    background-size: 700% 100%;
     transition: transform 0.5s;
 }
 
-@media only screen and (max-width: 768px) {
+/* Reserve a clear label area between the carved rails (240, 83, 402, 82). */
+nav > a > .mode-label {
+    position: absolute;
+    left: 35.294118%;
+    top: 33.467742%;
+    width: 59.117647%;
+    height: 33.064516%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-inline: 0.5rem;
+    font: clamp(1.25rem, 10cqi, 2.75rem) / 1.1 avatar2;
+    text-align: start;
+    text-shadow: 0 2px 1px rgb(0 0 0 / 95%), 0 3px 5px rgb(0 0 0 / 80%);
+    transition: transform 90ms ease-out;
+    overflow-wrap: anywhere;
+    pointer-events: none;
+}
 
-    nav {
-        position: absolute;
-        gap: 3rem;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        &>a {
-            &>span {
-                font: 2.5rem avatar2;
-                border-width: 2px;
-                outline-width: 1px;
-            }
-        }
+@media (hover: hover) {
+    nav > a:hover .mode-artwork {
+        filter: brightness(1.08);
     }
 
+    nav > a:hover .paisho-sprite {
+        transform: rotate(45deg);
+    }
+}
+
+nav > a:focus-visible {
+    outline: 2px solid #a9946b;
+    outline-offset: 2px;
+    border-radius: 0.5rem;
+}
+
+nav > a:focus-visible .mode-artwork {
+    filter: brightness(1.08);
+}
+
+nav > a:focus-visible .paisho-sprite {
+    transform: rotate(45deg);
+}
+
+/* Only the button face depresses; board grooves and markers stay in place. */
+nav > a:active .mode-artwork,
+nav > a:active > .mode-label {
+    transform: translateY(1px);
+}
+
+nav > a:active .mode-artwork {
+    filter: brightness(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mode-artwork,
+    .mode-label,
     .paisho-sprite {
-        width: 5rem;
-        height: 5rem;
+        transition: none;
     }
 
+    nav > a:active .mode-artwork,
+    nav > a:active > .mode-label,
+    nav > a:hover .paisho-sprite,
+    nav > a:focus-visible .paisho-sprite {
+        transform: none;
+    }
+}
 
+@media (max-width: 768px) {
+    :host {
+        padding-top: 1.5rem;
+    }
 }

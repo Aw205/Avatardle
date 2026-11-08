@@ -1,0 +1,150 @@
+.discovery-percentage {
+    color: var(--profile-bronze);
+    font: 1.25rem Georgia;
+    font-variant-numeric: tabular-nums;
+}
+
+.discovery-track {
+    height: 3px;
+    overflow: hidden;
+    border-radius: 2px;
+    background: rgba(183, 161, 108, 0.13);
+}
+
+.discovery-track > span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #7f6844, #c7ad73);
+    transition: width 350ms ease;
+}
+
+.discovery-milestones {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin: 1rem 0 0.65rem;
+    padding: 0;
+    list-style: none;
+}
+
+.discovery-milestones li {
+    display: grid;
+    justify-items: center;
+    grid-template-rows: auto 1fr auto;
+    gap: 0.3rem;
+    padding: 0.35rem 0.15rem;
+    text-align: center;
+    color: #938d7e;
+}
+
+.milestone-seal {
+    width: clamp(2.5rem, 9cqw, 3.5rem);
+    height: auto;
+    aspect-ratio: 1;
+    color: #837b68;
+    stroke: currentColor;
+    stroke-width: 1.35;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.65;
+}
+
+.milestone-name {
+    font: 0.72rem / 1.35 Georgia;
+    overflow-wrap: anywhere;
+}
+
+.milestone-value {
+    color: var(--profile-muted);
+    font: 0.7rem Georgia;
+}
+
+.discovery-milestones .earned {
+    color: #cfb986;
+}
+
+.earned .milestone-seal {
+    color: #c4a773;
+    opacity: 1;
+    background: radial-gradient(circle, rgba(136, 66, 48, 0.3), transparent 70%);
+}
+
+.earned .milestone-value {
+    color: #c4a773;
+}
+
+.discovery-next {
+    margin: 0 0 1.4rem;
+    color: var(--profile-muted);
+    text-align: center;
+    font: italic 0.78rem / 1.6 Georgia;
+}
+
+.scroll-exhibit {
+    width: min(100%, 22.67rem);
+    min-width: 0;
+    margin: 0 auto;
+    align-self: start;
+}
+
+.scroll-caption {
+    padding: 0.25rem 0.4rem 0.5rem;
+    text-align: center;
+}
+
+.scroll-caption::before {
+    content: "";
+    display: block;
+    width: 2rem;
+    height: 1px;
+    margin: 0 auto 0.7rem;
+    background: var(--profile-bronze);
+    opacity: 0.6;
+}
+
+.scroll-caption h3 {
+    margin: 0;
+    color: var(--profile-ivory);
+    font: 1.2rem / 1.35 avatar2;
+    letter-spacing: 0.035em;
+    overflow-wrap: anywhere;
+}
+
+.artwork-unavailable {
+    position: absolute;
+    inset: 6.48855% 6.818182%;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    margin: 0;
+    color: #6a6255;
+    font: italic clamp(0.75rem, 4cqw, 1rem) / 1.7 Georgia, serif;
+    text-align: center;
+}
+
+@container (max-width: 22rem) {
+    .discovery-milestones {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+
+    .milestone-seal {
+        width: 3rem;
+    }
+
+    .milestone-name {
+        font-size: 0.76rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .scroll-exhibit {
+        width: min(100%, 16rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .discovery-track > span {
+        transition: none;
+    }
+}

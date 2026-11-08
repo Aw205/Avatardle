@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="720" viewBox="0 0 480 720" fill="none">
+  <title>Blue-green silk hanging scroll</title>
+  <desc>Ivory paper layered over woven silk, with fine bronze rules, softly grained walnut rollers, turned end caps, and a quiet hanging cord. The artwork area is x=88, y=142, width=304, height=456.</desc>
+  <defs>
+    <linearGradient id="silk" x1="42" y1="0" x2="438" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#253c3e"/>
+      <stop offset=".035" stop-color="#395658"/>
+      <stop offset=".2" stop-color="#405d5d"/>
+      <stop offset=".5" stop-color="#486461"/>
+      <stop offset=".8" stop-color="#3c5757"/>
+      <stop offset=".97" stop-color="#344e50"/>
+      <stop offset="1" stop-color="#243b3d"/>
+    </linearGradient>
+    <linearGradient id="silk-light" x1="240" y1="70" x2="240" y2="667" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071d20" stop-opacity=".24"/>
+      <stop offset=".045" stop-color="#d7d8b2" stop-opacity=".07"/>
+      <stop offset=".48" stop-color="#d7d8b2" stop-opacity="0"/>
+      <stop offset=".95" stop-color="#071d20" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#071d20" stop-opacity=".32"/>
+    </linearGradient>
+    <pattern id="silk-weave" width="6" height="6" patternUnits="userSpaceOnUse">
+      <path d="M0 .5H6M.5 0V6" stroke="#ded7b4" stroke-opacity=".055" stroke-width=".5"/>
+      <path d="M0 3.5H6M3.5 0V6" stroke="#0e292d" stroke-opacity=".08" stroke-width=".5"/>
+    </pattern>
+    <pattern id="silk-diaper" width="24" height="32" patternUnits="userSpaceOnUse">
+      <path d="M12 1 23 16 12 31 1 16Z" stroke="#c2bf97" stroke-opacity=".055" stroke-width=".6"/>
+      <path d="M10.5 16h3M12 14.5v3" stroke="#c2bf97" stroke-opacity=".07" stroke-width=".6"/>
+    </pattern>
+    <linearGradient id="paper" x1="64" y1="108" x2="416" y2="632" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e9ddbc"/>
+      <stop offset=".2" stop-color="#f3e9d0"/>
+      <stop offset=".54" stop-color="#f5edd8"/>
+      <stop offset=".84" stop-color="#f0e5c9"/>
+      <stop offset="1" stop-color="#e5d7b5"/>
+    </linearGradient>
+    <linearGradient id="paper-edge" x1="64" y1="0" x2="416" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#816c42" stop-opacity=".13"/>
+      <stop offset=".035" stop-color="#816c42" stop-opacity="0"/>
+      <stop offset=".965" stop-color="#816c42" stop-opacity="0"/>
+      <stop offset="1" stop-color="#816c42" stop-opacity=".13"/>
+    </linearGradient>
+    <filter id="mounting-shadow" x="54" y="98" width="374" height="546" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx=".4" dy="1.5" stdDeviation="1.2" flood-color="#111f1e" flood-opacity=".38"/>
+    </filter>
+    <filter id="paper-grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".65 .24" numOctaves="3" seed="17" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 .38  0 0 0 0 .29  0 0 0 0 .15  0 0 0 .085 0"/>
+    </filter>
+    <pattern id="paper-fibers" width="96" height="72" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#816c42" stroke-opacity=".055" stroke-width=".5" stroke-linecap="round">
+        <path d="m8 13 5-.6m24 10 7 .4m25-16 4 .7M16 49l7-.5m29 12 5 .5m25-22 6-.7"/>
+        <path d="m28 7 .4 3m33 24-.3 4M7 65l.4 3m82-9-.4 4"/>
+      </g>
+    </pattern>
+    <linearGradient id="top-wood" x1="0" y1="58" x2="0" y2="74" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#33271f"/>
+      <stop offset=".23" stop-color="#775b3d"/>
+      <stop offset=".4" stop-color="#866747"/>
+      <stop offset=".64" stop-color="#59412d"/>
+      <stop offset="1" stop-color="#2c241e"/>
+    </linearGradient>
+    <linearGradient id="bottom-wood" x1="0" y1="661" x2="0" y2="688" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#30251e"/>
+      <stop offset=".18" stop-color="#654b32"/>
+      <stop offset=".36" stop-color="#8d6d49"/>
+      <stop offset=".55" stop-color="#755638"/>
+      <stop offset=".82" stop-color="#463224"/>
+      <stop offset="1" stop-color="#2c231e"/>
+    </linearGradient>
+    <radialGradient id="end-grain" cx="38%" cy="36%" r="68%">
+      <stop stop-color="#785737"/>
+      <stop offset=".65" stop-color="#503925"/>
+      <stop offset="1" stop-color="#2f241c"/>
+    </radialGradient>
+    <path id="hanging-cord" d="M119 60Q240-12 361 60"/>
+    <path id="cord-eyelet" d="M122 60C119.8 59.5 119.6 56 121.4 55.6C123.4 55.2 124.5 58.4 122 60Z"/>
+    <path id="top-roller" d="M15.5 60H23C25 60 25 58 28 58H452C455 58 455 60 457 60H464.5C467.5 60 467.5 72 464.5 72H457C455 72 455 74 452 74H28C25 74 25 72 23 72H15.5C12.5 72 12.5 60 15.5 60Z"/>
+    <path id="bottom-roller" d="M18 664H25C27 664 27 661 31 661H449C453 661 453 664 455 664H462C467 664 467 685 462 685H455C453 685 453 688 449 688H31C27 688 27 685 25 685H18C13 685 13 664 18 664Z"/>
+    <clipPath id="top-roller-clip"><use href="#top-roller"/></clipPath>
+    <clipPath id="bottom-roller-clip"><use href="#bottom-roller"/></clipPath>
+  </defs>
+
+  <!-- Smooth continuous core; fine diagonal fibers follow the curve's local tangent. -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <use href="#hanging-cord" stroke="#191d19" stroke-opacity=".35" stroke-width="2.8"/>
+    <use href="#hanging-cord" stroke="#9b8152" stroke-width="1.8"/>
+    <use href="#hanging-cord" stroke="#c9b17b" stroke-opacity=".4" stroke-width=".8"/>
+    <path d="M120.05 58.66l1.40 0.61M122.84 57.04l1.40 0.63M125.63 55.45l1.39 0.64M128.41 53.91l1.38 0.66M131.26 52.37l1.38 0.67M134.05 50.90l1.37 0.69M136.95 49.41l1.36 0.70M139.80 48.00l1.35 0.72M142.71 46.59l1.35 0.73M145.56 45.25l1.34 0.75M148.53 43.89l1.33 0.77M151.43 42.61l1.32 0.78M154.40 41.34l1.31 0.80M157.37 40.12l1.30 0.81M160.34 38.94l1.29 0.83M163.31 37.80l1.28 0.85M166.34 36.68l1.27 0.86M169.37 35.61l1.25 0.88M172.41 34.58l1.24 0.90M175.44 33.60l1.23 0.91M178.53 32.64l1.22 0.93M181.62 31.73l1.20 0.95M184.71 30.87l1.19 0.96M187.80 30.06l1.18 0.98M190.90 29.29l1.16 1.00M194.05 28.56l1.15 1.01M197.14 27.88l1.13 1.03M200.30 27.24l1.12 1.05M203.45 26.65l1.10 1.06M206.61 26.11l1.09 1.08M209.82 25.61l1.07 1.10M212.97 25.17l1.05 1.11M216.19 24.77l1.04 1.13M219.34 24.43l1.02 1.15M222.56 24.13l1.00 1.16M225.78 23.88l0.98 1.18M228.93 23.68l0.96 1.19M232.15 23.53l0.94 1.21M235.36 23.43l0.93 1.22M238.58 23.38l0.91 1.24M241.80 23.39l0.89 1.25M245.01 23.44l0.87 1.26M248.23 23.55l0.85 1.28M251.38 23.70l0.83 1.29M254.60 23.90l0.81 1.30M257.82 24.16l0.79 1.32M261.03 24.46l0.77 1.33M264.19 24.81l0.74 1.34M267.41 25.22l0.72 1.35M270.56 25.67l0.70 1.36M273.72 26.17l0.68 1.37M276.88 26.71l0.66 1.38M280.03 27.31l0.64 1.39M283.19 27.95l0.62 1.40M286.35 28.65l0.60 1.41M289.44 29.37l0.58 1.42M292.54 30.15l0.56 1.43M295.63 30.97l0.54 1.43M298.73 31.83l0.52 1.44M301.82 32.75l0.50 1.45M304.92 33.71l0.48 1.46M307.95 34.70l0.46 1.46M310.99 35.73l0.44 1.47M314.02 36.81l0.42 1.47M317.00 37.91l0.40 1.48M320.03 39.08l0.38 1.48M323.01 40.27l0.36 1.49M325.92 41.48l0.35 1.49M328.89 42.75l0.33 1.50M331.81 44.04l0.31 1.50M334.72 45.38l0.29 1.50M337.63 46.75l0.27 1.51M340.54 48.16l0.26 1.51M343.40 49.59l0.24 1.51M346.25 51.06l0.22 1.52M349.10 52.56l0.21 1.52M351.89 54.08l0.19 1.52M354.68 55.63l0.17 1.52M357.47 57.22l0.16 1.52M360.26 58.84l0.14 1.53" stroke="#e1cb95" stroke-opacity=".4" stroke-width=".35"/>
+    <!-- Small matching attachment eyes tuck behind the roller, without crossing its face. -->
+    <g stroke="#92794c" stroke-width="1.1">
+      <use href="#cord-eyelet"/>
+      <use href="#cord-eyelet" transform="translate(480 0) scale(-1 1)"/>
+    </g>
+    <g stroke="#d1b985" stroke-opacity=".5" stroke-width=".35">
+      <use href="#cord-eyelet"/>
+      <use href="#cord-eyelet" transform="translate(480 0) scale(-1 1)"/>
+    </g>
+  </g>
+
+  <!-- Silk mounting: a narrow ruled edge and almost invisible woven diamonds. -->
+  <path d="M42 69H438V667H42Z" fill="url(#silk)" stroke="#203638" stroke-width="1.2"/>
+  <path d="M43 70H437V666H43Z" fill="url(#silk-weave)"/>
+  <path d="M43 70H437V666H43Z" fill="url(#silk-diaper)"/>
+  <path d="M43 70H437V666H43Z" fill="url(#silk-light)"/>
+  <path d="M50.5 78.5H429.5V657.5H50.5Z" stroke="#baa572" stroke-opacity=".6" stroke-width=".8"/>
+  <path d="M53 81H427V655H53Z" stroke="#142f33" stroke-opacity=".52" stroke-width=".6"/>
+  <path d="M43.5 73V662M436.5 73V662" stroke="#bdc2a0" stroke-opacity=".14" stroke-width=".75"/>
+
+  <!-- Bronze-toned mounting slips separate silk from paper without ornament. -->
+  <path d="M60 104H420V636H60Z" fill="#b7a16c" filter="url(#mounting-shadow)"/>
+  <path d="M60.5 635.5V104.5H419.5" stroke="#f0dfad" stroke-opacity=".28" stroke-width=".65"/>
+  <path d="M419.5 105V635.5H61" stroke="#293b34" stroke-opacity=".28" stroke-width=".7"/>
+  <path d="M62 106H418V634H62Z" fill="#62706a"/>
+  <path d="M63.5 107.5H416.5V632.5H63.5Z" stroke="#253f40" stroke-opacity=".75"/>
+  <path d="M64 108H416V632H64Z" fill="url(#paper)"/>
+  <!-- A neutral warm off-white inset beneath the artwork, inside the innermost rule. -->
+  <rect x="86" y="140" width="308" height="460" fill="#ece8df"/>
+  <path d="M64 108H416V632H64Z" filter="url(#paper-grain)"/>
+  <path d="M64 108H416V632H64Z" fill="url(#paper-fibers)"/>
+  <path d="M64 108H416V632H64Z" fill="url(#paper-edge)"/>
+  <path d="M65 109H415" stroke="#fff8e5" stroke-opacity=".6" stroke-width=".8"/>
+  <path d="M65 631H415" stroke="#a28d5d" stroke-opacity=".38" stroke-width=".7"/>
+
+  <!-- Centered artwork window: keep these coordinates in sync with profile CSS. -->
+  <path d="M80.5 134.5H399.5V605.5H80.5Z" stroke="#b6a578" stroke-opacity=".45" stroke-width=".65"/>
+  <path d="M84.5 138.5H395.5V601.5H84.5Z" stroke="#8f805a" stroke-opacity=".65" stroke-width=".8"/>
+  <path d="M85.5 139.5H394.5V600.5H85.5Z" stroke="#fff7df" stroke-opacity=".65" stroke-width=".65"/>
+
+  <!-- Each roller is a single turned silhouette, without overlapping cap seams. -->
+  <use href="#top-roller" fill="url(#top-wood)" stroke="#2b251f" stroke-width=".65"/>
+  <g clip-path="url(#top-roller-clip)" stroke-linecap="round" stroke-width=".55">
+    <path d="M31 62.5C128 61.8 195 63 260 62.5S371 62 449 62.5" stroke="#ccb185" stroke-opacity=".17"/>
+    <path d="M34 68C130 66.8 181 69.5 244 68S370 66.8 446 69M53 71C136 70 159 72 206 71S309 70 417 71.5" stroke="#201b17" stroke-opacity=".17"/>
+    <ellipse cx="15.5" cy="66" rx="2" ry="5.5" fill="url(#end-grain)" stroke="#261e17" stroke-opacity=".5"/>
+    <ellipse cx="464.5" cy="66" rx="2" ry="5.5" fill="url(#end-grain)" stroke="#261e17" stroke-opacity=".5"/>
+  </g>
+
+  <!-- The heavier lower roller covers the silk edge with a soft contact shadow. -->
+  <path d="M42 660H438V665H42Z" fill="#1b2e2c" fill-opacity=".25"/>
+  <use href="#bottom-roller" fill="url(#bottom-wood)" stroke="#30251d" stroke-width=".7"/>
+  <g clip-path="url(#bottom-roller-clip)" stroke-linecap="round" stroke-width=".6">
+    <path d="M33 669C128 667.8 188 669.5 259 668.5S374 668 447 669" stroke="#e0c597" stroke-opacity=".13"/>
+    <path d="M35 673C104 671.5 139 674.5 194 673S267 672 316 673.5 391 672.5 445 674M47 680C125 681.2 195 678 274 680S376 681 438 679.5" stroke="#241c16" stroke-opacity=".18"/>
+    <path d="M79 676C143 675.5 180 677 224 675.8S316 677 397 676" stroke="#d3b183" stroke-opacity=".1"/>
+    <ellipse cx="18" cy="674.5" rx="3.5" ry="10" fill="url(#end-grain)" stroke="#261e17" stroke-opacity=".5"/>
+    <ellipse cx="462" cy="674.5" rx="3.5" ry="10" fill="url(#end-grain)" stroke="#261e17" stroke-opacity=".5"/>
+    <ellipse cx="18" cy="674.5" rx="1.5" ry="6" stroke="#af8959" stroke-opacity=".16"/>
+    <ellipse cx="462" cy="674.5" rx="1.5" ry="6" stroke="#af8959" stroke-opacity=".16"/>
+  </g>
+</svg>

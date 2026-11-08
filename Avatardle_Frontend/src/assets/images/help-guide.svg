@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="guide" viewBox="0 0 64 64">
+    <g stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5.5" y="5.5" width="53" height="53" rx="3"/>
+      <path d="M10 19v-9h9m26 0h9v9M10 45v9h9m26 0h9v-9" opacity=".5"/>
+      <path d="M32 22c-6-5-13-5-18-3v26c6-2 12-2 18 2 6-4 12-4 18-2V19c-5-2-12-2-18 3Z" fill="currentColor" fill-opacity=".035"/>
+      <path d="M32 22v25m-14-6c4-1 7 0 10 1m8 0c3-1 6-2 10-1M18 25c4-1 7 0 10 1m-10 4c4-1 7 0 10 1m-10 4c4-1 7 0 10 1" opacity=".6"/>
+      <path d="m40 25 4 5-4 6-4-6Zm0 3v5M29 9h6m-6 46h6"/>
+    </g>
+  </symbol>
+  <symbol id="classic" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.3">
+      <circle cx="5" cy="5" r="2.1" fill="currentColor"/>
+      <circle cx="12" cy="5" r="2.1"/>
+      <circle cx="19" cy="5" r="2.1"/>
+      <circle cx="5" cy="12" r="2.1" fill="currentColor"/>
+      <circle cx="12" cy="12" r="2.1"/>
+      <circle cx="19" cy="12" r="2.1" fill="currentColor"/>
+      <circle cx="5" cy="19" r="2.1" fill="currentColor"/>
+      <circle cx="12" cy="19" r="2.1" fill="currentColor"/>
+      <circle cx="19" cy="19" r="2.1" fill="currentColor"/>
+    </g>
+  </symbol>
+  <symbol id="quote" viewBox="0 0 24 24">
+    <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7l-6 3v-3H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/>
+      <path d="M10 8H7v4h3V9c0 4-1 5-3 5m10-6h-3v4h3V9c0 4-1 5-3 5"/>
+    </g>
+  </symbol>
+  <symbol id="picture" viewBox="0 0 24 24">
+    <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="16" rx="1.5"/>
+      <circle cx="16.5" cy="8.5" r="1.5"/>
+      <path d="m3 17 6-7 5 6 3-3 4 4M7 20v-3m11 3v-2"/>
+    </g>
+  </symbol>
+  <symbol id="music" viewBox="0 0 24 24">
+    <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 17V5l11-2v12M9 9l11-2"/>
+      <ellipse cx="6" cy="18" rx="3" ry="2.5"/><ellipse cx="17" cy="16" rx="3" ry="2.5"/>
+    </g>
+  </symbol>
+  <symbol id="scene" viewBox="0 0 120 76">
+    <rect width="120" height="76" fill="#252b2b"/>
+    <circle cx="91" cy="20" r="9" fill="#b7a16c" opacity=".7"/>
+    <path d="m0 60 35-43 28 36 17-23 40 43H0Z" fill="#687b70"/>
+    <path d="m23 32 12-15 13 17-11-5-5 5-4-5Z" fill="#d9d0b8" opacity=".65"/>
+    <path d="m0 66 28-20 39 28 23-25 30 19v8H0Z" fill="#435549"/>
+    <path d="M0 71c25-7 28 3 55 0s41-7 65-2v7H0Z" fill="#a1ad9b" opacity=".35"/>
+    <path d="M10 14h24m-15-3h8M64 25h10" stroke="#d9d0b8" stroke-width="1" opacity=".3"/>
+  </symbol>
+</svg>

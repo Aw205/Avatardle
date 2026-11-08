@@ -1,28 +1,37 @@
-blockquote {
-    background-color: rgb(25, 25, 25);
-    font: 1rem Georgia;
-    border-left: 0.2rem solid gray;
-    padding: 0.5rem;
-    color: beige;
-    line-height: 2rem;
-
-    &::before {
-
-        content: "\201C";
-        color: #8c78c0;
-        font-size: 4rem;
-        position: relative;
-        top: 0.5rem;
-        left: -0.3rem;
-
-    }
+.hint-quote {
+    margin: 0;
+    padding: 0.85rem 1.15rem;
+    color: var(--dialog-ivory);
+    background: linear-gradient(110deg, rgba(183, 161, 108, 0.045), transparent);
+    border-inline-start: 1px solid rgba(183, 161, 108, 0.3);
+    font: 1.15rem / 1.9 Georgia, serif;
+    white-space: pre-line;
 }
 
-@media only screen and (max-width: 768px) {
+.episode-card {
+    padding: 1.25rem 1rem 1.5rem;
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: var(--modal-control-radius);
+    text-align: center;
+}
 
-    blockquote {
-        margin: 0;
-        line-height: 1.5rem;
-    }
+.episode-code {
+    display: block;
+    color: var(--dialog-bronze);
+    font: 0.8rem / 1.5 Georgia, serif;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.12em;
+}
 
+.episode-title {
+    margin: 0.65rem 0 0;
+    color: var(--dialog-ivory);
+    font: 1.5rem / 1.5 Georgia, serif;
+    text-wrap: balance;
+}
+
+@media (max-width: 600px) {
+    .hint-quote { padding: 0.65rem 0.85rem; font-size: 1rem; line-height: 1.8; }
+    .episode-card { padding: 1rem 0.75rem; }
+    .episode-title { font-size: 1.25rem; }
 }

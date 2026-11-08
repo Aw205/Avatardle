@@ -1,14 +1,20 @@
-<h1 mat-dialog-title style="font: 2rem Georgia; color: #8c78c0;">{{data.title}}
-    <button mat-dialog-close (click)="dialogRef.close()" class="exit-button">&times;</button>
- </h1>
-    <mat-dialog-content style="padding-top: 1rem; overflow: hidden;">
-        @if(data.title != "Episode Name"){
-            <blockquote>{{data.quote}}</blockquote>
+<header class="dialog-header">
+    <div class="dialog-heading">
+        <h1 mat-dialog-title>{{('quoteHints.' + data.kind) | translate}}</h1>
+    </div>
+    <button mat-dialog-close class="dialog-close" type="button"
+        [aria-label]="'quoteHints.close' | translate">&times;</button>
+</header>
+
+<mat-dialog-content class="dialog-body">
+    @if(data.kind === 'episode'){
+    <div class="episode-card">
+        @if(episodeCode){
+        <span class="episode-code">{{episodeCode}}</span>
         }
-        @else{
-            <div style="font:2rem avatar2; color:goldenrod; background-color: rgb(25,25,25); padding: 0.5rem; text-align: center;">
-                {{data.quote.substring(0,7)}} 
-                <span style="color:beige;">{{data.quote.substring(7)}} </span>
-            </div>
-        }
-    </mat-dialog-content>
+        <p class="episode-title">{{episodeTitle}}</p>
+    </div>
+    } @else {
+    <blockquote class="hint-quote">{{data.quote}}</blockquote>
+    }
+</mat-dialog-content>

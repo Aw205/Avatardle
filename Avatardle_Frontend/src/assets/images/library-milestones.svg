@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+  <title>Seals of the Library</title>
+  <desc>Four engraved discovery seals: a desert wanderer approaching the buried Library, a knowledge-seeking fox, a scholar's field book, and an owl watching over the Library.</desc>
+  <defs>
+    <!-- A slightly uneven, double-ruled impression shared by all four seals. -->
+    <g id="seal-border">
+      <path d="m7 4.5 51.5.4 1 53.6-55 .9L4.8 8Z"/>
+      <path d="m8.5 8.4 46.8.2.3 46.9-47.3.2Z" stroke-width=".7" opacity=".65"/>
+      <path d="M8.5 13V8.5H13M51 8.5h4.3V13M55.5 51v4.5H51M13 55.7H8.4V51" stroke-width="1"/>
+      <path d="M17 6.5h5M42 57.5h5" stroke-width=".55" opacity=".4"/>
+    </g>
+  </defs>
+
+  <symbol id="first" viewBox="0 0 64 64">
+    <title>Desert Wanderer</title>
+    <use href="#seal-border"/>
+    <!-- A distant spire and upturned eaves peek above the sand. -->
+    <g stroke-width=".9">
+      <path d="M41 15v-3m-1.5 4.5L41 15l1.5 1.5M33 22c3-.5 5.7-2.5 8-5.5 2.3 3 5 5 8 5.5H33Z" fill="currentColor" fill-opacity=".06"/>
+      <path d="M36.5 22v6m9-6v5.5M39.5 23.5h3v3h-3Z"/>
+      <path d="M30.5 29c4-.6 7.5-2 10.5-4 3 2 6.5 3.4 10.5 4H30.5Zm4 0v3m13-3v3"/>
+      <path d="M37.5 20.5h7M35 27.7h12" stroke-width=".6" opacity=".6"/>
+    </g>
+    <!-- Wind, a small sun, and overlapping dune crests frame the journey. -->
+    <circle cx="17" cy="17" r="3" stroke-width=".9" opacity=".7"/>
+    <path d="M23 14h7m-4 3h7M11 32c7-4 13-3.5 20-.8 7 2.7 13-3.4 22-1M32 38c7-4.5 14-4 21-1" stroke-width=".85" opacity=".65"/>
+    <!-- A hooded traveler, trailing scarf, and walking staff in the foreground. -->
+    <path d="M18.5 33.5c-1-1.6-.7-4 .6-5.2 1.4-1.3 3.9-1.1 5 .4.9 1.2 1.1 3.1.2 4.6"/>
+    <path d="M20 29.8c1-.6 2.3-.5 3 .2m-4.5 3.5 5.8-.2 3.5 11.2c-4.4 1.8-8.6 1.9-12.8.2Z" fill="currentColor" fill-opacity=".08"/>
+    <path d="m19 34-5-1.5 2.5 3.5 3 .7m5-1.9 4 3.8 2.7-1.7M32 33l-2 15M21 37l-1 5m3.2-1.5 1 2.3M19 46l-1.5 4m6-4 2 3"/>
+    <path d="M11 48c8-3.8 14-2.7 21 .1 7 2.8 13-2.8 21-1.6M12 52c5-1.7 9-1.7 13-.6m10 1.2c6 .4 10-1.4 16-1.4" stroke-width=".85" opacity=".7"/>
+    <!-- Small footprints disappear into the dunes toward the Library. -->
+    <path d="m29 50 1 .3m3-3.7.8.3m1.7-3.2.6.2m1.3-2.6.4.1" stroke-width="1" opacity=".65"/>
+  </symbol>
+
+  <symbol id="collector" viewBox="0 0 64 64">
+    <title>Knowledge Seeker</title>
+    <use href="#seal-border"/>
+    <!-- Long ears, a pointed muzzle, and a sweeping brush of a tail. -->
+    <path d="M23.5 34c-2.7-3.9-1.2-8 4.9-11.1L28 12.7l8 6.7 7.6-4.8-1.1 10.1 7.8 4.4-7.5 3.4c-.4 5.7-3.5 10.7-7.4 14.2l8.1 1.7-.6 3H29.7l-2.3-5.1c-3.2 4-9 4.6-13.1 1.5-8.9-6.7-3.5-18 5.9-23.5-3.2 5.5-2.8 9.7 3.3 9.7Z"/>
+    <path d="m30.2 17.4 3.5 4-3.2 1.6M37.7 22l3.1-3.1-.7 5.2M36.2 26.5c1.5-1.5 3-1.5 4.4-.1M42.7 32.5l-5.7.8M32.6 32.5l3.1 4.4-3.7 6.1-2.4-6.2" stroke-width=".95"/>
+    <path d="M18.5 29.6c-5.8 6-5.9 12 .2 15.6 3.5 2 6.7.9 8.7-1.6M13.5 37.2l2.4 1.2-1.5 2.4 2.8.6M27.5 46.3l1.3-5.8M32.2 50h8.5M36.5 39.2l-.9 3.6M24 36.2l1.5 2.3" stroke-width=".8" opacity=".7"/>
+    <g fill="currentColor" stroke="none">
+      <circle cx="38.7" cy="27" r=".75"/>
+      <path d="m48 28 2.3 1.1-2.3 1.1Z"/>
+      <path d="m32.6 32.5 3.1 4.4-3.7 6.1-2.4-6.2Z" fill-opacity=".09"/>
+    </g>
+    <!-- A little scroll carried back to the Library. -->
+    <g transform="rotate(15 47 36)">
+      <path d="M40.5 33.1h12v5.8h-12"/>
+      <ellipse cx="40.5" cy="36" rx="1.5" ry="2.9"/>
+      <ellipse cx="52.5" cy="36" rx="1.5" ry="2.9"/>
+      <path d="M47 33.3v5.4m-4.4-3.8h2.1" stroke-width=".8"/>
+    </g>
+    <path d="M12.5 53.5h12m8 0h18" stroke-width=".7" opacity=".5"/>
+  </symbol>
+
+  <symbol id="scholar" viewBox="0 0 64 64">
+    <title>Zei's Disciple</title>
+    <use href="#seal-border"/>
+    <!-- Field spectacles, a wrapped writing brush, and a well-used notebook. -->
+    <g transform="rotate(-8 25 21)">
+      <ellipse cx="18.5" cy="21" rx="5.4" ry="4.5"/>
+      <ellipse cx="31.8" cy="21" rx="5.4" ry="4.5"/>
+      <path d="M23.9 20.4c.8-1 1.7-1 2.5 0M13.2 19.5l-3-3.7M37 19.5l2.5-3.6M16 19c1-.8 2.1-.9 3.2-.8m10 .8c1-.8 2.1-.9 3.2-.8" stroke-width=".8"/>
+    </g>
+    <path d="M47 11.5 51 13.6 41.2 33l-3.6-1.8Z"/>
+    <path d="m44.7 16.2 3.9 2.1m-5.5 1.1 3.8 2m-5.6 1.3 3.8 2M37.6 31.2c-.3 3-2.4 5.2-2.2 8.6 3.1-1.8 5-3.5 5.8-6.8" stroke-width=".85"/>
+    <!-- The spine and curved page edges remain clear at small sizes. -->
+    <path d="M12 32c7.6-3 14.1-2.6 20 1.8 5.9-4.4 12.4-4.8 20-1.8v17.5c-7.5-2.7-14-2.1-20 2.5-6-4.6-12.5-5.2-20-2.5Z" fill="currentColor" fill-opacity=".025"/>
+    <path d="M32 33.8V52M14.5 32.3v14.1c6.2-1.5 11.1-.8 15 2.2M49.5 32.3v14.1c-6.2-1.5-11.1-.8-15 2.2" stroke-width=".8" opacity=".7"/>
+    <path d="M17 35.3c4.2-.9 6.7-.5 10 1.1m-10 2.5c3.6-.7 6.3-.3 10 1.3m-10 2.4c3.7-.5 6.2 0 9 1.3M43 35.1l4-.3m-7 4.1 7-1m-10 4.5 10-.7" stroke-width=".85" opacity=".7"/>
+    <path d="m16 51.2-.8 2.3 11.5-.5M38 52.7l10 .8-1-2.4" stroke-width=".75" opacity=".65"/>
+  </symbol>
+
+  <symbol id="archivist" viewBox="0 0 64 64">
+    <title>Master of Ten Thousand Things</title>
+    <use href="#seal-border"/>
+    <!-- An owl's watchful face and feathered wings shelter the archive. -->
+    <path d="m17 25-2.8-13 11.1 4.2c4.5-2 8.9-2 13.4 0L49.8 12 47 25c-1.7 7.2-6.9 12.9-15 16.7C23.9 37.9 18.7 32.2 17 25Z"/>
+    <path d="M18.5 17c4.7.8 9.5 3.5 13.5 8 4-4.5 8.8-7.2 13.5-8M21.7 32.3l4.2.8 2 3.8M42.3 32.3l-4.2.8-2 3.8" stroke-width=".9"/>
+    <ellipse cx="25" cy="25" rx="4.7" ry="4.5"/>
+    <ellipse cx="39" cy="25" rx="4.7" ry="4.5"/>
+    <path d="m32 27 2.2 3-2.2 4.1-2.2-4.1Z" fill="currentColor" fill-opacity=".12"/>
+    <g fill="currentColor" stroke="none">
+      <ellipse cx="25.5" cy="25.2" rx="1.05" ry="1.8"/>
+      <ellipse cx="38.5" cy="25.2" rx="1.05" ry="1.8"/>
+    </g>
+    <path d="M17.5 27.5c-7.1 4.4-8.2 12.4-6 21 3.7.6 7.7.1 11.6-1.9M46.5 27.5c7.1 4.4 8.2 12.4 6 21-3.7.6-7.7.1-11.6-1.9"/>
+    <path d="M16.5 32.5c-2.5 3.8-3.4 7.8-2.5 12.1m4.4-8.7c-1.4 2.4-2 5-1.7 7.8m3.8-4.2-1 4.2M47.5 32.5c2.5 3.8 3.4 7.8 2.5 12.1m-4.4-8.7c1.4 2.4 2 5 1.7 7.8m-3.8-4.2 1 4.2" stroke-width=".8" opacity=".7"/>
+    <!-- Upturned eaves and the Library's central doorway. -->
+    <path d="M18.5 46c4.5-.5 9.4-3.4 13.5-7.1 4.1 3.7 9 6.6 13.5 7.1H18.5Zm5 2v5.2m17-5.2v5.2M21 54h22M29.5 53.5v-4.2a2.5 2.5 0 0 1 5 0v4.2"/>
+    <path d="M25.7 47.8h12.6M28.5 42.7h7" stroke-width=".75" opacity=".7"/>
+  </symbol>
+</svg>

@@ -15,7 +15,7 @@ import { DataService } from '../services/data.service';
   selector: 'leaderboard',
   imports: [HyphenatePipe, TranslatePipe, CountdownComponent, MatTooltipModule, RouterLink],
   templateUrl: './leaderboard.component.html',
-  styleUrl: './leaderboard.component.css'
+  styleUrls: ['./leaderboard.component.css', '../shared/character-headshots.css']
 })
 export class LeaderboardComponent {
 

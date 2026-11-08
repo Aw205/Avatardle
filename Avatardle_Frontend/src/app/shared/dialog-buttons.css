@@ -1,0 +1,48 @@
+.modal-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    box-sizing: border-box;
+    min-height: 2.75rem;
+    padding: 0.65rem 1.25rem;
+    color: var(--ui-control-text);
+    background: var(--ui-control-background);
+    border: var(--modal-control-border);
+    border-top-color: var(--modal-control-border-top-color);
+    border-bottom-color: var(--modal-control-border-bottom-color);
+    border-radius: var(--modal-control-radius);
+    box-shadow: var(--modal-control-shadow);
+    backdrop-filter: blur(var(--ui-control-blur));
+    -webkit-backdrop-filter: blur(var(--ui-control-blur));
+    font: 0.9rem / 1.5 Georgia, serif;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 160ms ease, background-color 160ms ease;
+}
+
+.modal-button:hover:not(:disabled) {
+    opacity: 0.85;
+}
+
+.modal-button:active:not(:disabled) {
+    opacity: 0.9;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.modal-button:disabled {
+    opacity: 0.4;
+    box-shadow: none;
+    cursor: default;
+}
+
+.modal-button:focus-visible {
+    outline: 2px solid var(--ui-control-text);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal-button {
+        transition: none;
+    }
+}

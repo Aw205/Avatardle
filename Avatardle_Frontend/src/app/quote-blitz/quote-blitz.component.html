@@ -15,13 +15,17 @@
         (event)="handleCountdownEvent($event)" />
 </div>
 
-<div class="quote-container">
-    <blockquote [class.hi]="isComplete()">{{quote()}}</blockquote>
-    <button class="blitz-play" (click)="startBlitz()" [style.display]="quote()==' ' ? 'block' : 'none'">▶</button>
+<section class="quote-container blitz-quote" [attr.aria-label]="'quote.prompt' | translate">
+    <blockquote [class.hi]="isComplete()">
+        <p class="quote-text"><span class="quote-mark" aria-hidden="true">&ldquo;</span>{{quote()}}</p>
+    </blockquote>
+    <button class="modal-button blitz-play" type="button" [attr.aria-label]="'quote.startBlitz' | translate"
+        (click)="startBlitz()" [style.display]="quote()==' ' ? 'block' : 'none'">▶</button>
     @if(isComplete()){
-    <button class="blitz-restart" (click)="startBlitz()">↻</button>
+    <button class="modal-button blitz-restart" type="button" [attr.aria-label]="'quote.restartBlitz' | translate"
+        (click)="startBlitz()">↻</button>
     }
-</div>
+</section>
 
 @if(isComplete()){
 <div class="blitz-result-container fade-in">

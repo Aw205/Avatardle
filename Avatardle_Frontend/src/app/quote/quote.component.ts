@@ -1,10 +1,11 @@
-import { Component, Inject, inject, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
+import { Component, DestroyRef, Inject, inject, PLATFORM_ID, signal, viewChild, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Rand from 'rand-seed';
 import { DataService } from '../services/data.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
-import { HintDialogComponent } from '../hint-dialog/hint-dialog.component';
+import { HintDialogComponent, QuoteHintData } from '../hint-dialog/hint-dialog.component';
 import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { HyphenatePipe } from '../pipes/hyphenate.pipe';
 import { CountdownComponent } from 'ngx-countdown';
@@ -13,19 +14,20 @@ import { Meta, Title } from '@angular/platform-browser';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ShareResultsComponent } from '../share-results/share-results.component';
 import { SurrenderDialogComponent } from '../surrender-dialog/surrender-dialog.component';
-import { getSurrenderText, isSurrenderDisabled, getHintTooltip } from '../game-mode-utils';
+import { getSurrenderText, isSurrenderDisabled } from '../game-mode-utils';
 import { QuoteBlitzComponent } from '../quote-blitz/quote-blitz.component';
 import { DigitFlowComponent } from 'ngx-digit-flow';
 import { LeaderboardService } from '../services/leaderboard.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../services/auth.service';
 import { SearchSelectComponent } from '../search-select/search-select.component';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'quote',
-    imports: [FormsModule, MatTooltipModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent, DigitFlowComponent, QuoteBlitzComponent, SearchSelectComponent],
+    imports: [FormsModule, MatTooltipModule, MatMenuModule, AsyncPipe, HyphenatePipe, CountdownComponent, TranslatePipe, ShareResultsComponent, DigitFlowComponent, QuoteBlitzComponent, SearchSelectComponent],
     templateUrl: './quote.component.html',
-    styleUrl: './quote.component.css'
+    styleUrls: ['./quote.component.css', './quote-card.css']
 })
 
 export class QuoteMode {
@@ -34,10 +36,12 @@ export class QuoteMode {
     quote: WritableSignal<string> = signal('');
     target: WritableSignal<string> = signal('');
     isComplete: WritableSignal<boolean> = signal(false);
-    transcript: any[] = [];
 
     characterData: string[] = [];
-    hints: { title: string, quote: string }[] = [];
+    hints: QuoteHintData[] = [];
+    readonly hintUnlockVersion = signal(0);
+    private readonly hintMenuTrigger = viewChild(MatMenuTrigger);
+    private readonly destroyRef = inject(DestroyRef);
     guesses: string[] = [];
     usernameInput: WritableSignal<string> = signal('');
     inputDisabled: WritableSignal<boolean> = signal(false);
@@ -65,27 +69,26 @@ export class QuoteMode {
             this.guesses = this.ls.progress().quote.guesses;
             this.characterData = this.ds.getQuoteCharacterData().filter((e) => !this.guesses.includes(e));
 
-            let rand = new Rand(this.ls.progress().date! + "quote");
-            let char = Object.keys(this.ds.quoteIndices)[Math.floor(rand.next() * Object.keys(this.ds.quoteIndices).length)];
-            let idxArr = this.ds.quoteIndices[char];
-            let idx = idxArr[Math.floor(rand.next() * idxArr.length)];
+            const rand = new Rand(this.ls.progress().date! + "quote");
+            const char = Object.keys(this.ds.quoteIndices)[Math.floor(rand.next() * Object.keys(this.ds.quoteIndices).length)];
+            const idxArr = this.ds.quoteIndices[char];
+            const idx = idxArr[Math.floor(rand.next() * idxArr.length)];
 
             this.isComplete.set(this.ls.progress().quote.complete);
 
-            this.as.getMe().subscribe((data) => {
+            this.as.getMe().pipe(takeUntilDestroyed(this.destroyRef)).subscribe((data) => {
                 this.usernameInput.set(data.username);
                 this.inputDisabled.set(true);
             });
 
-            this.ds.transcript$.subscribe((data) => {
+            this.ds.transcript$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((data) => {
 
-                this.transcript = data;
                 this.target.set(data[idx].Character);
                 this.quote.set(data[idx].script);
                 this.hints = [
-                    { title: "Previous Line", quote: data[idx - 1].script },
-                    { title: "Next Line", quote: data[idx + 1].script },
-                    { title: "Episode Name", quote: this.ds.episodes[data[idx].total_number - 1] }
+                    { kind: 'previous', quote: data[idx - 1].script },
+                    { kind: 'next', quote: data[idx + 1].script },
+                    { kind: 'episode', quote: this.ds.episodes[data[idx].total_number - 1] }
                 ];
 
                 if (this.ls.progress().quote.complete) {
@@ -98,17 +101,33 @@ export class QuoteMode {
 
     onEnter(select: string | undefined) {
 
-        if (!select) return;
+        if (!select || this.isComplete() || this.guesses.includes(select)) return;
+        const previouslyAvailable = this.availableHintCount;
         this.guesses.unshift(select);
         if (select == this.target()) {
             this.isComplete.set(true);
             this.ls.patch(['quote'], { complete: true, guesses: this.guesses });
             this.ds.throwConfetti(this.guesses.length);
             this.ds.updateStats("quote");
-            return;
+        } else {
+            this.characterData = this.characterData.filter(character => character !== select);
+            this.ls.patch(['quote', 'guesses'], this.guesses);
         }
-        this.characterData.splice(this.characterData.indexOf(select), 1);
-        this.ls.patch(['quote', 'guesses'], this.guesses);
+        this.highlightNewHints(previouslyAvailable);
+    }
+
+    get availableHintCount(): number {
+        return this.hints.filter((_, index) => this.isEnabled(index)).length;
+    }
+
+    remainingHintGuesses(hintId: number): number {
+        return this.isEnabled(hintId) ? 0 : 2 + hintId - this.guesses.length;
+    }
+
+    private highlightNewHints(previousCount: number) {
+        if (this.availableHintCount > previousCount) {
+            this.hintUnlockVersion.update(version => version + 1);
+        }
     }
 
     isEnabled(hintId: number) {
@@ -117,32 +136,26 @@ export class QuoteMode {
     }
 
     showHint(hintId: number) {
-
+        if (!this.hints[hintId] || !this.isEnabled(hintId)) {
+            return;
+        }
         this.dialog.open(HintDialogComponent, {
-            width: '50vw', maxWidth: 'none', panelClass: 'responsive-panel', data: {
-                title: this.hints[hintId].title,
-                quote: this.hints[hintId].quote
-            }
-        });
+            panelClass: 'quote-hint-dialog', autoFocus: false, restoreFocus: false, data: this.hints[hintId]
+        }).afterClosed().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => this.hintMenuTrigger()?.focus());
     }
 
-    getTooltipText(hintId: number): string {
-        return getHintTooltip(this.isComplete(), this.guesses.length, 2, hintId);
-    }
     getSurrenderText(): string {
         return getSurrenderText(this.isComplete(), this.guesses.length, 5);
     }
     isSurrenderDisabled() {
-        return this.isComplete() || this.guesses.length < 5;
+        return isSurrenderDisabled(this.isComplete(), this.guesses.length, 5);
     }
-    openDialog(name: string) {
-        if (name == "surrender") {
-            this.dialog.open(SurrenderDialogComponent, { width: '30vw', maxWidth: 'none', autoFocus: false }).afterClosed().subscribe((res) => {
-                if (res == true) {
-                    this.onEnter(this.target());
-                }
-            });
-        }
+    openSurrenderDialog() {
+        this.dialog.open(SurrenderDialogComponent, {
+            width: '30vw', maxWidth: 'none', autoFocus: false
+        }).afterClosed().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(result => {
+            if (result === true) this.onEnter(this.target());
+        });
     }
 
     setMode(mode: string) {
@@ -154,7 +167,7 @@ export class QuoteMode {
     submitToLeaderboard() {
 
         this.leaderboardService.updateLeaderboard(this.usernameInput().trim(),"quote", this.guesses).subscribe({
-            error: (err) => {
+            error: () => {
                 this.usernameError.set(true);
             },
             complete: () => {
@@ -165,6 +178,4 @@ export class QuoteMode {
         });
     }
 
-
 }
-

@@ -1,7 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, Input, PLATFORM_ID, signal, WritableSignal, Inject, inject, input, effect } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { LocalStorageService } from '../services/local-storage.service';
 
 export interface tileData {
@@ -29,6 +29,7 @@ export interface tileData {
 export class TileComponent {
 
   @Input() data!: tileData;
+  private readonly translate = inject(TranslateService);
   ls = inject(LocalStorageService);
   flipTile: WritableSignal<boolean> = signal(false);
   color: WritableSignal<string> = signal('')
@@ -55,6 +56,12 @@ export class TileComponent {
 
   getTag(tag: string) {
     return tag.replace(/\s/g, '-').toLowerCase();
+  }
+
+  getEpisodeTooltip(episodeName: string): string {
+    const title = this.translate.instant(`episodes.${episodeName}`);
+    const numbers = /^S(\d+)E(\d+)\s/.exec(episodeName);
+    return numbers ? `S${Number(numbers[1])} E${Number(numbers[2])} ${title}` : title;
   }
 
   setBoxShadow(isCorrect: boolean | undefined) {

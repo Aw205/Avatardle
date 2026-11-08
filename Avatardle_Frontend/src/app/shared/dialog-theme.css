@@ -1,0 +1,134 @@
+:host {
+    --dialog-ivory: #eae0ca;
+    --dialog-muted: #b6b29e;
+    --dialog-bronze: #b7a16c;
+    --dialog-rule: rgba(183, 161, 108, 0.23);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    max-height: 88dvh;
+    min-height: 0;
+    overflow: hidden;
+    color: var(--dialog-ivory);
+    background: linear-gradient(135deg, #272522, #191919 60%, #161616);
+    border: 0;
+    border-radius: 12px;
+    font: 0.95rem / 1.65 Georgia, serif;
+}
+
+.dialog-header {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 1.5rem 1.25rem;
+    padding: 1.5rem 0 1.25rem;
+}
+
+.dialog-header::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 0.5px;
+    background: rgba(234, 224, 202, 0.12);
+}
+
+.dialog-heading {
+    min-width: 0;
+}
+
+.dialog-header h1 {
+    margin: 0;
+    padding: 0;
+    color: var(--dialog-ivory);
+    font: 1.9rem / 1.25 Georgia, serif;
+    letter-spacing: 0.035em;
+    overflow-wrap: anywhere;
+}
+
+.dialog-header h1::before {
+    display: none;
+}
+
+.dialog-close {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    color: red;
+    background: transparent;
+    border: 0;
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+.dialog-body {
+    min-height: 0;
+    max-height: none;
+    padding: 0 1.5rem 1.5rem;
+    color: inherit;
+    font: inherit;
+    overflow-wrap: anywhere;
+    scrollbar-color: #665b43 transparent;
+    scrollbar-width: thin;
+    overscroll-behavior: contain;
+}
+
+.dialog-section {
+    margin-top: 1.4rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--dialog-rule);
+}
+
+.dialog-section h2 {
+    margin: 0 0 0.65rem;
+    color: #d2bf91;
+    font: 1rem / 1.5 Georgia, serif;
+    letter-spacing: 0.025em;
+}
+
+.dialog-section p {
+    margin: 0 0 1rem;
+}
+
+.dialog-close:focus-visible,
+.dialog-body a:focus-visible,
+.dialog-body button:focus-visible {
+    outline: 2px solid var(--ui-control-text);
+    outline-offset: 3px;
+}
+
+.dialog-body:focus-visible {
+    outline: 2px solid var(--ui-control-text);
+    outline-offset: -3px;
+}
+
+.external-arrow {
+    width: 0.75rem;
+    height: 0.75rem;
+    flex-shrink: 0;
+    stroke: currentColor;
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+@media (max-width: 600px) {
+    .dialog-header {
+        margin: 0 1rem 1rem;
+        padding-block: 1.15rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .dialog-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .dialog-body {
+        padding: 0 1rem 1rem;
+    }
+}

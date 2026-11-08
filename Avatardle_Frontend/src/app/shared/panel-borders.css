@@ -1,0 +1,23 @@
+/* Shared bevels use explicit edge colors rather than browser-dependent outset borders. */
+#fanart-container > #fanart-title,
+#fanart-container .fanart-image,
+#fanart-container > #fanart-description,
+#fanart-container > #archive,
+.correct-quote-guess > .title,
+.correct-quote-guess > img,
+.correct-quote-guess > .complete-container,
+.complete > .title,
+.complete > img,
+.complete > .complete-container,
+.blitz-result-container > .complete-container,
+.share-leaderboard,
+.share-leaderboard > button,
+music .audio-container,
+music .band-container,
+music .clue-container > div,
+music .hint-content {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-top-color: rgba(255, 255, 255, 0.26);
+    border-bottom-color: rgba(0, 0, 0, 0.45);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}

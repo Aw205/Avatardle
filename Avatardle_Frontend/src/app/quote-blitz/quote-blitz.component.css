@@ -1,0 +1,139 @@
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s;
+
+    @starting-style {
+        opacity: 0;
+    }
+}
+
+.blitz-result-container {
+
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    color: goldenrod;
+    width: 20rem;
+    border-radius: 16px;
+    font: 1rem avatar2;
+
+    &>.complete-container {
+
+        position: relative;
+        border-radius: 1rem;
+        background-color: rgb(15, 15, 15);
+        text-indent: 1rem;
+        margin-top: 1rem;
+
+        &>.blitz-guesses {
+
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 2.5rem);
+            place-content: center;
+            gap: 0.15rem;
+            text-indent: 0;
+
+            &>.blitz-guess {
+                position: relative;
+                display: inline-block;
+                width: 2.5rem;
+                aspect-ratio: 4 / 3;
+                padding: 0;
+                border: 1px solid transparent;
+                border-radius: 5px;
+                background: transparent;
+                cursor: pointer;
+                user-select: none;
+                overflow: hidden;
+
+                &:hover,
+                &:focus-visible,
+                &.revealed-blitz {
+                    border-color: #78C0A8;
+                }
+
+                &:focus-visible {
+                    outline: 2px solid darkgoldenrod;
+                    outline-offset: 2px;
+                }
+
+                &>img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+        }
+
+        &>.blitz-score {
+            font: 4rem avatar2;
+            color: darkgoldenrod;
+            text-align: center;
+        }
+
+        &>.blitz-revealed-quote {
+            margin: 0 1rem 1rem;
+            padding: 0.6rem;
+            border-left: 0.25rem solid #78C0A8;
+            background-color: rgb(30, 30, 30);
+            color: beige;
+            font: 1rem Georgia;
+            line-height: 1.4rem;
+            text-indent: 0;
+        }
+    }
+}
+
+.blitz-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.blitz-play:hover { filter: brightness(1.1); }
+
+.strike {
+    scale: 2;
+    transition: scale 0.3s ease;
+
+    @starting-style {
+        scale: 1;
+    }
+}
+
+.blitz-restart { position: absolute; }
+.blitz-restart:hover { filter: brightness(1.1); }
+
+.incorrect-blitz {
+
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    border-color: indianred !important;
+    box-shadow: inset 0 0 0 2px rgba(205, 92, 92, 0.85);
+
+    &>img {
+        filter: saturate(0.65) brightness(0.85);
+    }
+
+    &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0.95rem;
+        height: 0.95rem;
+        display: grid;
+        place-items: center;
+        border-radius: 5px 0 0 0;
+        background-color: rgba(205, 92, 92, 0.92);
+        font: 0.85rem avatar2;
+        content: "\00d7";
+        color: black;
+        pointer-events: none;
+    }
+
+}

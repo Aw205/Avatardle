@@ -10,6 +10,12 @@ import { TranslatePipe } from "@ngx-translate/core";
     styleUrl: './home.component.css'
 })
 export class HomeComponent {
+    readonly modes = [
+        { id: 'classic', tileX: 0, marker: 'left' },
+        { id: 'quote', tileX: 186, marker: null },
+        { id: 'picture', tileX: 372, marker: 'right' },
+        { id: 'music', tileX: 1116, marker: null }
+    ];
 
     title: Title = inject(Title);
     meta: Meta = inject(Meta);

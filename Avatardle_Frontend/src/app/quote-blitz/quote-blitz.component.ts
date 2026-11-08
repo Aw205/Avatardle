@@ -14,7 +14,7 @@ import { SearchSelectComponent } from '../search-select/search-select.component'
   selector: 'quote-blitz',
   imports: [FormsModule, HyphenatePipe, CountdownComponent, TranslatePipe, DigitFlowComponent, SearchSelectComponent],
   templateUrl: './quote-blitz.component.html',
-  styleUrl: '../quote/quote.component.css',
+  styleUrls: ['./quote-blitz.component.css', '../shared/dialog-buttons.css', '../quote/quote-card.css'],
 })
 export class QuoteBlitzComponent {
 
@@ -100,7 +100,6 @@ export class QuoteBlitzComponent {
     this.quote.set(this.transcript[idx].script);
   }
 
-
   startBlitz() {
 
     this.setNextQuote();
@@ -145,7 +144,7 @@ export class QuoteBlitzComponent {
   submitToLeaderboard() {
 
     this.leaderboardService.updateBlitzLeaderboard(this.usernameInput().trim(), "quote", this.score(), this.streak()).subscribe({
-      error: (err) => {
+      error: () => {
         console.log("Error submitting to blitz leaderboard");
       },
       complete: () => {

@@ -85,14 +85,11 @@
     border-radius: 16px;
     font: 1rem avatar2;
 
-
     &>.title {
         font: 2rem avatar2;
         color: darkgoldenrod;
         text-align: center;
         margin-bottom: 1rem;
-        border: 1px outset black;
-        outline: 2px solid black;
         border-radius: 16px;
         background-color: rgb(15, 15, 15);
     }
@@ -100,15 +97,11 @@
     &>img {
         width: 100%;
         border-radius: 8px;
-        border: 1px outset black;
-        outline: 2px solid black;
     }
 
     &>.complete-container {
 
         position: relative;
-        border: 1px outset black;
-        outline: 2px solid black;
         border-radius: 1rem;
         background-color: rgb(15, 15, 15);
         text-indent: 1rem;
@@ -125,290 +118,87 @@
     }
 }
 
-.blitz-result-container {
-
-    margin: auto;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    color: goldenrod;
-    width: 20rem;
-    border-radius: 16px;
-    font: 1rem avatar2;
-
-    &>.complete-container {
-
-        position: relative;
-        border: 1px outset black;
-        outline: 2px solid black;
-        border-radius: 1rem;
-        background-color: rgb(15, 15, 15);
-        text-indent: 1rem;
-        margin-top: 1rem;
-
-        &>.blitz-guesses {
-
-            padding: 1rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, 2.5rem);
-            place-content: center;
-            gap: 0.15rem;
-            text-indent: 0;
-
-            &>.blitz-guess {
-                position: relative;
-                display: inline-block;
-                width: 2.5rem;
-                aspect-ratio: 4 / 3;
-                padding: 0;
-                border: 1px solid transparent;
-                border-radius: 5px;
-                background: transparent;
-                cursor: pointer;
-                user-select: none;
-                overflow: hidden;
-
-                &:hover,
-                &:focus-visible,
-                &.revealed-blitz {
-                    border-color: #78C0A8;
-                }
-
-                &:focus-visible {
-                    outline: 2px solid darkgoldenrod;
-                    outline-offset: 2px;
-                }
-
-                &>img {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-
-        }
-
-        &>.blitz-score {
-            font: 4rem avatar2;
-            color: darkgoldenrod;
-            text-align: center;
-        }
-
-        &>.blitz-revealed-quote {
-            margin: 0 1rem 1rem;
-            padding: 0.6rem;
-            border-left: 0.25rem solid #78C0A8;
-            background-color: rgb(30, 30, 30);
-            color: beige;
-            font: 1rem Georgia;
-            line-height: 1.4rem;
-            text-indent: 0;
-        }
-    }
-}
-
-.blitz-play {
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: #78C0A8;
-    font-size: 3rem;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    transform-origin: top left;
-    transition: scale 0.2s ease-in-out;
-
-    &:hover {
-        filter: brightness(1.1);
-        scale: 1.2;
-    }
-
-}
-
-.strike {
-    scale: 2;
-    transition: scale 0.3s ease;
-
-    @starting-style {
-        scale: 1;
-    }
-}
-
-.blitz-restart {
-
-    position: absolute;
-    right: 0;
-    top: 0.5em;
-    transform: translate(-50%, -50%);
-    color: #78C0A8;
-    font-size: 3rem;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    transform-origin: top left;
-    transition: scale 0.2s ease-in-out;
-
-    &:hover {
-        filter: brightness(1.1);
-        scale: 1.2;
-    }
-
-}
-
-.incorrect-blitz {
-
-    position: relative;
-    display: inline-block;
-    line-height: 0;
-    border-color: indianred !important;
-    box-shadow: inset 0 0 0 2px rgba(205, 92, 92, 0.85);
-
-    &>img {
-        filter: saturate(0.65) brightness(0.85);
-    }
-
-    &::after {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 0.95rem;
-        height: 0.95rem;
-        display: grid;
-        place-items: center;
-        border-radius: 5px 0 0 0;
-        background-color: rgba(205, 92, 92, 0.92);
-        font: 0.85rem avatar2;
-        content: "\00d7";
-        color: black;
-        pointer-events: none;
-    }
-
-}
-
-.quote-container {
-
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-
-    &>blockquote {
-
-        background-color: rgb(30, 30, 30);
-        font: 3rem Georgia;
-        border-left: 0.5rem solid gray;
-        padding: 0.5em;
-        margin: 0;
-        color: beige;
-        line-height: 4rem;
-        box-shadow: 0px 0px 1rem 40px #00000082;
-        transition: color 0.3s ease;
-
-        &::before {
-
-            font-family: Georgia;
-            content: "\201C";
-            color: #78C0A8;
-            font-size: 6rem;
-            position: relative;
-            top: 0;
-            left: -1rem;
-        }
-
-        &.hi {
-            color: rgba(245, 245, 220, 0.3);
-        }
-    }
-
-    &>.clue-container {
-
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 0;
-        left: 100%;
-        border-radius: 0 0.5rem 0.5rem 0;
-        overflow: hidden;
-
-        &>button {
-
-            background-color: rgb(30, 30, 30);
-            border: none;
-            border-left: 1px solid rgb(40, 40, 40);
-            cursor: pointer;
-
-            &:hover {
-                background-color: rgb(35, 35, 35);
-            }
-
-            &:enabled {
-                &>img {
-                    filter: none;
-                }
-            }
-
-            &>img {
-                width: 2rem;
-                height: auto;
-                aspect-ratio: 1/1;
-                filter: saturate(0) brightness(0.5);
-                transition: filter 400ms linear;
-            }
-        }
-    }
-}
-
 @media only screen and (max-width: 768px) {
-
-    .blitz-restart {
-        font-size: 2rem;
-        top: 1.5rem;
-    }
-
-    .quote-container {
-        width: 70%;
-
-        &>blockquote {
-
-            font-size: 1.5rem;
-            line-height: 2rem;
-            border-width: 0.3rem;
-
-            &::before {
-                font-size: 3rem;
-                left: -0.4rem;
-                top: 0.5rem;
-            }
-        }
-
-        &>.search-container {
-            width: 60%;
-        }
-    }
 
     .correct-quote-guess {
         width: 15rem;
-    }
-
-    .clue-container {
-        &>button {
-            &>img {
-                width: 1.5rem !important;
-            }
-        }
-    }
-
-    .quote-search-bar {
-        font-size: 1rem;
-        border-width: 0.3rem;
     }
 
     .guess-container {
         width: 100%;
     }
 
+}
 
+/* Keep the original inline glyph metrics; the transparent button adds no spacing. */
+.quote-hints-trigger {
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 3px;
+    background: none;
+    box-shadow: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.quote-hints-mark:has(.quote-hints-trigger:hover),
+.quote-hints-mark:has(.quote-hints-trigger[aria-expanded="true"]) {
+    color: #91d4be;
+    filter: drop-shadow(0 0 5px rgba(120, 192, 168, 0.3));
+}
+
+.quote-hints-trigger:focus-visible {
+    outline: 1px solid rgba(120, 192, 168, 0.6);
+    outline-offset: 3px;
+}
+
+.hint-notice {
+    position: absolute;
+    top: 0.2em;
+    right: -0.08em;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.hint-dot {
+    display: block;
+    width: 0.065em;
+    height: 0.065em;
+    min-width: 5px;
+    min-height: 5px;
+    border-radius: 50%;
+    background: #dac18d;
+    box-shadow: 0 0 0 2px #272522;
+}
+
+.hint-announcement {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.hint-unlocked { animation: hint-awakens 700ms ease-out; }
+
+@keyframes hint-awakens {
+    0%, 100% { transform: scale(1); }
+    35% { transform: scale(1.3); box-shadow: 0 0 6px rgba(218, 188, 124, 0.65); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hint-unlocked { animation: none; }
 }
